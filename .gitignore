@@ -1,0 +1,11 @@
+.env
+*.session
+*.session-journal
+__pycache__/
+*.py[cod]
+.pytest_cache/
+database/*.db
+database/*.db-journal
+.venv/
+venv/
+implementation_plan.md
