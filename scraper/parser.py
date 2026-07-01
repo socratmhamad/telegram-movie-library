@@ -5,11 +5,12 @@ import re
 
 
 YEAR_PATTERN = re.compile(r"\b(?:19|20)\d{2}\b")
-QUALITY_PATTERN = re.compile(r"\b(360p|480p|720p|1080p|2160p)\b", re.IGNORECASE)
+QUALITY_PATTERN = re.compile(r"\b(144p|240p|360p|480p|720p|1080p|2160p)\b", re.IGNORECASE)
 NOISE_PATTERNS = (
-    re.compile(r"\b(?:4k|hdrip|webrip|web-dl|bluray|brrip|dvdrip)\b", re.IGNORECASE),
+    re.compile(r"\b(?:4k|hdrip|webrip|web-dl|bluray|blu-ray|brrip|dvdrip|mp4|mkv|avi)\b", re.IGNORECASE),
     re.compile(r"\b(?:x264|x265|h\.?264|h\.?265|hevc|aac|dual audio|multi audio)\b", re.IGNORECASE),
     re.compile(r"\b(?:download|watch|movie|movies|full movie|new link)\b", re.IGNORECASE),
+    re.compile(r"\[?cinemamlt\]?", re.IGNORECASE),
     re.compile(r"https?://\S+", re.IGNORECASE),
     re.compile(r"@\w+"),
     re.compile(r"#[\w-]+"),
@@ -45,7 +46,7 @@ def parse_movie_message(message_text: str | None) -> ParsedMovie | None:
     candidates = [
         line.strip()
         for line in message_text.splitlines()
-        if line.strip()
+        if line.strip() and not re.search(r'\b(?:imdb|rating|تقييم|التقييم|التقيم)\b', line, re.IGNORECASE)
     ]
 
     for candidate in candidates:
@@ -67,9 +68,14 @@ def _extract_quality(text: str) -> str | None:
 
 def _clean_title(text: str) -> str:
     text = text.replace("_", " ")
+    
+    # Remove Arabic characters
+    text = re.sub(r"[\u0600-\u06FF]+", " ", text)
+    
+    # Remove emojis and non-standard symbols (keep words, spaces, and basic punctuation)
+    text = re.sub(r"[^\w\s\.,!\?:\-\'\"\(\)\[\]&]", " ", text)
+    
     text = re.sub(r"[\[\]{}]", " ", text)
-    text = re.sub(r"\((?:19|20)\d{2}\)", " ", text)
-    text = YEAR_PATTERN.sub(" ", text)
     text = QUALITY_PATTERN.sub(" ", text)
 
     for pattern in NOISE_PATTERNS:

@@ -8,8 +8,10 @@ from typing import Any
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
+import time
 
 from dotenv import load_dotenv
+from rapidfuzz import fuzz
 
 
 TMDB_API_BASE_URL = "https://api.themoviedb.org/3"
@@ -19,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent
 load_dotenv(BASE_DIR / ".env")
 
 
-def search_movie(title: str) -> dict[str, Any] | None:
+def search_movie(title: str, year: int | str | None = None) -> dict[str, Any] | None:
     """
     Search TMDB by movie title and return the best matching result.
 
@@ -33,18 +35,19 @@ def search_movie(title: str) -> dict[str, Any] | None:
     if not query:
         return None
 
-    response = _tmdb_get(
-        "/search/movie",
-        {
-            "query": query,
-            "include_adult": "false",
-        },
-    )
+    params = {
+        "query": query,
+        "include_adult": "false",
+    }
+    if year:
+        params["year"] = str(year)
+
+    response = _tmdb_get("/search/movie", params)
     results = response.get("results", [])
     if not results:
         return None
 
-    best_match = _choose_best_match(query, results)
+    best_match = _choose_best_match(query, results, expected_year=year)
     return {
         "tmdb_id": best_match.get("id"),
         "title": best_match.get("title"),
@@ -90,28 +93,73 @@ def _tmdb_get(path: str, params: dict[str, Any]) -> dict[str, Any]:
     if not api_key:
         raise RuntimeError("Missing required environment variable: TMDB_API_KEY")
 
+    # Baseline rate limit: wait 0.1s before each request to respect limits
+    time.sleep(0.1)
+
     query_params = {"api_key": api_key, **params}
     url = f"{TMDB_API_BASE_URL}{path}?{urlencode(query_params)}"
     request = Request(url, headers={"Accept": "application/json"})
 
-    try:
-        with urlopen(request, timeout=REQUEST_TIMEOUT_SECONDS) as response:
-            return json.loads(response.read().decode("utf-8"))
-    except HTTPError as exc:
-        raise RuntimeError(f"TMDB request failed with status {exc.code}") from exc
-    except URLError as exc:
-        raise RuntimeError(f"Could not connect to TMDB: {exc.reason}") from exc
+    max_retries = 5
+    backoff = 1.0
+
+    for attempt in range(max_retries):
+        try:
+            with urlopen(request, timeout=REQUEST_TIMEOUT_SECONDS) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except HTTPError as exc:
+            # Retry on rate limit (429) or server errors (5xx)
+            if exc.code == 429 or exc.code >= 500:
+                if attempt == max_retries - 1:
+                    raise RuntimeError(f"TMDB request failed with status {exc.code} after {max_retries} attempts") from exc
+                
+                # Check for Retry-After header
+                retry_after = exc.headers.get("Retry-After")
+                sleep_time = float(retry_after) if retry_after and retry_after.isdigit() else backoff
+                time.sleep(sleep_time)
+                backoff *= 2
+                continue
+            raise RuntimeError(f"TMDB request failed with status {exc.code}") from exc
+        except (URLError, Exception) as exc:
+            if attempt == max_retries - 1:
+                raise RuntimeError(f"Could not connect to TMDB after {max_retries} attempts: {exc}") from exc
+            time.sleep(backoff)
+            backoff *= 2
+            continue
 
 
-def _choose_best_match(query: str, results: list[dict[str, Any]]) -> dict[str, Any]:
+def _choose_best_match(query: str, results: list[dict[str, Any]], expected_year: int | str | None = None) -> dict[str, Any]:
     normalized_query = _normalize_title(query)
+    
+    if expected_year:
+        try:
+            expected_year = int(expected_year)
+        except ValueError:
+            expected_year = None
 
-    def score(result: dict[str, Any]) -> tuple[int, float]:
+    def score(result: dict[str, Any]) -> tuple[float, int, float]:
         title = _normalize_title(str(result.get("title") or ""))
         original_title = _normalize_title(str(result.get("original_title") or ""))
-        exact_match_score = int(title == normalized_query or original_title == normalized_query)
+        
+        score_title = fuzz.ratio(normalized_query, title)
+        score_orig = fuzz.ratio(normalized_query, original_title)
+        match_score = max(score_title, score_orig)
+        
+        year_score = 0
+        if expected_year:
+            release_date = result.get("release_date")
+            if release_date and len(release_date) >= 4:
+                try:
+                    res_year = int(release_date[:4])
+                    if res_year == expected_year:
+                        year_score = 2
+                    elif abs(res_year - expected_year) == 1:
+                        year_score = 1
+                except ValueError:
+                    pass
+                    
         popularity = float(result.get("popularity") or 0)
-        return exact_match_score, popularity
+        return match_score, year_score, popularity
 
     return max(results, key=score)
 

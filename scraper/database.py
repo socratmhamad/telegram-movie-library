@@ -271,6 +271,14 @@ class MovieDatabase:
             """
         )
 
+    def get_known_message_ids(self) -> set[int]:
+        """Return the set of all Telegram message IDs already stored."""
+        with self._connection() as connection:
+            rows = connection.execute(
+                "SELECT message_id FROM telegram_messages"
+            ).fetchall()
+            return {int(row["message_id"]) for row in rows}
+
     def get_or_create_movie(self, title: str) -> int:
         with self._connection() as connection:
             return self._get_or_create_movie(connection, title)
