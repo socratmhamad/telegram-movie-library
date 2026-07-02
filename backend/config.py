@@ -21,6 +21,11 @@ def get_database_path() -> Path:
     return _BASE_DIR / raw
 
 
+def get_database_url() -> str | None:
+    """Get the database URL from the environment for SQLAlchemy."""
+    return os.getenv("DATABASE_URL")
+
+
 def get_telegram_channel_id() -> str | None:
     """Return the numeric Telegram channel ID (without the ``-100`` prefix).
 

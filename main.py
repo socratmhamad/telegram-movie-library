@@ -14,8 +14,11 @@ def _safe(text: str) -> str:
     return text.encode("ascii", errors="replace").decode("ascii")
 
 
+from database.models import get_db_url
+
 async def run() -> None:
-    database = MovieDatabase(settings.database_path)
+    db_url = get_db_url(settings.database_url, settings.database_path)
+    database = MovieDatabase(db_url)
 
     # Load all message IDs already in the database for incremental scraping
     known_ids = database.get_known_message_ids()

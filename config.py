@@ -19,6 +19,7 @@ class Settings:
     telegram_session_name: str
     message_limit: int
     database_path: Path
+    database_url: str | None
     tmdb_api_key: str | None
 
 
@@ -55,6 +56,7 @@ settings = Settings(
     telegram_session_name=os.getenv("TELEGRAM_SESSION_NAME", "telegram_movies"),
     message_limit=_int_env("MESSAGE_LIMIT", 100),
     database_path=_path_env("DATABASE_PATH", Path("database") / "movies.db"),
+    database_url=os.getenv("DATABASE_URL"),
     tmdb_api_key=os.getenv("TMDB_API_KEY"),
 )
 

@@ -12,6 +12,8 @@ import requests
 
 from config import settings
 from scraper.database import MovieDatabase
+from database.models import get_db_url
+from sqlalchemy import text
 from tmdb_service import _choose_best_match
 
 # Regex patterns for cleaning titles
@@ -276,14 +278,15 @@ def main() -> None:
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-    database = MovieDatabase(settings.database_path)
+    db_url = get_db_url(settings.database_url, settings.database_path)
+    database = MovieDatabase(db_url)
 
     # Count already linked movies
-    with database._connection() as conn:
-        already_linked_count = conn.execute(
-            "SELECT COUNT(*) FROM movies WHERE tmdb_movie_id IS NOT NULL"
-        ).fetchone()[0]
-        total_movies_count = conn.execute("SELECT COUNT(*) FROM movies").fetchone()[0]
+    with database._connection() as session:
+        already_linked_count = session.scalar(
+            text("SELECT COUNT(*) FROM movies WHERE tmdb_movie_id IS NOT NULL")
+        )
+        total_movies_count = session.scalar(text("SELECT COUNT(*) FROM movies"))
 
     to_process = database.get_movies_without_tmdb()
     total_to_process = len(to_process)

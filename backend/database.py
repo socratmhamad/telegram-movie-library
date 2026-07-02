@@ -2,42 +2,40 @@ from __future__ import annotations
 
 import json
 import math
-import sqlite3
-from pathlib import Path
 from typing import Any
 
+from sqlalchemy import select, func, distinct, case
+from sqlalchemy.orm import Session
+
 from backend.config import get_telegram_channel_id
+from database.models import init_db, Movie, TMDBMovie, TelegramMessage
 
 TMDB_IMAGE_BASE = "https://image.tmdb.org/t/p"
 
-_VALID_SORT_COLUMNS: dict[str, str] = {
-    "title": "m.title",
-    "release_date": "t.release_date",
-    "vote_average": "t.vote_average",
-    "runtime": "t.runtime",
+_VALID_SORT_COLUMNS: dict[str, Any] = {
+    "title": Movie.title,
+    "release_date": TMDBMovie.release_date,
+    "vote_average": TMDBMovie.vote_average,
+    "runtime": TMDBMovie.runtime,
 }
-
 
 class MovieQueries:
     """Read-only query layer that powers the FastAPI endpoints.
 
-    Uses raw ``sqlite3`` — no ORM — to keep the stack lightweight.
+    Uses SQLAlchemy.
     Each public method opens (and closes) its own connection so the
     FastAPI thread-pool can serve requests concurrently.
     """
 
-    def __init__(self, database_path: Path) -> None:
-        self.database_path = database_path
+    def __init__(self, database_url: str) -> None:
+        self.SessionLocal = init_db(database_url)
 
     # ------------------------------------------------------------------
     # Connection helper
     # ------------------------------------------------------------------
 
-    def _connect(self) -> sqlite3.Connection:
-        connection = sqlite3.connect(str(self.database_path))
-        connection.row_factory = sqlite3.Row
-        connection.execute("PRAGMA foreign_keys = ON")
-        return connection
+    def _get_session(self) -> Session:
+        return self.SessionLocal()
 
     # ------------------------------------------------------------------
     # Movie list (paginated, searchable, filterable, sortable)
@@ -53,81 +51,66 @@ class MovieQueries:
         sort_by: str = "title",
         sort_order: str = "asc",
     ) -> dict[str, Any]:
-        sort_column = _VALID_SORT_COLUMNS.get(sort_by, "m.title")
-        direction = "DESC" if sort_order.lower() == "desc" else "ASC"
+        sort_column = _VALID_SORT_COLUMNS.get(sort_by, Movie.title)
+        
+        if sort_order.lower() == "desc":
+            sort_order_col = sort_column.desc()
+        else:
+            sort_order_col = sort_column.asc()
 
-        where_clauses: list[str] = []
-        params: list[Any] = []
+        with self._get_session() as session:
+            # Base query
+            query = select(Movie, TMDBMovie).outerjoin(TMDBMovie, Movie.tmdb_movie_id == TMDBMovie.id)
 
-        if search:
-            where_clauses.append("m.title LIKE ?")
-            params.append(f"%{search}%")
+            if search:
+                query = query.where(Movie.title.ilike(f"%{search}%"))
 
-        if genre:
-            # genres is stored as a JSON array of strings, e.g. '["Action","Drama"]'
-            where_clauses.append("t.genres LIKE ?")
-            params.append(f'%"{genre}"%')
+            if genre:
+                query = query.where(TMDBMovie.genres.ilike(f'%"{genre}"%'))
 
-        where_sql = ""
-        if where_clauses:
-            where_sql = "WHERE " + " AND ".join(where_clauses)
-
-        connection = self._connect()
-        try:
-            # Total count for pagination metadata
-            count_row = connection.execute(
-                f"""
-                SELECT COUNT(*) AS total
-                FROM movies m
-                LEFT JOIN tmdb_movies t ON m.tmdb_movie_id = t.id
-                {where_sql}
-                """,
-                params,
-            ).fetchone()
-            total: int = count_row["total"]
+            # Count total
+            count_query = select(func.count()).select_from(query.subquery())
+            total = session.scalar(count_query) or 0
 
             # Paginated rows
             offset = (page - 1) * page_size
-            rows = connection.execute(
-                f"""
-                SELECT m.id,
-                       m.title,
-                       t.poster_path,
-                       t.release_date,
-                       t.vote_average,
-                       t.runtime,
-                       t.genres
-                FROM movies m
-                LEFT JOIN tmdb_movies t ON m.tmdb_movie_id = t.id
-                {where_sql}
-                ORDER BY {sort_column} {direction}
-                LIMIT ? OFFSET ?
-                """,
-                [*params, page_size, offset],
-            ).fetchall()
+            query = query.order_by(sort_order_col).limit(page_size).offset(offset)
+            
+            rows = session.execute(query).all()
 
             items: list[dict[str, Any]] = []
-            for row in rows:
-                poster_path = row["poster_path"]
-                poster_url = (
-                    f"{TMDB_IMAGE_BASE}/w500{poster_path}" if poster_path else None
-                )
+            for movie, tmdb in rows:
+                poster_url = None
+                genres = []
+                release_date = None
+                vote_average = None
+                runtime = None
 
-                genres_raw = row["genres"]
-                try:
-                    genres = json.loads(genres_raw) if genres_raw else []
-                except (json.JSONDecodeError, TypeError):
-                    genres = []
+                if tmdb:
+                    poster_path = tmdb.poster_path
+                    if poster_path:
+                        poster_url = f"{TMDB_IMAGE_BASE}/w500{poster_path}"
+                    
+                    release_date = tmdb.release_date
+                    vote_average = tmdb.vote_average
+                    runtime = tmdb.runtime
+
+                    genres_raw = tmdb.genres
+                    if genres_raw:
+                        try:
+                            genres = json.loads(genres_raw)
+                        except (json.JSONDecodeError, TypeError):
+                            pass
 
                 items.append(
                     {
-                        "id": row["id"],
-                        "title": row["title"],
+                        "id": movie.id,
+                        "title": movie.title,
                         "poster_url": poster_url,
-                        "release_date": row["release_date"],
-                        "vote_average": row["vote_average"],
+                        "release_date": release_date,
+                        "vote_average": vote_average,
                         "genres": genres,
-                        "runtime": row["runtime"],
+                        "runtime": runtime,
                     }
                 )
 
@@ -140,82 +123,53 @@ class MovieQueries:
                 "page_size": page_size,
                 "total_pages": total_pages,
             }
-        finally:
-            connection.close()
 
     # ------------------------------------------------------------------
     # Single movie detail
     # ------------------------------------------------------------------
 
     def get_movie(self, movie_id: int) -> dict[str, Any] | None:
-        connection = self._connect()
-        try:
-            row = connection.execute(
-                """
-                SELECT m.id,
-                       m.title,
-                       m.tmdb_movie_id,
-                       t.id          AS tmdb_pk,
-                       t.tmdb_id,
-                       t.title       AS tmdb_title,
-                       t.original_title,
-                       t.overview,
-                       t.poster_path,
-                       t.backdrop_path,
-                       t.release_date,
-                       t.vote_average,
-                       t.runtime,
-                       t.genres,
-                       t.imdb_id
-                FROM movies m
-                LEFT JOIN tmdb_movies t ON m.tmdb_movie_id = t.id
-                WHERE m.id = ?
-                """,
-                (movie_id,),
-            ).fetchone()
+        with self._get_session() as session:
+            movie = session.execute(
+                select(Movie).where(Movie.id == movie_id)
+            ).scalar_one_or_none()
 
-            if row is None:
+            if movie is None:
                 return None
 
-            # Build optional TMDB sub-object
-            tmdb: dict[str, Any] | None = None
-            if row["tmdb_pk"] is not None:
+            tmdb = None
+            if movie.tmdb_movie:
+                tmdb_movie = movie.tmdb_movie
                 tmdb = {
-                    "id": row["tmdb_pk"],
-                    "tmdb_id": row["tmdb_id"],
-                    "title": row["tmdb_title"],
-                    "original_title": row["original_title"],
-                    "overview": row["overview"],
-                    "poster_path": row["poster_path"],
-                    "backdrop_path": row["backdrop_path"],
-                    "release_date": row["release_date"],
-                    "vote_average": row["vote_average"],
-                    "runtime": row["runtime"],
-                    "genres": row["genres"],
-                    "imdb_id": row["imdb_id"],
+                    "id": tmdb_movie.id,
+                    "tmdb_id": tmdb_movie.tmdb_id,
+                    "title": tmdb_movie.title,
+                    "original_title": tmdb_movie.original_title,
+                    "overview": tmdb_movie.overview,
+                    "poster_path": tmdb_movie.poster_path,
+                    "backdrop_path": tmdb_movie.backdrop_path,
+                    "release_date": tmdb_movie.release_date,
+                    "vote_average": tmdb_movie.vote_average,
+                    "runtime": tmdb_movie.runtime,
+                    "genres": tmdb_movie.genres,
+                    "imdb_id": tmdb_movie.imdb_id,
                 }
 
-            # Telegram messages linked to this movie
-            messages = connection.execute(
-                """
-                SELECT id, movie_id, message_id
-                FROM telegram_messages
-                WHERE movie_id = ?
-                ORDER BY message_id
-                """,
-                (movie_id,),
-            ).fetchall()
+            messages = session.execute(
+                select(TelegramMessage)
+                .where(TelegramMessage.movie_id == movie_id)
+                .order_by(TelegramMessage.message_id)
+            ).scalars().all()
 
             telegram_messages = [
                 {
-                    "id": msg["id"],
-                    "movie_id": msg["movie_id"],
-                    "message_id": msg["message_id"],
+                    "id": msg.id,
+                    "movie_id": msg.movie_id,
+                    "message_id": msg.message_id,
                 }
                 for msg in messages
             ]
 
-            # Build a deep link to the first Telegram message
             telegram_link = None
             channel_id = get_telegram_channel_id()
             if telegram_messages and channel_id:
@@ -223,79 +177,68 @@ class MovieQueries:
                 telegram_link = f"https://t.me/c/{channel_id}/{first_msg_id}"
 
             return {
-                "id": row["id"],
-                "title": row["title"],
-                "tmdb_movie_id": row["tmdb_movie_id"],
+                "id": movie.id,
+                "title": movie.title,
+                "tmdb_movie_id": movie.tmdb_movie_id,
                 "tmdb": tmdb,
                 "telegram_messages": telegram_messages,
                 "telegram_link": telegram_link,
             }
-        finally:
-            connection.close()
 
     # ------------------------------------------------------------------
     # Distinct genre list
     # ------------------------------------------------------------------
 
     def get_genres(self) -> list[str]:
-        connection = self._connect()
-        try:
-            rows = connection.execute(
-                """
-                SELECT DISTINCT genres
-                FROM tmdb_movies
-                WHERE genres IS NOT NULL AND genres != '[]'
-                """
-            ).fetchall()
+        with self._get_session() as session:
+            rows = session.execute(
+                select(distinct(TMDBMovie.genres))
+                .where(TMDBMovie.genres.isnot(None))
+                .where(TMDBMovie.genres != '[]')
+            ).scalars().all()
 
             all_genres: set[str] = set()
-            for row in rows:
+            for genres_raw in rows:
+                if not genres_raw:
+                    continue
                 try:
-                    parsed = json.loads(row["genres"])
+                    parsed = json.loads(genres_raw)
                     if isinstance(parsed, list):
                         all_genres.update(parsed)
                 except (json.JSONDecodeError, TypeError):
                     continue
 
             return sorted(all_genres)
-        finally:
-            connection.close()
 
     # ------------------------------------------------------------------
     # Library statistics
     # ------------------------------------------------------------------
 
     def get_stats(self) -> dict[str, Any]:
-        connection = self._connect()
-        try:
-            movie_stats = connection.execute(
-                """
-                SELECT COUNT(*) AS total_movies,
-                       SUM(CASE WHEN tmdb_movie_id IS NOT NULL
-                                THEN 1 ELSE 0 END) AS movies_with_tmdb,
-                       SUM(CASE WHEN tmdb_movie_id IS NULL
-                                THEN 1 ELSE 0 END) AS movies_without_tmdb
-                FROM movies
-                """
-            ).fetchone()
+        with self._get_session() as session:
+            total_movies = session.scalar(select(func.count(Movie.id))) or 0
+            
+            movies_with_tmdb = session.scalar(
+                select(func.count(Movie.id)).where(Movie.tmdb_movie_id.isnot(None))
+            ) or 0
+            
+            movies_without_tmdb = total_movies - movies_with_tmdb
+            
+            total_messages = session.scalar(select(func.count(TelegramMessage.id))) or 0
 
-            message_count = connection.execute(
-                "SELECT COUNT(*) AS total FROM telegram_messages"
-            ).fetchone()
-
-            # Genre breakdown — count how many movies belong to each genre
-            genre_rows = connection.execute(
-                """
-                SELECT genres
-                FROM tmdb_movies
-                WHERE genres IS NOT NULL AND genres != '[]'
-                """
-            ).fetchall()
+            # Genre breakdown
+            genre_rows = session.execute(
+                select(TMDBMovie.genres)
+                .where(TMDBMovie.genres.isnot(None))
+                .where(TMDBMovie.genres != '[]')
+            ).scalars().all()
 
             genre_counts: dict[str, int] = {}
-            for row in genre_rows:
+            for genres_raw in genre_rows:
+                if not genres_raw:
+                    continue
                 try:
-                    parsed = json.loads(row["genres"])
+                    parsed = json.loads(genres_raw)
                     if isinstance(parsed, list):
                         for genre in parsed:
                             genre_counts[genre] = genre_counts.get(genre, 0) + 1
@@ -303,13 +246,11 @@ class MovieQueries:
                     continue
 
             return {
-                "total_movies": movie_stats["total_movies"],
-                "movies_with_tmdb": movie_stats["movies_with_tmdb"],
-                "movies_without_tmdb": movie_stats["movies_without_tmdb"],
-                "total_messages": message_count["total"],
+                "total_movies": total_movies,
+                "movies_with_tmdb": movies_with_tmdb,
+                "movies_without_tmdb": movies_without_tmdb,
+                "total_messages": total_messages,
                 "genres_breakdown": dict(
                     sorted(genre_counts.items(), key=lambda x: x[1], reverse=True)
                 ),
             }
-        finally:
-            connection.close()

@@ -3,9 +3,10 @@ from __future__ import annotations
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from backend.config import get_database_path
+from backend.config import get_database_path, get_database_url
 from backend.database import MovieQueries
 from backend.routers import movies, stats
+from database.models import get_db_url
 
 app = FastAPI(
     title="Telegram Movie Library",
@@ -31,7 +32,8 @@ app.add_middleware(
 # ------------------------------------------------------------------
 # Shared query layer (stored on app.state for dependency injection)
 # ------------------------------------------------------------------
-app.state.queries = MovieQueries(get_database_path())
+db_url = get_db_url(get_database_url(), get_database_path())
+app.state.queries = MovieQueries(db_url)
 
 # ------------------------------------------------------------------
 # Routers
