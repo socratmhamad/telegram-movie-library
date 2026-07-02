@@ -2,10 +2,10 @@
  * API client — thin wrapper around fetch for the /api endpoints.
  */
 
-const BASE = 'https://telegram-movie-library.onrender.com';
+const BASE = 'https://telegram-movie-library.onrender.com/api';
 
 async function request(path, params = {}) {
-  const url = new URL(path, window.location.origin);
+  const url = new URL(path);
   Object.entries(params).forEach(([key, value]) => {
     if (value !== null && value !== undefined && value !== '') {
       url.searchParams.set(key, value);
