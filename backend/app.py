@@ -24,10 +24,13 @@ app.add_middleware(
         "http://127.0.0.1:5173",
         "http://localhost:3000",
         "http://127.0.0.1:3000",
+        "https://telegram-movie-library.vercel.app",
     ],
-    allow_methods=["GET"],
+    allow_credentials=True,
+    allow_methods=["*"],
     allow_headers=["*"],
-)
+),
+ 
 
 # ------------------------------------------------------------------
 # Shared query layer (stored on app.state for dependency injection)
