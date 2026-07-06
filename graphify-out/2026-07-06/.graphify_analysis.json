@@ -1,0 +1,489 @@
+{
+  "communities": {
+    "0": [
+      "frontend_src_api_client",
+      "frontend_src_api_client_createlibrary",
+      "frontend_src_api_client_fetchgenres",
+      "frontend_src_api_client_fetchlibraries",
+      "frontend_src_api_client_fetchlibrary",
+      "frontend_src_api_client_fetchmovie",
+      "frontend_src_api_client_fetchmovies",
+      "frontend_src_api_client_fetchstats",
+      "frontend_src_api_client_fetchtelegramconfig",
+      "frontend_src_api_client_fetchtelegramstatus",
+      "frontend_src_api_client_importlibrary",
+      "frontend_src_api_client_postrequest",
+      "frontend_src_api_client_request",
+      "frontend_src_api_client_testtelegramconnection",
+      "frontend_src_api_client_updatelibrary",
+      "frontend_src_api_client_updatetelegramlinks",
+      "frontend_src_app",
+      "frontend_src_app_app",
+      "frontend_src_components_adminlayout",
+      "frontend_src_components_adminlayout_adminlayout",
+      "frontend_src_components_genrefilter",
+      "frontend_src_components_genrefilter_genrefilter",
+      "frontend_src_components_layout",
+      "frontend_src_components_layout_layout",
+      "frontend_src_components_moviecard",
+      "frontend_src_components_moviecard_moviecard",
+      "frontend_src_components_moviedetail",
+      "frontend_src_components_moviedetail_moviedetail",
+      "frontend_src_components_moviegrid",
+      "frontend_src_components_moviegrid_moviegrid",
+      "frontend_src_components_pagination",
+      "frontend_src_components_pagination_pagination",
+      "frontend_src_components_searchbar",
+      "frontend_src_components_searchbar_searchbar",
+      "frontend_src_components_statspanel",
+      "frontend_src_components_statspanel_statspanel",
+      "frontend_src_hooks_usemovies",
+      "frontend_src_hooks_usemovies_usemovies",
+      "frontend_src_main",
+      "frontend_src_pages_adminlibrarieslist",
+      "frontend_src_pages_adminlibrarieslist_adminlibrarieslist",
+      "frontend_src_pages_home",
+      "frontend_src_pages_home_home",
+      "frontend_src_pages_libraryadministration",
+      "frontend_src_pages_libraryadministration_libraryadministration",
+      "frontend_src_pages_librarysettings",
+      "frontend_src_pages_librarysettings_librarysettings",
+      "frontend_src_pages_libraryview",
+      "frontend_src_pages_libraryview_libraryview"
+    ],
+    "1": [
+      "backend_app",
+      "backend_app_root",
+      "backend_config",
+      "backend_config_get_database_path",
+      "backend_config_get_database_url",
+      "backend_config_py_path",
+      "backend_config_rationale_13",
+      "backend_config_rationale_25",
+      "backend_services_base_task",
+      "backend_services_base_task_basetelegramtask",
+      "backend_services_base_task_basetelegramtask_get_status",
+      "backend_services_base_task_basetelegramtask_init",
+      "backend_services_base_task_basetelegramtask_is_running",
+      "backend_services_base_task_basetelegramtask_test_connection",
+      "backend_services_base_task_py_any",
+      "backend_services_base_task_rationale_58",
+      "backend_services_base_task_taskprogress",
+      "backend_services_base_task_taskprogress_to_dict",
+      "backend_services_library_import",
+      "backend_services_library_import_libraryimportservice",
+      "backend_services_library_import_libraryimportservice_run_import",
+      "backend_services_library_import_libraryimportservice_start_import",
+      "backend_services_telegram_links",
+      "backend_services_telegram_links_rationale_15",
+      "backend_services_telegram_links_telegramlinkservice",
+      "backend_services_telegram_links_telegramlinkservice_run_update",
+      "backend_services_telegram_links_telegramlinkservice_start_update",
+      "database_models_get_db_url",
+      "database_models_py_path",
+      "database_models_rationale_64",
+      "scraper_telegram_client",
+      "scraper_telegram_client_get_telegram_client",
+      "scraper_telegram_client_py_telegramclient",
+      "scraper_telegram_client_rationale_13"
+    ],
+    "2": [
+      "backend_database_moviequeries",
+      "backend_database_moviequeries_get_genres",
+      "backend_database_moviequeries_get_libraries",
+      "backend_database_moviequeries_get_library_by_slug",
+      "backend_database_moviequeries_get_movie",
+      "backend_database_moviequeries_get_movies",
+      "backend_database_moviequeries_get_session",
+      "backend_database_moviequeries_get_stats",
+      "backend_database_moviequeries_update_library",
+      "backend_database_py_any",
+      "backend_database_py_session",
+      "backend_database_rationale_23",
+      "backend_models_statsresponse",
+      "backend_routers_libraries",
+      "backend_routers_libraries_create_library",
+      "backend_routers_libraries_get_library",
+      "backend_routers_libraries_get_queries",
+      "backend_routers_libraries_librarycreaterequest",
+      "backend_routers_libraries_libraryupdaterequest",
+      "backend_routers_libraries_list_libraries",
+      "backend_routers_libraries_py_request",
+      "backend_routers_libraries_update_library",
+      "backend_routers_stats",
+      "backend_routers_stats_get_library_id",
+      "backend_routers_stats_get_queries",
+      "backend_routers_stats_get_stats",
+      "backend_routers_stats_py_request",
+      "backend_routers_stats_rationale_30",
+      "database_models_library"
+    ],
+    "3": [
+      "backend_config_get_telegram_channel_id",
+      "backend_config_rationale_30",
+      "backend_database",
+      "backend_database_moviequeries_init",
+      "base",
+      "database_models",
+      "database_models_init_db",
+      "database_models_movie",
+      "database_models_rationale_79",
+      "database_models_telegrammessage",
+      "database_models_tmdbmovie",
+      "migrate_to_postgres",
+      "migrate_to_postgres_main",
+      "scraper_database",
+      "scraper_database_moviedatabase",
+      "scraper_database_moviedatabase_connection",
+      "scraper_database_moviedatabase_get_known_message_ids",
+      "scraper_database_moviedatabase_get_movies_without_tmdb",
+      "scraper_database_moviedatabase_get_or_create_movie",
+      "scraper_database_moviedatabase_init",
+      "scraper_database_moviedatabase_link_movie_to_tmdb",
+      "scraper_database_moviedatabase_save_movie_message",
+      "scraper_database_moviedatabase_save_movies",
+      "scraper_database_moviedatabase_save_telegram_message",
+      "scraper_database_moviedatabase_save_tmdb_movie",
+      "scraper_database_py_session",
+      "scraper_database_rationale_14",
+      "scraper_database_rationale_32"
+    ],
+    "4": [
+      "main",
+      "main_rationale_13",
+      "main_run",
+      "main_safe",
+      "message",
+      "scraper_parser",
+      "scraper_parser_clean_title",
+      "scraper_parser_extract_movie_title",
+      "scraper_parser_extract_quality",
+      "scraper_parser_is_valid_title",
+      "scraper_parser_parse_movie_message",
+      "scraper_parser_parsedmovie",
+      "scraper_parser_rationale_35",
+      "scraper_scraper",
+      "scraper_scraper_movierecord",
+      "scraper_scraper_movierecord_to_dict",
+      "scraper_scraper_py_telegramclient",
+      "scraper_scraper_rationale_28",
+      "scraper_scraper_rationale_36",
+      "scraper_scraper_rationale_50",
+      "scraper_scraper_scrapestats",
+      "scraper_scraper_telegrammoviescraper",
+      "scraper_scraper_telegrammoviescraper_init",
+      "scraper_scraper_telegrammoviescraper_iter_records",
+      "scraper_scraper_telegrammoviescraper_parse_message",
+      "scraper_scraper_telegrammoviescraper_scrape"
+    ],
+    "5": [
+      "backend_models",
+      "backend_models_genrelistresponse",
+      "backend_models_moviedetailresponse",
+      "backend_models_movielistitem",
+      "backend_models_movielistitem_parse_genres",
+      "backend_models_paginatedresponse",
+      "backend_models_parse_genres",
+      "backend_models_py_any",
+      "backend_models_rationale_17",
+      "backend_models_telegrammessageresponse",
+      "backend_models_tmdbmovieresponse",
+      "backend_models_tmdbmovieresponse_backdrop_url",
+      "backend_models_tmdbmovieresponse_parse_genres",
+      "backend_models_tmdbmovieresponse_poster_url",
+      "backend_routers_movies",
+      "backend_routers_movies_get_library_id",
+      "backend_routers_movies_get_movie",
+      "backend_routers_movies_get_queries",
+      "backend_routers_movies_list_genres",
+      "backend_routers_movies_list_movies",
+      "backend_routers_movies_py_request",
+      "backend_routers_movies_rationale_48",
+      "backend_routers_movies_rationale_67",
+      "backend_routers_movies_rationale_79",
+      "basemodel"
+    ],
+    "6": [
+      "backend_routers_telegram",
+      "backend_routers_telegram_get_config",
+      "backend_routers_telegram_get_library",
+      "backend_routers_telegram_get_queries",
+      "backend_routers_telegram_get_task_status",
+      "backend_routers_telegram_import_library",
+      "backend_routers_telegram_py_request",
+      "backend_routers_telegram_rationale_27",
+      "backend_routers_telegram_rationale_35",
+      "backend_routers_telegram_rationale_59",
+      "backend_routers_telegram_rationale_78",
+      "backend_routers_telegram_rationale_94",
+      "backend_routers_telegram_test_connection",
+      "backend_routers_telegram_update_links",
+      "backgroundtasks",
+      "config",
+      "config_int_env",
+      "config_path_env",
+      "config_py_path",
+      "config_required_env",
+      "config_settings"
+    ],
+    "7": [
+      "lock",
+      "update_tmdb",
+      "update_tmdb_clean_title_and_extract_year",
+      "update_tmdb_main",
+      "update_tmdb_process_movie",
+      "update_tmdb_py_any",
+      "update_tmdb_rationale_34",
+      "update_tmdb_rationale_39",
+      "update_tmdb_safe",
+      "update_tmdb_stats",
+      "update_tmdb_stats_increment_errors",
+      "update_tmdb_stats_increment_matched",
+      "update_tmdb_stats_increment_not_found",
+      "update_tmdb_stats_increment_processed",
+      "update_tmdb_stats_init",
+      "update_tmdb_tmdbclient",
+      "update_tmdb_tmdbclient_get_movie_details",
+      "update_tmdb_tmdbclient_init",
+      "update_tmdb_tmdbclient_request",
+      "update_tmdb_tmdbclient_search_movie"
+    ],
+    "8": [
+      "frontend_package",
+      "frontend_package_dependencies",
+      "frontend_package_dependencies_react",
+      "frontend_package_dependencies_react_dom",
+      "frontend_package_dependencies_react_router_dom",
+      "frontend_package_devdependencies",
+      "frontend_package_devdependencies_vite",
+      "frontend_package_devdependencies_vitejs_plugin_react",
+      "frontend_package_name",
+      "frontend_package_private",
+      "frontend_package_scripts",
+      "frontend_package_scripts_build",
+      "frontend_package_scripts_dev",
+      "frontend_package_scripts_preview",
+      "frontend_package_type",
+      "frontend_package_version"
+    ],
+    "9": [
+      "test_tmdb",
+      "test_tmdb_main",
+      "tmdb_service",
+      "tmdb_service_build_poster_url",
+      "tmdb_service_choose_best_match",
+      "tmdb_service_get_movie_details",
+      "tmdb_service_normalize_title",
+      "tmdb_service_py_any",
+      "tmdb_service_rationale_25",
+      "tmdb_service_rationale_60",
+      "tmdb_service_search_movie",
+      "tmdb_service_tmdb_get"
+    ],
+    "10": [
+      "frontend_oxlintrc",
+      "frontend_oxlintrc_plugins",
+      "frontend_oxlintrc_rules",
+      "frontend_oxlintrc_rules_react_only_export_components",
+      "frontend_oxlintrc_rules_react_rules_of_hooks",
+      "frontend_oxlintrc_schema"
+    ],
+    "11": [
+      "backend_run",
+      "backend_run_main",
+      "backend_run_rationale_1"
+    ],
+    "12": [
+      "migrate_to_libraries",
+      "migrate_to_libraries_migrate"
+    ],
+    "13": [
+      "scraper_init",
+      "scraper_init_rationale_1"
+    ],
+    "14": [
+      "test_postgres_connection",
+      "test_postgres_connection_test_pg8000"
+    ],
+    "15": [
+      "test_tcp",
+      "test_tcp_test_pg_ssl_request"
+    ],
+    "16": [
+      "backend_init"
+    ],
+    "17": [
+      "backend_routers_init"
+    ],
+    "18": [
+      "frontend_vite_config"
+    ]
+  },
+  "cohesion": {
+    "0": 0.09693877551020408,
+    "1": 0.12477718360071301,
+    "2": 0.14285714285714285,
+    "3": 0.15873015873015872,
+    "4": 0.12923076923076923,
+    "5": 0.13,
+    "6": 0.1,
+    "7": 0.21052631578947367,
+    "8": 0.125,
+    "9": 0.36363636363636365,
+    "10": 0.3333333333333333,
+    "11": 0.6666666666666666,
+    "12": 1.0,
+    "13": 1.0,
+    "14": 1.0,
+    "15": 1.0,
+    "16": 1.0,
+    "17": 1.0,
+    "18": 1.0
+  },
+  "gods": [
+    {
+      "id": "backend_database_moviequeries",
+      "label": "MovieQueries",
+      "degree": 33
+    },
+    {
+      "id": "scraper_database_moviedatabase",
+      "label": "MovieDatabase",
+      "degree": 19
+    },
+    {
+      "id": "database_models_movie",
+      "label": "Movie",
+      "degree": 16
+    },
+    {
+      "id": "update_tmdb_process_movie",
+      "label": "process_movie()",
+      "degree": 15
+    },
+    {
+      "id": "database_models_library",
+      "label": "Library",
+      "degree": 13
+    },
+    {
+      "id": "scraper_parser_parse_movie_message",
+      "label": "parse_movie_message()",
+      "degree": 13
+    },
+    {
+      "id": "database_models_get_db_url",
+      "label": "get_db_url()",
+      "degree": 12
+    },
+    {
+      "id": "scraper_telegram_client_get_telegram_client",
+      "label": "get_telegram_client()",
+      "degree": 11
+    },
+    {
+      "id": "database_models_telegrammessage",
+      "label": "TelegramMessage",
+      "degree": 10
+    },
+    {
+      "id": "update_tmdb_tmdbclient",
+      "label": "TMDBClient",
+      "degree": 10
+    }
+  ],
+  "surprises": [
+    {
+      "source": "LibraryImportService",
+      "target": "TMDBClient",
+      "source_files": [
+        "backend/services/library_import.py",
+        "update_tmdb.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "uses",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "create_library()",
+      "target": "Library",
+      "source_files": [
+        "backend/routers/libraries.py",
+        "database/models.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "indirect_call",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    },
+    {
+      "source": "main()",
+      "target": "TMDBMovie",
+      "source_files": [
+        "migrate_to_postgres.py",
+        "database/models.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "indirect_call",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    },
+    {
+      "source": "main()",
+      "target": "Movie",
+      "source_files": [
+        "migrate_to_postgres.py",
+        "database/models.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "indirect_call",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    },
+    {
+      "source": "main()",
+      "target": "TelegramMessage",
+      "source_files": [
+        "migrate_to_postgres.py",
+        "database/models.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "indirect_call",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `MovieQueries` connect `MovieQueries` to `library_import.py`, `MovieDatabase`, `movies.py`, `telegram.py`?",
+      "why": "High betweenness centrality (0.080) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `MovieDatabase` connect `MovieDatabase` to `library_import.py`, `parse_movie_message`, `process_movie`?",
+      "why": "High betweenness centrality (0.051) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `get_db_url()` connect `library_import.py` to `MovieDatabase`, `parse_movie_message`, `process_movie`?",
+      "why": "High betweenness centrality (0.043) - this node is a cross-community bridge."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 2 inferred relationships involving `MovieQueries` (e.g. with `LibraryCreateRequest` and `LibraryUpdateRequest`) actually correct?",
+      "why": "`MovieQueries` has 2 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 9 inferred relationships involving `Movie` (e.g. with `.get_genres()` and `.get_movie()`) actually correct?",
+      "why": "`Movie` has 9 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 7 inferred relationships involving `Library` (e.g. with `.get_libraries()` and `.get_library_by_slug()`) actually correct?",
+      "why": "`Library` has 7 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `Resolve the database path from the environment.      Keeps the backend independe`, `Get the database URL from the environment for SQLAlchemy.`, `Return the numeric Telegram channel ID (without the ``-100`` prefix).      Used` to the rest of the system?",
+      "why": "49 weakly-connected nodes found - possible documentation gaps or missing edges."
+    }
+  ]
+}

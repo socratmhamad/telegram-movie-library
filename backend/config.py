@@ -26,9 +26,3 @@ def get_database_url() -> str | None:
     return os.getenv("DATABASE_URL")
 
 
-def get_telegram_channel_id() -> str | None:
-    """Return the numeric Telegram channel ID (without the ``-100`` prefix).
-
-    Used to build ``https://t.me/c/{channel_id}/{message_id}`` deep links.
-    """
-    return os.getenv("TELEGRAM_CHANNEL_ID") or None

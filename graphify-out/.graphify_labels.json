@@ -1,1 +1,23 @@
-{"0": "client.js", "1": "library_import.py", "2": "MovieQueries", "3": "MovieDatabase", "4": "parse_movie_message", "5": "movies.py", "6": "telegram.py", "7": "process_movie", "8": "package.json", "9": "tmdb_service.py", "10": ".oxlintrc.json", "11": "run.py", "12": "migrate_to_libraries.py", "13": "__init__.py", "14": "test_postgres_connection.py", "15": "test_tcp.py", "16": "__init__.py", "17": "__init__.py", "18": "vite.config.js"}
+{
+  "0": "client.js",
+  "1": "library_import.py",
+  "2": "MovieQueries",
+  "3": "MovieDatabase",
+  "4": "parse_movie_message",
+  "5": "movies.py",
+  "6": "telegram.py",
+  "7": "process_movie",
+  "8": "package.json",
+  "9": "tmdb_service.py",
+  "10": ".oxlintrc.json",
+  "11": "run.py",
+  "12": "migrate_to_libraries.py",
+  "13": "__init__.py",
+  "14": "test_postgres_connection.py",
+  "15": "test_tcp.py",
+  "16": "__init__.py",
+  "17": "__init__.py",
+  "18": "vite.config.js",
+  "19": "migrate_duplicates.py",
+  "20": "Path"
+}

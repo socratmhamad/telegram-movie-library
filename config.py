@@ -14,8 +14,7 @@ load_dotenv(BASE_DIR / ".env")
 @dataclass(frozen=True)
 class Settings:
     telegram_api_id: int
-    telegram_api_hash: str
-    telegram_channel: str
+    telegram_api_hash: str | None = None
     telegram_session_name: str
     message_limit: int
     database_path: Path
@@ -51,8 +50,7 @@ def _path_env(name: str, default: Path) -> Path:
 
 settings = Settings(
     telegram_api_id=_int_env("TELEGRAM_API_ID", 0),
-    telegram_api_hash=_required_env("TELEGRAM_API_HASH"),
-    telegram_channel=_required_env("TELEGRAM_CHANNEL"),
+    telegram_api_hash=os.getenv("TELEGRAM_API_HASH"),
     telegram_session_name=os.getenv("TELEGRAM_SESSION_NAME", "telegram_movies"),
     message_limit=_int_env("MESSAGE_LIMIT", 100),
     database_path=_path_env("DATABASE_PATH", Path("database") / "movies.db"),
@@ -60,5 +58,4 @@ settings = Settings(
     tmdb_api_key=os.getenv("TMDB_API_KEY"),
 )
 
-if settings.telegram_api_id <= 0:
-    raise RuntimeError("Missing required environment variable: TELEGRAM_API_ID")
+
