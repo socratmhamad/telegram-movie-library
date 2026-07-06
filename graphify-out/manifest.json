@@ -10,9 +10,9 @@
     "semantic_hash": ""
   },
   "backend/config.py": {
-    "mtime": 1782999602.344939,
-    "ast_hash": "6bc45e35539417e6caa79bcf3cff9ea4",
-    "semantic_hash": "6bc45e35539417e6caa79bcf3cff9ea4"
+    "mtime": 1783334509.8878963,
+    "ast_hash": "0ffbf4ba335de617b229d16f68be84a8",
+    "semantic_hash": ""
   },
   "backend/database.py": {
     "mtime": 1783328218.5604026,
@@ -70,9 +70,9 @@
     "semantic_hash": "9d17edc293f920df998d31ed96662e55"
   },
   "config.py": {
-    "mtime": 1782999583.778081,
-    "ast_hash": "fc86f9ae22025ba6831cae86eb5887dd",
-    "semantic_hash": "fc86f9ae22025ba6831cae86eb5887dd"
+    "mtime": 1783334442.8038957,
+    "ast_hash": "9345b2e997c31d67d0d83ecb28dd5bff",
+    "semantic_hash": ""
   },
   "database/models.py": {
     "mtime": 1783260158.30665,
@@ -185,9 +185,9 @@
     "semantic_hash": "34dc5da5e2203a3e36a817986df682fe"
   },
   "main.py": {
-    "mtime": 1782999838.1585302,
-    "ast_hash": "784226fd3d5caacbd94a4cd340d8c5f6",
-    "semantic_hash": "784226fd3d5caacbd94a4cd340d8c5f6"
+    "mtime": 1783334574.4235291,
+    "ast_hash": "77747abf6dba1574f9c2d934ac2c2a94",
+    "semantic_hash": ""
   },
   "migrate_to_libraries.py": {
     "mtime": 1783111173.9829264,
@@ -220,9 +220,9 @@
     "semantic_hash": "d60162f52fcdab9280a1b072a890a25a"
   },
   "scraper/telegram_client.py": {
-    "mtime": 1782493024.978415,
-    "ast_hash": "fcf58b89aeadc3f366a10a7de95c8042",
-    "semantic_hash": "fcf58b89aeadc3f366a10a7de95c8042"
+    "mtime": 1783334476.8893979,
+    "ast_hash": "f02d677535d19c784d98edd60393dc3a",
+    "semantic_hash": ""
   },
   "test_postgres_connection.py": {
     "mtime": 1783020047.6507611,

@@ -19,5 +19,8 @@
   "17": "__init__.py",
   "18": "vite.config.js",
   "19": "migrate_duplicates.py",
-  "20": "Path"
+  "20": "Path",
+  "21": "main.py",
+  "22": "MovieGrid.jsx",
+  "23": "TelegramClient"
 }

@@ -7,7 +7,6 @@ from typing import Any
 from sqlalchemy import select, func, distinct, case
 from sqlalchemy.orm import Session
 
-from backend.config import get_telegram_channel_id
 from database.models import init_db, Movie, TMDBMovie, TelegramMessage
 
 TMDB_IMAGE_BASE = "https://image.tmdb.org/t/p"
