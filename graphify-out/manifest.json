@@ -70,8 +70,8 @@
     "semantic_hash": "9d17edc293f920df998d31ed96662e55"
   },
   "config.py": {
-    "mtime": 1783334442.8038957,
-    "ast_hash": "9345b2e997c31d67d0d83ecb28dd5bff",
+    "mtime": 1783335780.4790664,
+    "ast_hash": "69783d9d4a508c12509d3c415f1e6a30",
     "semantic_hash": ""
   },
   "database/models.py": {
