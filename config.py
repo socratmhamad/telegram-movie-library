@@ -14,12 +14,12 @@ load_dotenv(BASE_DIR / ".env")
 @dataclass(frozen=True)
 class Settings:
     telegram_api_id: int
-    telegram_api_hash: str | None = None
     telegram_session_name: str
     message_limit: int
     database_path: Path
-    database_url: str | None
-    tmdb_api_key: str | None
+    telegram_api_hash: str | None = None
+    database_url: str | None = None
+    tmdb_api_key: str | None = None
 
 
 def _required_env(name: str) -> str:

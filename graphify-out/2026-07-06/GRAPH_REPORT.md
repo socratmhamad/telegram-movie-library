@@ -1,16 +1,16 @@
 # Graph Report - Movis_with_Telegram  (2026-07-06)
 
 ## Corpus Check
-- 54 files · ~13,840 words
+- 54 files · ~13,887 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 312 nodes · 634 edges · 21 communities (18 shown, 3 thin omitted)
+- 311 nodes · 624 edges · 24 communities (20 shown, 4 thin omitted)
 - Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 37 edges (avg confidence: 0.74)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `1c0c246e`
+- Built from commit: `8249520e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -28,14 +28,17 @@
 - [[_COMMUNITY_run.py|run.py]]
 - [[_COMMUNITY___init__.py|__init__.py]]
 - [[_COMMUNITY_Path|Path]]
+- [[_COMMUNITY_main.py|main.py]]
+- [[_COMMUNITY_MovieGrid.jsx|MovieGrid.jsx]]
+- [[_COMMUNITY_TelegramClient|TelegramClient]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `MovieQueries` - 35 edges
-2. `MovieDatabase` - 19 edges
-3. `Movie` - 17 edges
+2. `Movie` - 17 edges
+3. `MovieDatabase` - 17 edges
 4. `process_movie()` - 15 edges
-5. `get_db_url()` - 14 edges
-6. `Library` - 13 edges
+5. `Library` - 13 edges
+6. `get_db_url()` - 12 edges
 7. `TMDBMovie` - 11 edges
 8. `TelegramMessage` - 11 edges
 9. `request()` - 10 edges
@@ -56,27 +59,27 @@
 ## Import Cycles
 - None detected.
 
-## Communities (21 total, 3 thin omitted)
+## Communities (24 total, 4 thin omitted)
 
 ### Community 0 - "client.js"
-Cohesion: 0.09
-Nodes (39): createLibrary(), fetchFeatured(), fetchGenres(), fetchLibraries(), fetchLibrary(), fetchMovie(), fetchMovies(), fetchStats() (+31 more)
+Cohesion: 0.10
+Nodes (35): createLibrary(), fetchFeatured(), fetchGenres(), fetchLibraries(), fetchLibrary(), fetchMovie(), fetchMovies(), fetchStats() (+27 more)
 
 ### Community 1 - "library_import.py"
-Cohesion: 0.07
-Nodes (28): get_database_path(), get_database_url(), get_telegram_channel_id(), Path, Resolve the database path from the environment.      Keeps the backend independe, Get the database URL from the environment for SQLAlchemy., Return the numeric Telegram channel ID (without the ``-100`` prefix).      Used, get_config() (+20 more)
+Cohesion: 0.06
+Nodes (28): get_database_path(), get_database_url(), Path, Resolve the database path from the environment.      Keeps the backend independe, Get the database URL from the environment for SQLAlchemy., get_config(), get_task_status(), import_library() (+20 more)
 
 ### Community 2 - "MovieQueries"
-Cohesion: 0.15
-Nodes (18): MovieQueries, Any, Session, Read-only query layer that powers the FastAPI endpoints.      Uses SQLAlchemy., Return top-rated movies with backdrop images across all libraries.          Used, create_library(), get_library(), _get_queries() (+10 more)
+Cohesion: 0.14
+Nodes (19): MovieQueries, Any, Session, Read-only query layer that powers the FastAPI endpoints.      Uses SQLAlchemy., Return top-rated movies with backdrop images across all libraries.          Used, create_library(), get_library(), _get_queries() (+11 more)
 
 ### Community 3 - "MovieDatabase"
 Cohesion: 0.18
 Nodes (12): Base, init_db(), Movie, MovieAlias, Initializes the database and returns the sessionmaker., TelegramMessage, TMDBMovie, main() (+4 more)
 
 ### Community 4 - "parse_movie_message"
-Cohesion: 0.09
-Nodes (24): _path_env(), Path, Settings, Return a console-safe version of *text* (handles Windows cp1252)., run(), _safe(), Message, _clean_title() (+16 more)
+Cohesion: 0.14
+Nodes (15): Message, _clean_title(), extract_movie_title(), _extract_quality(), _is_valid_title(), parse_movie_message(), ParsedMovie, Extract a likely movie title and supported video quality from a Telegram message (+7 more)
 
 ### Community 5 - "movies.py"
 Cohesion: 0.09
@@ -98,25 +101,33 @@ Nodes (17): fetch_arabic_metadata(), load_state(), main(), Load the set of alrea
 Cohesion: 0.33
 Nodes (5): plugins, rules, react/only-export-components, react/rules-of-hooks, $schema
 
+### Community 21 - "main.py"
+Cohesion: 0.38
+Nodes (6): Return a console-safe version of *text* (handles Windows cp1252)., run(), _safe(), get_telegram_client(), Create, authenticate, and cleanly disconnect a Telethon client., TelegramClient
+
+### Community 22 - "MovieGrid.jsx"
+Cohesion: 0.40
+Nodes (4): MovieCard(), cardVariants, gridVariants, MovieGrid()
+
 ## Knowledge Gaps
-- **23 isolated node(s):** `name`, `private`, `version`, `type`, `dev` (+18 more)
+- **23 isolated node(s):** `Settings`, `name`, `private`, `version`, `type` (+18 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **4 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `MovieQueries` connect `MovieQueries` to `library_import.py`, `MovieDatabase`, `movies.py`?**
-  _High betweenness centrality (0.079) - this node is a cross-community bridge._
-- **Why does `get_db_url()` connect `library_import.py` to `tmdb_service.py`, `MovieDatabase`, `parse_movie_message`, `process_movie`?**
-  _High betweenness centrality (0.066) - this node is a cross-community bridge._
-- **Why does `MovieDatabase` connect `MovieDatabase` to `library_import.py`, `parse_movie_message`, `process_movie`?**
-  _High betweenness centrality (0.047) - this node is a cross-community bridge._
+  _High betweenness centrality (0.078) - this node is a cross-community bridge._
+- **Why does `get_db_url()` connect `library_import.py` to `tmdb_service.py`, `MovieDatabase`, `process_movie`?**
+  _High betweenness centrality (0.046) - this node is a cross-community bridge._
+- **Why does `MovieDatabase` connect `MovieDatabase` to `library_import.py`, `process_movie`?**
+  _High betweenness centrality (0.038) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `MovieQueries` (e.g. with `LibraryCreateRequest` and `LibraryUpdateRequest`) actually correct?**
   _`MovieQueries` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 9 inferred relationships involving `Movie` (e.g. with `.get_featured_movies()` and `.get_genres()`) actually correct?**
   _`Movie` has 9 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `Read-only query layer that powers the FastAPI endpoints.      Uses SQLAlchemy.`, `Return top-rated movies with backdrop images across all libraries.          Used`, `Accept a JSON string or a plain list and always return ``list[str]``.` to the rest of the system?**
-  _60 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `client.js` be split into smaller, more focused modules?**
-  _Cohesion score 0.08709273182957393 - nodes in this community are weakly interconnected._
+- **Are the 7 inferred relationships involving `Library` (e.g. with `.get_libraries()` and `.get_library_by_slug()`) actually correct?**
+  _`Library` has 7 INFERRED edges - model-reasoned connections that need verification._
+- **What connects `Resolve the database path from the environment.      Keeps the backend independe`, `Get the database URL from the environment for SQLAlchemy.`, `Settings` to the rest of the system?**
+  _59 weakly-connected nodes found - possible documentation gaps or missing edges._
