@@ -1,3 +1,5 @@
+import { translateGenre } from '../utils/genreMap';
+
 export default function GenreFilter({ genres, activeGenre, onToggle }) {
   if (!genres || genres.length === 0) return null;
 
@@ -8,7 +10,7 @@ export default function GenreFilter({ genres, activeGenre, onToggle }) {
         onClick={() => onToggle('')}
         type="button"
       >
-        All
+        الكل
       </button>
       {genres.map((g) => (
         <button
@@ -17,7 +19,7 @@ export default function GenreFilter({ genres, activeGenre, onToggle }) {
           onClick={() => onToggle(g)}
           type="button"
         >
-          {g}
+          {translateGenre(g)}
         </button>
       ))}
     </div>

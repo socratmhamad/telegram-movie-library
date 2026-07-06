@@ -7,7 +7,7 @@ export default function SearchBar({ search, onSearchChange, sortBy, onSortByChan
           id="search-input"
           className="search-input"
           type="text"
-          placeholder="Search movies…"
+          placeholder="ابحث عن فيلم..."
           value={search}
           onChange={(e) => onSearchChange(e.target.value)}
           autoComplete="off"
@@ -19,12 +19,12 @@ export default function SearchBar({ search, onSearchChange, sortBy, onSortByChan
         className="sort-select"
         value={sortBy}
         onChange={(e) => onSortByChange(e.target.value)}
-        aria-label="Sort by"
+        aria-label="ترتيب حسب"
       >
-        <option value="title">Sort: Title</option>
-        <option value="release_date">Sort: Release Date</option>
-        <option value="vote_average">Sort: Rating</option>
-        <option value="runtime">Sort: Runtime</option>
+        <option value="title">الترتيب: العنوان</option>
+        <option value="release_date">الترتيب: تاريخ الإصدار</option>
+        <option value="vote_average">الترتيب: التقييم</option>
+        <option value="runtime">الترتيب: المدة</option>
       </select>
 
       <select
@@ -32,10 +32,10 @@ export default function SearchBar({ search, onSearchChange, sortBy, onSortByChan
         className="sort-select"
         value={sortOrder}
         onChange={(e) => onSortOrderChange(e.target.value)}
-        aria-label="Sort order"
+        aria-label="اتجاه الترتيب"
       >
-        <option value="asc">Ascending</option>
-        <option value="desc">Descending</option>
+        <option value="asc">تصاعدي</option>
+        <option value="desc">تنازلي</option>
       </select>
     </div>
   );

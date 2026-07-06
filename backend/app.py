@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from backend.config import get_database_path, get_database_url
 from backend.database import MovieQueries
-from backend.routers import movies, stats
+from backend.routers import movies, stats, telegram, libraries
 from database.models import get_db_url
 
 app = FastAPI(
@@ -22,6 +22,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173",
         "http://127.0.0.1:5173",
+        "http://192.168.43.7:5173",
         "http://localhost:3000",
         "http://127.0.0.1:3000",
         "https://telegram-movie-library.vercel.app",
@@ -29,8 +30,8 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-),
- 
+)
+
 
 # ------------------------------------------------------------------
 # Shared query layer (stored on app.state for dependency injection)
@@ -41,12 +42,16 @@ app.state.queries = MovieQueries(db_url)
 # ------------------------------------------------------------------
 # Routers
 # ------------------------------------------------------------------
+app.include_router(libraries.router)
 app.include_router(movies.router)
+app.include_router(movies.featured_router)
 app.include_router(stats.router)
+app.include_router(telegram.router)
 
 
 @app.get("/", tags=["health"])
 def root() -> dict[str, str]:
+    print("Root endpoint hit!")
     """Health-check / welcome endpoint."""
     return {
         "service": "Telegram Movie Library API",

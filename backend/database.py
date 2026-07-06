@@ -43,6 +43,7 @@ class MovieQueries:
 
     def get_movies(
         self,
+        library_id: int,
         *,
         page: int = 1,
         page_size: int = 20,
@@ -61,6 +62,7 @@ class MovieQueries:
         with self._get_session() as session:
             # Base query
             query = select(Movie, TMDBMovie).outerjoin(TMDBMovie, Movie.tmdb_movie_id == TMDBMovie.id)
+            query = query.where(Movie.library_id == library_id)
 
             if search:
                 query = query.where(Movie.title.ilike(f"%{search}%"))
@@ -128,10 +130,10 @@ class MovieQueries:
     # Single movie detail
     # ------------------------------------------------------------------
 
-    def get_movie(self, movie_id: int) -> dict[str, Any] | None:
+    def get_movie(self, library_id: int, movie_id: int) -> dict[str, Any] | None:
         with self._get_session() as session:
             movie = session.execute(
-                select(Movie).where(Movie.id == movie_id)
+                select(Movie).where(Movie.id == movie_id, Movie.library_id == library_id)
             ).scalar_one_or_none()
 
             if movie is None:
@@ -166,15 +168,29 @@ class MovieQueries:
                     "id": msg.id,
                     "movie_id": msg.movie_id,
                     "message_id": msg.message_id,
+                    "quality": getattr(msg, "quality", None),
+                    "codec": getattr(msg, "codec", None),
+                    "release_type": getattr(msg, "release_type", None),
+                    "file_size": getattr(msg, "file_size", None),
+                    "language": getattr(msg, "language", None),
                 }
                 for msg in messages
             ]
 
             telegram_link = None
-            channel_id = get_telegram_channel_id()
-            if telegram_messages and channel_id:
-                first_msg_id = telegram_messages[0]["message_id"]
-                telegram_link = f"https://t.me/c/{channel_id}/{first_msg_id}"
+            if telegram_messages:
+                # We need the library to get telegram_channel_id
+                from database.models import Library
+                library = session.execute(select(Library).where(Library.id == movie.library_id)).scalar_one_or_none()
+                channel_id = library.telegram_channel_id if library else None
+                
+                if channel_id:
+                    first_msg_id = telegram_messages[0]["message_id"]
+                    telegram_link = f"https://t.me/c/{channel_id}/{first_msg_id}"
+                elif library and library.telegram_channel.startswith('@'):
+                    public_name = library.telegram_channel[1:]
+                    first_msg_id = telegram_messages[0]["message_id"]
+                    telegram_link = f"https://t.me/{public_name}/{first_msg_id}"
 
             return {
                 "id": movie.id,
@@ -189,10 +205,12 @@ class MovieQueries:
     # Distinct genre list
     # ------------------------------------------------------------------
 
-    def get_genres(self) -> list[str]:
+    def get_genres(self, library_id: int) -> list[str]:
         with self._get_session() as session:
             rows = session.execute(
                 select(distinct(TMDBMovie.genres))
+                .join(Movie, Movie.tmdb_movie_id == TMDBMovie.id)
+                .where(Movie.library_id == library_id)
                 .where(TMDBMovie.genres.isnot(None))
                 .where(TMDBMovie.genres != '[]')
             ).scalars().all()
@@ -214,21 +232,29 @@ class MovieQueries:
     # Library statistics
     # ------------------------------------------------------------------
 
-    def get_stats(self) -> dict[str, Any]:
+    def get_stats(self, library_id: int) -> dict[str, Any]:
         with self._get_session() as session:
-            total_movies = session.scalar(select(func.count(Movie.id))) or 0
+            total_movies = session.scalar(select(func.count(Movie.id)).where(Movie.library_id == library_id)) or 0
             
             movies_with_tmdb = session.scalar(
-                select(func.count(Movie.id)).where(Movie.tmdb_movie_id.isnot(None))
+                select(func.count(Movie.id))
+                .where(Movie.library_id == library_id)
+                .where(Movie.tmdb_movie_id.isnot(None))
             ) or 0
             
             movies_without_tmdb = total_movies - movies_with_tmdb
             
-            total_messages = session.scalar(select(func.count(TelegramMessage.id))) or 0
+            total_messages = session.scalar(
+                select(func.count(TelegramMessage.id))
+                .join(Movie, TelegramMessage.movie_id == Movie.id)
+                .where(Movie.library_id == library_id)
+            ) or 0
 
             # Genre breakdown
             genre_rows = session.execute(
                 select(TMDBMovie.genres)
+                .join(Movie, Movie.tmdb_movie_id == TMDBMovie.id)
+                .where(Movie.library_id == library_id)
                 .where(TMDBMovie.genres.isnot(None))
                 .where(TMDBMovie.genres != '[]')
             ).scalars().all()
@@ -254,3 +280,123 @@ class MovieQueries:
                     sorted(genre_counts.items(), key=lambda x: x[1], reverse=True)
                 ),
             }
+
+    # ------------------------------------------------------------------
+    # Libraries
+    # ------------------------------------------------------------------
+    
+    from database.models import Library
+    
+    def get_libraries(self) -> list[dict[str, Any]]:
+        from database.models import Library
+        with self._get_session() as session:
+            rows = session.execute(select(Library)).scalars().all()
+            return [
+                {
+                    "id": lib.id,
+                    "name": lib.name,
+                    "slug": lib.slug,
+                    "telegram_channel": lib.telegram_channel,
+                    "telegram_channel_id": lib.telegram_channel_id,
+                    "is_active": lib.is_active,
+                    "last_scan": lib.last_scan.isoformat() if lib.last_scan else None,
+                    "last_migration": lib.last_migration.isoformat() if lib.last_migration else None,
+                }
+                for lib in rows
+            ]
+            
+    def get_library_by_slug(self, slug: str) -> dict[str, Any] | None:
+        from database.models import Library
+        with self._get_session() as session:
+            lib = session.execute(select(Library).where(Library.slug == slug)).scalar_one_or_none()
+            if not lib:
+                return None
+            return {
+                "id": lib.id,
+                "name": lib.name,
+                "slug": lib.slug,
+                "telegram_channel": lib.telegram_channel,
+                "telegram_channel_id": lib.telegram_channel_id,
+                "is_active": lib.is_active,
+                "last_scan": lib.last_scan.isoformat() if lib.last_scan else None,
+                "last_migration": lib.last_migration.isoformat() if lib.last_migration else None,
+            }
+
+    def update_library(self, old_slug: str, name: str, slug: str, telegram_channel: str, telegram_channel_id: str | None, is_active: bool) -> dict[str, Any] | None:
+        from database.models import Library
+        with self._get_session() as session:
+            lib = session.execute(select(Library).where(Library.slug == old_slug)).scalar_one_or_none()
+            if not lib:
+                return None
+            
+            # Check slug collision if changed
+            if slug != old_slug:
+                existing = session.execute(select(Library).where(Library.slug == slug)).scalar_one_or_none()
+                if existing:
+                    raise ValueError(f"A library with slug '{slug}' already exists.")
+            
+            lib.name = name
+            lib.slug = slug
+            lib.telegram_channel = telegram_channel
+            lib.telegram_channel_id = telegram_channel_id
+            lib.is_active = is_active
+            
+            session.commit()
+            session.refresh(lib)
+            
+            return {
+                "id": lib.id,
+                "name": lib.name,
+                "slug": lib.slug,
+                "telegram_channel": lib.telegram_channel,
+                "telegram_channel_id": lib.telegram_channel_id,
+                "is_active": lib.is_active,
+                "last_scan": lib.last_scan.isoformat() if lib.last_scan else None,
+                "last_migration": lib.last_migration.isoformat() if lib.last_migration else None,
+            }
+
+    # ------------------------------------------------------------------
+    # Featured movies (for homepage hero)
+    # ------------------------------------------------------------------
+
+    def get_featured_movies(self, limit: int = 8) -> list[dict[str, Any]]:
+        """Return top-rated movies with backdrop images across all libraries.
+
+        Used by the homepage hero carousel. Single DB query, no external calls.
+        """
+        with self._get_session() as session:
+            query = (
+                select(Movie, TMDBMovie)
+                .join(TMDBMovie, Movie.tmdb_movie_id == TMDBMovie.id)
+                .where(TMDBMovie.backdrop_path.isnot(None))
+                .where(TMDBMovie.backdrop_path != '')
+                .where(TMDBMovie.vote_average.isnot(None))
+                .where(TMDBMovie.vote_average > 0)
+                .order_by(TMDBMovie.vote_average.desc())
+                .limit(limit)
+            )
+
+            rows = session.execute(query).all()
+
+            items: list[dict[str, Any]] = []
+            for movie, tmdb in rows:
+                genres: list[str] = []
+                if tmdb.genres:
+                    try:
+                        genres = json.loads(tmdb.genres)
+                    except (json.JSONDecodeError, TypeError):
+                        pass
+
+                items.append({
+                    "id": movie.id,
+                    "title": movie.title,
+                    "backdrop_url": f"{TMDB_IMAGE_BASE}/original{tmdb.backdrop_path}",
+                    "poster_url": f"{TMDB_IMAGE_BASE}/w500{tmdb.poster_path}" if tmdb.poster_path else None,
+                    "vote_average": tmdb.vote_average,
+                    "release_date": tmdb.release_date,
+                    "overview": tmdb.overview or "",
+                    "genres": genres,
+                    "runtime": tmdb.runtime,
+                })
+
+            return items

@@ -1,21 +1,23 @@
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { fetchMovie } from '../api/client';
+import { translateGenre } from '../utils/genreMap';
 
-export default function MovieDetail({ movieId, onClose }) {
+export default function MovieDetail({ librarySlug, movieId, onClose }) {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!movieId) return;
+    if (!movieId || !librarySlug) return;
     setLoading(true);
     setError(null);
 
-    fetchMovie(movieId)
+    fetchMovie(librarySlug, movieId)
       .then((data) => setMovie(data))
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
-  }, [movieId]);
+  }, [librarySlug, movieId]);
 
   // Close on Escape key
   useEffect(() => {
@@ -37,17 +39,47 @@ export default function MovieDetail({ movieId, onClose }) {
   };
 
   const tmdb = movie?.tmdb;
+
+  // Arabic-ready: prefer Arabic fields when available
+  const displayTitle = tmdb?.title_ar || movie?.title || '';
+  const displayOverview = tmdb?.overview_ar || tmdb?.overview || '';
+  const originalTitle = tmdb?.original_title;
   const rating = tmdb?.vote_average != null ? tmdb.vote_average.toFixed(1) : null;
   const year = tmdb?.release_date ? tmdb.release_date.slice(0, 4) : null;
 
   return (
-    <div className="modal-overlay" onClick={handleOverlayClick} id="movie-detail-modal">
-      <div className="modal-content" role="dialog" aria-label="Movie details">
-        <button className="modal-close" onClick={onClose} aria-label="Close">✕</button>
+    <motion.div
+      className="modal-overlay"
+      onClick={handleOverlayClick}
+      id="movie-detail-modal"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.25 }}
+    >
+      <motion.div
+        className="modal-content"
+        role="dialog"
+        aria-label="تفاصيل الفيلم"
+        initial={{ opacity: 0, y: 40, scale: 0.96 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 30, scale: 0.97 }}
+        transition={{ type: 'spring', stiffness: 120, damping: 18 }}
+      >
+        {/* Premium floating close button */}
+        <button className="modal-close-btn" onClick={onClose} aria-label="إغلاق">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
 
         {loading && (
-          <div className="loading-spinner" style={{ padding: '4rem' }}>
-            <div className="spinner" />
+          <div className="modal-loading">
+            <div className="modal-loading-spinner">
+              <div className="spinner-ring" />
+            </div>
+            <span className="modal-loading-text">جاري تحميل التفاصيل...</span>
           </div>
         )}
 
@@ -56,7 +88,19 @@ export default function MovieDetail({ movieId, onClose }) {
         {movie && !loading && (
           <>
             {tmdb?.backdrop_url ? (
-              <img className="modal-backdrop-img" src={tmdb.backdrop_url} alt="" />
+              <motion.div
+                className="modal-backdrop-wrapper"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+              >
+                <img
+                  className="modal-backdrop-image"
+                  src={tmdb.backdrop_url}
+                  alt=""
+                />
+                <div className="modal-backdrop-fade" />
+              </motion.div>
             ) : (
               <div className="modal-backdrop-placeholder" />
             )}
@@ -64,18 +108,30 @@ export default function MovieDetail({ movieId, onClose }) {
             <div className="modal-body">
               {/* Poster */}
               {tmdb?.poster_url ? (
-                <img className="modal-poster" src={tmdb.poster_url} alt={movie.title} />
+                <motion.img
+                  className="modal-poster"
+                  src={tmdb.poster_url}
+                  alt={displayTitle}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.15, duration: 0.4 }}
+                />
               ) : (
                 <div className="modal-poster-placeholder">🎬</div>
               )}
 
               {/* Info */}
-              <div className="modal-info">
-                <h1 className="modal-title">{movie.title}</h1>
+              <motion.div
+                className="modal-info"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.4 }}
+              >
+                <h1 className="modal-title">{displayTitle}</h1>
 
-                {tmdb?.original_title && tmdb.original_title !== movie.title && (
-                  <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: '0.5rem', fontStyle: 'italic' }}>
-                    {tmdb.original_title}
+                {originalTitle && originalTitle !== displayTitle && (
+                  <div className="modal-original-title">
+                    {originalTitle}
                   </div>
                 )}
 
@@ -83,14 +139,22 @@ export default function MovieDetail({ movieId, onClose }) {
                   {rating && (
                     <span className="modal-rating">★ {rating}</span>
                   )}
-                  {year && <span>{year}</span>}
-                  {tmdb?.runtime && <span>{tmdb.runtime} min</span>}
+                  {year && (
+                    <span className="modal-meta-item">
+                      <span className="modal-meta-label">السنة</span> {year}
+                    </span>
+                  )}
+                  {tmdb?.runtime && (
+                    <span className="modal-meta-item">
+                      <span className="modal-meta-label">المدة</span> {tmdb.runtime} دقيقة
+                    </span>
+                  )}
                   {tmdb?.imdb_id && (
                     <a
                       href={`https://www.imdb.com/title/${tmdb.imdb_id}/`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{ color: 'var(--accent-gold)', textDecoration: 'none', fontWeight: 600 }}
+                      className="modal-imdb-link"
                     >
                       IMDb ↗
                     </a>
@@ -100,31 +164,33 @@ export default function MovieDetail({ movieId, onClose }) {
                 {tmdb?.genres && tmdb.genres.length > 0 && (
                   <div className="modal-genres">
                     {tmdb.genres.map((g) => (
-                      <span className="modal-genre-tag" key={g}>{g}</span>
+                      <span className="modal-genre-tag" key={g}>{translateGenre(g)}</span>
                     ))}
                   </div>
                 )}
 
-                {tmdb?.overview && (
-                  <p className="modal-overview">{tmdb.overview}</p>
+                {displayOverview && (
+                  <p className="modal-overview">{displayOverview}</p>
                 )}
 
                 {movie.telegram_link && (
-                  <a
+                  <motion.a
                     className="telegram-watch-btn"
                     href={movie.telegram_link}
                     target="_blank"
                     rel="noopener noreferrer"
                     id="watch-on-telegram-btn"
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
                   >
-                    📺 Watch on Telegram
-                  </a>
+                    📺 شاهد على تيليجرام
+                  </motion.a>
                 )}
-              </div>
+              </motion.div>
             </div>
           </>
         )}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }

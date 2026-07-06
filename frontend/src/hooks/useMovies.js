@@ -5,7 +5,7 @@ import { fetchMovies, fetchGenres, fetchStats } from '../api/client';
  * Central data-fetching hook for the movie library.
  * Manages pagination, search, genre filter, sorting, and stats.
  */
-export function useMovies() {
+export function useMovies(librarySlug) {
   // --- Movie list state ---
   const [movies, setMovies] = useState([]);
   const [total, setTotal] = useState(0);
@@ -49,10 +49,11 @@ export function useMovies() {
   // Fetch movies
   useEffect(() => {
     let cancelled = false;
+    if (!librarySlug) return;
     setLoading(true);
     setError(null);
 
-    fetchMovies({
+    fetchMovies(librarySlug, {
       page,
       pageSize,
       search: debouncedSearch,
@@ -77,19 +78,21 @@ export function useMovies() {
     return () => { cancelled = true; };
   }, [page, pageSize, debouncedSearch, genre, sortBy, sortOrder]);
 
-  // Fetch genres (once)
+  // Fetch genres
   useEffect(() => {
-    fetchGenres()
+    if (!librarySlug) return;
+    fetchGenres(librarySlug)
       .then((data) => setGenres(data.genres))
       .catch(() => {}); // non-critical
-  }, []);
+  }, [librarySlug]);
 
-  // Fetch stats (once)
+  // Fetch stats
   useEffect(() => {
-    fetchStats()
+    if (!librarySlug) return;
+    fetchStats(librarySlug)
       .then((data) => setStats(data))
       .catch(() => {}); // non-critical
-  }, []);
+  }, [librarySlug]);
 
   const clearGenre = useCallback(() => setGenre(''), []);
   const toggleGenre = useCallback((g) => {

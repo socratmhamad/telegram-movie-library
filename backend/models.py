@@ -136,3 +136,29 @@ class StatsResponse(BaseModel):
     movies_without_tmdb: int
     total_messages: int
     genres_breakdown: dict[str, int]
+
+
+# ---------------------------------------------------------------------------
+# Featured movies (hero carousel)
+# ---------------------------------------------------------------------------
+
+class FeaturedMovieItem(BaseModel):
+    id: int
+    title: str
+    backdrop_url: str
+    poster_url: str | None = None
+    vote_average: float | None = None
+    release_date: str | None = None
+    overview: str = ""
+    genres: list[str] = []
+    runtime: int | None = None
+
+    @field_validator("genres", mode="before")
+    @classmethod
+    def parse_genres(cls, value: Any) -> list[str]:
+        return _parse_genres(value)
+
+
+class FeaturedResponse(BaseModel):
+    items: list[FeaturedMovieItem]
+

@@ -24,12 +24,12 @@ export default function Pagination({ page, totalPages, total, onPageChange }) {
   if (totalPages <= 1) return null;
 
   return (
-    <nav className="pagination" id="pagination" aria-label="Pagination">
+    <nav className="pagination" id="pagination" aria-label="التنقل بين الصفحات">
       <button
         className="pagination-btn"
         onClick={() => onPageChange(page - 1)}
         disabled={page <= 1}
-        aria-label="Previous page"
+        aria-label="الصفحة السابقة"
       >
         ‹
       </button>
@@ -53,13 +53,13 @@ export default function Pagination({ page, totalPages, total, onPageChange }) {
         className="pagination-btn"
         onClick={() => onPageChange(page + 1)}
         disabled={page >= totalPages}
-        aria-label="Next page"
+        aria-label="الصفحة التالية"
       >
         ›
       </button>
 
       <span className="pagination-info">
-        {total.toLocaleString()} movie{total !== 1 ? 's' : ''}
+        {total.toLocaleString('ar-EG')} {total === 1 ? 'فيلم' : 'أفلام'}
       </span>
     </nav>
   );

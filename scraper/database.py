@@ -8,7 +8,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
 
-from database.models import init_db, Movie, TMDBMovie, TelegramMessage
+from database.models import init_db, Movie, TMDBMovie, TelegramMessage, MovieAlias
 
 class MovieDatabase:
     """SQLAlchemy repository for storing scraped Telegram movie records."""
@@ -28,45 +28,50 @@ class MovieDatabase:
         finally:
             session.close()
 
-    def get_known_message_ids(self) -> set[int]:
-        """Return the set of all Telegram message IDs already stored."""
+    def get_known_message_ids(self, library_id: int) -> set[int]:
+        """Return the set of all Telegram message IDs already stored for the library."""
         with self._connection() as session:
-            rows = session.execute(select(TelegramMessage.message_id)).scalars().all()
+            rows = session.execute(
+                select(TelegramMessage.message_id)
+                .join(Movie, TelegramMessage.movie_id == Movie.id)
+                .where(Movie.library_id == library_id)
+            ).scalars().all()
             return set(rows)
 
-    def get_or_create_movie(self, title: str) -> int:
+    def get_or_create_movie(self, title: str, library_id: int) -> int:
         with self._connection() as session:
-            return self._get_or_create_movie(session, title)
+            return self._get_or_create_movie(session, title, library_id)
 
     def save_telegram_message(self, movie_id: int, message_id: int) -> bool:
         with self._connection() as session:
             return self._save_telegram_message(session, movie_id, message_id)
 
-    def save_movie_message(self, title: str, message_id: int) -> bool:
+    def save_movie_message(self, title: str, message_id: int, library_id: int) -> bool:
         with self._connection() as session:
-            movie_id = self._get_or_create_movie(session, title)
+            movie_id = self._get_or_create_movie(session, title, library_id)
             return self._save_telegram_message(session, movie_id, message_id)
 
-    def save_movies(self, movies: Iterable[dict[str, object]]) -> int:
+    def save_movies(self, movies: Iterable[dict[str, object]], library_id: int) -> int:
         saved_count = 0
         with self._connection() as session:
             for movie_dict in movies:
                 title = str(movie_dict["title"])
                 message_id = int(str(movie_dict["message_id"]))
                 
-                movie_id = self._get_or_create_movie(session, title)
+                movie_id = self._get_or_create_movie(session, title, library_id)
                 inserted = self._save_telegram_message(session, movie_id, message_id)
                 if inserted:
                     saved_count += 1
         return saved_count
 
-    def get_movies_without_tmdb(self) -> list[dict[str, object]]:
+    def get_movies_without_tmdb(self, library_id: int | None = None) -> list[dict[str, object]]:
         with self._connection() as session:
-            rows = session.execute(
-                select(Movie.id, Movie.title)
-                .where(Movie.tmdb_movie_id.is_(None))
-                .order_by(Movie.title)
-            ).all()
+            query = select(Movie.id, Movie.title).where(Movie.tmdb_movie_id.is_(None))
+            if library_id is not None:
+                query = query.where(Movie.library_id == library_id)
+            query = query.order_by(Movie.title)
+            
+            rows = session.execute(query).all()
             # Return dicts to emulate sqlite3.Row for legacy compat in update_tmdb.py
             return [{"id": row.id, "title": row.title} for row in rows]
 
@@ -77,20 +82,51 @@ class MovieDatabase:
     def link_movie_to_tmdb(self, movie_id: int, tmdb_movie_id: int) -> None:
         with self._connection() as session:
             movie = session.execute(select(Movie).where(Movie.id == movie_id)).scalar_one_or_none()
-            if movie:
+            if not movie:
+                return
+                
+            from sqlalchemy import update
+            
+            # Check if another movie in the same library already has this tmdb_id
+            existing = session.execute(
+                select(Movie)
+                .where(Movie.tmdb_movie_id == tmdb_movie_id, Movie.library_id == movie.library_id, Movie.id != movie_id)
+            ).scalar_one_or_none()
+            
+            if existing:
+                # Merge current movie into existing
+                session.execute(
+                    update(MovieAlias).where(MovieAlias.movie_id == movie_id).values(movie_id=existing.id)
+                )
+                session.execute(
+                    update(TelegramMessage).where(TelegramMessage.movie_id == movie_id).values(movie_id=existing.id)
+                )
+                session.delete(movie)
+            else:
                 movie.tmdb_movie_id = tmdb_movie_id
 
-    def _get_or_create_movie(self, session: Session, title: str) -> int:
-        movie = session.execute(select(Movie).where(Movie.title == title)).scalar_one_or_none()
-        if movie is None:
-            movie = Movie(title=title)
-            session.add(movie)
-            try:
-                session.flush()
-            except IntegrityError:
-                session.rollback()
-                movie = session.execute(select(Movie).where(Movie.title == title)).scalar_one()
-        return int(str(movie.id))
+    def _get_or_create_movie(self, session: Session, title: str, library_id: int) -> int:
+        alias = session.execute(
+            select(MovieAlias).where(MovieAlias.title == title, MovieAlias.library_id == library_id)
+        ).scalar_one_or_none()
+        
+        if alias is not None:
+            return alias.movie_id
+            
+        movie = Movie(title=title, library_id=library_id)
+        session.add(movie)
+        try:
+            session.flush()
+            new_alias = MovieAlias(title=title, library_id=library_id, movie_id=movie.id)
+            session.add(new_alias)
+            session.flush()
+            return movie.id
+        except IntegrityError:
+            session.rollback()
+            alias = session.execute(
+                select(MovieAlias).where(MovieAlias.title == title, MovieAlias.library_id == library_id)
+            ).scalar_one()
+            return alias.movie_id
 
     def _save_telegram_message(
         self,

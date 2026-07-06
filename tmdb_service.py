@@ -60,24 +60,48 @@ def get_movie_details(tmdb_id: int) -> dict[str, Any]:
     """
     Fetch detailed TMDB metadata for a movie.
 
+    Prefers Arabic metadata (language=ar). If the Arabic title or overview
+    is missing/empty, falls back to English to ensure no blank fields.
+
     Returned keys:
-    - poster_path
-    - backdrop_path
-    - overview
-    - vote_average
-    - runtime
-    - genres
+    - title_ar, overview_ar  (Arabic, may be None if unavailable)
+    - poster_path, backdrop_path, overview, vote_average, runtime
+    - genres  (Arabic genre names when available)
     - imdb_id
     """
-    response = _tmdb_get(f"/movie/{tmdb_id}", {})
+    # 1. Fetch Arabic version first
+    ar_response = _tmdb_get(f"/movie/{tmdb_id}", {"language": "ar"})
+
+    ar_title = (ar_response.get("title") or "").strip()
+    ar_overview = (ar_response.get("overview") or "").strip()
+    ar_genres = [g["name"] for g in ar_response.get("genres", [])]
+
+    # 2. If Arabic title or overview is empty, fetch English as fallback
+    en_title = None
+    en_overview = None
+    en_genres = ar_genres  # default to whatever we got
+
+    if not ar_title or not ar_overview:
+        en_response = _tmdb_get(f"/movie/{tmdb_id}", {"language": "en"})
+        en_title = (en_response.get("title") or "").strip()
+        en_overview = (en_response.get("overview") or "").strip()
+        if not ar_genres:
+            en_genres = [g["name"] for g in en_response.get("genres", [])]
+
+    # 3. Merge: prefer Arabic, fill gaps with English
+    final_title = ar_title or en_title or ar_response.get("original_title", "")
+    final_overview = ar_overview or en_overview or ""
+
     return {
-        "poster_path": response.get("poster_path"),
-        "backdrop_path": response.get("backdrop_path"),
-        "overview": response.get("overview"),
-        "vote_average": response.get("vote_average"),
-        "runtime": response.get("runtime"),
-        "genres": [genre["name"] for genre in response.get("genres", [])],
-        "imdb_id": response.get("imdb_id"),
+        "title_ar": ar_title if ar_title else None,
+        "overview_ar": ar_overview if ar_overview else None,
+        "poster_path": ar_response.get("poster_path"),
+        "backdrop_path": ar_response.get("backdrop_path"),
+        "overview": final_overview,
+        "vote_average": ar_response.get("vote_average"),
+        "runtime": ar_response.get("runtime"),
+        "genres": en_genres if en_genres else ar_genres,
+        "imdb_id": ar_response.get("imdb_id"),
     }
 
 

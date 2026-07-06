@@ -2,10 +2,22 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
-from sqlalchemy import Column, Integer, String, Float, ForeignKey, Text, create_engine
+from sqlalchemy import Column, Integer, String, Float, ForeignKey, Text, DateTime, Boolean, UniqueConstraint, create_engine
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 
 Base = declarative_base()
+
+class Library(Base):
+    __tablename__ = 'libraries'
+    
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    name = Column(String, nullable=False, unique=True)
+    slug = Column(String, nullable=False, unique=True)
+    telegram_channel = Column(String, nullable=False, unique=True)
+    telegram_channel_id = Column(String, nullable=True)
+    is_active = Column(Boolean, default=True)
+    last_scan = Column(DateTime, nullable=True)
+    last_migration = Column(DateTime, nullable=True)
 
 class TMDBMovie(Base):
     __tablename__ = 'tmdb_movies'
@@ -25,13 +37,33 @@ class TMDBMovie(Base):
 
 class Movie(Base):
     __tablename__ = 'movies'
+    __table_args__ = (
+        UniqueConstraint('tmdb_movie_id', 'library_id', name='uix_movie_tmdb_library'),
+    )
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    title = Column(String, nullable=False, unique=True)
+    library_id = Column(Integer, ForeignKey('libraries.id'), nullable=False)
+    title = Column(String, nullable=False)
     tmdb_movie_id = Column(Integer, ForeignKey('tmdb_movies.id'))
 
+    library = relationship("Library")
     tmdb_movie = relationship("TMDBMovie")
     telegram_messages = relationship("TelegramMessage", back_populates="movie", cascade="all, delete-orphan")
+    aliases = relationship("MovieAlias", back_populates="movie", cascade="all, delete-orphan")
+
+class MovieAlias(Base):
+    __tablename__ = 'movie_aliases'
+    __table_args__ = (
+        UniqueConstraint('title', 'library_id', name='uix_alias_title_library'),
+    )
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    library_id = Column(Integer, ForeignKey('libraries.id'), nullable=False)
+    title = Column(String, nullable=False)
+    movie_id = Column(Integer, ForeignKey('movies.id', ondelete="CASCADE"), nullable=False)
+
+    library = relationship("Library")
+    movie = relationship("Movie", back_populates="aliases")
 
 class TelegramMessage(Base):
     __tablename__ = 'telegram_messages'
@@ -39,6 +71,13 @@ class TelegramMessage(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     movie_id = Column(Integer, ForeignKey('movies.id', ondelete="CASCADE"), nullable=False)
     message_id = Column(Integer, nullable=False, unique=True)
+    
+    # Future quality selector metadata
+    quality = Column(String, nullable=True)
+    codec = Column(String, nullable=True)
+    release_type = Column(String, nullable=True)
+    file_size = Column(String, nullable=True)
+    language = Column(String, nullable=True)
 
     movie = relationship("Movie", back_populates="telegram_messages")
 
