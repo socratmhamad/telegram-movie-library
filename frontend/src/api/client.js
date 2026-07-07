@@ -2,8 +2,9 @@
  * API client — thin wrapper around fetch for the /api endpoints.
  */
 
-/**const BASE = `http://${window.location.hostname}:8000/api`;*/
-const BASE = `https://telegram-movie-library.onrender.com`;
+const BASE = import.meta.env.VITE_API_URL
+  ? `${import.meta.env.VITE_API_URL}/api`
+  : `http://${window.location.hostname}:8000/api`;
              
 
 async function request(path, params = {}) {
