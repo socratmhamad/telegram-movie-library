@@ -7,7 +7,7 @@ from typing import Any
 from sqlalchemy import select, func, distinct, case
 from sqlalchemy.orm import Session
 
-from backend.config import get_telegram_channel_id
+
 from database.models import init_db, Library, Movie, TMDBMovie, TelegramMessage
 
 TMDB_IMAGE_BASE = "https://image.tmdb.org/t/p"
@@ -217,10 +217,20 @@ class MovieQueries:
             ]
 
             telegram_link = None
-            channel_id = get_telegram_channel_id()
-            if telegram_messages and channel_id:
+            if telegram_messages:
                 first_msg_id = telegram_messages[0]["message_id"]
-                telegram_link = f"https://t.me/c/{channel_id}/{first_msg_id}"
+                library = movie.library
+                if library and library.telegram_channel_id:
+                    telegram_link = f"https://t.me/c/{library.telegram_channel_id}/{first_msg_id}"
+                elif library and library.telegram_channel:
+                    # Public channel: extract username from URL or use handle directly
+                    channel = library.telegram_channel
+                    if channel.startswith("@"):
+                        channel = channel[1:]
+                    elif "t.me/" in channel:
+                        channel = channel.split("t.me/")[-1].strip("/")
+                    if channel and not channel.startswith("+"):
+                        telegram_link = f"https://t.me/{channel}/{first_msg_id}"
 
             return {
                 "id": movie.id,

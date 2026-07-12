@@ -60,7 +60,11 @@ class TelegramMessage(Base):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     movie_id = Column(Integer, ForeignKey('movies.id', ondelete="CASCADE"), nullable=False)
-    message_id = Column(Integer, nullable=False, unique=True)
+    message_id = Column(Integer, nullable=False)
+
+    __table_args__ = (
+        UniqueConstraint('movie_id', 'message_id', name='uix_message_movie'),
+    )
 
     movie = relationship("Movie", back_populates="telegram_messages")
 
