@@ -2,10 +2,26 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
-from sqlalchemy import Column, Integer, String, Float, ForeignKey, Text, create_engine
+from sqlalchemy import Column, Integer, String, Float, ForeignKey, Text, Boolean, DateTime, UniqueConstraint, create_engine
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 
 Base = declarative_base()
+
+
+class Library(Base):
+    __tablename__ = 'libraries'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String, nullable=False, unique=True)
+    slug = Column(String, nullable=False, unique=True)
+    telegram_channel = Column(String, nullable=False, unique=True)
+    is_active = Column(Boolean)
+    last_scan = Column(DateTime)
+    last_migration = Column(DateTime)
+    telegram_channel_id = Column(String)
+
+    movies = relationship("Movie", back_populates="library")
+
 
 class TMDBMovie(Base):
     __tablename__ = 'tmdb_movies'
@@ -27,9 +43,15 @@ class Movie(Base):
     __tablename__ = 'movies'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    title = Column(String, nullable=False, unique=True)
+    library_id = Column(Integer, ForeignKey('libraries.id'), nullable=False)
+    title = Column(String, nullable=False)
     tmdb_movie_id = Column(Integer, ForeignKey('tmdb_movies.id'))
 
+    __table_args__ = (
+        UniqueConstraint('tmdb_movie_id', 'library_id', name='uix_movie_tmdb_library'),
+    )
+
+    library = relationship("Library", back_populates="movies")
     tmdb_movie = relationship("TMDBMovie")
     telegram_messages = relationship("TelegramMessage", back_populates="movie", cascade="all, delete-orphan")
 

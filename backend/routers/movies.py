@@ -32,6 +32,7 @@ def list_movies(
         description="Sort direction",
         pattern="^(asc|desc)$",
     ),
+    library_id: int | None = Query(None, description="Filter by library ID"),
     queries: MovieQueries = Depends(_get_queries),
 ) -> PaginatedResponse:
     """Return a paginated list of movies with lightweight TMDB metadata."""
@@ -42,6 +43,7 @@ def list_movies(
         genre=genre,
         sort_by=sort_by,
         sort_order=sort_order,
+        library_id=library_id,
     )
     return PaginatedResponse(**result)
 
@@ -60,7 +62,9 @@ def get_movie(
 
 @router.get("/genres", response_model=GenreListResponse)
 def list_genres(
+    library_id: int | None = Query(None, description="Filter genres by library ID"),
     queries: MovieQueries = Depends(_get_queries),
 ) -> GenreListResponse:
     """Return a sorted list of every unique genre in the library."""
-    return GenreListResponse(genres=queries.get_genres())
+    return GenreListResponse(genres=queries.get_genres(library_id=library_id))
+

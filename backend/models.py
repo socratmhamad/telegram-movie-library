@@ -136,3 +136,20 @@ class StatsResponse(BaseModel):
     movies_without_tmdb: int
     total_messages: int
     genres_breakdown: dict[str, int]
+
+
+# ---------------------------------------------------------------------------
+# Library
+# ---------------------------------------------------------------------------
+
+class LibraryResponse(BaseModel):
+    id: int
+    name: str
+    slug: str
+    telegram_channel: str | None = None
+    movie_count: int = 0
+
+
+class LibraryListResponse(BaseModel):
+    libraries: list[LibraryResponse]
+

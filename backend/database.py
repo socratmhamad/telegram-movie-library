@@ -8,7 +8,7 @@ from sqlalchemy import select, func, distinct, case
 from sqlalchemy.orm import Session
 
 from backend.config import get_telegram_channel_id
-from database.models import init_db, Movie, TMDBMovie, TelegramMessage
+from database.models import init_db, Library, Movie, TMDBMovie, TelegramMessage
 
 TMDB_IMAGE_BASE = "https://image.tmdb.org/t/p"
 
@@ -41,6 +41,48 @@ class MovieQueries:
     # Movie list (paginated, searchable, filterable, sortable)
     # ------------------------------------------------------------------
 
+    def get_libraries(self) -> list[dict[str, Any]]:
+        with self._get_session() as session:
+            libs = session.execute(
+                select(Library).where(Library.is_active == True).order_by(Library.id)
+            ).scalars().all()
+
+            result = []
+            for lib in libs:
+                movie_count = session.scalar(
+                    select(func.count(Movie.id)).where(Movie.library_id == lib.id)
+                ) or 0
+                result.append({
+                    "id": lib.id,
+                    "name": lib.name,
+                    "slug": lib.slug,
+                    "telegram_channel": lib.telegram_channel,
+                    "movie_count": movie_count,
+                })
+            return result
+
+    def get_library_by_slug(self, slug: str) -> dict[str, Any] | None:
+        with self._get_session() as session:
+            lib = session.execute(
+                select(Library).where(Library.slug == slug)
+            ).scalar_one_or_none()
+            if lib is None:
+                return None
+            movie_count = session.scalar(
+                select(func.count(Movie.id)).where(Movie.library_id == lib.id)
+            ) or 0
+            return {
+                "id": lib.id,
+                "name": lib.name,
+                "slug": lib.slug,
+                "telegram_channel": lib.telegram_channel,
+                "movie_count": movie_count,
+            }
+
+    # ------------------------------------------------------------------
+    # Movie list (paginated, searchable, filterable, sortable)
+    # ------------------------------------------------------------------
+
     def get_movies(
         self,
         *,
@@ -50,6 +92,7 @@ class MovieQueries:
         genre: str | None = None,
         sort_by: str = "title",
         sort_order: str = "asc",
+        library_id: int | None = None,
     ) -> dict[str, Any]:
         sort_column = _VALID_SORT_COLUMNS.get(sort_by, Movie.title)
         
@@ -61,6 +104,9 @@ class MovieQueries:
         with self._get_session() as session:
             # Base query
             query = select(Movie, TMDBMovie).outerjoin(TMDBMovie, Movie.tmdb_movie_id == TMDBMovie.id)
+
+            if library_id is not None:
+                query = query.where(Movie.library_id == library_id)
 
             if search:
                 query = query.where(Movie.title.ilike(f"%{search}%"))
@@ -189,13 +235,16 @@ class MovieQueries:
     # Distinct genre list
     # ------------------------------------------------------------------
 
-    def get_genres(self) -> list[str]:
+    def get_genres(self, *, library_id: int | None = None) -> list[str]:
         with self._get_session() as session:
-            rows = session.execute(
+            genre_query = (
                 select(distinct(TMDBMovie.genres))
                 .where(TMDBMovie.genres.isnot(None))
                 .where(TMDBMovie.genres != '[]')
-            ).scalars().all()
+            )
+            if library_id is not None:
+                genre_query = genre_query.join(Movie, Movie.tmdb_movie_id == TMDBMovie.id).where(Movie.library_id == library_id)
+            rows = session.execute(genre_query).scalars().all()
 
             all_genres: set[str] = set()
             for genres_raw in rows:
@@ -214,24 +263,34 @@ class MovieQueries:
     # Library statistics
     # ------------------------------------------------------------------
 
-    def get_stats(self) -> dict[str, Any]:
+    def get_stats(self, *, library_id: int | None = None) -> dict[str, Any]:
         with self._get_session() as session:
-            total_movies = session.scalar(select(func.count(Movie.id))) or 0
-            
-            movies_with_tmdb = session.scalar(
-                select(func.count(Movie.id)).where(Movie.tmdb_movie_id.isnot(None))
-            ) or 0
+            movie_filter = select(func.count(Movie.id))
+            if library_id is not None:
+                movie_filter = movie_filter.where(Movie.library_id == library_id)
+            total_movies = session.scalar(movie_filter) or 0
+
+            tmdb_filter = select(func.count(Movie.id)).where(Movie.tmdb_movie_id.isnot(None))
+            if library_id is not None:
+                tmdb_filter = tmdb_filter.where(Movie.library_id == library_id)
+            movies_with_tmdb = session.scalar(tmdb_filter) or 0
             
             movies_without_tmdb = total_movies - movies_with_tmdb
-            
-            total_messages = session.scalar(select(func.count(TelegramMessage.id))) or 0
+
+            msg_filter = select(func.count(TelegramMessage.id))
+            if library_id is not None:
+                msg_filter = msg_filter.join(Movie, TelegramMessage.movie_id == Movie.id).where(Movie.library_id == library_id)
+            total_messages = session.scalar(msg_filter) or 0
 
             # Genre breakdown
-            genre_rows = session.execute(
+            genre_query = (
                 select(TMDBMovie.genres)
                 .where(TMDBMovie.genres.isnot(None))
                 .where(TMDBMovie.genres != '[]')
-            ).scalars().all()
+            )
+            if library_id is not None:
+                genre_query = genre_query.join(Movie, Movie.tmdb_movie_id == TMDBMovie.id).where(Movie.library_id == library_id)
+            genre_rows = session.execute(genre_query).scalars().all()
 
             genre_counts: dict[str, int] = {}
             for genres_raw in genre_rows:

@@ -1,1 +1,0 @@
-"""Telegram movie scraper package."""

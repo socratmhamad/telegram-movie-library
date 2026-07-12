@@ -1,0 +1,366 @@
+{
+  "communities": {
+    "0": [
+      "backend_app",
+      "backend_app_rationale_50",
+      "backend_app_root",
+      "backend_config",
+      "backend_config_get_database_path",
+      "backend_config_get_database_url",
+      "backend_config_get_telegram_channel_id",
+      "backend_config_py_path",
+      "backend_config_rationale_13",
+      "backend_config_rationale_25",
+      "backend_config_rationale_30",
+      "backend_database",
+      "backend_database_moviequeries",
+      "backend_database_moviequeries_get_genres",
+      "backend_database_moviequeries_get_movie",
+      "backend_database_moviequeries_get_movies",
+      "backend_database_moviequeries_get_session",
+      "backend_database_moviequeries_get_stats",
+      "backend_database_moviequeries_init",
+      "backend_database_py_any",
+      "backend_database_rationale_23",
+      "base",
+      "database_models",
+      "database_models_init_db",
+      "database_models_movie",
+      "database_models_rationale_62",
+      "database_models_telegrammessage",
+      "database_models_tmdbmovie",
+      "migrate_to_postgres",
+      "migrate_to_postgres_main",
+      "session"
+    ],
+    "1": [
+      "backend_models",
+      "backend_models_genrelistresponse",
+      "backend_models_moviedetailresponse",
+      "backend_models_movielistitem",
+      "backend_models_movielistitem_parse_genres",
+      "backend_models_paginatedresponse",
+      "backend_models_parse_genres",
+      "backend_models_py_any",
+      "backend_models_rationale_17",
+      "backend_models_statsresponse",
+      "backend_models_telegrammessageresponse",
+      "backend_models_tmdbmovieresponse",
+      "backend_models_tmdbmovieresponse_backdrop_url",
+      "backend_models_tmdbmovieresponse_parse_genres",
+      "backend_models_tmdbmovieresponse_poster_url",
+      "backend_routers_movies",
+      "backend_routers_movies_get_movie",
+      "backend_routers_movies_get_queries",
+      "backend_routers_movies_list_genres",
+      "backend_routers_movies_list_movies",
+      "backend_routers_movies_py_request",
+      "backend_routers_movies_rationale_37",
+      "backend_routers_movies_rationale_54",
+      "backend_routers_movies_rationale_65",
+      "backend_routers_stats",
+      "backend_routers_stats_get_queries",
+      "backend_routers_stats_library_stats",
+      "backend_routers_stats_py_request",
+      "backend_routers_stats_rationale_19",
+      "basemodel"
+    ],
+    "2": [
+      "frontend_src_api_client",
+      "frontend_src_api_client_fetchgenres",
+      "frontend_src_api_client_fetchmovie",
+      "frontend_src_api_client_fetchmovies",
+      "frontend_src_api_client_fetchstats",
+      "frontend_src_api_client_request",
+      "frontend_src_app",
+      "frontend_src_app_app",
+      "frontend_src_components_genrefilter",
+      "frontend_src_components_genrefilter_genrefilter",
+      "frontend_src_components_layout",
+      "frontend_src_components_layout_layout",
+      "frontend_src_components_moviecard",
+      "frontend_src_components_moviecard_moviecard",
+      "frontend_src_components_moviedetail",
+      "frontend_src_components_moviedetail_moviedetail",
+      "frontend_src_components_moviegrid",
+      "frontend_src_components_moviegrid_moviegrid",
+      "frontend_src_components_pagination",
+      "frontend_src_components_pagination_pagination",
+      "frontend_src_components_searchbar",
+      "frontend_src_components_searchbar_searchbar",
+      "frontend_src_components_statspanel",
+      "frontend_src_components_statspanel_statspanel",
+      "frontend_src_hooks_usemovies",
+      "frontend_src_hooks_usemovies_usemovies",
+      "frontend_src_main",
+      "ref_react"
+    ],
+    "3": [
+      "lock",
+      "moviedatabase",
+      "update_tmdb",
+      "update_tmdb_clean_title_and_extract_year",
+      "update_tmdb_main",
+      "update_tmdb_process_movie",
+      "update_tmdb_py_any",
+      "update_tmdb_rationale_34",
+      "update_tmdb_rationale_39",
+      "update_tmdb_safe",
+      "update_tmdb_stats",
+      "update_tmdb_stats_increment_errors",
+      "update_tmdb_stats_increment_matched",
+      "update_tmdb_stats_increment_not_found",
+      "update_tmdb_stats_increment_processed",
+      "update_tmdb_stats_init",
+      "update_tmdb_tmdbclient",
+      "update_tmdb_tmdbclient_get_movie_details",
+      "update_tmdb_tmdbclient_init",
+      "update_tmdb_tmdbclient_request",
+      "update_tmdb_tmdbclient_search_movie"
+    ],
+    "4": [
+      "frontend_package",
+      "frontend_package_dependencies",
+      "frontend_package_dependencies_react",
+      "frontend_package_dependencies_react_dom",
+      "frontend_package_devdependencies",
+      "frontend_package_devdependencies_vite",
+      "frontend_package_devdependencies_vitejs_plugin_react",
+      "frontend_package_name",
+      "frontend_package_private",
+      "frontend_package_scripts",
+      "frontend_package_scripts_build",
+      "frontend_package_scripts_dev",
+      "frontend_package_scripts_preview",
+      "frontend_package_type",
+      "frontend_package_version",
+      "react",
+      "react_dom",
+      "vite",
+      "vitejs_plugin_react"
+    ],
+    "5": [
+      "config",
+      "config_int_env",
+      "config_path_env",
+      "config_py_path",
+      "config_required_env",
+      "config_settings",
+      "database_models_get_db_url",
+      "database_models_py_path",
+      "database_models_rationale_47",
+      "main",
+      "main_rationale_13",
+      "main_run",
+      "main_safe"
+    ],
+    "6": [
+      "test_tmdb",
+      "test_tmdb_main",
+      "tmdb_service",
+      "tmdb_service_build_poster_url",
+      "tmdb_service_choose_best_match",
+      "tmdb_service_get_movie_details",
+      "tmdb_service_normalize_title",
+      "tmdb_service_py_any",
+      "tmdb_service_rationale_25",
+      "tmdb_service_rationale_60",
+      "tmdb_service_search_movie",
+      "tmdb_service_tmdb_get"
+    ],
+    "7": [
+      "frontend_oxlintrc",
+      "frontend_oxlintrc_plugins",
+      "frontend_oxlintrc_rules",
+      "frontend_oxlintrc_rules_react_only_export_components",
+      "frontend_oxlintrc_rules_react_rules_of_hooks",
+      "frontend_oxlintrc_schema",
+      "ref_oxc",
+      "ref_warn"
+    ],
+    "8": [
+      "backend_run",
+      "backend_run_main",
+      "backend_run_rationale_1"
+    ],
+    "9": [
+      "test_postgres_connection",
+      "test_postgres_connection_test_pg8000"
+    ],
+    "10": [
+      "test_tcp",
+      "test_tcp_test_pg_ssl_request"
+    ],
+    "11": [
+      "backend_init"
+    ],
+    "12": [
+      "backend_routers_init"
+    ],
+    "13": [
+      "frontend_vite_config"
+    ]
+  },
+  "cohesion": {
+    "0": 0.13118279569892474,
+    "1": 0.10804597701149425,
+    "2": 0.1455026455026455,
+    "3": 0.2,
+    "4": 0.10526315789473684,
+    "5": 0.1794871794871795,
+    "6": 0.36363636363636365,
+    "7": 0.25,
+    "8": 0.6666666666666666,
+    "9": 1.0,
+    "10": 1.0,
+    "11": 1.0,
+    "12": 1.0,
+    "13": 1.0
+  },
+  "gods": [
+    {
+      "id": "backend_database_moviequeries",
+      "label": "MovieQueries",
+      "degree": 17
+    },
+    {
+      "id": "update_tmdb_process_movie",
+      "label": "process_movie()",
+      "degree": 15
+    },
+    {
+      "id": "database_models_get_db_url",
+      "label": "get_db_url()",
+      "degree": 8
+    },
+    {
+      "id": "update_tmdb_stats",
+      "label": "Stats",
+      "degree": 8
+    },
+    {
+      "id": "database_models_movie",
+      "label": "Movie",
+      "degree": 7
+    },
+    {
+      "id": "tmdb_service_search_movie",
+      "label": "search_movie()",
+      "degree": 7
+    },
+    {
+      "id": "update_tmdb_tmdbclient",
+      "label": "TMDBClient",
+      "degree": 7
+    },
+    {
+      "id": "update_tmdb_main",
+      "label": "main()",
+      "degree": 7
+    },
+    {
+      "id": "database_models_tmdbmovie",
+      "label": "TMDBMovie",
+      "degree": 6
+    },
+    {
+      "id": "database_models_telegrammessage",
+      "label": "TelegramMessage",
+      "degree": 6
+    }
+  ],
+  "surprises": [
+    {
+      "source": "main()",
+      "target": "TMDBMovie",
+      "source_files": [
+        "migrate_to_postgres.py",
+        "database/models.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "indirect_call",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    },
+    {
+      "source": "main()",
+      "target": "Movie",
+      "source_files": [
+        "migrate_to_postgres.py",
+        "database/models.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "indirect_call",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    },
+    {
+      "source": "main()",
+      "target": "TelegramMessage",
+      "source_files": [
+        "migrate_to_postgres.py",
+        "database/models.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "indirect_call",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    },
+    {
+      "source": "main()",
+      "target": "get_db_url()",
+      "source_files": [
+        "update_tmdb.py",
+        "database/models.py"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "run()",
+      "target": "get_db_url()",
+      "source_files": [
+        "main.py",
+        "database/models.py"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `get_db_url()` connect `get_db_url` to `MovieQueries`, `process_movie`?",
+      "why": "High betweenness centrality (0.083) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `MovieQueries` connect `MovieQueries` to `movies.py`?",
+      "why": "High betweenness centrality (0.073) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `Settings`, `$schema`, `oxc` to the rest of the system?",
+      "why": "16 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `MovieQueries` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.13118279569892474 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `movies.py` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.10804597701149425 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `App.jsx` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.1455026455026455 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `package.json` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected."
+    }
+  ]
+}

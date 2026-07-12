@@ -5,7 +5,7 @@ import { fetchMovies, fetchGenres, fetchStats } from '../api/client';
  * Central data-fetching hook for the movie library.
  * Manages pagination, search, genre filter, sorting, and stats.
  */
-export function useMovies() {
+export function useMovies(libraryId = null) {
   // --- Movie list state ---
   const [movies, setMovies] = useState([]);
   const [total, setTotal] = useState(0);
@@ -46,6 +46,16 @@ export function useMovies() {
     setPage(1);
   }, [genre, sortBy, sortOrder]);
 
+  // Reset filters when library changes
+  useEffect(() => {
+    setPage(1);
+    setSearch('');
+    setDebouncedSearch('');
+    setGenre('');
+    setSortBy('title');
+    setSortOrder('asc');
+  }, [libraryId]);
+
   // Fetch movies
   useEffect(() => {
     let cancelled = false;
@@ -59,6 +69,7 @@ export function useMovies() {
       genre,
       sortBy,
       sortOrder,
+      libraryId,
     })
       .then((data) => {
         if (cancelled) return;
@@ -75,21 +86,21 @@ export function useMovies() {
       });
 
     return () => { cancelled = true; };
-  }, [page, pageSize, debouncedSearch, genre, sortBy, sortOrder]);
+  }, [page, pageSize, debouncedSearch, genre, sortBy, sortOrder, libraryId]);
 
-  // Fetch genres (once)
+  // Fetch genres (when library changes)
   useEffect(() => {
-    fetchGenres()
+    fetchGenres({ libraryId })
       .then((data) => setGenres(data.genres))
       .catch(() => {}); // non-critical
-  }, []);
+  }, [libraryId]);
 
-  // Fetch stats (once)
+  // Fetch stats (when library changes)
   useEffect(() => {
-    fetchStats()
+    fetchStats({ libraryId })
       .then((data) => setStats(data))
       .catch(() => {}); // non-critical
-  }, []);
+  }, [libraryId]);
 
   const clearGenre = useCallback(() => setGenre(''), []);
   const toggleGenre = useCallback((g) => {

@@ -1,12 +1,29 @@
-export default function Layout({ children }) {
+export default function Layout({ children, libraryName, onBackToLibraries }) {
   return (
     <div className="app-layout">
       <header className="app-header">
         <div className="header-inner">
-          <div className="logo" id="app-logo">
+          <button
+            className="logo"
+            id="app-logo"
+            onClick={onBackToLibraries}
+            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+          >
             <span className="logo-icon">🎬</span>
-            Telegram Movie Library
-          </div>
+            <span className="logo-text">Telegram Movie Library</span>
+          </button>
+          {libraryName && (
+            <div className="header-library-name">
+              <button
+                className="header-back-btn"
+                onClick={onBackToLibraries}
+                title="Back to libraries"
+              >
+                ←
+              </button>
+              <span className="header-library-label">{libraryName}</span>
+            </div>
+          )}
         </div>
       </header>
       <main className="main-content">

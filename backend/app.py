@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from backend.config import get_database_path, get_database_url
 from backend.database import MovieQueries
-from backend.routers import movies, stats
+from backend.routers import libraries, movies, stats
 from database.models import get_db_url
 
 app = FastAPI(
@@ -41,6 +41,7 @@ app.state.queries = MovieQueries(db_url)
 # ------------------------------------------------------------------
 # Routers
 # ------------------------------------------------------------------
+app.include_router(libraries.router)
 app.include_router(movies.router)
 app.include_router(stats.router)
 

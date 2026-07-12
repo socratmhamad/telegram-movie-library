@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends, Request
+from fastapi import APIRouter, Depends, Query, Request
 
 from backend.database import MovieQueries
 from backend.models import StatsResponse
@@ -14,7 +14,9 @@ def _get_queries(request: Request) -> MovieQueries:
 
 @router.get("/stats", response_model=StatsResponse)
 def library_stats(
+    library_id: int | None = Query(None, description="Filter stats by library ID"),
     queries: MovieQueries = Depends(_get_queries),
 ) -> StatsResponse:
     """Return aggregate library statistics and genre breakdown."""
-    return StatsResponse(**queries.get_stats())
+    return StatsResponse(**queries.get_stats(library_id=library_id))
+
