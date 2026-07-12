@@ -9,3 +9,4 @@ database/*.db-journal
 .venv/
 venv/
 implementation_plan.md
+graphify-out/
