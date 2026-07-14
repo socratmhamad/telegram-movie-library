@@ -244,9 +244,22 @@ async def migrate(
     )
     await client.start()
 
+    resolved_channel_id = None
     scraped: list[tuple[str, int]] = []  # (title, message_id)
     count = 0
     try:
+        # Auto-resolve channel entity to get ID
+        try:
+            entity = await client.get_entity(new_channel)
+            # entity.id is usually positive, but strip -100 just in case
+            entity_id_str = str(entity.id)
+            if entity_id_str.startswith("-100"):
+                entity_id_str = entity_id_str[4:]
+            resolved_channel_id = entity_id_str
+            print(f"Auto-resolved channel ID from Telegram: {resolved_channel_id}")
+        except Exception as e:
+            print(f"Warning: Could not auto-resolve channel ID via Telethon: {e}")
+
         async for message in client.iter_messages(new_channel, limit=None):
             count += 1
             if count % 500 == 0:
@@ -323,6 +336,8 @@ async def migrate(
         library.telegram_channel = new_channel
         if new_channel_id:
             library.telegram_channel_id = new_channel_id
+        elif resolved_channel_id:
+            library.telegram_channel_id = resolved_channel_id
 
         # 2. Delete old telegram messages for matched movies
         matched_movie_ids = {m.movie_id for m in matches}

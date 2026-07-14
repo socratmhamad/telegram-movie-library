@@ -1,0 +1,66 @@
+Library: Movies 2023–2024 (id=3)
+  Old channel: https://t.me/+vFmObioIMKQ0MmY0
+  New channel: https://t.me/+vFmObioIMKQ0MmY0
+
+Loaded 846 existing movies for matching.
+
+Connecting to Telegram and scraping: https://t.me/+vFmObioIMKQ0MmY0
+This may take a while for large channels...
+
+Auto-resolved channel ID from Telegram: 4429566419
+  ... scanned 500 messages ...
+  ... scanned 1000 messages ...
+  ... scanned 1500 messages ...
+  ... scanned 2000 messages ...
+  ... scanned 2500 messages ...
+  ... scanned 3000 messages ...
+
+Scraped 3011 messages, found 2462 movie candidates.
+
+============================================================
+  MATCHING RESULTS
+============================================================
+  Total scraped movies     : 2462
+  Matched (exact title)    : 2384
+  Matched (fuzzy)          : 66
+  Matched (TMDB ID)        : 0
+  Unmatched                : 12
+============================================================
+
+Unmatched titles (first 20):
+  - Bone Lake
+  - Bone Lake
+  - 1227. Saw 10 Saw X 2023
+  - The expendables 4
+  - The expendables 4
+  - The expendables 4
+  - Rebel Ridge (2024)
+  - Cash out
+  - 12th Fail
+  - Rebel.Moon.Part Two.The.Scargiver.2024. .NF
+  - Rebel.Moon.Part Two.The.Scargiver.2024. .NF
+  - Rebel.Moon.Part Two.The.Scargiver.2024. .NF
+
+Fuzzy matches (review these):
+  [88%] "" Bone Lake 2024 "" -> "Bone Lake 2024"
+  [96%] "The Roundup No Way Out (2023)" -> "The Roundup No Way Out 2023"
+  [96%] "The Roundup No Way Out (2023)" -> "The Roundup No Way Out 2023"
+  [84%] "Hidden strike" -> "Hidden Strike 2023"
+  [92%] "Pathaan 2023" -> "Pathaan (2023)"
+  [83%] "Nowhere (2023) WEB" -> "Nowhere (2023) 280"
+  [88%] "Oppenheimer.2023" -> "Oppenheimer (2023)"
+  [88%] "Oppenheimer.2023" -> "Oppenheimer (2023)"
+  [97%] "Insidious The Red Door (2023)" -> "Insidious The Red Door ( 2023 )"
+  [88%] "Oppenheimer.2023" -> "Oppenheimer (2023)"
+  [86%] "THE EQUALIZER 3" -> "The Equalizer 3 2023"
+  [94%] "Dungeons & Dragons Honor Among Thieves" -> "Dungeons & Dragons Honor Among Thieves 2023"
+  [81%] "Puppy Love (2023)" -> "Puppy.Love.2023"
+  [91%] "Inside 2023" -> "Inside.2023"
+  [81%] "I The Executioner" -> "I, The Executioner (2024)"
+  [90%] "The Roundup No Way Out" -> "The Roundup No Way Out 2023"
+  [94%] "Your Fault.(2024)" -> "Your Fault (2024)"
+  [94%] "Your Fault.(2024)" -> "Your Fault (2024)"
+  [94%] "Your Fault.(2024)" -> "Your Fault (2024)"
+  [95%] "The Platform 2 (2024)" -> "The Platform 2 2024"
+
+DRY RUN — no database changes made.

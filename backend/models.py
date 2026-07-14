@@ -153,3 +153,77 @@ class LibraryResponse(BaseModel):
 class LibraryListResponse(BaseModel):
     libraries: list[LibraryResponse]
 
+
+# ---------------------------------------------------------------------------
+# Admin: Library CRUD
+# ---------------------------------------------------------------------------
+
+class LibraryCreateRequest(BaseModel):
+    name: str
+    slug: str
+    telegram_channel: str
+    telegram_channel_id: str | None = None
+    is_active: bool = True
+
+
+class LibraryUpdateRequest(BaseModel):
+    name: str | None = None
+    slug: str | None = None
+    telegram_channel: str | None = None
+    telegram_channel_id: str | None = None
+    is_active: bool | None = None
+
+
+class LibraryDetailResponse(BaseModel):
+    id: int
+    name: str
+    slug: str
+    telegram_channel: str
+    telegram_channel_id: str | None = None
+    is_active: bool | None = None
+    movie_count: int = 0
+    movies_with_tmdb: int = 0
+    movies_without_tmdb: int = 0
+    total_messages: int = 0
+
+
+# ---------------------------------------------------------------------------
+# Admin: Tasks
+# ---------------------------------------------------------------------------
+
+class ScanRequest(BaseModel):
+    """Body for launching a channel scan."""
+    pass  # library_id comes from URL path
+
+
+class TmdbUpdateRequest(BaseModel):
+    """Body for launching a TMDB update."""
+    pass
+
+
+class MigrationRequest(BaseModel):
+    new_channel: str
+    new_channel_id: str | None = None
+    dry_run: bool = False
+
+
+class TaskResponse(BaseModel):
+    id: str
+    task_type: str
+    library_id: int
+    status: str
+    started_at: float
+    finished_at: float | None = None
+    exit_code: int | None = None
+    description: str = ""
+    extra: dict[str, Any] = {}
+
+
+class TaskListResponse(BaseModel):
+    tasks: list[TaskResponse]
+
+
+class TaskLogsResponse(BaseModel):
+    task_id: str
+    logs: str
+

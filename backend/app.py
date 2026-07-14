@@ -5,7 +5,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from backend.config import get_database_path, get_database_url
 from backend.database import MovieQueries
-from backend.routers import libraries, movies, stats
+from backend.routers import admin, libraries, movies, stats
+from backend.services.task_manager import TaskManager
 from database.models import get_db_url
 
 app = FastAPI(
@@ -37,6 +38,7 @@ app.add_middleware(
 # ------------------------------------------------------------------
 db_url = get_db_url(get_database_url(), get_database_path())
 app.state.queries = MovieQueries(db_url)
+app.state.tasks = TaskManager()
 
 # ------------------------------------------------------------------
 # Routers
@@ -44,6 +46,7 @@ app.state.queries = MovieQueries(db_url)
 app.include_router(libraries.router)
 app.include_router(movies.router)
 app.include_router(stats.router)
+app.include_router(admin.router)
 
 
 @app.get("/", tags=["health"])

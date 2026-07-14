@@ -1,1 +1,21 @@
-{"0": "MovieQueries", "1": "movies.py", "2": "App.jsx", "3": "process_movie", "4": "package.json", "5": "get_db_url", "6": "tmdb_service.py", "7": ".oxlintrc.json", "8": "run.py", "9": "test_postgres_connection.py", "10": "test_tcp.py", "11": "__init__.py", "12": "__init__.py", "13": "vite.config.js"}
+{
+  "0": "MovieQueries",
+  "1": "movies.py",
+  "2": "App.jsx",
+  "3": "process_movie",
+  "4": "package.json",
+  "5": "get_db_url",
+  "6": "tmdb_service.py",
+  "7": ".oxlintrc.json",
+  "8": "run.py",
+  "9": "test_postgres_connection.py",
+  "10": "test_tcp.py",
+  "11": "__init__.py",
+  "12": "__init__.py",
+  "13": "vite.config.js",
+  "14": "config.py",
+  "15": "_parse_genres",
+  "16": "Any",
+  "17": "Path",
+  "18": "__init__.py"
+}

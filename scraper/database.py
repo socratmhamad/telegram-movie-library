@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 from contextlib import contextmanager
 import json
 from typing import Iterator, Iterable
@@ -13,8 +14,14 @@ from database.models import init_db, Movie, TMDBMovie, TelegramMessage
 class MovieDatabase:
     """SQLAlchemy repository for storing scraped Telegram movie records."""
 
-    def __init__(self, database_url: str) -> None:
+    def __init__(self, database_url: str, library_id: int | None = None) -> None:
         self.SessionLocal = init_db(database_url)
+        # Accept explicit library_id or fall back to LIBRARY_ID env var
+        if library_id is not None:
+            self.library_id = library_id
+        else:
+            env_id = os.environ.get("LIBRARY_ID")
+            self.library_id = int(env_id) if env_id else None
 
     @contextmanager
     def _connection(self) -> Iterator[Session]:
@@ -31,7 +38,12 @@ class MovieDatabase:
     def get_known_message_ids(self) -> set[int]:
         """Return the set of all Telegram message IDs already stored."""
         with self._connection() as session:
-            rows = session.execute(select(TelegramMessage.message_id)).scalars().all()
+            query = select(TelegramMessage.message_id)
+            if self.library_id is not None:
+                query = query.join(Movie, TelegramMessage.movie_id == Movie.id).where(
+                    Movie.library_id == self.library_id
+                )
+            rows = session.execute(query).scalars().all()
             return set(rows)
 
     def get_or_create_movie(self, title: str) -> int:
@@ -62,11 +74,14 @@ class MovieDatabase:
 
     def get_movies_without_tmdb(self) -> list[dict[str, object]]:
         with self._connection() as session:
-            rows = session.execute(
+            query = (
                 select(Movie.id, Movie.title)
                 .where(Movie.tmdb_movie_id.is_(None))
                 .order_by(Movie.title)
-            ).all()
+            )
+            if self.library_id is not None:
+                query = query.where(Movie.library_id == self.library_id)
+            rows = session.execute(query).all()
             # Return dicts to emulate sqlite3.Row for legacy compat in update_tmdb.py
             return [{"id": row.id, "title": row.title} for row in rows]
 
@@ -81,15 +96,18 @@ class MovieDatabase:
                 movie.tmdb_movie_id = tmdb_movie_id
 
     def _get_or_create_movie(self, session: Session, title: str) -> int:
-        movie = session.execute(select(Movie).where(Movie.title == title)).scalar_one_or_none()
+        query = select(Movie).where(Movie.title == title)
+        if self.library_id is not None:
+            query = query.where(Movie.library_id == self.library_id)
+        movie = session.execute(query).scalar_one_or_none()
         if movie is None:
-            movie = Movie(title=title)
+            movie = Movie(title=title, library_id=self.library_id)
             session.add(movie)
             try:
                 session.flush()
             except IntegrityError:
                 session.rollback()
-                movie = session.execute(select(Movie).where(Movie.title == title)).scalar_one()
+                movie = session.execute(query).scalar_one()
         return int(str(movie.id))
 
     def _save_telegram_message(

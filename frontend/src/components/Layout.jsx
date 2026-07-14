@@ -1,4 +1,4 @@
-export default function Layout({ children, libraryName, onBackToLibraries }) {
+export default function Layout({ children, libraryName, onBackToLibraries, onOpenAdmin }) {
   return (
     <div className="app-layout">
       <header className="app-header">
@@ -23,6 +23,11 @@ export default function Layout({ children, libraryName, onBackToLibraries }) {
               </button>
               <span className="header-library-label">{libraryName}</span>
             </div>
+          )}
+          {onOpenAdmin && (
+            <button className="header-admin-btn" onClick={onOpenAdmin} title="Admin Dashboard">
+              ⚙️ Admin
+            </button>
           )}
         </div>
       </header>

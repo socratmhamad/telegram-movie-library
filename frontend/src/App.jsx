@@ -10,6 +10,7 @@ import GenreFilter from './components/GenreFilter';
 import MovieGrid from './components/MovieGrid';
 import Pagination from './components/Pagination';
 import MovieDetail from './components/MovieDetail';
+import AdminDashboard from './components/AdminDashboard';
 
 function App() {
   // Slug-based "routing" via state + URL hash
@@ -73,10 +74,19 @@ function App() {
     setSelectedSlug(null);
   }, []);
 
+  // Admin dashboard
+  if (selectedSlug === 'admin') {
+    return (
+      <Layout onBackToLibraries={handleBackToLibraries}>
+        <AdminDashboard onBack={handleBackToLibraries} />
+      </Layout>
+    );
+  }
+
   // Landing page: library grid
   if (!selectedSlug) {
     return (
-      <Layout onBackToLibraries={handleBackToLibraries}>
+      <Layout onBackToLibraries={handleBackToLibraries} onOpenAdmin={() => setSelectedSlug('admin')}>
         <LibraryGrid onSelectLibrary={handleSelectLibrary} />
       </Layout>
     );
