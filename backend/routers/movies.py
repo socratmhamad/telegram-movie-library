@@ -51,10 +51,11 @@ def list_movies(
 @router.get("/movies/{movie_id}", response_model=MovieDetailResponse)
 def get_movie(
     movie_id: int,
+    language: str | None = Query(None, description="Language parameter ('ar' or 'en')"),
     queries: MovieQueries = Depends(_get_queries),
 ) -> MovieDetailResponse:
     """Return full details for a single movie (detail page, not modal)."""
-    movie = queries.get_movie(movie_id)
+    movie = queries.get_movie(movie_id, language=language)
     if movie is None:
         raise HTTPException(status_code=404, detail="Movie not found")
     return MovieDetailResponse(**movie)

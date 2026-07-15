@@ -177,7 +177,7 @@ class MovieQueries:
     # Single movie detail
     # ------------------------------------------------------------------
 
-    def get_movie(self, movie_id: int) -> dict[str, Any] | None:
+    def get_movie(self, movie_id: int, language: str | None = None) -> dict[str, Any] | None:
         with self._get_session() as session:
             movie = session.execute(
                 select(Movie).where(Movie.id == movie_id)
@@ -189,18 +189,34 @@ class MovieQueries:
             tmdb = None
             if movie.tmdb_movie:
                 tmdb_movie = movie.tmdb_movie
+                overview = tmdb_movie.overview
+                genres = tmdb_movie.genres
+
+                if language == "ar":
+                    from config import settings
+                    if settings.tmdb_api_key:
+                        try:
+                            from tmdb_service import get_movie_details
+                            details = get_movie_details(tmdb_movie.tmdb_id, language="ar")
+                            if details.get("overview"):
+                                overview = details["overview"]
+                            if details.get("genres"):
+                                genres = json.dumps(details["genres"])
+                        except Exception as e:
+                            print(f"Warning: Failed to fetch Arabic metadata: {e}")
+
                 tmdb = {
                     "id": tmdb_movie.id,
                     "tmdb_id": tmdb_movie.tmdb_id,
                     "title": tmdb_movie.title,
                     "original_title": tmdb_movie.original_title,
-                    "overview": tmdb_movie.overview,
+                    "overview": overview,
                     "poster_path": tmdb_movie.poster_path,
                     "backdrop_path": tmdb_movie.backdrop_path,
                     "release_date": tmdb_movie.release_date,
                     "vote_average": tmdb_movie.vote_average,
                     "runtime": tmdb_movie.runtime,
-                    "genres": tmdb_movie.genres,
+                    "genres": genres,
                     "imdb_id": tmdb_movie.imdb_id,
                 }
 

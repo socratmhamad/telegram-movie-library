@@ -1,4 +1,5 @@
-export default function SearchBar({ search, onSearchChange, sortBy, onSortByChange }) {
+export default function SearchBar({ search, onSearchChange, sortBy, onSortByChange, lang = 'en' }) {
+  const isAr = lang === 'ar';
   return (
     <div className="controls-bar" id="search-bar">
       <div className="search-input-wrapper">
@@ -7,7 +8,7 @@ export default function SearchBar({ search, onSearchChange, sortBy, onSortByChan
           id="search-input"
           className="search-input"
           type="text"
-          placeholder="Search movies…"
+          placeholder={isAr ? 'ابحث عن الأفلام…' : 'Search movies…'}
           value={search}
           onChange={(e) => onSearchChange(e.target.value)}
           autoComplete="off"
@@ -19,12 +20,12 @@ export default function SearchBar({ search, onSearchChange, sortBy, onSortByChan
         className="sort-select"
         value={sortBy}
         onChange={(e) => onSortByChange(e.target.value)}
-        aria-label="Sort by"
+        aria-label={isAr ? 'ترتيب حسب' : 'Sort by'}
       >
-        <option value="title">Sort: Title</option>
-        <option value="release_date">Sort: Release Date</option>
-        <option value="vote_average">Sort: Rating</option>
-        <option value="runtime">Sort: Runtime</option>
+        <option value="title">{isAr ? 'الترتيب: العنوان' : 'Sort: Title'}</option>
+        <option value="release_date">{isAr ? 'الترتيب: تاريخ الإصدار' : 'Sort: Release Date'}</option>
+        <option value="vote_average">{isAr ? 'الترتيب: التقييم' : 'Sort: Rating'}</option>
+        <option value="runtime">{isAr ? 'الترتيب: مدة العرض' : 'Sort: Runtime'}</option>
       </select>
     </div>
   );

@@ -1,6 +1,8 @@
 import MovieCard from './MovieCard';
 
-export default function MovieGrid({ movies, loading, error, onMovieClick }) {
+export default function MovieGrid({ movies, loading, error, onMovieClick, lang = 'en' }) {
+  const isAr = lang === 'ar';
+
   if (error) {
     return <div className="error-banner" id="error-banner">⚠ {error}</div>;
   }
@@ -17,8 +19,10 @@ export default function MovieGrid({ movies, loading, error, onMovieClick }) {
     return (
       <div className="empty-state" id="empty-state">
         <div className="empty-state-icon">🎞️</div>
-        <div className="empty-state-text">No movies found</div>
-        <div className="empty-state-sub">Try adjusting your search or filters</div>
+        <div className="empty-state-text">{isAr ? 'لم يتم العثور على أفلام' : 'No movies found'}</div>
+        <div className="empty-state-sub">
+          {isAr ? 'حاول تعديل البحث أو الفلاتر' : 'Try adjusting your search or filters'}
+        </div>
       </div>
     );
   }
@@ -26,7 +30,7 @@ export default function MovieGrid({ movies, loading, error, onMovieClick }) {
   return (
     <div className="movie-grid" id="movie-grid">
       {movies.map((movie) => (
-        <MovieCard key={movie.id} movie={movie} onClick={onMovieClick} />
+        <MovieCard key={movie.id} movie={movie} onClick={onMovieClick} lang={lang} />
       ))}
     </div>
   );

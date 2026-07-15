@@ -1527,4 +1527,61 @@ body {
     padding: 1.25rem;
   }
 }
+
+/* Library view header with beautiful page title and animated back button */
+.library-view-header {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+  animation: fadeInUp 0.4s var(--ease-out);
+}
+
+.library-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  width: fit-content;
+  transition: all var(--transition-normal);
+}
+
+.library-back-btn .arrow {
+  display: inline-block;
+  transition: transform var(--transition-normal);
+}
+
+.library-back-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  border-color: var(--border-hover);
+}
+
+/* Slide left for LTR back arrow */
+.ltr .library-back-btn:hover .arrow {
+  transform: translateX(-4px);
+}
+
+/* Slide right for RTL back arrow */
+.rtl .library-back-btn:hover .arrow {
+  transform: translateX(4px);
+}
+
+.library-title {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-top: 0.25rem;
+}
+
 

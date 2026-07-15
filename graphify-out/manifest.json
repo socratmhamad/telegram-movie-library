@@ -15,8 +15,8 @@
     "semantic_hash": "6508190013e90baaf6cab7d0cf804030"
   },
   "backend/database.py": {
-    "mtime": 1783889062.5763261,
-    "ast_hash": "804a60a373d52b55fac6a3b57a876ac1",
+    "mtime": 1784110902.0478196,
+    "ast_hash": "8f11d4789e5bcfa4ffe4bb98372fbde2",
     "semantic_hash": ""
   },
   "backend/models.py": {
@@ -65,8 +65,8 @@
     "semantic_hash": "b5b007552814ae57f55825f41c591c09"
   },
   "frontend/src/App.jsx": {
-    "mtime": 1784026271.7319624,
-    "ast_hash": "0e56a10d8ff80f49e3420d5bfbc7084e",
+    "mtime": 1784111295.5145786,
+    "ast_hash": "647db5360060efa6341e809a9dff1db9",
     "semantic_hash": ""
   },
   "frontend/src/api/client.js": {
@@ -105,9 +105,9 @@
     "semantic_hash": "c10fa4706f69f3ae454506a70e933bbd"
   },
   "frontend/src/components/SearchBar.jsx": {
-    "mtime": 1783756534.3395534,
-    "ast_hash": "15f402aa3fb21304abc46caac321b2c1",
-    "semantic_hash": "15f402aa3fb21304abc46caac321b2c1"
+    "mtime": 1784111275.0380862,
+    "ast_hash": "ee234566f7777e36d0dc71e970bcd325",
+    "semantic_hash": ""
   },
   "frontend/src/components/StatsPanel.jsx": {
     "mtime": 1782641529.0698006,
@@ -115,8 +115,8 @@
     "semantic_hash": "69c4bd013909bf00592854cf72d49cef"
   },
   "frontend/src/hooks/useMovies.js": {
-    "mtime": 1783860982.1174662,
-    "ast_hash": "4d097584b5e7952df14b11a049978465",
+    "mtime": 1784111316.7793524,
+    "ast_hash": "9dbcb8e55e98ec7b2f62c65a0b6e52a0",
     "semantic_hash": ""
   },
   "frontend/src/main.jsx": {

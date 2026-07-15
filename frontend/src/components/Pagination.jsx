@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-export default function Pagination({ page, totalPages, total, onPageChange }) {
+export default function Pagination({ page, totalPages, total, onPageChange, lang = 'en' }) {
   const pages = useMemo(() => {
     if (totalPages <= 7) {
       return Array.from({ length: totalPages }, (_, i) => i + 1);
@@ -23,15 +23,17 @@ export default function Pagination({ page, totalPages, total, onPageChange }) {
 
   if (totalPages <= 1) return null;
 
+  const isAr = lang === 'ar';
+
   return (
-    <nav className="pagination" id="pagination" aria-label="Pagination">
+    <nav className="pagination" id="pagination" aria-label={isAr ? 'التنقل بين الصفحات' : 'Pagination'}>
       <button
         className="pagination-btn"
         onClick={() => onPageChange(page - 1)}
         disabled={page <= 1}
-        aria-label="Previous page"
+        aria-label={isAr ? 'الصفحة السابقة' : 'Previous page'}
       >
-        ‹
+        {isAr ? '›' : '‹'}
       </button>
 
       {pages.map((p, idx) =>
@@ -53,13 +55,13 @@ export default function Pagination({ page, totalPages, total, onPageChange }) {
         className="pagination-btn"
         onClick={() => onPageChange(page + 1)}
         disabled={page >= totalPages}
-        aria-label="Next page"
+        aria-label={isAr ? 'الصفحة التالية' : 'Next page'}
       >
-        ›
+        {isAr ? '‹' : '›'}
       </button>
 
       <span className="pagination-info">
-        {total.toLocaleString()} movie{total !== 1 ? 's' : ''}
+        {total.toLocaleString()} {isAr ? 'فيلم' : (total === 1 ? 'movie' : 'movies')}
       </span>
     </nav>
   );

@@ -51,8 +51,8 @@ export function fetchMovies({ page = 1, pageSize = 20, search, genre, sortBy, so
 }
 
 /** Single movie detail. */
-export function fetchMovie(id) {
-  return request(`${BASE}/movies/${id}`);
+export function fetchMovie(id, { language } = {}) {
+  return request(`${BASE}/movies/${id}`, { language: language || null });
 }
 
 /** All unique genres. */

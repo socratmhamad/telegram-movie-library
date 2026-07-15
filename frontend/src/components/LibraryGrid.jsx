@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { fetchLibraries } from '../api/client';
 
-export default function LibraryGrid({ onSelectLibrary }) {
+export default function LibraryGrid({ onSelectLibrary, lang = 'en' }) {
   const [libraries, setLibraries] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const isAr = lang === 'ar';
 
   useEffect(() => {
     fetchLibraries()
@@ -22,15 +24,15 @@ export default function LibraryGrid({ onSelectLibrary }) {
   }
 
   if (error) {
-    return <div className="error-banner">Failed to load libraries: {error}</div>;
+    return <div className="error-banner">{isAr ? 'فشل تحميل المكتبات:' : 'Failed to load libraries:'} {error}</div>;
   }
 
   return (
     <div className="library-landing">
       <div className="library-hero">
-        <h1 className="library-hero-title">Movie Libraries</h1>
+        <h1 className="library-hero-title">{isAr ? 'مكتبات الأفلام' : 'Movie Libraries'}</h1>
         <p className="library-hero-sub">
-          Choose a library to browse its collection
+          {isAr ? 'اختر مكتبة لتصفح مجموعتها' : 'Choose a library to browse its collection'}
         </p>
       </div>
       <div className="library-grid">
@@ -45,17 +47,20 @@ export default function LibraryGrid({ onSelectLibrary }) {
             <h2 className="library-card-name">{lib.name}</h2>
             <div className="library-card-count">
               <span className="library-card-count-number">{lib.movie_count.toLocaleString()}</span>
-              <span className="library-card-count-label">movies</span>
+              <span className="library-card-count-label">
+                {isAr ? 'فيلم' : (lib.movie_count === 1 ? 'movie' : 'movies')}
+              </span>
             </div>
             {lib.telegram_channel && (
               <div className="library-card-channel" title={lib.telegram_channel}>
-                📡 Telegram Channel
+                📡 {isAr ? 'قناة تيليجرام' : 'Telegram Channel'}
               </div>
             )}
-            <div className="library-card-arrow">→</div>
+            <div className="library-card-arrow">{isAr ? '←' : '→'}</div>
           </button>
         ))}
       </div>
     </div>
   );
 }
+

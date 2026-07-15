@@ -1,6 +1,7 @@
-export default function Layout({ children, libraryName, onBackToLibraries, onOpenAdmin }) {
+export default function Layout({ children, libraryName, onBackToLibraries, onOpenAdmin, lang = 'en', onToggleLang }) {
+  const isAr = lang === 'ar';
   return (
-    <div className="app-layout">
+    <div className={`app-layout ${isAr ? 'rtl' : 'ltr'}`}>
       <header className="app-header">
         <div className="header-inner">
           <button
@@ -10,25 +11,19 @@ export default function Layout({ children, libraryName, onBackToLibraries, onOpe
             style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
           >
             <span className="logo-icon">🎬</span>
-            <span className="logo-text">Telegram Movie Library</span>
+            <span className="logo-text">{isAr ? 'مكتبة أفلام تيليجرام' : 'Telegram Movie Library'}</span>
           </button>
-          {libraryName && (
-            <div className="header-library-name">
-              <button
-                className="header-back-btn"
-                onClick={onBackToLibraries}
-                title="Back to libraries"
-              >
-                ←
-              </button>
-              <span className="header-library-label">{libraryName}</span>
-            </div>
-          )}
-          {onOpenAdmin && (
-            <button className="header-admin-btn" onClick={onOpenAdmin} title="Admin Dashboard">
-              ⚙️ Admin
+
+          <div className="header-actions" style={{ display: 'flex', gap: '0.75rem', marginLeft: isAr ? '0' : 'auto', marginRight: isAr ? 'auto' : '0' }}>
+            <button className="header-lang-btn" onClick={onToggleLang} style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid var(--border-subtle)', color: 'var(--text-secondary)', padding: '0.5rem 1rem', borderRadius: 'var(--radius-sm)', cursor: 'pointer', transition: 'all var(--transition-fast)' }}>
+              🌐 {isAr ? 'English' : 'العربية'}
             </button>
-          )}
+            {onOpenAdmin && (
+              <button className="header-admin-btn" onClick={onOpenAdmin} title={isAr ? 'لوحة الإدارة' : 'Admin Dashboard'}>
+                {isAr ? '⚙️ الإدارة' : '⚙️ Admin'}
+              </button>
+            )}
+          </div>
         </div>
       </header>
       <main className="main-content">
@@ -37,3 +32,4 @@ export default function Layout({ children, libraryName, onBackToLibraries, onOpe
     </div>
   );
 }
+

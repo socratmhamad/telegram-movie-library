@@ -1,6 +1,7 @@
-export default function MovieCard({ movie, onClick }) {
+export default function MovieCard({ movie, onClick, lang = 'en' }) {
   const year = movie.release_date ? movie.release_date.slice(0, 4) : null;
   const rating = movie.vote_average != null ? movie.vote_average.toFixed(1) : null;
+  const isAr = lang === 'ar';
 
   return (
     <div
@@ -19,7 +20,7 @@ export default function MovieCard({ movie, onClick }) {
           loading="lazy"
         />
       ) : (
-        <div className="movie-card-no-poster" aria-label="No poster available">
+        <div className="movie-card-no-poster" aria-label={isAr ? 'الملصق غير متوفر' : 'No poster available'}>
           🎬
         </div>
       )}
@@ -34,7 +35,7 @@ export default function MovieCard({ movie, onClick }) {
         <div className="movie-card-title">{movie.title}</div>
         <div className="movie-card-meta">
           {year && <span className="movie-card-year">{year}</span>}
-          {movie.runtime && <span>{movie.runtime} min</span>}
+          {movie.runtime && <span>{movie.runtime} {isAr ? 'دقيقة' : 'min'}</span>}
         </div>
       </div>
     </div>

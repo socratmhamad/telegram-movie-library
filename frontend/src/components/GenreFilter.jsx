@@ -1,5 +1,29 @@
-export default function GenreFilter({ genres, activeGenre, onToggle }) {
+const GENRE_MAP = {
+  'Action': 'أكشن',
+  'Adventure': 'مغامرة',
+  'Animation': 'رسوم متحركة',
+  'Comedy': 'كوميديا',
+  'Crime': 'جريمة',
+  'Documentary': 'وثائقي',
+  'Drama': 'دراما',
+  'Family': 'عائلي',
+  'Fantasy': 'خيال',
+  'History': 'تاريخ',
+  'Horror': 'رعب',
+  'Music': 'موسيقى',
+  'Mystery': 'غموض',
+  'Romance': 'رومانسية',
+  'Science Fiction': 'خيال علمي',
+  'TV Movie': 'فيلم تلفزيوني',
+  'Thriller': 'إثارة',
+  'War': 'حرب',
+  'Western': 'غربي'
+};
+
+export default function GenreFilter({ genres, activeGenre, onToggle, lang = 'en' }) {
   if (!genres || genres.length === 0) return null;
+
+  const isAr = lang === 'ar';
 
   return (
     <div className="genre-filter" id="genre-filter">
@@ -8,7 +32,7 @@ export default function GenreFilter({ genres, activeGenre, onToggle }) {
         onClick={() => onToggle('')}
         type="button"
       >
-        All
+        {isAr ? 'الكل' : 'All'}
       </button>
       {genres.map((g) => (
         <button
@@ -17,7 +41,7 @@ export default function GenreFilter({ genres, activeGenre, onToggle }) {
           onClick={() => onToggle(g)}
           type="button"
         >
-          {g}
+          {isAr ? (GENRE_MAP[g] || g) : g}
         </button>
       ))}
     </div>

@@ -56,7 +56,7 @@ def search_movie(title: str, year: int | str | None = None) -> dict[str, Any] | 
     }
 
 
-def get_movie_details(tmdb_id: int) -> dict[str, Any]:
+def get_movie_details(tmdb_id: int, language: str | None = None) -> dict[str, Any]:
     """
     Fetch detailed TMDB metadata for a movie.
 
@@ -69,7 +69,10 @@ def get_movie_details(tmdb_id: int) -> dict[str, Any]:
     - genres
     - imdb_id
     """
-    response = _tmdb_get(f"/movie/{tmdb_id}", {})
+    params = {}
+    if language:
+        params["language"] = language
+    response = _tmdb_get(f"/movie/{tmdb_id}", params)
     return {
         "poster_path": response.get("poster_path"),
         "backdrop_path": response.get("backdrop_path"),
@@ -79,6 +82,7 @@ def get_movie_details(tmdb_id: int) -> dict[str, Any]:
         "genres": [genre["name"] for genre in response.get("genres", [])],
         "imdb_id": response.get("imdb_id"),
     }
+
 
 
 def build_poster_url(poster_path: str | None) -> str | None:

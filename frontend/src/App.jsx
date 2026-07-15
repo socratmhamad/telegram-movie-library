@@ -18,6 +18,21 @@ function App() {
   const [libraryInfo, setLibraryInfo] = useState(null);
   const [loadingInfo, setLoadingInfo] = useState(false);
 
+  // Localization state
+  const [lang, setLang] = useState(() => localStorage.getItem('lang') || 'ar');
+  const handleToggleLang = useCallback(() => {
+    setLang((prev) => {
+      const next = prev === 'en' ? 'ar' : 'en';
+      localStorage.setItem('lang', next);
+      return next;
+    });
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  }, [lang]);
+
   // Read slug from URL hash on mount
   useEffect(() => {
     const hash = window.location.hash.replace('#/', '').replace('#', '');
@@ -77,8 +92,8 @@ function App() {
   // Admin dashboard
   if (selectedSlug === 'admin') {
     return (
-      <Layout onBackToLibraries={handleBackToLibraries}>
-        <AdminDashboard onBack={handleBackToLibraries} />
+      <Layout onBackToLibraries={handleBackToLibraries} lang={lang} onToggleLang={handleToggleLang}>
+        <AdminDashboard onBack={handleBackToLibraries} lang={lang} />
       </Layout>
     );
   }
@@ -86,8 +101,8 @@ function App() {
   // Landing page: library grid
   if (!selectedSlug) {
     return (
-      <Layout onBackToLibraries={handleBackToLibraries} onOpenAdmin={() => setSelectedSlug('admin')}>
-        <LibraryGrid onSelectLibrary={handleSelectLibrary} />
+      <Layout onBackToLibraries={handleBackToLibraries} onOpenAdmin={() => setSelectedSlug('admin')} lang={lang} onToggleLang={handleToggleLang}>
+        <LibraryGrid onSelectLibrary={handleSelectLibrary} lang={lang} />
       </Layout>
     );
   }
@@ -95,7 +110,7 @@ function App() {
   // Loading library metadata
   if (loadingInfo || !libraryInfo || libraryInfo.slug !== selectedSlug) {
     return (
-      <Layout onBackToLibraries={handleBackToLibraries}>
+      <Layout onBackToLibraries={handleBackToLibraries} lang={lang} onToggleLang={handleToggleLang}>
         <div className="loading-spinner">
           <div className="spinner" />
         </div>
@@ -109,12 +124,14 @@ function App() {
       libraryId={libraryId}
       libraryName={libraryInfo?.name}
       onBackToLibraries={handleBackToLibraries}
+      lang={lang}
+      onToggleLang={handleToggleLang}
     />
   );
 }
 
 
-function LibraryView({ libraryId, libraryName, onBackToLibraries }) {
+function LibraryView({ libraryId, libraryName, onBackToLibraries, lang, onToggleLang }) {
   const {
     movies,
     total,
@@ -138,30 +155,41 @@ function LibraryView({ libraryId, libraryName, onBackToLibraries }) {
   const [selectedMovieId, setSelectedMovieId] = useState(null);
   const closeDetail = useCallback(() => setSelectedMovieId(null), []);
 
+  const isAr = lang === 'ar';
+
   return (
-    <Layout libraryName={libraryName} onBackToLibraries={onBackToLibraries}>
-      <StatsPanel stats={stats} />
+    <Layout libraryName={null} onBackToLibraries={onBackToLibraries} lang={lang} onToggleLang={onToggleLang}>
+      <div className="library-view-header">
+        <button className="library-back-btn" onClick={onBackToLibraries}>
+          <span className="arrow">{isAr ? '←' : '←'}</span>
+          <span className="text">{isAr ? 'العودة للمكتبات' : 'Back to Libraries'}</span>
+        </button>
+        <h1 className="library-title">{libraryName}</h1>
+      </div>
       <SearchBar
         search={search}
         onSearchChange={setSearch}
         sortBy={sortBy}
         onSortByChange={setSortBy}
+        lang={lang}
       />
-      <GenreFilter genres={genres} activeGenre={genre} onToggle={setGenre} />
+      <GenreFilter genres={genres} activeGenre={genre} onToggle={setGenre} lang={lang} />
       <MovieGrid
         movies={movies}
         loading={loading}
         error={error}
         onMovieClick={setSelectedMovieId}
+        lang={lang}
       />
       <Pagination
         page={page}
         totalPages={totalPages}
         total={total}
         onPageChange={setPage}
+        lang={lang}
       />
       {selectedMovieId !== null && (
-        <MovieDetail movieId={selectedMovieId} onClose={closeDetail} />
+        <MovieDetail movieId={selectedMovieId} onClose={closeDetail} lang={lang} />
       )}
     </Layout>
   );

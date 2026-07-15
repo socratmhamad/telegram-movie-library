@@ -1,21 +1,45 @@
 import { useState, useEffect } from 'react';
 import { fetchMovie } from '../api/client';
 
-export default function MovieDetail({ movieId, onClose }) {
+const GENRE_MAP = {
+  'Action': 'أكشن',
+  'Adventure': 'مغامرة',
+  'Animation': 'رسوم متحركة',
+  'Comedy': 'كوميديا',
+  'Crime': 'جريمة',
+  'Documentary': 'وثائقي',
+  'Drama': 'دراما',
+  'Family': 'عائلي',
+  'Fantasy': 'خيال',
+  'History': 'تاريخ',
+  'Horror': 'رعب',
+  'Music': 'موسيقى',
+  'Mystery': 'غموض',
+  'Romance': 'رومانسية',
+  'Science Fiction': 'خيال علمي',
+  'TV Movie': 'فيلم تلفزيوني',
+  'Thriller': 'إثارة',
+  'War': 'حرب',
+  'Western': 'غربي'
+};
+
+export default function MovieDetail({ movieId, onClose, lang = 'en' }) {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const isAr = lang === 'ar';
 
   useEffect(() => {
     if (!movieId) return;
     setLoading(true);
     setError(null);
 
-    fetchMovie(movieId)
+    fetchMovie(movieId, { language: lang })
       .then((data) => setMovie(data))
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
-  }, [movieId]);
+  }, [movieId, lang]);
 
   // Close on Escape key
   useEffect(() => {
@@ -41,9 +65,9 @@ export default function MovieDetail({ movieId, onClose }) {
   const year = tmdb?.release_date ? tmdb.release_date.slice(0, 4) : null;
 
   return (
-    <div className="modal-overlay" onClick={handleOverlayClick} id="movie-detail-modal">
-      <div className="modal-content" role="dialog" aria-label="Movie details">
-        <button className="modal-close" onClick={onClose} aria-label="Close">✕</button>
+    <div className={`modal-overlay ${isAr ? 'rtl' : 'ltr'}`} onClick={handleOverlayClick} id="movie-detail-modal">
+      <div className="modal-content" role="dialog" aria-label={isAr ? 'تفاصيل الفيلم' : 'Movie details'}>
+        <button className="modal-close" onClick={onClose} aria-label={isAr ? 'إغلاق' : 'Close'}>✕</button>
 
         {loading && (
           <div className="loading-spinner" style={{ padding: '4rem' }}>
@@ -61,7 +85,7 @@ export default function MovieDetail({ movieId, onClose }) {
               <div className="modal-backdrop-placeholder" />
             )}
 
-            <div className="modal-body">
+            <div className="modal-body" style={{ direction: isAr ? 'rtl' : 'ltr' }}>
               {/* Poster */}
               {tmdb?.poster_url ? (
                 <img className="modal-poster" src={tmdb.poster_url} alt={movie.title} />
@@ -84,7 +108,7 @@ export default function MovieDetail({ movieId, onClose }) {
                     <span className="modal-rating">★ {rating}</span>
                   )}
                   {year && <span>{year}</span>}
-                  {tmdb?.runtime && <span>{tmdb.runtime} min</span>}
+                  {tmdb?.runtime && <span>{tmdb.runtime} {isAr ? 'دقيقة' : 'min'}</span>}
                   {tmdb?.imdb_id && (
                     <a
                       href={`https://www.imdb.com/title/${tmdb.imdb_id}/`}
@@ -92,7 +116,7 @@ export default function MovieDetail({ movieId, onClose }) {
                       rel="noopener noreferrer"
                       style={{ color: 'var(--accent-gold)', textDecoration: 'none', fontWeight: 600 }}
                     >
-                      IMDb ↗
+                      {isAr ? 'صفحة IMDb ↗' : 'IMDb ↗'}
                     </a>
                   )}
                 </div>
@@ -100,7 +124,7 @@ export default function MovieDetail({ movieId, onClose }) {
                 {tmdb?.genres && tmdb.genres.length > 0 && (
                   <div className="modal-genres">
                     {tmdb.genres.map((g) => (
-                      <span className="modal-genre-tag" key={g}>{g}</span>
+                      <span className="modal-genre-tag" key={g}>{isAr ? (GENRE_MAP[g] || g) : g}</span>
                     ))}
                   </div>
                 )}
@@ -117,7 +141,7 @@ export default function MovieDetail({ movieId, onClose }) {
                     rel="noopener noreferrer"
                     id="watch-on-telegram-btn"
                   >
-                    📺 Watch on Telegram
+                    {isAr ? '📺 شاهد على تيليجرام' : '📺 Watch on Telegram'}
                   </a>
                 )}
               </div>
