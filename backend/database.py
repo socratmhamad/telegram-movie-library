@@ -4,7 +4,7 @@ import json
 import math
 from typing import Any
 
-from sqlalchemy import select, func, distinct, case
+from sqlalchemy import select, func, distinct, case, and_
 from sqlalchemy.orm import Session
 
 
@@ -95,11 +95,7 @@ class MovieQueries:
         library_id: int | None = None,
     ) -> dict[str, Any]:
         sort_column = _VALID_SORT_COLUMNS.get(sort_by, Movie.title)
-        
-        if sort_order.lower() == "desc":
-            sort_order_col = sort_column.desc()
-        else:
-            sort_order_col = sort_column.asc()
+        sort_order_col = sort_column.desc()
 
         with self._get_session() as session:
             # Base query
@@ -120,7 +116,14 @@ class MovieQueries:
 
             # Paginated rows
             offset = (page - 1) * page_size
-            query = query.order_by(sort_order_col).limit(page_size).offset(offset)
+            
+            # Prioritize movies with posters first
+            has_poster_case = case(
+                (and_(TMDBMovie.poster_path.isnot(None), TMDBMovie.poster_path != ""), 1),
+                else_=0
+            ).desc()
+            
+            query = query.order_by(has_poster_case, sort_order_col).limit(page_size).offset(offset)
             
             rows = session.execute(query).all()
 

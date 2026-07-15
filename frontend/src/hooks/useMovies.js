@@ -19,7 +19,7 @@ export function useMovies(libraryId = null) {
   const [search, setSearch] = useState('');
   const [genre, setGenre] = useState('');
   const [sortBy, setSortBy] = useState('title');
-  const [sortOrder, setSortOrder] = useState('asc');
+  const [sortOrder, setSortOrder] = useState('desc');
 
   // --- Genres ---
   const [genres, setGenres] = useState([]);
@@ -53,7 +53,7 @@ export function useMovies(libraryId = null) {
     setDebouncedSearch('');
     setGenre('');
     setSortBy('title');
-    setSortOrder('asc');
+    setSortOrder('desc');
   }, [libraryId]);
 
   // Fetch movies

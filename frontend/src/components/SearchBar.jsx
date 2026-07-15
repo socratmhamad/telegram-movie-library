@@ -1,4 +1,4 @@
-export default function SearchBar({ search, onSearchChange, sortBy, onSortByChange, sortOrder, onSortOrderChange }) {
+export default function SearchBar({ search, onSearchChange, sortBy, onSortByChange }) {
   return (
     <div className="controls-bar" id="search-bar">
       <div className="search-input-wrapper">
@@ -26,17 +26,7 @@ export default function SearchBar({ search, onSearchChange, sortBy, onSortByChan
         <option value="vote_average">Sort: Rating</option>
         <option value="runtime">Sort: Runtime</option>
       </select>
-
-      <select
-        id="sort-order-select"
-        className="sort-select"
-        value={sortOrder}
-        onChange={(e) => onSortOrderChange(e.target.value)}
-        aria-label="Sort order"
-      >
-        <option value="asc">Ascending</option>
-        <option value="desc">Descending</option>
-      </select>
     </div>
   );
 }
+

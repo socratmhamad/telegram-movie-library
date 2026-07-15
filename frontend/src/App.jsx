@@ -146,8 +146,6 @@ function LibraryView({ libraryId, libraryName, onBackToLibraries }) {
         onSearchChange={setSearch}
         sortBy={sortBy}
         onSortByChange={setSortBy}
-        sortOrder={sortOrder}
-        onSortOrderChange={setSortOrder}
       />
       <GenreFilter genres={genres} activeGenre={genre} onToggle={setGenre} />
       <MovieGrid
