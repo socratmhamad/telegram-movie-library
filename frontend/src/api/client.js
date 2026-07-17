@@ -1,6 +1,7 @@
 /**
  * API client — thin wrapper around fetch for the /api endpoints.
  */
+import { getAuthHeaders, refreshAccessToken } from './adminAuth';
 
 // Use 127.0.0.1 to avoid Windows localhost IPv6 resolution issues
 const isLocal = window.location.hostname === 'localhost' || 
@@ -12,7 +13,7 @@ const BASE = isLocal
   ? `http://${window.location.hostname === 'localhost' ? '127.0.0.1' : window.location.hostname}:8000/api`
   : (import.meta.env.VITE_API_URL || 'https://telegram-movie-library.onrender.com') + '/api';
 
-async function request(path, params = {}) {
+async function request(path, params = {}, retry = true) {
   const url = new URL(path);
   Object.entries(params).forEach(([key, value]) => {
     if (value !== null && value !== undefined && value !== '') {
@@ -20,7 +21,24 @@ async function request(path, params = {}) {
     }
   });
 
-  const response = await fetch(url);
+  const headers = {};
+  if (path.includes('/api/admin')) {
+    Object.assign(headers, getAuthHeaders());
+  }
+
+  const response = await fetch(url, { headers });
+  if (response.status === 401 && retry && path.includes('/api/admin')) {
+    const newToken = await refreshAccessToken();
+    if (newToken) {
+      headers['Authorization'] = `Bearer ${newToken}`;
+      const retryResponse = await fetch(url, { headers });
+      if (!retryResponse.ok) {
+        throw new Error(`API error ${retryResponse.status}: ${retryResponse.statusText}`);
+      }
+      return retryResponse.json();
+    }
+  }
+
   if (!response.ok) {
     throw new Error(`API error ${response.status}: ${response.statusText}`);
   }
@@ -77,13 +95,31 @@ const ADMIN = isLocal
   ? `http://${window.location.hostname === 'localhost' ? '127.0.0.1' : window.location.hostname}:8000/api/admin`
   : (import.meta.env.VITE_API_URL || 'https://telegram-movie-library.onrender.com') + '/api/admin';
 
-async function mutate(url, method = 'POST', body = null) {
+async function mutate(url, method = 'POST', body = null, retry = true) {
   const options = { method, headers: {} };
   if (body !== null) {
     options.headers['Content-Type'] = 'application/json';
     options.body = JSON.stringify(body);
   }
+  if (url.includes('/api/admin')) {
+    Object.assign(options.headers, getAuthHeaders());
+  }
+
   const response = await fetch(url, options);
+  if (response.status === 401 && retry && url.includes('/api/admin')) {
+    const newToken = await refreshAccessToken();
+    if (newToken) {
+      options.headers['Authorization'] = `Bearer ${newToken}`;
+      const retryResponse = await fetch(url, options);
+      if (method === 'DELETE' && retryResponse.status === 204) return null;
+      if (!retryResponse.ok) {
+        const text = await retryResponse.text().catch(() => '');
+        throw new Error(`API error ${retryResponse.status}: ${text || retryResponse.statusText}`);
+      }
+      return retryResponse.json();
+    }
+  }
+
   if (method === 'DELETE' && response.status === 204) return null;
   if (!response.ok) {
     const text = await response.text().catch(() => '');
@@ -91,6 +127,7 @@ async function mutate(url, method = 'POST', body = null) {
   }
   return response.json();
 }
+
 
 /** Admin: list ALL libraries with detailed stats. */
 export function adminFetchLibraries() {

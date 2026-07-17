@@ -10,7 +10,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_database",
-      "community": 0,
+      "community": 6,
       "norm_label": "database.py"
     },
     {
@@ -69,7 +69,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "any",
+      "id": "backend_database_py_any",
       "community": 0,
       "norm_label": "any"
     },
@@ -107,7 +107,7 @@
       "label": ".get_genres()",
       "file_type": "code",
       "source_file": "backend/database.py",
-      "source_location": "L251",
+      "source_location": "L267",
       "_origin": "ast",
       "id": "backend_database_moviequeries_get_genres",
       "community": 0,
@@ -117,7 +117,7 @@
       "label": ".get_stats()",
       "file_type": "code",
       "source_file": "backend/database.py",
-      "source_location": "L279",
+      "source_location": "L295",
       "_origin": "ast",
       "id": "backend_database_moviequeries_get_stats",
       "community": 0,
@@ -134,13 +134,133 @@
       "norm_label": "read-only query layer that powers the fastapi endpoints.      uses sqlalchemy."
     },
     {
+      "label": "movies.py",
+      "file_type": "code",
+      "source_file": "backend/routers/movies.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_routers_movies",
+      "community": 0,
+      "norm_label": "movies.py"
+    },
+    {
+      "label": "_get_queries()",
+      "file_type": "code",
+      "source_file": "backend/routers/movies.py",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "backend_routers_movies_get_queries",
+      "community": 0,
+      "norm_label": "_get_queries()"
+    },
+    {
+      "label": "Request",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "request",
+      "community": 1,
+      "norm_label": "request"
+    },
+    {
+      "label": "list_movies()",
+      "file_type": "code",
+      "source_file": "backend/routers/movies.py",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "backend_routers_movies_list_movies",
+      "community": 0,
+      "norm_label": "list_movies()"
+    },
+    {
+      "label": "PaginatedResponse",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "paginatedresponse",
+      "community": 0,
+      "norm_label": "paginatedresponse"
+    },
+    {
+      "label": "get_movie()",
+      "file_type": "code",
+      "source_file": "backend/routers/movies.py",
+      "source_location": "L52",
+      "_origin": "ast",
+      "id": "backend_routers_movies_get_movie",
+      "community": 0,
+      "norm_label": "get_movie()"
+    },
+    {
+      "label": "MovieDetailResponse",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "moviedetailresponse",
+      "community": 0,
+      "norm_label": "moviedetailresponse"
+    },
+    {
+      "label": "list_genres()",
+      "file_type": "code",
+      "source_file": "backend/routers/movies.py",
+      "source_location": "L65",
+      "_origin": "ast",
+      "id": "backend_routers_movies_list_genres",
+      "community": 0,
+      "norm_label": "list_genres()"
+    },
+    {
+      "label": "GenreListResponse",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "genrelistresponse",
+      "community": 0,
+      "norm_label": "genrelistresponse"
+    },
+    {
+      "label": "Return a paginated list of movies with lightweight TMDB metadata.",
+      "file_type": "rationale",
+      "source_file": "backend/routers/movies.py",
+      "source_location": "L38",
+      "_origin": "ast",
+      "id": "backend_routers_movies_rationale_38",
+      "community": 0,
+      "norm_label": "return a paginated list of movies with lightweight tmdb metadata."
+    },
+    {
+      "label": "Return full details for a single movie (detail page, not modal).",
+      "file_type": "rationale",
+      "source_file": "backend/routers/movies.py",
+      "source_location": "L57",
+      "_origin": "ast",
+      "id": "backend_routers_movies_rationale_57",
+      "community": 0,
+      "norm_label": "return full details for a single movie (detail page, not modal)."
+    },
+    {
+      "label": "Return a sorted list of every unique genre in the library.",
+      "file_type": "rationale",
+      "source_file": "backend/routers/movies.py",
+      "source_location": "L69",
+      "_origin": "ast",
+      "id": "backend_routers_movies_rationale_69",
+      "community": 0,
+      "norm_label": "return a sorted list of every unique genre in the library."
+    },
+    {
       "label": "App.jsx",
       "file_type": "code",
       "source_file": "frontend/src/App.jsx",
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_app",
-      "community": 7,
+      "community": 2,
       "norm_label": "app.jsx"
     },
     {
@@ -150,18 +270,428 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "frontend_src_app_app",
-      "community": 7,
+      "community": 2,
       "norm_label": "app()"
     },
     {
       "label": "LibraryView()",
       "file_type": "code",
       "source_file": "frontend/src/App.jsx",
-      "source_location": "L117",
+      "source_location": "L134",
       "_origin": "ast",
       "id": "frontend_src_app_libraryview",
-      "community": 7,
+      "community": 2,
       "norm_label": "libraryview()"
+    },
+    {
+      "label": "client.js",
+      "file_type": "code",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_api_client",
+      "community": 2,
+      "norm_label": "client.js"
+    },
+    {
+      "label": "request()",
+      "file_type": "code",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "frontend_src_api_client_request",
+      "community": 2,
+      "norm_label": "request()"
+    },
+    {
+      "label": "fetchLibraries()",
+      "file_type": "code",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "frontend_src_api_client_fetchlibraries",
+      "community": 2,
+      "norm_label": "fetchlibraries()"
+    },
+    {
+      "label": "fetchLibrary()",
+      "file_type": "code",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L36",
+      "_origin": "ast",
+      "id": "frontend_src_api_client_fetchlibrary",
+      "community": 2,
+      "norm_label": "fetchlibrary()"
+    },
+    {
+      "label": "fetchMovies()",
+      "file_type": "code",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "frontend_src_api_client_fetchmovies",
+      "community": 2,
+      "norm_label": "fetchmovies()"
+    },
+    {
+      "label": "fetchMovie()",
+      "file_type": "code",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L54",
+      "_origin": "ast",
+      "id": "frontend_src_api_client_fetchmovie",
+      "community": 2,
+      "norm_label": "fetchmovie()"
+    },
+    {
+      "label": "fetchGenres()",
+      "file_type": "code",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L59",
+      "_origin": "ast",
+      "id": "frontend_src_api_client_fetchgenres",
+      "community": 2,
+      "norm_label": "fetchgenres()"
+    },
+    {
+      "label": "fetchStats()",
+      "file_type": "code",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L66",
+      "_origin": "ast",
+      "id": "frontend_src_api_client_fetchstats",
+      "community": 2,
+      "norm_label": "fetchstats()"
+    },
+    {
+      "label": "mutate()",
+      "file_type": "code",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L80",
+      "_origin": "ast",
+      "id": "frontend_src_api_client_mutate",
+      "community": 2,
+      "norm_label": "mutate()"
+    },
+    {
+      "label": "adminFetchLibraries()",
+      "file_type": "code",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L96",
+      "_origin": "ast",
+      "id": "frontend_src_api_client_adminfetchlibraries",
+      "community": 2,
+      "norm_label": "adminfetchlibraries()"
+    },
+    {
+      "label": "adminCreateLibrary()",
+      "file_type": "code",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L101",
+      "_origin": "ast",
+      "id": "frontend_src_api_client_admincreatelibrary",
+      "community": 2,
+      "norm_label": "admincreatelibrary()"
+    },
+    {
+      "label": "adminUpdateLibrary()",
+      "file_type": "code",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L106",
+      "_origin": "ast",
+      "id": "frontend_src_api_client_adminupdatelibrary",
+      "community": 2,
+      "norm_label": "adminupdatelibrary()"
+    },
+    {
+      "label": "adminDeleteLibrary()",
+      "file_type": "code",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L111",
+      "_origin": "ast",
+      "id": "frontend_src_api_client_admindeletelibrary",
+      "community": 2,
+      "norm_label": "admindeletelibrary()"
+    },
+    {
+      "label": "adminScanLibrary()",
+      "file_type": "code",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L116",
+      "_origin": "ast",
+      "id": "frontend_src_api_client_adminscanlibrary",
+      "community": 2,
+      "norm_label": "adminscanlibrary()"
+    },
+    {
+      "label": "adminUpdateTmdb()",
+      "file_type": "code",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L121",
+      "_origin": "ast",
+      "id": "frontend_src_api_client_adminupdatetmdb",
+      "community": 2,
+      "norm_label": "adminupdatetmdb()"
+    },
+    {
+      "label": "adminMigrateLibrary()",
+      "file_type": "code",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L126",
+      "_origin": "ast",
+      "id": "frontend_src_api_client_adminmigratelibrary",
+      "community": 2,
+      "norm_label": "adminmigratelibrary()"
+    },
+    {
+      "label": "adminFetchTasks()",
+      "file_type": "code",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L131",
+      "_origin": "ast",
+      "id": "frontend_src_api_client_adminfetchtasks",
+      "community": 2,
+      "norm_label": "adminfetchtasks()"
+    },
+    {
+      "label": "adminFetchTask()",
+      "file_type": "code",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L136",
+      "_origin": "ast",
+      "id": "frontend_src_api_client_adminfetchtask",
+      "community": 2,
+      "norm_label": "adminfetchtask()"
+    },
+    {
+      "label": "adminFetchTaskLogs()",
+      "file_type": "code",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L141",
+      "_origin": "ast",
+      "id": "frontend_src_api_client_adminfetchtasklogs",
+      "community": 2,
+      "norm_label": "adminfetchtasklogs()"
+    },
+    {
+      "label": "adminCancelTask()",
+      "file_type": "code",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L146",
+      "_origin": "ast",
+      "id": "frontend_src_api_client_admincanceltask",
+      "community": 2,
+      "norm_label": "admincanceltask()"
+    },
+    {
+      "label": "AdminDashboard.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_components_admindashboard",
+      "community": 2,
+      "norm_label": "admindashboard.jsx"
+    },
+    {
+      "label": "LibraryForm()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "frontend_src_components_admindashboard_libraryform",
+      "community": 2,
+      "norm_label": "libraryform()"
+    },
+    {
+      "label": "MigrateForm()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L92",
+      "_origin": "ast",
+      "id": "frontend_src_components_admindashboard_migrateform",
+      "community": 2,
+      "norm_label": "migrateform()"
+    },
+    {
+      "label": "TaskLogViewer()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L153",
+      "_origin": "ast",
+      "id": "frontend_src_components_admindashboard_tasklogviewer",
+      "community": 2,
+      "norm_label": "tasklogviewer()"
+    },
+    {
+      "label": "AdminDashboard()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L210",
+      "_origin": "ast",
+      "id": "frontend_src_components_admindashboard_admindashboard",
+      "community": 2,
+      "norm_label": "admindashboard()"
+    },
+    {
+      "label": "GenreFilter.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/components/GenreFilter.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_components_genrefilter",
+      "community": 2,
+      "norm_label": "genrefilter.jsx"
+    },
+    {
+      "label": "GENRE_MAP",
+      "file_type": "code",
+      "source_file": "frontend/src/components/GenreFilter.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_components_genrefilter_genre_map",
+      "community": 2,
+      "norm_label": "genre_map"
+    },
+    {
+      "label": "GenreFilter()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/GenreFilter.jsx",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "frontend_src_components_genrefilter_genrefilter",
+      "community": 2,
+      "norm_label": "genrefilter()"
+    },
+    {
+      "label": "Layout.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/components/Layout.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_components_layout",
+      "community": 2,
+      "norm_label": "layout.jsx"
+    },
+    {
+      "label": "Layout()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/Layout.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_components_layout_layout",
+      "community": 2,
+      "norm_label": "layout()"
+    },
+    {
+      "label": "LibraryGrid.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/components/LibraryGrid.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_components_librarygrid",
+      "community": 2,
+      "norm_label": "librarygrid.jsx"
+    },
+    {
+      "label": "LibraryGrid()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/LibraryGrid.jsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "frontend_src_components_librarygrid_librarygrid",
+      "community": 2,
+      "norm_label": "librarygrid()"
+    },
+    {
+      "label": "MovieCard.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/components/MovieCard.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_components_moviecard",
+      "community": 2,
+      "norm_label": "moviecard.jsx"
+    },
+    {
+      "label": "MovieCard()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/MovieCard.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_components_moviecard_moviecard",
+      "community": 2,
+      "norm_label": "moviecard()"
+    },
+    {
+      "label": "MovieDetail.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/components/MovieDetail.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_components_moviedetail",
+      "community": 2,
+      "norm_label": "moviedetail.jsx"
+    },
+    {
+      "label": "GENRE_MAP",
+      "file_type": "code",
+      "source_file": "frontend/src/components/MovieDetail.jsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "frontend_src_components_moviedetail_genre_map",
+      "community": 2,
+      "norm_label": "genre_map"
+    },
+    {
+      "label": "MovieDetail()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/MovieDetail.jsx",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "frontend_src_components_moviedetail_moviedetail",
+      "community": 2,
+      "norm_label": "moviedetail()"
+    },
+    {
+      "label": "MovieGrid.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/components/MovieGrid.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_components_moviegrid",
+      "community": 2,
+      "norm_label": "moviegrid.jsx"
+    },
+    {
+      "label": "MovieGrid()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/MovieGrid.jsx",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "frontend_src_components_moviegrid_moviegrid",
+      "community": 2,
+      "norm_label": "moviegrid()"
+    },
+    {
+      "label": "Pagination.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/components/Pagination.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_components_pagination",
+      "community": 2,
+      "norm_label": "pagination.jsx"
+    },
+    {
+      "label": "Pagination()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/Pagination.jsx",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "frontend_src_components_pagination_pagination",
+      "community": 2,
+      "norm_label": "pagination()"
     },
     {
       "label": "SearchBar.jsx",
@@ -170,7 +700,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_components_searchbar",
-      "community": 7,
+      "community": 2,
       "norm_label": "searchbar.jsx"
     },
     {
@@ -180,8 +710,118 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_components_searchbar_searchbar",
-      "community": 7,
+      "community": 2,
       "norm_label": "searchbar()"
+    },
+    {
+      "label": "tmdb_service.py",
+      "file_type": "code",
+      "source_file": "tmdb_service.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tmdb_service",
+      "community": 6,
+      "norm_label": "tmdb_service.py"
+    },
+    {
+      "label": "search_movie()",
+      "file_type": "code",
+      "source_file": "tmdb_service.py",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "tmdb_service_search_movie",
+      "community": 6,
+      "norm_label": "search_movie()"
+    },
+    {
+      "label": "Any",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "tmdb_service_py_any",
+      "community": 6,
+      "norm_label": "any"
+    },
+    {
+      "label": "get_movie_details()",
+      "file_type": "code",
+      "source_file": "tmdb_service.py",
+      "source_location": "L59",
+      "_origin": "ast",
+      "id": "tmdb_service_get_movie_details",
+      "community": 6,
+      "norm_label": "get_movie_details()"
+    },
+    {
+      "label": "build_poster_url()",
+      "file_type": "code",
+      "source_file": "tmdb_service.py",
+      "source_location": "L88",
+      "_origin": "ast",
+      "id": "tmdb_service_build_poster_url",
+      "community": 6,
+      "norm_label": "build_poster_url()"
+    },
+    {
+      "label": "_tmdb_get()",
+      "file_type": "code",
+      "source_file": "tmdb_service.py",
+      "source_location": "L95",
+      "_origin": "ast",
+      "id": "tmdb_service_tmdb_get",
+      "community": 6,
+      "norm_label": "_tmdb_get()"
+    },
+    {
+      "label": "_choose_best_match()",
+      "file_type": "code",
+      "source_file": "tmdb_service.py",
+      "source_location": "L135",
+      "_origin": "ast",
+      "id": "tmdb_service_choose_best_match",
+      "community": 6,
+      "norm_label": "_choose_best_match()"
+    },
+    {
+      "label": "_normalize_title()",
+      "file_type": "code",
+      "source_file": "tmdb_service.py",
+      "source_location": "L171",
+      "_origin": "ast",
+      "id": "tmdb_service_normalize_title",
+      "community": 6,
+      "norm_label": "_normalize_title()"
+    },
+    {
+      "label": "Search TMDB by movie title and return the best matching result.      Returned",
+      "file_type": "rationale",
+      "source_file": "tmdb_service.py",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "tmdb_service_rationale_25",
+      "community": 6,
+      "norm_label": "search tmdb by movie title and return the best matching result.      returned"
+    },
+    {
+      "label": "Fetch detailed TMDB metadata for a movie.      Returned keys:     - poster_pa",
+      "file_type": "rationale",
+      "source_file": "tmdb_service.py",
+      "source_location": "L60",
+      "_origin": "ast",
+      "id": "tmdb_service_rationale_60",
+      "community": 6,
+      "norm_label": "fetch detailed tmdb metadata for a movie.      returned keys:     - poster_pa"
+    },
+    {
+      "label": "Any",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "community": 16,
+      "norm_label": "any",
+      "id": "any"
     },
     {
       "label": "useMovies.js",
@@ -189,9 +829,9 @@
       "source_file": "frontend/src/hooks/useMovies.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_src_hooks_usemovies",
-      "community": 7,
-      "norm_label": "usemovies.js"
+      "community": 2,
+      "norm_label": "usemovies.js",
+      "id": "frontend_src_hooks_usemovies"
     },
     {
       "label": "useMovies()",
@@ -199,9 +839,9 @@
       "source_file": "frontend/src/hooks/useMovies.js",
       "source_location": "L8",
       "_origin": "ast",
-      "id": "frontend_src_hooks_usemovies_usemovies",
-      "community": 7,
-      "norm_label": "usemovies()"
+      "community": 2,
+      "norm_label": "usemovies()",
+      "id": "frontend_src_hooks_usemovies_usemovies"
     },
     {
       "label": "app.py",
@@ -209,7 +849,7 @@
       "source_file": "backend/app.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 0,
+      "community": 19,
       "norm_label": "app.py",
       "id": "backend_app"
     },
@@ -219,7 +859,7 @@
       "source_file": "backend/app.py",
       "source_location": "L53",
       "_origin": "ast",
-      "community": 0,
+      "community": 19,
       "norm_label": "root()",
       "id": "backend_app_root"
     },
@@ -229,7 +869,7 @@
       "source_file": "backend/app.py",
       "source_location": "L54",
       "_origin": "ast",
-      "community": 0,
+      "community": 19,
       "norm_label": "health-check / welcome endpoint.",
       "id": "backend_app_rationale_54"
     },
@@ -542,16 +1182,6 @@
       "community": 1,
       "norm_label": "_get_tasks()",
       "id": "backend_routers_admin_get_tasks"
-    },
-    {
-      "label": "Request",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "community": 1,
-      "norm_label": "request",
-      "id": "request"
     },
     {
       "label": "_get_session_factory()",
@@ -1044,276 +1674,6 @@
       "id": "backend_services_task_manager_rationale_143"
     },
     {
-      "label": "client.js",
-      "file_type": "code",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "client.js",
-      "id": "frontend_src_api_client"
-    },
-    {
-      "label": "request()",
-      "file_type": "code",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L15",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "request()",
-      "id": "frontend_src_api_client_request"
-    },
-    {
-      "label": "fetchLibraries()",
-      "file_type": "code",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L31",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "fetchlibraries()",
-      "id": "frontend_src_api_client_fetchlibraries"
-    },
-    {
-      "label": "fetchLibrary()",
-      "file_type": "code",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L36",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "fetchlibrary()",
-      "id": "frontend_src_api_client_fetchlibrary"
-    },
-    {
-      "label": "fetchMovies()",
-      "file_type": "code",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L41",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "fetchmovies()",
-      "id": "frontend_src_api_client_fetchmovies"
-    },
-    {
-      "label": "fetchMovie()",
-      "file_type": "code",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L54",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "fetchmovie()",
-      "id": "frontend_src_api_client_fetchmovie"
-    },
-    {
-      "label": "fetchGenres()",
-      "file_type": "code",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L59",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "fetchgenres()",
-      "id": "frontend_src_api_client_fetchgenres"
-    },
-    {
-      "label": "fetchStats()",
-      "file_type": "code",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L66",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "fetchstats()",
-      "id": "frontend_src_api_client_fetchstats"
-    },
-    {
-      "label": "mutate()",
-      "file_type": "code",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L80",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "mutate()",
-      "id": "frontend_src_api_client_mutate"
-    },
-    {
-      "label": "adminFetchLibraries()",
-      "file_type": "code",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L96",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "adminfetchlibraries()",
-      "id": "frontend_src_api_client_adminfetchlibraries"
-    },
-    {
-      "label": "adminCreateLibrary()",
-      "file_type": "code",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L101",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "admincreatelibrary()",
-      "id": "frontend_src_api_client_admincreatelibrary"
-    },
-    {
-      "label": "adminUpdateLibrary()",
-      "file_type": "code",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L106",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "adminupdatelibrary()",
-      "id": "frontend_src_api_client_adminupdatelibrary"
-    },
-    {
-      "label": "adminDeleteLibrary()",
-      "file_type": "code",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L111",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "admindeletelibrary()",
-      "id": "frontend_src_api_client_admindeletelibrary"
-    },
-    {
-      "label": "adminScanLibrary()",
-      "file_type": "code",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L116",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "adminscanlibrary()",
-      "id": "frontend_src_api_client_adminscanlibrary"
-    },
-    {
-      "label": "adminUpdateTmdb()",
-      "file_type": "code",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L121",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "adminupdatetmdb()",
-      "id": "frontend_src_api_client_adminupdatetmdb"
-    },
-    {
-      "label": "adminMigrateLibrary()",
-      "file_type": "code",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L126",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "adminmigratelibrary()",
-      "id": "frontend_src_api_client_adminmigratelibrary"
-    },
-    {
-      "label": "adminFetchTasks()",
-      "file_type": "code",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L131",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "adminfetchtasks()",
-      "id": "frontend_src_api_client_adminfetchtasks"
-    },
-    {
-      "label": "adminFetchTask()",
-      "file_type": "code",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L136",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "adminfetchtask()",
-      "id": "frontend_src_api_client_adminfetchtask"
-    },
-    {
-      "label": "adminFetchTaskLogs()",
-      "file_type": "code",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L141",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "adminfetchtasklogs()",
-      "id": "frontend_src_api_client_adminfetchtasklogs"
-    },
-    {
-      "label": "adminCancelTask()",
-      "file_type": "code",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L146",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "admincanceltask()",
-      "id": "frontend_src_api_client_admincanceltask"
-    },
-    {
-      "label": "AdminDashboard.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "admindashboard.jsx",
-      "id": "frontend_src_components_admindashboard"
-    },
-    {
-      "label": "LibraryForm()",
-      "file_type": "code",
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L19",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "libraryform()",
-      "id": "frontend_src_components_admindashboard_libraryform"
-    },
-    {
-      "label": "MigrateForm()",
-      "file_type": "code",
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L92",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "migrateform()",
-      "id": "frontend_src_components_admindashboard_migrateform"
-    },
-    {
-      "label": "TaskLogViewer()",
-      "file_type": "code",
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L153",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "tasklogviewer()",
-      "id": "frontend_src_components_admindashboard_tasklogviewer"
-    },
-    {
-      "label": "AdminDashboard()",
-      "file_type": "code",
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L210",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "admindashboard()",
-      "id": "frontend_src_components_admindashboard_admindashboard"
-    },
-    {
-      "label": "Layout.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/components/Layout.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "layout.jsx",
-      "id": "frontend_src_components_layout"
-    },
-    {
-      "label": "Layout()",
-      "file_type": "code",
-      "source_file": "frontend/src/components/Layout.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "layout()",
-      "id": "frontend_src_components_layout_layout"
-    },
-    {
       "label": "migrate_channel_links.py",
       "file_type": "code",
       "source_file": "migrate_channel_links.py",
@@ -1469,7 +1829,7 @@
       "source_file": "scraper/database.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 15,
+      "community": 20,
       "norm_label": "database.py",
       "id": "scraper_database"
     },
@@ -2163,17 +2523,6 @@
       "id": "backend_config_rationale_30"
     },
     {
-      "label": "Any",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "any",
-      "community_name": "MovieQueries",
-      "id": "backend_database_py_any"
-    },
-    {
       "label": "__init__.py",
       "file_type": "code",
       "source_file": "backend/routers/__init__.py",
@@ -2185,103 +2534,15 @@
       "id": "backend_routers_init"
     },
     {
-      "label": "movies.py",
-      "file_type": "code",
-      "source_file": "backend/routers/movies.py",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 1,
-      "norm_label": "movies.py",
-      "community_name": "movies.py",
-      "id": "backend_routers_movies"
-    },
-    {
-      "label": "_get_queries()",
-      "file_type": "code",
-      "source_file": "backend/routers/movies.py",
-      "source_location": "L15",
-      "_origin": "ast",
-      "community": 0,
-      "norm_label": "_get_queries()",
-      "community_name": "movies.py",
-      "id": "backend_routers_movies_get_queries"
-    },
-    {
       "label": "Request",
       "file_type": "code",
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 0,
+      "community": 23,
       "norm_label": "request",
       "community_name": "movies.py",
       "id": "backend_routers_movies_py_request"
-    },
-    {
-      "label": "list_movies()",
-      "file_type": "code",
-      "source_file": "backend/routers/movies.py",
-      "source_location": "L20",
-      "_origin": "ast",
-      "community": 1,
-      "norm_label": "list_movies()",
-      "community_name": "movies.py",
-      "id": "backend_routers_movies_list_movies"
-    },
-    {
-      "label": "get_movie()",
-      "file_type": "code",
-      "source_file": "backend/routers/movies.py",
-      "source_location": "L50",
-      "_origin": "ast",
-      "community": 1,
-      "norm_label": "get_movie()",
-      "community_name": "movies.py",
-      "id": "backend_routers_movies_get_movie"
-    },
-    {
-      "label": "list_genres()",
-      "file_type": "code",
-      "source_file": "backend/routers/movies.py",
-      "source_location": "L62",
-      "_origin": "ast",
-      "community": 1,
-      "norm_label": "list_genres()",
-      "community_name": "movies.py",
-      "id": "backend_routers_movies_list_genres"
-    },
-    {
-      "label": "Return a paginated list of movies with lightweight TMDB metadata.",
-      "file_type": "rationale",
-      "source_file": "backend/routers/movies.py",
-      "source_location": "L37",
-      "_origin": "ast",
-      "community": 1,
-      "norm_label": "return a paginated list of movies with lightweight tmdb metadata.",
-      "community_name": "movies.py",
-      "id": "backend_routers_movies_rationale_37"
-    },
-    {
-      "label": "Return full details for a single movie (detail page, not modal).",
-      "file_type": "rationale",
-      "source_file": "backend/routers/movies.py",
-      "source_location": "L54",
-      "_origin": "ast",
-      "community": 1,
-      "norm_label": "return full details for a single movie (detail page, not modal).",
-      "community_name": "movies.py",
-      "id": "backend_routers_movies_rationale_54"
-    },
-    {
-      "label": "Return a sorted list of every unique genre in the library.",
-      "file_type": "rationale",
-      "source_file": "backend/routers/movies.py",
-      "source_location": "L65",
-      "_origin": "ast",
-      "community": 1,
-      "norm_label": "return a sorted list of every unique genre in the library.",
-      "community_name": "movies.py",
-      "id": "backend_routers_movies_rationale_65"
     },
     {
       "label": "stats.py",
@@ -2487,7 +2748,7 @@
       "source_file": "frontend/.oxlintrc.json",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 7,
+      "community": 2,
       "norm_label": "react",
       "community_name": "App.jsx",
       "id": "ref_react"
@@ -2757,116 +3018,6 @@
       "id": "vite"
     },
     {
-      "label": "GenreFilter.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/components/GenreFilter.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 24,
-      "norm_label": "genrefilter.jsx",
-      "community_name": "App.jsx",
-      "id": "frontend_src_components_genrefilter"
-    },
-    {
-      "label": "GenreFilter()",
-      "file_type": "code",
-      "source_file": "frontend/src/components/GenreFilter.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 24,
-      "norm_label": "genrefilter()",
-      "community_name": "App.jsx",
-      "id": "frontend_src_components_genrefilter_genrefilter"
-    },
-    {
-      "label": "MovieCard.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/components/MovieCard.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 23,
-      "norm_label": "moviecard.jsx",
-      "community_name": "App.jsx",
-      "id": "frontend_src_components_moviecard"
-    },
-    {
-      "label": "MovieCard()",
-      "file_type": "code",
-      "source_file": "frontend/src/components/MovieCard.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 23,
-      "norm_label": "moviecard()",
-      "community_name": "App.jsx",
-      "id": "frontend_src_components_moviecard_moviecard"
-    },
-    {
-      "label": "MovieDetail.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/components/MovieDetail.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "moviedetail.jsx",
-      "community_name": "App.jsx",
-      "id": "frontend_src_components_moviedetail"
-    },
-    {
-      "label": "MovieDetail()",
-      "file_type": "code",
-      "source_file": "frontend/src/components/MovieDetail.jsx",
-      "source_location": "L4",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "moviedetail()",
-      "community_name": "App.jsx",
-      "id": "frontend_src_components_moviedetail_moviedetail"
-    },
-    {
-      "label": "MovieGrid.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/components/MovieGrid.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 23,
-      "norm_label": "moviegrid.jsx",
-      "community_name": "App.jsx",
-      "id": "frontend_src_components_moviegrid"
-    },
-    {
-      "label": "MovieGrid()",
-      "file_type": "code",
-      "source_file": "frontend/src/components/MovieGrid.jsx",
-      "source_location": "L3",
-      "_origin": "ast",
-      "community": 23,
-      "norm_label": "moviegrid()",
-      "community_name": "App.jsx",
-      "id": "frontend_src_components_moviegrid_moviegrid"
-    },
-    {
-      "label": "Pagination.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/components/Pagination.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 7,
-      "norm_label": "pagination.jsx",
-      "community_name": "App.jsx",
-      "id": "frontend_src_components_pagination"
-    },
-    {
-      "label": "Pagination()",
-      "file_type": "code",
-      "source_file": "frontend/src/components/Pagination.jsx",
-      "source_location": "L3",
-      "_origin": "ast",
-      "community": 7,
-      "norm_label": "pagination()",
-      "community_name": "App.jsx",
-      "id": "frontend_src_components_pagination_pagination"
-    },
-    {
       "label": "StatsPanel.jsx",
       "file_type": "code",
       "source_file": "frontend/src/components/StatsPanel.jsx",
@@ -2894,7 +3045,7 @@
       "source_file": "frontend/src/main.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 7,
+      "community": 2,
       "norm_label": "main.jsx",
       "community_name": "App.jsx",
       "id": "frontend_src_main"
@@ -3041,116 +3192,6 @@
       "norm_label": "main()",
       "community_name": "tmdb_service.py",
       "id": "test_tmdb_main"
-    },
-    {
-      "label": "tmdb_service.py",
-      "file_type": "code",
-      "source_file": "tmdb_service.py",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "tmdb_service.py",
-      "community_name": "tmdb_service.py",
-      "id": "tmdb_service"
-    },
-    {
-      "label": "search_movie()",
-      "file_type": "code",
-      "source_file": "tmdb_service.py",
-      "source_location": "L24",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "search_movie()",
-      "community_name": "tmdb_service.py",
-      "id": "tmdb_service_search_movie"
-    },
-    {
-      "label": "Any",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "any",
-      "community_name": "tmdb_service.py",
-      "id": "tmdb_service_py_any"
-    },
-    {
-      "label": "get_movie_details()",
-      "file_type": "code",
-      "source_file": "tmdb_service.py",
-      "source_location": "L59",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "get_movie_details()",
-      "community_name": "tmdb_service.py",
-      "id": "tmdb_service_get_movie_details"
-    },
-    {
-      "label": "build_poster_url()",
-      "file_type": "code",
-      "source_file": "tmdb_service.py",
-      "source_location": "L84",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "build_poster_url()",
-      "community_name": "tmdb_service.py",
-      "id": "tmdb_service_build_poster_url"
-    },
-    {
-      "label": "_tmdb_get()",
-      "file_type": "code",
-      "source_file": "tmdb_service.py",
-      "source_location": "L91",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "_tmdb_get()",
-      "community_name": "tmdb_service.py",
-      "id": "tmdb_service_tmdb_get"
-    },
-    {
-      "label": "_choose_best_match()",
-      "file_type": "code",
-      "source_file": "tmdb_service.py",
-      "source_location": "L131",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "_choose_best_match()",
-      "community_name": "tmdb_service.py",
-      "id": "tmdb_service_choose_best_match"
-    },
-    {
-      "label": "_normalize_title()",
-      "file_type": "code",
-      "source_file": "tmdb_service.py",
-      "source_location": "L167",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "_normalize_title()",
-      "community_name": "tmdb_service.py",
-      "id": "tmdb_service_normalize_title"
-    },
-    {
-      "label": "Search TMDB by movie title and return the best matching result.      Returned",
-      "file_type": "rationale",
-      "source_file": "tmdb_service.py",
-      "source_location": "L25",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "search tmdb by movie title and return the best matching result.      returned",
-      "community_name": "tmdb_service.py",
-      "id": "tmdb_service_rationale_25"
-    },
-    {
-      "label": "Fetch detailed TMDB metadata for a movie.      Returned keys:     - poster_pa",
-      "file_type": "rationale",
-      "source_file": "tmdb_service.py",
-      "source_location": "L60",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "fetch detailed tmdb metadata for a movie.      returned keys:     - poster_pa",
-      "community_name": "tmdb_service.py",
-      "id": "tmdb_service_rationale_60"
     },
     {
       "label": "update_tmdb.py",
@@ -3418,15 +3459,26 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/database.py",
+      "source_location": "L199",
+      "weight": 1.0,
+      "source": "backend_database",
+      "target": "tmdb_service_get_movie_details",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/routers/movies.py",
       "source_location": "L5",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "backend_routers_movies",
-      "target": "backend_database"
+      "target": "backend_database",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -3443,7 +3495,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L251",
+      "source_location": "L267",
       "weight": 1.0,
       "source": "backend_database_moviequeries",
       "target": "backend_database_moviequeries_get_genres",
@@ -3503,7 +3555,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L279",
+      "source_location": "L295",
       "weight": 1.0,
       "source": "backend_database_moviequeries",
       "target": "backend_database_moviequeries_get_stats",
@@ -3536,20 +3588,20 @@
       "source_file": "backend/routers/movies.py",
       "source_location": "L5",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "backend_routers_movies",
-      "target": "backend_database_moviequeries"
+      "target": "backend_database_moviequeries",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/routers/movies.py",
-      "source_location": "L50",
+      "source_location": "L52",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "backend_routers_movies_get_movie",
-      "target": "backend_database_moviequeries"
+      "target": "backend_database_moviequeries",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -3558,20 +3610,20 @@
       "source_file": "backend/routers/movies.py",
       "source_location": "L15",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "backend_routers_movies_get_queries",
-      "target": "backend_database_moviequeries"
+      "target": "backend_database_moviequeries",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/routers/movies.py",
-      "source_location": "L62",
+      "source_location": "L65",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "backend_routers_movies_list_genres",
-      "target": "backend_database_moviequeries"
+      "target": "backend_database_moviequeries",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -3580,9 +3632,9 @@
       "source_file": "backend/routers/movies.py",
       "source_location": "L20",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "backend_routers_movies_list_movies",
-      "target": "backend_database_moviequeries"
+      "target": "backend_database_moviequeries",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -3622,7 +3674,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L252",
+      "source_location": "L268",
       "weight": 1.0,
       "source": "backend_database_moviequeries_get_genres",
       "target": "backend_database_moviequeries_get_session",
@@ -3688,7 +3740,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L280",
+      "source_location": "L296",
       "weight": 1.0,
       "source": "backend_database_moviequeries_get_stats",
       "target": "backend_database_moviequeries_get_session",
@@ -3757,7 +3809,7 @@
       "source_location": "L44",
       "weight": 1.0,
       "source": "backend_database_moviequeries_get_libraries",
-      "target": "any",
+      "target": "backend_database_py_any",
       "confidence_score": 1.0
     },
     {
@@ -3768,7 +3820,7 @@
       "source_location": "L64",
       "weight": 1.0,
       "source": "backend_database_moviequeries_get_library_by_slug",
-      "target": "any",
+      "target": "backend_database_py_any",
       "confidence_score": 1.0
     },
     {
@@ -3779,7 +3831,7 @@
       "source_location": "L180",
       "weight": 1.0,
       "source": "backend_database_moviequeries_get_movie",
-      "target": "any",
+      "target": "backend_database_py_any",
       "confidence_score": 1.0
     },
     {
@@ -3790,7 +3842,7 @@
       "source_location": "L86",
       "weight": 1.0,
       "source": "backend_database_moviequeries_get_movies",
-      "target": "any",
+      "target": "backend_database_py_any",
       "confidence_score": 1.0
     },
     {
@@ -3798,10 +3850,322 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L279",
+      "source_location": "L295",
       "weight": 1.0,
       "source": "backend_database_moviequeries_get_stats",
-      "target": "any",
+      "target": "backend_database_py_any",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/database.py",
+      "source_location": "L200",
+      "weight": 1.0,
+      "source": "backend_database_moviequeries_get_movie",
+      "target": "tmdb_service_get_movie_details"
+    },
+    {
+      "relation": "imports_from",
+      "context": "submodule_import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app",
+      "target": "backend_routers_movies"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/movies.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "backend_routers_movies",
+      "target": "backend_models",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/movies.py",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "backend_routers_movies",
+      "target": "backend_routers_movies_get_movie",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/movies.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "backend_routers_movies",
+      "target": "backend_routers_movies_get_queries",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/movies.py",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "backend_routers_movies",
+      "target": "backend_routers_movies_list_genres",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/movies.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "backend_routers_movies",
+      "target": "backend_routers_movies_list_movies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/movies.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "backend_routers_movies_get_queries",
+      "target": "request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/admin.py",
+      "source_location": "L280",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_routers_admin_admin_cancel_task",
+      "target": "request"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/admin.py",
+      "source_location": "L81",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_routers_admin_admin_create_library",
+      "target": "request"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/admin.py",
+      "source_location": "L160",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_routers_admin_admin_delete_library",
+      "target": "request"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/admin.py",
+      "source_location": "L259",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_routers_admin_admin_get_task",
+      "target": "request"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/admin.py",
+      "source_location": "L269",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_routers_admin_admin_get_task_logs",
+      "target": "request"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/admin.py",
+      "source_location": "L40",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_routers_admin_admin_list_libraries",
+      "target": "request"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/admin.py",
+      "source_location": "L250",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_routers_admin_admin_list_tasks",
+      "target": "request"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/admin.py",
+      "source_location": "L224",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_routers_admin_admin_migrate_library",
+      "target": "request"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/admin.py",
+      "source_location": "L191",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_routers_admin_admin_scan_library",
+      "target": "request"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/admin.py",
+      "source_location": "L106",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_routers_admin_admin_update_library",
+      "target": "request"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/admin.py",
+      "source_location": "L208",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_routers_admin_admin_update_tmdb",
+      "target": "request"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/admin.py",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_routers_admin_get_session_factory",
+      "target": "request"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/admin.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_routers_admin_get_tasks",
+      "target": "request"
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/movies.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "backend_routers_movies_list_movies",
+      "target": "paginatedresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/movies.py",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "backend_routers_movies_rationale_38",
+      "target": "backend_routers_movies_list_movies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/movies.py",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "backend_routers_movies_get_movie",
+      "target": "moviedetailresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/movies.py",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "backend_routers_movies_rationale_57",
+      "target": "backend_routers_movies_get_movie",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/movies.py",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "backend_routers_movies_list_genres",
+      "target": "genrelistresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/routers/movies.py",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "backend_routers_movies_rationale_69",
+      "target": "backend_routers_movies_list_genres",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "frontend_src_app",
+      "target": "frontend_src_api_client",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "frontend_src_app",
+      "target": "frontend_src_api_client_fetchlibrary",
       "confidence_score": 1.0
     },
     {
@@ -3818,10 +4182,164 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.jsx",
-      "source_location": "L117",
+      "source_location": "L134",
       "weight": 1.0,
       "source": "frontend_src_app",
       "target": "frontend_src_app_libraryview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "frontend_src_app",
+      "target": "frontend_src_components_admindashboard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "frontend_src_app",
+      "target": "frontend_src_components_admindashboard_admindashboard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "frontend_src_app",
+      "target": "frontend_src_components_genrefilter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "frontend_src_app",
+      "target": "frontend_src_components_genrefilter_genrefilter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "frontend_src_app",
+      "target": "frontend_src_components_layout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "frontend_src_app",
+      "target": "frontend_src_components_layout_layout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "frontend_src_app",
+      "target": "frontend_src_components_librarygrid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "frontend_src_app",
+      "target": "frontend_src_components_librarygrid_librarygrid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "frontend_src_app",
+      "target": "frontend_src_components_moviedetail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "frontend_src_app",
+      "target": "frontend_src_components_moviedetail_moviedetail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "frontend_src_app",
+      "target": "frontend_src_components_moviegrid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "frontend_src_app",
+      "target": "frontend_src_components_moviegrid_moviegrid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "frontend_src_app",
+      "target": "frontend_src_components_pagination",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "frontend_src_app",
+      "target": "frontend_src_components_pagination_pagination",
       "confidence_score": 1.0
     },
     {
@@ -3851,28 +4369,6 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.jsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "frontend_src_app",
-      "target": "frontend_src_hooks_usemovies",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "frontend_src_app",
-      "target": "frontend_src_hooks_usemovies_usemovies",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/App.jsx",
       "source_location": "L1",
       "weight": 1.0,
       "source": "frontend_src_app",
@@ -3891,6 +4387,17 @@
       "target": "frontend_src_app"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "frontend_src_app_app",
+      "target": "frontend_src_api_client_fetchlibrary",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -3902,14 +4409,884 @@
       "target": "frontend_src_app_app"
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L146",
+      "weight": 1.0,
+      "source": "frontend_src_api_client",
+      "target": "frontend_src_api_client_admincanceltask",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L101",
+      "weight": 1.0,
+      "source": "frontend_src_api_client",
+      "target": "frontend_src_api_client_admincreatelibrary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L111",
+      "weight": 1.0,
+      "source": "frontend_src_api_client",
+      "target": "frontend_src_api_client_admindeletelibrary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L96",
+      "weight": 1.0,
+      "source": "frontend_src_api_client",
+      "target": "frontend_src_api_client_adminfetchlibraries",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L136",
+      "weight": 1.0,
+      "source": "frontend_src_api_client",
+      "target": "frontend_src_api_client_adminfetchtask",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L141",
+      "weight": 1.0,
+      "source": "frontend_src_api_client",
+      "target": "frontend_src_api_client_adminfetchtasklogs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L131",
+      "weight": 1.0,
+      "source": "frontend_src_api_client",
+      "target": "frontend_src_api_client_adminfetchtasks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L126",
+      "weight": 1.0,
+      "source": "frontend_src_api_client",
+      "target": "frontend_src_api_client_adminmigratelibrary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L116",
+      "weight": 1.0,
+      "source": "frontend_src_api_client",
+      "target": "frontend_src_api_client_adminscanlibrary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L106",
+      "weight": 1.0,
+      "source": "frontend_src_api_client",
+      "target": "frontend_src_api_client_adminupdatelibrary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L121",
+      "weight": 1.0,
+      "source": "frontend_src_api_client",
+      "target": "frontend_src_api_client_adminupdatetmdb",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "frontend_src_api_client",
+      "target": "frontend_src_api_client_fetchgenres",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "frontend_src_api_client",
+      "target": "frontend_src_api_client_fetchlibraries",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "frontend_src_api_client",
+      "target": "frontend_src_api_client_fetchlibrary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "frontend_src_api_client",
+      "target": "frontend_src_api_client_fetchmovie",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "frontend_src_api_client",
+      "target": "frontend_src_api_client_fetchmovies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "frontend_src_api_client",
+      "target": "frontend_src_api_client_fetchstats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L80",
+      "weight": 1.0,
+      "source": "frontend_src_api_client",
+      "target": "frontend_src_api_client_mutate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "frontend_src_api_client",
+      "target": "frontend_src_api_client_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "frontend_src_components_admindashboard",
+      "target": "frontend_src_api_client",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/LibraryGrid.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "frontend_src_components_librarygrid",
+      "target": "frontend_src_api_client",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/MovieDetail.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "frontend_src_components_moviedetail",
+      "target": "frontend_src_api_client",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L136",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L97",
       "weight": 1.0,
-      "source": "frontend_src_app_libraryview",
-      "target": "frontend_src_hooks_usemovies_usemovies",
+      "source": "frontend_src_api_client_adminfetchlibraries",
+      "target": "frontend_src_api_client_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L137",
+      "weight": 1.0,
+      "source": "frontend_src_api_client_adminfetchtask",
+      "target": "frontend_src_api_client_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L142",
+      "weight": 1.0,
+      "source": "frontend_src_api_client_adminfetchtasklogs",
+      "target": "frontend_src_api_client_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L132",
+      "weight": 1.0,
+      "source": "frontend_src_api_client_adminfetchtasks",
+      "target": "frontend_src_api_client_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "frontend_src_api_client_fetchgenres",
+      "target": "frontend_src_api_client_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "frontend_src_api_client_fetchlibraries",
+      "target": "frontend_src_api_client_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "frontend_src_api_client_fetchlibrary",
+      "target": "frontend_src_api_client_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "frontend_src_api_client_fetchmovie",
+      "target": "frontend_src_api_client_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "frontend_src_api_client_fetchmovies",
+      "target": "frontend_src_api_client_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L67",
+      "weight": 1.0,
+      "source": "frontend_src_api_client_fetchstats",
+      "target": "frontend_src_api_client_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/LibraryGrid.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "frontend_src_components_librarygrid",
+      "target": "frontend_src_api_client_fetchlibraries",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/components/LibraryGrid.jsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "frontend_src_components_librarygrid_librarygrid",
+      "target": "frontend_src_api_client_fetchlibraries"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/MovieDetail.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "frontend_src_components_moviedetail",
+      "target": "frontend_src_api_client_fetchmovie",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/components/MovieDetail.jsx",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "frontend_src_components_moviedetail_moviedetail",
+      "target": "frontend_src_api_client_fetchmovie"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L147",
+      "weight": 1.0,
+      "source": "frontend_src_api_client_admincanceltask",
+      "target": "frontend_src_api_client_mutate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L102",
+      "weight": 1.0,
+      "source": "frontend_src_api_client_admincreatelibrary",
+      "target": "frontend_src_api_client_mutate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L112",
+      "weight": 1.0,
+      "source": "frontend_src_api_client_admindeletelibrary",
+      "target": "frontend_src_api_client_mutate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L127",
+      "weight": 1.0,
+      "source": "frontend_src_api_client_adminmigratelibrary",
+      "target": "frontend_src_api_client_mutate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L117",
+      "weight": 1.0,
+      "source": "frontend_src_api_client_adminscanlibrary",
+      "target": "frontend_src_api_client_mutate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L107",
+      "weight": 1.0,
+      "source": "frontend_src_api_client_adminupdatelibrary",
+      "target": "frontend_src_api_client_mutate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.js",
+      "source_location": "L122",
+      "weight": 1.0,
+      "source": "frontend_src_api_client_adminupdatetmdb",
+      "target": "frontend_src_api_client_mutate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "frontend_src_components_admindashboard",
+      "target": "frontend_src_api_client_adminfetchlibraries",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L222",
+      "weight": 1.0,
+      "source": "frontend_src_components_admindashboard_admindashboard",
+      "target": "frontend_src_api_client_adminfetchlibraries"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "frontend_src_components_admindashboard",
+      "target": "frontend_src_api_client_admincreatelibrary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "frontend_src_components_admindashboard_libraryform",
+      "target": "frontend_src_api_client_admincreatelibrary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "frontend_src_components_admindashboard",
+      "target": "frontend_src_api_client_adminupdatelibrary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "frontend_src_components_admindashboard_libraryform",
+      "target": "frontend_src_api_client_adminupdatelibrary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "frontend_src_components_admindashboard",
+      "target": "frontend_src_api_client_admindeletelibrary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L243",
+      "weight": 1.0,
+      "source": "frontend_src_components_admindashboard_admindashboard",
+      "target": "frontend_src_api_client_admindeletelibrary"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "frontend_src_components_admindashboard",
+      "target": "frontend_src_api_client_adminscanlibrary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L252",
+      "weight": 1.0,
+      "source": "frontend_src_components_admindashboard_admindashboard",
+      "target": "frontend_src_api_client_adminscanlibrary"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "frontend_src_components_admindashboard",
+      "target": "frontend_src_api_client_adminupdatetmdb",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L262",
+      "weight": 1.0,
+      "source": "frontend_src_components_admindashboard_admindashboard",
+      "target": "frontend_src_api_client_adminupdatetmdb"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "frontend_src_components_admindashboard",
+      "target": "frontend_src_api_client_adminmigratelibrary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L111",
+      "weight": 1.0,
+      "source": "frontend_src_components_admindashboard_migrateform",
+      "target": "frontend_src_api_client_adminmigratelibrary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "frontend_src_components_admindashboard",
+      "target": "frontend_src_api_client_adminfetchtasks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L223",
+      "weight": 1.0,
+      "source": "frontend_src_components_admindashboard_admindashboard",
+      "target": "frontend_src_api_client_adminfetchtasks"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "frontend_src_components_admindashboard",
+      "target": "frontend_src_api_client_adminfetchtasklogs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L161",
+      "weight": 1.0,
+      "source": "frontend_src_components_admindashboard_tasklogviewer",
+      "target": "frontend_src_api_client_adminfetchtasklogs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "frontend_src_components_admindashboard",
+      "target": "frontend_src_api_client_admincanceltask",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L415",
+      "weight": 1.0,
+      "source": "frontend_src_components_admindashboard_admindashboard",
+      "target": "frontend_src_api_client_admincanceltask"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L180",
+      "weight": 1.0,
+      "source": "frontend_src_components_admindashboard_tasklogviewer",
+      "target": "frontend_src_api_client_admincanceltask",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L210",
+      "weight": 1.0,
+      "source": "frontend_src_components_admindashboard",
+      "target": "frontend_src_components_admindashboard_admindashboard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "frontend_src_components_admindashboard",
+      "target": "frontend_src_components_admindashboard_libraryform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "frontend_src_components_admindashboard",
+      "target": "frontend_src_components_admindashboard_migrateform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L153",
+      "weight": 1.0,
+      "source": "frontend_src_components_admindashboard",
+      "target": "frontend_src_components_admindashboard_tasklogviewer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AdminDashboard.jsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "frontend_src_components_admindashboard",
+      "target": "ref_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GenreFilter.jsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "frontend_src_components_genrefilter",
+      "target": "frontend_src_components_genrefilter_genre_map",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GenreFilter.jsx",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "frontend_src_components_genrefilter",
+      "target": "frontend_src_components_genrefilter_genrefilter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/Layout.jsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "frontend_src_components_layout",
+      "target": "frontend_src_components_layout_layout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/LibraryGrid.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "frontend_src_components_librarygrid",
+      "target": "frontend_src_components_librarygrid_librarygrid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/LibraryGrid.jsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "frontend_src_components_librarygrid",
+      "target": "ref_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/MovieCard.jsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "frontend_src_components_moviecard",
+      "target": "frontend_src_components_moviecard_moviecard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/MovieGrid.jsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "frontend_src_components_moviegrid",
+      "target": "frontend_src_components_moviecard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/MovieGrid.jsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "frontend_src_components_moviegrid",
+      "target": "frontend_src_components_moviecard_moviecard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/MovieDetail.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "frontend_src_components_moviedetail",
+      "target": "frontend_src_components_moviedetail_genre_map",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/MovieDetail.jsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "frontend_src_components_moviedetail",
+      "target": "frontend_src_components_moviedetail_moviedetail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/MovieDetail.jsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "frontend_src_components_moviedetail",
+      "target": "ref_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/MovieGrid.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "frontend_src_components_moviegrid",
+      "target": "frontend_src_components_moviegrid_moviegrid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/Pagination.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "frontend_src_components_pagination",
+      "target": "frontend_src_components_pagination_pagination",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/Pagination.jsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "frontend_src_components_pagination",
+      "target": "ref_react",
       "confidence_score": 1.0
     },
     {
@@ -3923,14 +5300,292 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "test_tmdb.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "test_tmdb",
+      "target": "tmdb_service"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tmdb_service.py",
+      "source_location": "L88",
+      "weight": 1.0,
+      "source": "tmdb_service",
+      "target": "tmdb_service_build_poster_url",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tmdb_service.py",
+      "source_location": "L135",
+      "weight": 1.0,
+      "source": "tmdb_service",
+      "target": "tmdb_service_choose_best_match",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tmdb_service.py",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "tmdb_service",
+      "target": "tmdb_service_get_movie_details",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tmdb_service.py",
+      "source_location": "L171",
+      "weight": 1.0,
+      "source": "tmdb_service",
+      "target": "tmdb_service_normalize_title",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tmdb_service.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "tmdb_service",
+      "target": "tmdb_service_search_movie",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tmdb_service.py",
+      "source_location": "L95",
+      "weight": 1.0,
+      "source": "tmdb_service",
+      "target": "tmdb_service_tmdb_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "update_tmdb.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "update_tmdb",
+      "target": "tmdb_service"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "test_tmdb.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "test_tmdb",
+      "target": "tmdb_service_search_movie"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "test_tmdb.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "test_tmdb_main",
+      "target": "tmdb_service_search_movie"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tmdb_service.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "tmdb_service_rationale_25",
+      "target": "tmdb_service_search_movie",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tmdb_service.py",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "tmdb_service_search_movie",
+      "target": "tmdb_service_choose_best_match",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "tmdb_service.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "tmdb_service_search_movie",
+      "target": "tmdb_service_py_any",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tmdb_service.py",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "tmdb_service_search_movie",
+      "target": "tmdb_service_tmdb_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "tmdb_service.py",
+      "source_location": "L135",
+      "weight": 1.0,
+      "source": "tmdb_service_choose_best_match",
+      "target": "tmdb_service_py_any",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "tmdb_service.py",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "tmdb_service_get_movie_details",
+      "target": "tmdb_service_py_any",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "tmdb_service.py",
+      "source_location": "L95",
+      "weight": 1.0,
+      "source": "tmdb_service_tmdb_get",
+      "target": "tmdb_service_py_any",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "test_tmdb.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "test_tmdb",
+      "target": "tmdb_service_get_movie_details"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "test_tmdb.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "test_tmdb_main",
+      "target": "tmdb_service_get_movie_details"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tmdb_service.py",
+      "source_location": "L75",
+      "weight": 1.0,
+      "source": "tmdb_service_get_movie_details",
+      "target": "tmdb_service_tmdb_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tmdb_service.py",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "tmdb_service_rationale_60",
+      "target": "tmdb_service_get_movie_details",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "test_tmdb.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "test_tmdb",
+      "target": "tmdb_service_build_poster_url"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "test_tmdb.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "test_tmdb_main",
+      "target": "tmdb_service_build_poster_url"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tmdb_service.py",
+      "source_location": "L136",
+      "weight": 1.0,
+      "source": "tmdb_service_choose_best_match",
+      "target": "tmdb_service_normalize_title",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "update_tmdb.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "update_tmdb",
+      "target": "tmdb_service_choose_best_match"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "update_tmdb.py",
+      "source_location": "L148",
+      "weight": 1.0,
+      "source": "update_tmdb_tmdbclient_search_movie",
+      "target": "tmdb_service_choose_best_match"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/hooks/useMovies.js",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_hooks_usemovies",
-      "target": "frontend_src_hooks_usemovies_usemovies",
-      "confidence_score": 1.0
+      "target": "frontend_src_hooks_usemovies_usemovies"
     },
     {
       "relation": "imports_from",
@@ -3939,9 +5594,9 @@
       "source_file": "frontend/src/hooks/useMovies.js",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_hooks_usemovies",
-      "target": "ref_react",
-      "confidence_score": 1.0
+      "target": "ref_react"
     },
     {
       "relation": "contains",
@@ -3974,17 +5629,6 @@
       "confidence_score": 1.0,
       "source": "backend_app",
       "target": "backend_routers_admin"
-    },
-    {
-      "relation": "imports_from",
-      "context": "submodule_import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_app",
-      "target": "backend_routers_movies"
     },
     {
       "relation": "imports_from",
@@ -4239,17 +5883,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "backend_routers_admin",
-      "target": "backend_models"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/routers/movies.py",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_routers_movies",
       "target": "backend_models"
     },
     {
@@ -4539,28 +6172,6 @@
       "target": "basemodel"
     },
     {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/routers/movies.py",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_routers_movies",
-      "target": "backend_models_moviedetailresponse"
-    },
-    {
-      "relation": "references",
-      "context": "return_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/routers/movies.py",
-      "source_location": "L50",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_routers_movies_get_movie",
-      "target": "backend_models_moviedetailresponse"
-    },
-    {
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/models.py",
@@ -4569,50 +6180,6 @@
       "confidence_score": 1.0,
       "source": "backend_models_movielistitem",
       "target": "backend_models_movielistitem_parse_genres"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/routers/movies.py",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_routers_movies",
-      "target": "backend_models_paginatedresponse"
-    },
-    {
-      "relation": "references",
-      "context": "return_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/routers/movies.py",
-      "source_location": "L20",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_routers_movies_list_movies",
-      "target": "backend_models_paginatedresponse"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/routers/movies.py",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_routers_movies",
-      "target": "backend_models_genrelistresponse"
-    },
-    {
-      "relation": "references",
-      "context": "return_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/routers/movies.py",
-      "source_location": "L62",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_routers_movies_list_genres",
-      "target": "backend_models_genrelistresponse"
     },
     {
       "relation": "imports",
@@ -5147,149 +6714,6 @@
       "confidence_score": 1.0,
       "source": "backend_routers_admin_get_tasks",
       "target": "backend_services_task_manager_taskmanager"
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/routers/admin.py",
-      "source_location": "L27",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_routers_admin_get_tasks",
-      "target": "request"
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/routers/admin.py",
-      "source_location": "L280",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_routers_admin_admin_cancel_task",
-      "target": "request"
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/routers/admin.py",
-      "source_location": "L81",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_routers_admin_admin_create_library",
-      "target": "request"
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/routers/admin.py",
-      "source_location": "L160",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_routers_admin_admin_delete_library",
-      "target": "request"
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/routers/admin.py",
-      "source_location": "L259",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_routers_admin_admin_get_task",
-      "target": "request"
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/routers/admin.py",
-      "source_location": "L269",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_routers_admin_admin_get_task_logs",
-      "target": "request"
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/routers/admin.py",
-      "source_location": "L40",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_routers_admin_admin_list_libraries",
-      "target": "request"
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/routers/admin.py",
-      "source_location": "L250",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_routers_admin_admin_list_tasks",
-      "target": "request"
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/routers/admin.py",
-      "source_location": "L224",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_routers_admin_admin_migrate_library",
-      "target": "request"
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/routers/admin.py",
-      "source_location": "L191",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_routers_admin_admin_scan_library",
-      "target": "request"
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/routers/admin.py",
-      "source_location": "L106",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_routers_admin_admin_update_library",
-      "target": "request"
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/routers/admin.py",
-      "source_location": "L208",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_routers_admin_admin_update_tmdb",
-      "target": "request"
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/routers/admin.py",
-      "source_location": "L31",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_routers_admin_get_session_factory",
-      "target": "request"
     },
     {
       "relation": "calls",
@@ -5882,719 +7306,6 @@
       "confidence_score": 1.0,
       "source": "backend_services_task_manager_taskmanager_get_task_logs",
       "target": "backend_services_task_manager_taskmanager_get_task"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L146",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client",
-      "target": "frontend_src_api_client_admincanceltask"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L101",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client",
-      "target": "frontend_src_api_client_admincreatelibrary"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L111",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client",
-      "target": "frontend_src_api_client_admindeletelibrary"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L96",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client",
-      "target": "frontend_src_api_client_adminfetchlibraries"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L136",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client",
-      "target": "frontend_src_api_client_adminfetchtask"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L141",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client",
-      "target": "frontend_src_api_client_adminfetchtasklogs"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L131",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client",
-      "target": "frontend_src_api_client_adminfetchtasks"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L126",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client",
-      "target": "frontend_src_api_client_adminmigratelibrary"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L116",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client",
-      "target": "frontend_src_api_client_adminscanlibrary"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L106",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client",
-      "target": "frontend_src_api_client_adminupdatelibrary"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L121",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client",
-      "target": "frontend_src_api_client_adminupdatetmdb"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L59",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client",
-      "target": "frontend_src_api_client_fetchgenres"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L31",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client",
-      "target": "frontend_src_api_client_fetchlibraries"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L36",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client",
-      "target": "frontend_src_api_client_fetchlibrary"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L54",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client",
-      "target": "frontend_src_api_client_fetchmovie"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L41",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client",
-      "target": "frontend_src_api_client_fetchmovies"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L66",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client",
-      "target": "frontend_src_api_client_fetchstats"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L80",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client",
-      "target": "frontend_src_api_client_mutate"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L15",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client",
-      "target": "frontend_src_api_client_request"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_admindashboard",
-      "target": "frontend_src_api_client"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/MovieDetail.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_moviedetail",
-      "target": "frontend_src_api_client"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L97",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client_adminfetchlibraries",
-      "target": "frontend_src_api_client_request"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L137",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client_adminfetchtask",
-      "target": "frontend_src_api_client_request"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L142",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client_adminfetchtasklogs",
-      "target": "frontend_src_api_client_request"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L132",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client_adminfetchtasks",
-      "target": "frontend_src_api_client_request"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L60",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client_fetchgenres",
-      "target": "frontend_src_api_client_request"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L32",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client_fetchlibraries",
-      "target": "frontend_src_api_client_request"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L37",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client_fetchlibrary",
-      "target": "frontend_src_api_client_request"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L55",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client_fetchmovie",
-      "target": "frontend_src_api_client_request"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L42",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client_fetchmovies",
-      "target": "frontend_src_api_client_request"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L67",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client_fetchstats",
-      "target": "frontend_src_api_client_request"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/MovieDetail.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_moviedetail",
-      "target": "frontend_src_api_client_fetchmovie"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/src/components/MovieDetail.jsx",
-      "source_location": "L14",
-      "weight": 1.0,
-      "source": "frontend_src_components_moviedetail_moviedetail",
-      "target": "frontend_src_api_client_fetchmovie"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L147",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client_admincanceltask",
-      "target": "frontend_src_api_client_mutate"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L102",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client_admincreatelibrary",
-      "target": "frontend_src_api_client_mutate"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L112",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client_admindeletelibrary",
-      "target": "frontend_src_api_client_mutate"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L127",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client_adminmigratelibrary",
-      "target": "frontend_src_api_client_mutate"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L117",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client_adminscanlibrary",
-      "target": "frontend_src_api_client_mutate"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L107",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client_adminupdatelibrary",
-      "target": "frontend_src_api_client_mutate"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/api/client.js",
-      "source_location": "L122",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_api_client_adminupdatetmdb",
-      "target": "frontend_src_api_client_mutate"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_admindashboard",
-      "target": "frontend_src_api_client_adminfetchlibraries"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L222",
-      "weight": 1.0,
-      "source": "frontend_src_components_admindashboard_admindashboard",
-      "target": "frontend_src_api_client_adminfetchlibraries"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_admindashboard",
-      "target": "frontend_src_api_client_admincreatelibrary"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L44",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_admindashboard_libraryform",
-      "target": "frontend_src_api_client_admincreatelibrary"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_admindashboard",
-      "target": "frontend_src_api_client_adminupdatelibrary"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L42",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_admindashboard_libraryform",
-      "target": "frontend_src_api_client_adminupdatelibrary"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_admindashboard",
-      "target": "frontend_src_api_client_admindeletelibrary"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L243",
-      "weight": 1.0,
-      "source": "frontend_src_components_admindashboard_admindashboard",
-      "target": "frontend_src_api_client_admindeletelibrary"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_admindashboard",
-      "target": "frontend_src_api_client_adminscanlibrary"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L252",
-      "weight": 1.0,
-      "source": "frontend_src_components_admindashboard_admindashboard",
-      "target": "frontend_src_api_client_adminscanlibrary"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_admindashboard",
-      "target": "frontend_src_api_client_adminupdatetmdb"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L262",
-      "weight": 1.0,
-      "source": "frontend_src_components_admindashboard_admindashboard",
-      "target": "frontend_src_api_client_adminupdatetmdb"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_admindashboard",
-      "target": "frontend_src_api_client_adminmigratelibrary"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L111",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_admindashboard_migrateform",
-      "target": "frontend_src_api_client_adminmigratelibrary"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_admindashboard",
-      "target": "frontend_src_api_client_adminfetchtasks"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L223",
-      "weight": 1.0,
-      "source": "frontend_src_components_admindashboard_admindashboard",
-      "target": "frontend_src_api_client_adminfetchtasks"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_admindashboard",
-      "target": "frontend_src_api_client_adminfetchtasklogs"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L161",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_admindashboard_tasklogviewer",
-      "target": "frontend_src_api_client_adminfetchtasklogs"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_admindashboard",
-      "target": "frontend_src_api_client_admincanceltask"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L410",
-      "weight": 1.0,
-      "source": "frontend_src_components_admindashboard_admindashboard",
-      "target": "frontend_src_api_client_admincanceltask"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L180",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_admindashboard_tasklogviewer",
-      "target": "frontend_src_api_client_admincanceltask"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L210",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_admindashboard",
-      "target": "frontend_src_components_admindashboard_admindashboard"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L19",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_admindashboard",
-      "target": "frontend_src_components_admindashboard_libraryform"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L92",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_admindashboard",
-      "target": "frontend_src_components_admindashboard_migrateform"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L153",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_admindashboard",
-      "target": "frontend_src_components_admindashboard_tasklogviewer"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/AdminDashboard.jsx",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_admindashboard",
-      "target": "ref_react"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/Layout.jsx",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_layout",
-      "target": "frontend_src_components_layout_layout"
     },
     {
       "relation": "imports_from",
@@ -8112,87 +8823,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "backend/routers/movies.py",
-      "source_location": "L50",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_routers_movies",
-      "target": "backend_routers_movies_get_movie"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/routers/movies.py",
-      "source_location": "L15",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_routers_movies",
-      "target": "backend_routers_movies_get_queries"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/routers/movies.py",
-      "source_location": "L62",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_routers_movies",
-      "target": "backend_routers_movies_list_genres"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/routers/movies.py",
-      "source_location": "L20",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_routers_movies",
-      "target": "backend_routers_movies_list_movies"
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/routers/movies.py",
-      "source_location": "L15",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_routers_movies_get_queries",
-      "target": "backend_routers_movies_py_request"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/routers/movies.py",
-      "source_location": "L37",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_routers_movies_rationale_37",
-      "target": "backend_routers_movies_list_movies"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/routers/movies.py",
-      "source_location": "L54",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_routers_movies_rationale_54",
-      "target": "backend_routers_movies_get_movie"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/routers/movies.py",
-      "source_location": "L65",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_routers_movies_rationale_65",
-      "target": "backend_routers_movies_list_genres"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "backend/routers/stats.py",
       "source_location": "L11",
       "weight": 1.0,
@@ -8374,28 +9004,6 @@
       "context": "import",
       "confidence_score": 1.0,
       "source": "frontend_oxlintrc_plugins",
-      "target": "ref_react"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/MovieDetail.jsx",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_moviedetail",
-      "target": "ref_react"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/Pagination.jsx",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_pagination",
       "target": "ref_react"
     },
     {
@@ -8627,78 +9235,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/GenreFilter.jsx",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_genrefilter",
-      "target": "frontend_src_components_genrefilter_genrefilter"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/MovieCard.jsx",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_moviecard",
-      "target": "frontend_src_components_moviecard_moviecard"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/MovieGrid.jsx",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_moviegrid",
-      "target": "frontend_src_components_moviecard"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/MovieGrid.jsx",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_moviegrid",
-      "target": "frontend_src_components_moviecard_moviecard"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/MovieDetail.jsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_moviedetail",
-      "target": "frontend_src_components_moviedetail_moviedetail"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/MovieGrid.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_moviegrid",
-      "target": "frontend_src_components_moviegrid_moviegrid"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/Pagination.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "frontend_src_components_pagination",
-      "target": "frontend_src_components_pagination_pagination"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "frontend/src/components/StatsPanel.jsx",
       "source_location": "L1",
       "weight": 1.0,
@@ -8797,284 +9333,6 @@
       "confidence_score": 1.0,
       "source": "test_tmdb",
       "target": "test_tmdb_main"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "test_tmdb.py",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "test_tmdb",
-      "target": "tmdb_service"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "test_tmdb.py",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "test_tmdb",
-      "target": "tmdb_service_build_poster_url"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "test_tmdb.py",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "test_tmdb",
-      "target": "tmdb_service_get_movie_details"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "test_tmdb.py",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "test_tmdb",
-      "target": "tmdb_service_search_movie"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "test_tmdb.py",
-      "source_location": "L28",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "test_tmdb_main",
-      "target": "tmdb_service_build_poster_url"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "test_tmdb.py",
-      "source_location": "L19",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "test_tmdb_main",
-      "target": "tmdb_service_get_movie_details"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "test_tmdb.py",
-      "source_location": "L14",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "test_tmdb_main",
-      "target": "tmdb_service_search_movie"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "tmdb_service.py",
-      "source_location": "L84",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tmdb_service",
-      "target": "tmdb_service_build_poster_url"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "tmdb_service.py",
-      "source_location": "L131",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tmdb_service",
-      "target": "tmdb_service_choose_best_match"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "tmdb_service.py",
-      "source_location": "L59",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tmdb_service",
-      "target": "tmdb_service_get_movie_details"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "tmdb_service.py",
-      "source_location": "L167",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tmdb_service",
-      "target": "tmdb_service_normalize_title"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "tmdb_service.py",
-      "source_location": "L24",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tmdb_service",
-      "target": "tmdb_service_search_movie"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "tmdb_service.py",
-      "source_location": "L91",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tmdb_service",
-      "target": "tmdb_service_tmdb_get"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "update_tmdb.py",
-      "source_location": "L17",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "update_tmdb",
-      "target": "tmdb_service"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "tmdb_service.py",
-      "source_location": "L25",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tmdb_service_rationale_25",
-      "target": "tmdb_service_search_movie"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "tmdb_service.py",
-      "source_location": "L50",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tmdb_service_search_movie",
-      "target": "tmdb_service_choose_best_match"
-    },
-    {
-      "relation": "references",
-      "context": "generic_arg",
-      "confidence": "EXTRACTED",
-      "source_file": "tmdb_service.py",
-      "source_location": "L24",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tmdb_service_search_movie",
-      "target": "tmdb_service_py_any"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "tmdb_service.py",
-      "source_location": "L45",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tmdb_service_search_movie",
-      "target": "tmdb_service_tmdb_get"
-    },
-    {
-      "relation": "references",
-      "context": "generic_arg",
-      "confidence": "EXTRACTED",
-      "source_file": "tmdb_service.py",
-      "source_location": "L131",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tmdb_service_choose_best_match",
-      "target": "tmdb_service_py_any"
-    },
-    {
-      "relation": "references",
-      "context": "generic_arg",
-      "confidence": "EXTRACTED",
-      "source_file": "tmdb_service.py",
-      "source_location": "L59",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tmdb_service_get_movie_details",
-      "target": "tmdb_service_py_any"
-    },
-    {
-      "relation": "references",
-      "context": "generic_arg",
-      "confidence": "EXTRACTED",
-      "source_file": "tmdb_service.py",
-      "source_location": "L91",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tmdb_service_tmdb_get",
-      "target": "tmdb_service_py_any"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "tmdb_service.py",
-      "source_location": "L72",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tmdb_service_get_movie_details",
-      "target": "tmdb_service_tmdb_get"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "tmdb_service.py",
-      "source_location": "L60",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tmdb_service_rationale_60",
-      "target": "tmdb_service_get_movie_details"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "tmdb_service.py",
-      "source_location": "L132",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tmdb_service_choose_best_match",
-      "target": "tmdb_service_normalize_title"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "update_tmdb.py",
-      "source_location": "L17",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "update_tmdb",
-      "target": "tmdb_service_choose_best_match"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "update_tmdb.py",
-      "source_location": "L148",
-      "weight": 1.0,
-      "source": "update_tmdb_tmdbclient_search_movie",
-      "target": "tmdb_service_choose_best_match"
     },
     {
       "relation": "contains",
@@ -9523,5 +9781,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "9ed495cdbf3fee5efb4c29d89f079777221aac6f"
+  "built_at_commit": "23b52302a218964233f084007e540acae6a9ebb9"
 }

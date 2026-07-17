@@ -1,4 +1,4 @@
-export default function Layout({ children, libraryName, onBackToLibraries, onOpenAdmin, lang = 'en', onToggleLang }) {
+export default function Layout({ children, libraryName, onBackToLibraries, lang = 'en', onToggleLang }) {
   const isAr = lang === 'ar';
   return (
     <div className={`app-layout ${isAr ? 'rtl' : 'ltr'}`}>
@@ -18,11 +18,6 @@ export default function Layout({ children, libraryName, onBackToLibraries, onOpe
             <button className="header-lang-btn" onClick={onToggleLang} style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid var(--border-subtle)', color: 'var(--text-secondary)', padding: '0.5rem 1rem', borderRadius: 'var(--radius-sm)', cursor: 'pointer', transition: 'all var(--transition-fast)' }}>
               🌐 {isAr ? 'English' : 'العربية'}
             </button>
-            {onOpenAdmin && (
-              <button className="header-admin-btn" onClick={onOpenAdmin} title={isAr ? 'لوحة الإدارة' : 'Admin Dashboard'}>
-                {isAr ? '⚙️ الإدارة' : '⚙️ Admin'}
-              </button>
-            )}
           </div>
         </div>
       </header>
@@ -32,4 +27,5 @@ export default function Layout({ children, libraryName, onBackToLibraries, onOpe
     </div>
   );
 }
+
 

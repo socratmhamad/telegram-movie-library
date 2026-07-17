@@ -15,8 +15,8 @@
     "semantic_hash": "6508190013e90baaf6cab7d0cf804030"
   },
   "backend/database.py": {
-    "mtime": 1784110902.0478196,
-    "ast_hash": "8f11d4789e5bcfa4ffe4bb98372fbde2",
+    "mtime": 1784112490.333302,
+    "ast_hash": "9042f631365fd7e96c4d1c7c4edf0afe",
     "semantic_hash": ""
   },
   "backend/models.py": {
@@ -30,8 +30,8 @@
     "semantic_hash": "0be6f0650415a3d9ba7960217dc7ef11"
   },
   "backend/routers/movies.py": {
-    "mtime": 1783860885.7452214,
-    "ast_hash": "da0e10b8415f5f8808c0ad4e2b7b21a7",
+    "mtime": 1784112510.4153366,
+    "ast_hash": "a8046a0d976fb3241e2ae17c39efd30f",
     "semantic_hash": ""
   },
   "backend/routers/stats.py": {
@@ -65,48 +65,48 @@
     "semantic_hash": "b5b007552814ae57f55825f41c591c09"
   },
   "frontend/src/App.jsx": {
-    "mtime": 1784111295.5145786,
-    "ast_hash": "647db5360060efa6341e809a9dff1db9",
+    "mtime": 1784116904.2290857,
+    "ast_hash": "ed237d50c1b39f67d7cad45b7d0e6c3f",
     "semantic_hash": ""
   },
   "frontend/src/api/client.js": {
-    "mtime": 1784026188.2223687,
-    "ast_hash": "6ccaff68a6d24525426eccdcac364339",
+    "mtime": 1784112525.1129425,
+    "ast_hash": "07f1ad2e8568ee80d77e09c75a264ee7",
     "semantic_hash": ""
   },
   "frontend/src/components/GenreFilter.jsx": {
-    "mtime": 1783756534.3275597,
-    "ast_hash": "36c6d1f61917a42730899f64adcd92eb",
-    "semantic_hash": "36c6d1f61917a42730899f64adcd92eb"
+    "mtime": 1784112613.413785,
+    "ast_hash": "48bc2dfb50c15b525e2ae8293a63f5d8",
+    "semantic_hash": ""
   },
   "frontend/src/components/Layout.jsx": {
-    "mtime": 1784026296.0570335,
-    "ast_hash": "a7bccfeae905f277b160b948683e31b2",
+    "mtime": 1784116966.460605,
+    "ast_hash": "27ab5cf1e1aa8425d3f0a014c82f0372",
     "semantic_hash": ""
   },
   "frontend/src/components/MovieCard.jsx": {
-    "mtime": 1783756534.3315592,
-    "ast_hash": "c7b02e28d5ffab9e975f3c1b416062f8",
-    "semantic_hash": "c7b02e28d5ffab9e975f3c1b416062f8"
+    "mtime": 1784112632.5285223,
+    "ast_hash": "c0808580d391ad19774dded2733c0862",
+    "semantic_hash": ""
   },
   "frontend/src/components/MovieDetail.jsx": {
-    "mtime": 1783756534.3335564,
-    "ast_hash": "dfe50d9b749bbc1e7dc9262b11b6ce38",
-    "semantic_hash": "dfe50d9b749bbc1e7dc9262b11b6ce38"
+    "mtime": 1784112966.1448114,
+    "ast_hash": "1f52ef485b5e52a214e8ccd127e99312",
+    "semantic_hash": ""
   },
   "frontend/src/components/MovieGrid.jsx": {
-    "mtime": 1783756534.3345573,
-    "ast_hash": "6d16606f483ec90a848b6ac389f8925a",
-    "semantic_hash": "6d16606f483ec90a848b6ac389f8925a"
+    "mtime": 1784112671.9088326,
+    "ast_hash": "7e866b5704e0fc11c68ef7238ecf6d23",
+    "semantic_hash": ""
   },
   "frontend/src/components/Pagination.jsx": {
-    "mtime": 1783756534.3365564,
-    "ast_hash": "c10fa4706f69f3ae454506a70e933bbd",
-    "semantic_hash": "c10fa4706f69f3ae454506a70e933bbd"
+    "mtime": 1784112698.9607527,
+    "ast_hash": "33718ff720d16db86094478b70fa3e95",
+    "semantic_hash": ""
   },
   "frontend/src/components/SearchBar.jsx": {
-    "mtime": 1784111275.0380862,
-    "ast_hash": "ee234566f7777e36d0dc71e970bcd325",
+    "mtime": 1784112588.9391727,
+    "ast_hash": "e7884a217607c40976f785f5ffdda029",
     "semantic_hash": ""
   },
   "frontend/src/components/StatsPanel.jsx": {
@@ -155,9 +155,9 @@
     "semantic_hash": "4bf79ddfb10e6d4676ecbc9e27e08c10"
   },
   "tmdb_service.py": {
-    "mtime": 1783756534.3505464,
-    "ast_hash": "6c69483b3345f7cb16eb6e32b0c13fd8",
-    "semantic_hash": "6c69483b3345f7cb16eb6e32b0c13fd8"
+    "mtime": 1784112446.4456897,
+    "ast_hash": "fe7442efb1366811c60600fe9b395e5f",
+    "semantic_hash": ""
   },
   "update_tmdb.py": {
     "mtime": 1783759058.3632762,
@@ -170,8 +170,8 @@
     "semantic_hash": ""
   },
   "frontend/src/components/LibraryGrid.jsx": {
-    "mtime": 1783861003.858345,
-    "ast_hash": "f51dffe16e0d587e49fa64840e2a3754",
+    "mtime": 1784112576.1752295,
+    "ast_hash": "0ee817127f7726488c267604117188f0",
     "semantic_hash": ""
   },
   "scratch/check_libs.py": {
@@ -300,8 +300,8 @@
     "semantic_hash": ""
   },
   "frontend/src/components/AdminDashboard.jsx": {
-    "mtime": 1784026244.1865218,
-    "ast_hash": "098557b7535c7ec2be319d24bf8e9cf9",
+    "mtime": 1784117074.3127952,
+    "ast_hash": "2cd8c933eb95267ce9324a9e2e1a60c1",
     "semantic_hash": ""
   },
   "scraper/__init__.py": {

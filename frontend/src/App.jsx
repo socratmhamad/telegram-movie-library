@@ -11,6 +11,9 @@ import MovieGrid from './components/MovieGrid';
 import Pagination from './components/Pagination';
 import MovieDetail from './components/MovieDetail';
 import AdminDashboard from './components/AdminDashboard';
+import AdminLogin from './components/AdminLogin';
+import { isAuthenticated, logout, setupStorageListener } from './api/adminAuth';
+
 
 function App() {
   // Slug-based "routing" via state + URL hash
@@ -33,17 +36,27 @@ function App() {
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
   }, [lang]);
 
-  // Read slug from URL hash on mount
+  // Cross-tab logout synchronization
   useEffect(() => {
+    return setupStorageListener(() => {
+      setSelectedSlug('admin/login');
+    });
+  }, []);
+
+  // Read slug from URL hash or pathname on mount
+  useEffect(() => {
+    const path = window.location.pathname.replace(/^\//, '');
     const hash = window.location.hash.replace('#/', '').replace('#', '');
-    if (hash) {
+    if (path === 'admin/login' || path === 'admin') {
+      setSelectedSlug(path);
+    } else if (hash) {
       setSelectedSlug(hash);
     }
   }, []);
 
   // Load library info when slug changes
   useEffect(() => {
-    if (!selectedSlug) {
+    if (!selectedSlug || selectedSlug === 'admin' || selectedSlug === 'admin/login') {
       setLibraryInfo(null);
       setLoadingInfo(false);
       return;
@@ -60,23 +73,34 @@ function App() {
       });
   }, [selectedSlug]);
 
-  // Sync URL hash
+  // Sync URL hash or pathname
   useEffect(() => {
-    if (selectedSlug) {
+    if (selectedSlug === 'admin' || selectedSlug === 'admin/login') {
+      window.history.replaceState(null, '', `/${selectedSlug}`);
+    } else if (selectedSlug) {
       window.history.replaceState(null, '', `#/${selectedSlug}`);
     } else {
-      window.history.replaceState(null, '', window.location.pathname);
+      window.history.replaceState(null, '', '/');
     }
   }, [selectedSlug]);
 
-  // Handle browser back/forward
+  // Handle browser back/forward and URL changes
   useEffect(() => {
-    const handleHashChange = () => {
+    const handleLocationChange = () => {
+      const path = window.location.pathname.replace(/^\//, '');
       const hash = window.location.hash.replace('#/', '').replace('#', '');
-      setSelectedSlug(hash || null);
+      if (path === 'admin/login' || path === 'admin') {
+        setSelectedSlug(path);
+      } else {
+        setSelectedSlug(hash || null);
+      }
     };
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    window.addEventListener('hashchange', handleLocationChange);
+    window.addEventListener('popstate', handleLocationChange);
+    return () => {
+      window.removeEventListener('hashchange', handleLocationChange);
+      window.removeEventListener('popstate', handleLocationChange);
+    };
   }, []);
 
   const libraryId = libraryInfo?.id ?? null;
@@ -89,11 +113,35 @@ function App() {
     setSelectedSlug(null);
   }, []);
 
-  // Admin dashboard
-  if (selectedSlug === 'admin') {
+  // Admin login page
+  if (selectedSlug === 'admin/login') {
     return (
       <Layout onBackToLibraries={handleBackToLibraries} lang={lang} onToggleLang={handleToggleLang}>
-        <AdminDashboard onBack={handleBackToLibraries} lang={lang} />
+        <AdminLogin
+          lang={lang}
+          onLoginSuccess={() => setSelectedSlug('admin')}
+          onBack={handleBackToLibraries}
+        />
+      </Layout>
+    );
+  }
+
+  // Admin dashboard
+  if (selectedSlug === 'admin') {
+    if (!isAuthenticated()) {
+      setTimeout(() => setSelectedSlug('admin/login'), 0);
+      return null;
+    }
+    return (
+      <Layout onBackToLibraries={handleBackToLibraries} lang={lang} onToggleLang={handleToggleLang}>
+        <AdminDashboard
+          onBack={handleBackToLibraries}
+          onLogout={() => {
+            logout();
+            setSelectedSlug('admin/login');
+          }}
+          lang={lang}
+        />
       </Layout>
     );
   }
@@ -101,7 +149,7 @@ function App() {
   // Landing page: library grid
   if (!selectedSlug) {
     return (
-      <Layout onBackToLibraries={handleBackToLibraries} onOpenAdmin={() => setSelectedSlug('admin')} lang={lang} onToggleLang={handleToggleLang}>
+      <Layout onBackToLibraries={handleBackToLibraries} lang={lang} onToggleLang={handleToggleLang}>
         <LibraryGrid onSelectLibrary={handleSelectLibrary} lang={lang} />
       </Layout>
     );

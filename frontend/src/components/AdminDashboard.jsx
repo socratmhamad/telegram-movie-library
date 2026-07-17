@@ -207,7 +207,7 @@ function TaskLogViewer({ taskId, onClose }) {
 // Main Dashboard
 // ---------------------------------------------------------------------------
 
-export default function AdminDashboard({ onBack, lang = 'en' }) {
+export default function AdminDashboard({ onBack, onLogout, lang = 'en' }) {
   const [libraries, setLibraries] = useState([]);
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -226,10 +226,13 @@ export default function AdminDashboard({ onBack, lang = 'en' }) {
       setTasks(taskData?.tasks || []);
     } catch (err) {
       console.error('Admin refresh error:', err);
+      if (err.message.includes('401') || err.message.includes('Unauthorized')) {
+        if (onLogout) onLogout();
+      }
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [onLogout]);
 
   useEffect(() => {
     refreshData();
@@ -290,7 +293,7 @@ export default function AdminDashboard({ onBack, lang = 'en' }) {
 
   return (
     <div className="admin-dashboard">
-      <div className="admin-header">
+      <div className="admin-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
         <div className="admin-header-left" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'flex-start' }}>
           <button className="library-back-btn" onClick={onBack}>
             <span className="arrow">{isAr ? '←' : '←'}</span>
@@ -298,6 +301,26 @@ export default function AdminDashboard({ onBack, lang = 'en' }) {
           </button>
           <h1 className="admin-title">{isAr ? 'لوحة الإدارة' : 'Admin Dashboard'}</h1>
         </div>
+        {onLogout && (
+          <button 
+            className="admin-btn admin-btn-danger" 
+            onClick={onLogout} 
+            style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '0.5rem', 
+              padding: '0.6rem 1.2rem',
+              fontSize: '0.9rem',
+              fontWeight: 500,
+              borderRadius: 'var(--radius-sm)',
+              cursor: 'pointer',
+              border: 'none',
+              transition: 'all var(--transition-fast)'
+            }}
+          >
+            {isAr ? '🚪 خروج' : '🚪 Logout'}
+          </button>
+        )}
       </div>
 
       {/* Tabs */}

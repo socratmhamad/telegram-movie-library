@@ -5,6 +5,7 @@ from __future__ import annotations
 from fastapi import APIRouter, Depends, HTTPException, Request
 from sqlalchemy import select, func
 
+from backend.auth import get_current_admin
 from backend.models import (
     LibraryCreateRequest,
     LibraryUpdateRequest,
@@ -17,7 +18,11 @@ from backend.models import (
 from backend.services.task_manager import TaskManager
 from database.models import init_db, Library, Movie, TMDBMovie, TelegramMessage
 
-router = APIRouter(prefix="/api/admin", tags=["admin"])
+router = APIRouter(
+    prefix="/api/admin",
+    tags=["admin"],
+    dependencies=[Depends(get_current_admin)],
+)
 
 
 # ------------------------------------------------------------------
