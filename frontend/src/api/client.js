@@ -10,11 +10,11 @@ const isLocal = window.location.hostname === 'localhost' ||
                 window.location.hostname.startsWith('10.');
 
 const BASE = isLocal
-  ? `http://${window.location.hostname === 'localhost' ? '127.0.0.1' : window.location.hostname}:8000/api`
+  ? '/api'
   : (import.meta.env.VITE_API_URL || 'https://telegram-movie-library.onrender.com') + '/api';
 
 async function request(path, params = {}, retry = true) {
-  const url = new URL(path);
+  const url = new URL(path, window.location.origin);
   Object.entries(params).forEach(([key, value]) => {
     if (value !== null && value !== undefined && value !== '') {
       url.searchParams.set(key, value);
@@ -92,7 +92,7 @@ export function fetchStats({ libraryId } = {}) {
 // ---------------------------------------------------------------------------
 
 const ADMIN = isLocal
-  ? `http://${window.location.hostname === 'localhost' ? '127.0.0.1' : window.location.hostname}:8000/api/admin`
+  ? '/api/admin'
   : (import.meta.env.VITE_API_URL || 'https://telegram-movie-library.onrender.com') + '/api/admin';
 
 async function mutate(url, method = 'POST', body = null, retry = true) {
