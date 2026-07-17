@@ -27,6 +27,12 @@ class SecurityHeadersMiddleware(BaseHTTPMiddleware):
         response.headers["X-Frame-Options"] = "DENY"
         response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
         response.headers["Permissions-Policy"] = "camera=(), microphone=(), geolocation=()"
+        req_host = request.url.hostname or "localhost"
+        connect_src = (
+            f"connect-src 'self' https://telegram-movie-library.onrender.com "
+            f"http://{request.url.netloc} http://localhost:8000 http://127.0.0.1:8000 "
+            f"ws://{req_host}:5173 ws://localhost:5173 ws://127.0.0.1:5173;"
+        )
         # CSP — restrict resource loading (replaces deprecated X-XSS-Protection)
         response.headers["Content-Security-Policy"] = (
             "default-src 'self'; "
@@ -34,7 +40,7 @@ class SecurityHeadersMiddleware(BaseHTTPMiddleware):
             "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
             "font-src 'self' https://fonts.gstatic.com; "
             "img-src 'self' https://image.tmdb.org data:; "
-            "connect-src 'self' https://telegram-movie-library.onrender.com http://localhost:8000 http://127.0.0.1:8000 ws://localhost:5173 ws://127.0.0.1:5173; "
+            f"{connect_src} "
             "frame-ancestors 'none'"
         )
         # HSTS — only effective over HTTPS, harmless over HTTP
