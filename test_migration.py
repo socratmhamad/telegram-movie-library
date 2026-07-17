@@ -302,7 +302,7 @@ def run_test():
                 movie_count = session.scalar(
                     select(func.count(Movie.id)).where(Movie.library_id == lib.id)
                 ) or 0
-                print(f"  Library \"{lib.name}\" (id={lib.id}): {movie_count} movies — UNTOUCHED")
+                print(f"  Library \"{_safe(lib.name)}\" (id={lib.id}): {movie_count} movies - UNTOUCHED")
         print()
 
     finally:

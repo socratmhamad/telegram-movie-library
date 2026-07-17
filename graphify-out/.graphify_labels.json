@@ -23,6 +23,10 @@
   "21": "config.py",
   "22": "_parse_genres",
   "23": "MovieGrid.jsx",
+  "24": "admin.py",
+  "25": "MovieGrid.jsx",
   "26": "StatsPanel.jsx",
-  "27": "__init__.py"
+  "27": "__init__.py",
+  "28": "GenreFilter.jsx",
+  "29": "SearchBar.jsx"
 }

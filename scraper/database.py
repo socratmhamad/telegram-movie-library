@@ -99,7 +99,7 @@ class MovieDatabase:
         query = select(Movie).where(Movie.title == title)
         if self.library_id is not None:
             query = query.where(Movie.library_id == self.library_id)
-        movie = session.execute(query).scalar_one_or_none()
+        movie = session.execute(query).scalars().first()
         if movie is None:
             movie = Movie(title=title, library_id=self.library_id)
             session.add(movie)
@@ -107,7 +107,7 @@ class MovieDatabase:
                 session.flush()
             except IntegrityError:
                 session.rollback()
-                movie = session.execute(query).scalar_one()
+                movie = session.execute(query).scalars().first()
         return int(str(movie.id))
 
     def _save_telegram_message(
@@ -116,9 +116,25 @@ class MovieDatabase:
         movie_id: int,
         message_id: int,
     ) -> bool:
-        exists = session.execute(
-            select(TelegramMessage).where(TelegramMessage.message_id == message_id)
-        ).scalar_one_or_none()
+        # Get the library_id of the movie to restrict the search to the same library
+        movie = session.execute(
+            select(Movie.library_id).where(Movie.id == movie_id)
+        ).first()
+        library_id = movie[0] if movie else self.library_id
+
+        if library_id is not None:
+            exists = session.execute(
+                select(TelegramMessage)
+                .join(Movie, TelegramMessage.movie_id == Movie.id)
+                .where(
+                    TelegramMessage.message_id == message_id,
+                    Movie.library_id == library_id
+                )
+            ).first()
+        else:
+            exists = session.execute(
+                select(TelegramMessage).where(TelegramMessage.message_id == message_id)
+            ).first()
         
         if exists is not None:
             return False

@@ -1,0 +1,38 @@
+Found 0 existing Telegram message(s) in the database.
+
+Scraping full channel history: https://t.me/+1VWfwP2V4aoyYjk0
+This may take a while for channels with thousands of messages...
+
+Traceback (most recent call last):
+  File "C:\Users\socrat\Desktop\Movis_with_Telegram\main.py", line 81, in <module>
+    asyncio.run(run())
+  File "C:\Users\socrat\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\socrat\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\socrat\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\socrat\Desktop\Movis_with_Telegram\main.py", line 39, in run
+    async for message in client.iter_messages(settings.telegram_channel, limit=None):
+  File "C:\Users\socrat\AppData\Local\Programs\Python\Python312\Lib\site-packages\telethon\requestiter.py", line 58, in __anext__
+    if await self._init(**self.kwargs):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\socrat\AppData\Local\Programs\Python\Python312\Lib\site-packages\telethon\client\messages.py", line 27, in _init
+    self.entity = await self.client.get_input_entity(entity)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\socrat\AppData\Local\Programs\Python\Python312\Lib\site-packages\telethon\client\users.py", line 439, in get_input_entity
+    await self._get_entity_from_string(peer))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\socrat\AppData\Local\Programs\Python\Python312\Lib\site-packages\telethon\client\users.py", line 543, in _get_entity_from_string
+    invite = await self(
+             ^^^^^^^^^^^
+  File "C:\Users\socrat\AppData\Local\Programs\Python\Python312\Lib\site-packages\telethon\client\users.py", line 30, in __call__
+    return await self._call(self._sender, request, ordered=ordered)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\socrat\AppData\Local\Programs\Python\Python312\Lib\site-packages\telethon\client\users.py", line 87, in _call
+    result = await future
+             ^^^^^^^^^^^^
+telethon.errors.rpcerrorlist.InviteHashExpiredError: The chat the user tried to join has expired and is not valid anymore (caused by CheckChatInviteRequest)

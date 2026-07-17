@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "C:\Users\socrat\Desktop\Movis_with_Telegram\migrate_channel_links.py", line 398, in <module>
+    main()
+  File "C:\Users\socrat\Desktop\Movis_with_Telegram\migrate_channel_links.py", line 389, in main
+    asyncio.run(migrate(
+  File "C:\Users\socrat\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\socrat\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\socrat\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\socrat\Desktop\Movis_with_Telegram\migrate_channel_links.py", line 221, in migrate
+    print(f"Library: {library.name} (id={library.id})")
+  File "C:\Users\socrat\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 9-15: character maps to <undefined>

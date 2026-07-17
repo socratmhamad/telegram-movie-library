@@ -218,7 +218,7 @@ async def migrate(
             print(f"ERROR: Library with id={library_id} not found.")
             sys.exit(1)
 
-        print(f"Library: {library.name} (id={library.id})")
+        print(f"Library: {_safe(library.name)} (id={library.id})")
         print(f"  Old channel: {library.telegram_channel}")
         print(f"  New channel: {new_channel}")
         print()
@@ -365,6 +365,11 @@ async def migrate(
 # ---------------------------------------------------------------------------
 
 def main():
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    if hasattr(sys.stderr, "reconfigure"):
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
     parser = argparse.ArgumentParser(
         description="Migrate movie Telegram links to a new channel."
     )
