@@ -43,14 +43,26 @@ export default function LibraryGrid({ onSelectLibrary, lang = 'en' }) {
             id={`library-card-${lib.slug}`}
             onClick={() => onSelectLibrary(lib.slug)}
           >
+            {/* Cinematic Backdrop Collage */}
+            {lib.posters && lib.posters.length > 0 ? (
+              <div className="library-card-backdrop">
+                {lib.posters.map((poster, i) => (
+                  <img
+                    key={i}
+                    src={poster}
+                    className={`backdrop-poster-tile tile-${i}`}
+                    alt=""
+                    loading="lazy"
+                  />
+                ))}
+              </div>
+            ) : (
+              <div className="library-card-backdrop empty" />
+            )}
+            <div className="library-card-overlay" />
+
             <div className="library-card-icon">📚</div>
             <h2 className="library-card-name">{lib.name}</h2>
-            <div className="library-card-count">
-              <span className="library-card-count-number">{lib.movie_count.toLocaleString()}</span>
-              <span className="library-card-count-label">
-                {isAr ? 'فيلم' : (lib.movie_count === 1 ? 'movie' : 'movies')}
-              </span>
-            </div>
             {lib.telegram_channel && (
               <div className="library-card-channel" title={lib.telegram_channel}>
                 📡 {isAr ? 'قناة تيليجرام' : 'Telegram Channel'}

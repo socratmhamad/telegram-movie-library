@@ -1,4 +1,4 @@
-export default function Layout({ children, libraryName, onBackToLibraries, lang = 'en', onToggleLang }) {
+export default function Layout({ children, libraryName, onBackToLibraries, lang = 'en', onToggleLang, hero }) {
   const isAr = lang === 'ar';
   return (
     <div className={`app-layout ${isAr ? 'rtl' : 'ltr'}`}>
@@ -21,6 +21,7 @@ export default function Layout({ children, libraryName, onBackToLibraries, lang 
           </div>
         </div>
       </header>
+      {hero}
       <main className="main-content">
         {children}
       </main>

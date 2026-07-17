@@ -52,12 +52,23 @@ class MovieQueries:
                 movie_count = session.scalar(
                     select(func.count(Movie.id)).where(Movie.library_id == lib.id)
                 ) or 0
+                poster_paths = session.scalars(
+                    select(TMDBMovie.poster_path)
+                    .join(Movie, Movie.tmdb_movie_id == TMDBMovie.id)
+                    .where(Movie.library_id == lib.id)
+                    .where(TMDBMovie.poster_path != None)
+                    .where(TMDBMovie.poster_path != "")
+                    .limit(5)
+                ).all()
+                posters = [f"{TMDB_IMAGE_BASE}/w500{path}" for path in poster_paths if path]
+
                 result.append({
                     "id": lib.id,
                     "name": lib.name,
                     "slug": lib.slug,
                     "telegram_channel": lib.telegram_channel,
                     "movie_count": movie_count,
+                    "posters": posters,
                 })
             return result
 
@@ -71,12 +82,23 @@ class MovieQueries:
             movie_count = session.scalar(
                 select(func.count(Movie.id)).where(Movie.library_id == lib.id)
             ) or 0
+            poster_paths = session.scalars(
+                select(TMDBMovie.poster_path)
+                .join(Movie, Movie.tmdb_movie_id == TMDBMovie.id)
+                .where(Movie.library_id == lib.id)
+                .where(TMDBMovie.poster_path != None)
+                .where(TMDBMovie.poster_path != "")
+                .limit(5)
+            ).all()
+            posters = [f"{TMDB_IMAGE_BASE}/w500{path}" for path in poster_paths if path]
+
             return {
                 "id": lib.id,
                 "name": lib.name,
                 "slug": lib.slug,
                 "telegram_channel": lib.telegram_channel,
                 "movie_count": movie_count,
+                "posters": posters,
             }
 
     # ------------------------------------------------------------------

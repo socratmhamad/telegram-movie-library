@@ -148,6 +148,8 @@ class LibraryResponse(BaseModel):
     slug: str
     telegram_channel: str | None = None
     movie_count: int = 0
+    posters: list[str] = []
+
 
 
 class LibraryListResponse(BaseModel):

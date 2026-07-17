@@ -1,16 +1,16 @@
 # Graph Report - Movis_with_Telegram  (2026-07-17)
 
 ## Corpus Check
-- 66 files · ~29,345 words
+- 66 files · ~29,407 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 397 nodes · 705 edges · 30 communities (23 shown, 7 thin omitted)
+- 397 nodes · 694 edges · 30 communities (23 shown, 7 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 6 edges (avg confidence: 0.75)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `b927e6dd`
+- Built from commit: `c83cbedd`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -42,13 +42,13 @@
 1. `MovieQueries` - 18 edges
 2. `process_movie()` - 15 edges
 3. `request()` - 13 edges
-4. `admin_login()` - 12 edges
-5. `TaskManager` - 12 edges
-6. `MovieDatabase` - 12 edges
+4. `MovieDatabase` - 12 edges
+5. `admin_login()` - 12 edges
+6. `TaskManager` - 12 edges
 7. `_get_tasks()` - 10 edges
 8. `admin_refresh()` - 10 edges
 9. `mutate()` - 10 edges
-10. `run_test()` - 10 edges
+10. `_get_session_factory()` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `main()` --indirect_call--> `TMDBMovie`  [INFERRED]
@@ -59,8 +59,8 @@
   migrate_to_postgres.py → database/models.py
 - `main()` --calls--> `get_db_url()`  [EXTRACTED]
   update_tmdb.py → database/models.py
-- `main()` --calls--> `search_movie()`  [EXTRACTED]
-  test_tmdb.py → tmdb_service.py
+- `run_test()` --calls--> `clean_title()`  [EXTRACTED]
+  test_migration.py → migrate_channel_links.py
 
 ## Import Cycles
 - None detected.
@@ -88,8 +88,8 @@ Cohesion: 0.11
 Nodes (18): dependencies, react, react-dom, devDependencies, vite, @vitejs/plugin-react, name, private (+10 more)
 
 ### Community 5 - "get_db_url"
-Cohesion: 0.15
-Nodes (7): _path_env(), Path, Settings, fix_message_id_constraint.py — One-time schema migration.  Removes the old UNIQU, get_telegram_client(), TelegramClient, Create, authenticate, and cleanly disconnect a Telethon client.
+Cohesion: 0.19
+Nodes (14): Base, get_db_url(), init_db(), Library, Movie, Helper to determine the database URL, Initializes the database and returns the sessionmaker., TelegramMessage (+6 more)
 
 ### Community 6 - "tmdb_service.py"
 Cohesion: 0.36
@@ -104,7 +104,7 @@ Cohesion: 0.14
 Nodes (15): Message, _clean_title(), extract_movie_title(), _extract_quality(), _is_valid_title(), parse_movie_message(), ParsedMovie, Extract a likely movie title and supported video quality from a Telegram message (+7 more)
 
 ### Community 15 - "_parse_genres"
-Cohesion: 0.24
+Cohesion: 0.26
 Nodes (4): MovieDatabase, SQLAlchemy repository for storing scraped Telegram movie records., Return the set of all Telegram message IDs already stored., Session
 
 ### Community 19 - "TaskManager"
@@ -112,8 +112,8 @@ Cohesion: 0.14
 Nodes (12): Any, task_manager.py — In-memory background task manager.  Spawns CLI scripts (main.p, Launch update_tmdb.py for a specific library., Launch migrate_channel_links.py for a specific library., Manages background subprocess tasks with log capture., Launch main.py scraper for a specific library., TaskInfo, TaskManager (+4 more)
 
 ### Community 20 - "migrate_channel_links.py"
-Cohesion: 0.12
-Nodes (31): Base, get_db_url(), init_db(), Library, Movie, Helper to determine the database URL, Initializes the database and returns the sessionmaker., TelegramMessage (+23 more)
+Cohesion: 0.09
+Nodes (24): _path_env(), Path, Settings, fix_message_id_constraint.py — One-time schema migration.  Removes the old UNIQU, build_match_indexes(), clean_title(), extract_title_from_message(), main() (+16 more)
 
 ### Community 21 - "config.py"
 Cohesion: 0.25
@@ -135,7 +135,9 @@ Nodes (30): admin_cancel_task(), admin_create_library(), admin_delete_library(),
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **What connects `Health-check / welcome endpoint.`, `Authentication utilities — password hashing, JWT tokens, rate limiting.`, `Verify a plaintext password against the stored bcrypt hash.      bcrypt.checkpw` to the rest of the system?**
+- **Why does `MovieDatabase` connect `_parse_genres` to `get_db_url`?**
+  _High betweenness centrality (0.033) - this node is a cross-community bridge._
+- **What connects `migrate_channel_links.py — Migrate movie Telegram links to a new channel.  When`, `Clean a Telegram message into a comparable movie title.`, `Extract the first valid title line from a Telegram message.` to the rest of the system?**
   _84 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `MovieQueries` be split into smaller, more focused modules?**
   _Cohesion score 0.0873015873015873 - nodes in this community are weakly interconnected._
@@ -147,5 +149,3 @@ _Questions this graph is uniquely positioned to answer:_
   _Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected._
 - **Should `config.py` be split into smaller, more focused modules?**
   _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
-- **Should `TaskManager` be split into smaller, more focused modules?**
-  _Cohesion score 0.14130434782608695 - nodes in this community are weakly interconnected._

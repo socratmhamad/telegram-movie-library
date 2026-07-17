@@ -12,6 +12,7 @@ import Pagination from './components/Pagination';
 import MovieDetail from './components/MovieDetail';
 import AdminDashboard from './components/AdminDashboard';
 import AdminLogin from './components/AdminLogin';
+import Hero from './components/Hero';
 import { isAuthenticated, logout, setupStorageListener } from './api/adminAuth';
 
 
@@ -149,7 +150,12 @@ function App() {
   // Landing page: library grid
   if (!selectedSlug) {
     return (
-      <Layout onBackToLibraries={handleBackToLibraries} lang={lang} onToggleLang={handleToggleLang}>
+      <Layout
+        onBackToLibraries={handleBackToLibraries}
+        lang={lang}
+        onToggleLang={handleToggleLang}
+        hero={<Hero lang={lang} onSelectLibrary={handleSelectLibrary} />}
+      >
         <LibraryGrid onSelectLibrary={handleSelectLibrary} lang={lang} />
       </Layout>
     );
