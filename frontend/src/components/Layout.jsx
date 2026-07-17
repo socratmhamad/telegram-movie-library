@@ -11,7 +11,8 @@ export default function Layout({ children, libraryName, onBackToLibraries, lang 
             style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
           >
             <span className="logo-icon">🎬</span>
-            <span className="logo-text">{isAr ? 'مكتبة أفلام تيليجرام' : 'Telegram Movie Library'}</span>
+            <span className="logo-text logo-desktop-text">{isAr ? 'مكتبة أفلام تيليجرام' : 'Telegram Movie Library'}</span>
+            <span className="logo-text logo-mobile-text">{isAr ? 'أفلام تيليجرام' : 'Telegram Movies'}</span>
           </button>
 
           <div className="header-actions" style={{ display: 'flex', gap: '0.75rem', marginLeft: isAr ? '0' : 'auto', marginRight: isAr ? 'auto' : '0' }}>

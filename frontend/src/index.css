@@ -2056,7 +2056,7 @@ body {
 
 .hero-bullets {
   position: absolute;
-  bottom: 2.25rem;
+  bottom: 1.25rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -2166,6 +2166,36 @@ body {
   .hero-btn-primary, .hero-btn-secondary {
     padding: 0.65rem 1rem;
     font-size: 0.8rem;
+  }
+}
+
+/* Responsive Logo Text and spacing adjustments */
+.logo-mobile-text {
+  display: none;
+}
+
+@media (max-width: 500px) {
+  .logo-desktop-text {
+    display: none;
+  }
+  .logo-mobile-text {
+    display: inline;
+  }
+  .logo {
+    font-size: 1.1rem;
+  }
+  .logo-icon {
+    font-size: 1.2rem;
+  }
+  .header-lang-btn {
+    padding: 0.35rem 0.65rem !important;
+    font-size: 0.78rem !important;
+  }
+  .hero-bullets {
+    bottom: 0.95rem;
+  }
+  .hero-content {
+    bottom: 10%;
   }
 }
 
