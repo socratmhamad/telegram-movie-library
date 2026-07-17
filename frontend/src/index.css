@@ -2141,8 +2141,20 @@ body {
     padding: 0.7rem 1.25rem;
     font-size: 0.88rem;
   }
-  .app-layout.ltr .hero-content { left: 1.5rem; bottom: 10%; }
-  .app-layout.rtl .hero-content { right: 1.5rem; bottom: 10%; }
+  .app-layout.ltr .hero-content,
+  .app-layout.rtl .hero-content {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    text-align: center;
+    width: calc(100% - 120px);
+    max-width: none;
+    bottom: 12%;
+  }
+  .hero-meta-badge,
+  .hero-actions {
+    justify-content: center;
+  }
   .hero-nav-arrow {
     width: 38px;
     height: 38px;
