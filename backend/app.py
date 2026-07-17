@@ -60,10 +60,11 @@ app.add_middleware(
         "http://127.0.0.1:3000",
         "https://telegram-movie-library.vercel.app",
     ],
+    allow_origin_regex=r"https?://(localhost|127\.0\.0\.1|192\.168\.\d+\.\d+|10\.\d+\.\d+\.\d+)(:\d+)?",
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["Authorization", "Content-Type"],
-),
+)
  
 
 # ------------------------------------------------------------------

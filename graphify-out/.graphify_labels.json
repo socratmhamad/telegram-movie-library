@@ -28,5 +28,6 @@
   "26": "StatsPanel.jsx",
   "27": "__init__.py",
   "28": "GenreFilter.jsx",
-  "29": "SearchBar.jsx"
+  "29": "SearchBar.jsx",
+  "30": "adminAuth.js"
 }
