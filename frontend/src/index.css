@@ -1016,6 +1016,218 @@ body {
 .library-card:nth-child(3) { animation-delay: 0.15s; }
 .library-card:nth-child(4) { animation-delay: 0.20s; }
 
+/* --- Premium Card Shine & Ambient Glow Sweep Effect --- */
+.library-card:not(:hover) .library-card-backdrop {
+  animation: cardBackdropReveal 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.library-card:not(:hover) .library-card-overlay {
+  animation: cardOverlayReveal 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.library-card::before,
+.movie-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 120% 120% at 50% 50%,
+    rgba(255, 255, 255, 0.07) 0%,
+    rgba(167, 139, 250, 0.06) 45%,
+    rgba(45, 212, 191, 0.03) 75%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 3;
+  animation: cardAmbientGlow 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  opacity: 0;
+}
+
+.library-card::after,
+.movie-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -120%;
+  width: 75%;
+  height: 200%;
+  background: linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 35%,
+    rgba(167, 139, 250, 0.10) 43%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(45, 212, 191, 0.10) 57%,
+    rgba(255, 255, 255, 0) 65%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+  z-index: 5;
+  animation: cardShineSweep 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  opacity: 0;
+}
+
+@keyframes cardBackdropReveal {
+  0% {
+    opacity: 0.22;
+    filter: blur(1.2px) grayscale(30%);
+    transform: scale(1);
+  }
+  3% {
+    opacity: 0.25;
+    filter: blur(1.0px) grayscale(25%);
+    transform: scale(1.01);
+  }
+  12% {
+    /* Peak reveal: crystal clear background backdrop matching hover state */
+    opacity: 0.52;
+    filter: blur(0px) grayscale(0%);
+    transform: scale(1.05);
+  }
+  22% {
+    opacity: 0.25;
+    filter: blur(1.0px) grayscale(25%);
+    transform: scale(1.01);
+  }
+  26% {
+    opacity: 0.22;
+    filter: blur(1.2px) grayscale(30%);
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.22;
+    filter: blur(1.2px) grayscale(30%);
+    transform: scale(1);
+  }
+}
+
+@keyframes cardOverlayReveal {
+  0% {
+    opacity: 1;
+  }
+  3% {
+    opacity: 0.95;
+  }
+  12% {
+    /* Soften overlay so backdrop image shines through clearly */
+    opacity: 0.70;
+  }
+  22% {
+    opacity: 0.95;
+  }
+  26% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes cardAmbientGlow {
+  0% {
+    opacity: 0;
+  }
+  3% {
+    opacity: 0.25;
+  }
+  12% {
+    opacity: 1;
+  }
+  22% {
+    opacity: 0.25;
+  }
+  26% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes cardShineSweep {
+  0% {
+    transform: translateX(0) rotate(25deg);
+    opacity: 0;
+  }
+  2% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 1;
+  }
+  24% {
+    transform: translateX(380%) rotate(25deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(380%) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+/* Staggered animation delays so cards sweep at different times (~8s period) */
+.library-card:nth-child(12n + 1)::before, .library-card:nth-child(12n + 1)::after,
+.library-card:nth-child(12n + 1) .library-card-backdrop, .library-card:nth-child(12n + 1) .library-card-overlay,
+.movie-card:nth-child(12n + 1)::before, .movie-card:nth-child(12n + 1)::after { animation-delay: 0s; }
+
+.library-card:nth-child(12n + 2)::before, .library-card:nth-child(12n + 2)::after,
+.library-card:nth-child(12n + 2) .library-card-backdrop, .library-card:nth-child(12n + 2) .library-card-overlay,
+.movie-card:nth-child(12n + 2)::before, .movie-card:nth-child(12n + 2)::after { animation-delay: 1.8s; }
+
+.library-card:nth-child(12n + 3)::before, .library-card:nth-child(12n + 3)::after,
+.library-card:nth-child(12n + 3) .library-card-backdrop, .library-card:nth-child(12n + 3) .library-card-overlay,
+.movie-card:nth-child(12n + 3)::before, .movie-card:nth-child(12n + 3)::after { animation-delay: 3.6s; }
+
+.library-card:nth-child(12n + 4)::before, .library-card:nth-child(12n + 4)::after,
+.library-card:nth-child(12n + 4) .library-card-backdrop, .library-card:nth-child(12n + 4) .library-card-overlay,
+.movie-card:nth-child(12n + 4)::before, .movie-card:nth-child(12n + 4)::after { animation-delay: 5.4s; }
+
+.library-card:nth-child(12n + 5)::before, .library-card:nth-child(12n + 5)::after,
+.library-card:nth-child(12n + 5) .library-card-backdrop, .library-card:nth-child(12n + 5) .library-card-overlay,
+.movie-card:nth-child(12n + 5)::before, .movie-card:nth-child(12n + 5)::after { animation-delay: 1.2s; }
+
+.library-card:nth-child(12n + 6)::before, .library-card:nth-child(12n + 6)::after,
+.library-card:nth-child(12n + 6) .library-card-backdrop, .library-card:nth-child(12n + 6) .library-card-overlay,
+.movie-card:nth-child(12n + 6)::before, .movie-card:nth-child(12n + 6)::after { animation-delay: 3.0s; }
+
+.library-card:nth-child(12n + 7)::before, .library-card:nth-child(12n + 7)::after,
+.library-card:nth-child(12n + 7) .library-card-backdrop, .library-card:nth-child(12n + 7) .library-card-overlay,
+.movie-card:nth-child(12n + 7)::before, .movie-card:nth-child(12n + 7)::after { animation-delay: 4.8s; }
+
+.library-card:nth-child(12n + 8)::before, .library-card:nth-child(12n + 8)::after,
+.library-card:nth-child(12n + 8) .library-card-backdrop, .library-card:nth-child(12n + 8) .library-card-overlay,
+.movie-card:nth-child(12n + 8)::before, .movie-card:nth-child(12n + 8)::after { animation-delay: 6.6s; }
+
+.library-card:nth-child(12n + 9)::before, .library-card:nth-child(12n + 9)::after,
+.library-card:nth-child(12n + 9) .library-card-backdrop, .library-card:nth-child(12n + 9) .library-card-overlay,
+.movie-card:nth-child(12n + 9)::before, .movie-card:nth-child(12n + 9)::after { animation-delay: 2.4s; }
+
+.library-card:nth-child(12n + 10)::before, .library-card:nth-child(12n + 10)::after,
+.library-card:nth-child(12n + 10) .library-card-backdrop, .library-card:nth-child(12n + 10) .library-card-overlay,
+.movie-card:nth-child(12n + 10)::before, .movie-card:nth-child(12n + 10)::after { animation-delay: 4.2s; }
+
+.library-card:nth-child(12n + 11)::before, .library-card:nth-child(12n + 11)::after,
+.library-card:nth-child(12n + 11) .library-card-backdrop, .library-card:nth-child(12n + 11) .library-card-overlay,
+.movie-card:nth-child(12n + 11)::before, .movie-card:nth-child(12n + 11)::after { animation-delay: 6.0s; }
+
+.library-card:nth-child(12n + 12)::before, .library-card:nth-child(12n + 12)::after,
+.library-card:nth-child(12n + 12) .library-card-backdrop, .library-card:nth-child(12n + 12) .library-card-overlay,
+.movie-card:nth-child(12n + 12)::before, .movie-card:nth-child(12n + 12)::after { animation-delay: 0.6s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .library-card::before,
+  .library-card::after,
+  .library-card-backdrop,
+  .library-card-overlay,
+  .movie-card::before,
+  .movie-card::after {
+    animation: none;
+    display: none;
+  }
+}
+
+
 /* --- Header Library Navigation --- */
 .logo-text {
   background: var(--gradient-accent);
