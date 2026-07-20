@@ -75,6 +75,9 @@ def get_db_url(url: str | None = None, fallback_path: Path | None = None) -> str
         # SQLAlchemy requires postgresql:// instead of postgres://
         if url.startswith("postgres://"):
             url = url.replace("postgres://", "postgresql://", 1)
+        if url.startswith("postgresql://") and "sslmode=" not in url:
+            separator = "&" if "?" in url else "?"
+            url = f"{url}{separator}sslmode=require"
         print(f"[DB] Using PostgreSQL: {url.split('@')[-1] if '@' in url else '(configured)'}")
         return url
 
@@ -93,6 +96,11 @@ def init_db(url: str):
     if url.startswith("postgres://"):
         url = url.replace("postgres://", "postgresql://", 1)
         
-    engine = create_engine(url)
+    engine_kwargs = {}
+    if url.startswith("postgresql"):
+        engine_kwargs["pool_pre_ping"] = True
+        engine_kwargs["pool_recycle"] = 300
+
+    engine = create_engine(url, **engine_kwargs)
     Base.metadata.create_all(engine)
     return sessionmaker(bind=engine)

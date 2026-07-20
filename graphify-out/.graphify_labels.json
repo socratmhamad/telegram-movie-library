@@ -33,5 +33,7 @@
   "31": "check_seven.py",
   "32": "fix_seven_match.py",
   "33": "merge_seven.py",
-  "34": "search_tmdb.py"
+  "34": "search_tmdb.py",
+  "35": "check_libs.py",
+  "36": "schema.py"
 }

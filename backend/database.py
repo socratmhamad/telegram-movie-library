@@ -5,7 +5,7 @@ import math
 from typing import Any
 
 from sqlalchemy import select, func, distinct, case, and_
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 
 
 from database.models import init_db, Library, Movie, TMDBMovie, TelegramMessage
@@ -202,7 +202,9 @@ class MovieQueries:
     def get_movie(self, movie_id: int, language: str | None = None) -> dict[str, Any] | None:
         with self._get_session() as session:
             movie = session.execute(
-                select(Movie).where(Movie.id == movie_id)
+                select(Movie)
+                .options(joinedload(Movie.tmdb_movie), joinedload(Movie.library))
+                .where(Movie.id == movie_id)
             ).scalar_one_or_none()
 
             if movie is None:
@@ -212,7 +214,15 @@ class MovieQueries:
             if movie.tmdb_movie:
                 tmdb_movie = movie.tmdb_movie
                 overview = tmdb_movie.overview
-                genres = tmdb_movie.genres
+                genres_raw = tmdb_movie.genres
+                genres: list[str] = []
+                if genres_raw:
+                    try:
+                        parsed = json.loads(genres_raw) if isinstance(genres_raw, str) else genres_raw
+                        if isinstance(parsed, list):
+                            genres = parsed
+                    except (json.JSONDecodeError, TypeError):
+                        genres = []
 
                 if language == "ar":
                     from config import settings
@@ -223,7 +233,7 @@ class MovieQueries:
                             if details.get("overview"):
                                 overview = details["overview"]
                             if details.get("genres"):
-                                genres = json.dumps(details["genres"])
+                                genres = details["genres"] if isinstance(details["genres"], list) else []
                         except Exception as e:
                             print(f"Warning: Failed to fetch Arabic metadata: {e}")
 
