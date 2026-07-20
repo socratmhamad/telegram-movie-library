@@ -93,7 +93,7 @@ def build_poster_url(poster_path: str | None) -> str | None:
 
 
 def _tmdb_get(path: str, params: dict[str, Any]) -> dict[str, Any]:
-    api_key = os.getenv("TMDB_API_KEY")
+    api_key = os.getenv("TMDB_API_KEY") or "3b229e9ff37295a937b9785313d105ac"
     if not api_key:
         raise RuntimeError("Missing required environment variable: TMDB_API_KEY")
 
