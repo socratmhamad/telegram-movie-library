@@ -1,16 +1,16 @@
 # Graph Report - Movis_with_Telegram  (2026-07-20)
 
 ## Corpus Check
-- 71 files · ~31,298 words
+- 71 files · ~31,335 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 489 nodes · 914 edges · 39 communities (31 shown, 8 thin omitted)
-- Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 40 edges (avg confidence: 0.75)
+- 492 nodes · 891 edges · 41 communities (32 shown, 9 thin omitted)
+- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 25 edges (avg confidence: 0.78)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `9a45a05d`
+- Built from commit: `1a529c97`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -42,43 +42,45 @@
 - [[_COMMUNITY_adminAuth.js|adminAuth.js]]
 - [[_COMMUNITY_Session|Session]]
 - [[_COMMUNITY_Path|Path]]
+- [[_COMMUNITY_config.py|config.py]]
+- [[_COMMUNITY_Request|Request]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `MovieQueries` - 28 edges
-2. `Movie` - 25 edges
-3. `Library` - 20 edges
-4. `MovieDatabase` - 17 edges
-5. `TaskManager` - 16 edges
-6. `TelegramMessage` - 15 edges
-7. `process_movie()` - 15 edges
-8. `TMDBMovie` - 13 edges
-9. `request()` - 13 edges
-10. `get_db_url()` - 12 edges
+1. `MovieQueries` - 24 edges
+2. `Movie` - 17 edges
+3. `MovieDatabase` - 17 edges
+4. `Library` - 16 edges
+5. `process_movie()` - 15 edges
+6. `TaskManager` - 14 edges
+7. `request()` - 13 edges
+8. `TelegramMessage` - 12 edges
+9. `admin_login()` - 12 edges
+10. `What You Must Do When Invoked` - 12 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `MovieQueries` --uses--> `Library`  [INFERRED]
-  backend/database.py → database/models.py
-- `MovieQueries` --uses--> `Movie`  [INFERRED]
-  backend/database.py → database/models.py
-- `MovieQueries` --uses--> `TelegramMessage`  [INFERRED]
-  backend/database.py → database/models.py
-- `MovieQueries` --uses--> `TMDBMovie`  [INFERRED]
-  backend/database.py → database/models.py
-- `admin_delete_library()` --indirect_call--> `Library`  [INFERRED]
+- `admin_list_libraries()` --indirect_call--> `Library`  [INFERRED]
+  backend/routers/admin.py → database/models.py
+- `admin_migrate_library()` --indirect_call--> `Library`  [INFERRED]
+  backend/routers/admin.py → database/models.py
+- `admin_scan_library()` --indirect_call--> `Library`  [INFERRED]
+  backend/routers/admin.py → database/models.py
+- `admin_update_library()` --indirect_call--> `Library`  [INFERRED]
+  backend/routers/admin.py → database/models.py
+- `admin_update_tmdb()` --indirect_call--> `Library`  [INFERRED]
   backend/routers/admin.py → database/models.py
 
 ## Import Cycles
 - None detected.
 
-## Communities (39 total, 8 thin omitted)
+## Communities (41 total, 9 thin omitted)
 
 ### Community 0 - "MovieQueries"
-Cohesion: 0.07
-Nodes (59): Any, LibraryDetailResponse, TaskResponse, admin_cancel_task(), admin_create_library(), admin_delete_library(), admin_get_task(), admin_get_task_logs() (+51 more)
+Cohesion: 0.10
+Nodes (35): admin_delete_library(), Delete a library and all associated movies/messages., Base, get_db_url(), init_db(), Library, Movie, Helper to determine the database URL (+27 more)
 
 ### Community 1 - "movies.py"
-Cohesion: 0.05
-Nodes (56): Request, Health-check / welcome endpoint., root(), SecurityHeadersMiddleware, get_app_env(), get_database_path(), get_database_url(), get_telegram_channel_id() (+48 more)
+Cohesion: 0.07
+Nodes (35): Any, global_exception_handler(), Health-check / welcome endpoint., root(), SecurityHeadersMiddleware, MovieQueries, Read-only query layer that powers the FastAPI endpoints.      Uses SQLAlchemy., GenreListResponse (+27 more)
 
 ### Community 2 - "App.jsx"
 Cohesion: 0.07
@@ -125,8 +127,8 @@ Cohesion: 0.14
 Nodes (12): Any, task_manager.py — In-memory background task manager.  Spawns CLI scripts (main.p, Launch update_tmdb.py for a specific library., Launch migrate_channel_links.py for a specific library., Manages background subprocess tasks with log capture., Launch main.py scraper for a specific library., TaskInfo, TaskManager (+4 more)
 
 ### Community 20 - "migrate_channel_links.py"
-Cohesion: 0.26
-Nodes (4): MovieDatabase, Session, SQLAlchemy repository for storing scraped Telegram movie records., Return the set of all Telegram message IDs already stored.
+Cohesion: 0.09
+Nodes (42): LibraryCreateRequest, LibraryDetailResponse, LibraryUpdateRequest, MigrationRequest, MovieListItem, _parse_genres(), Any, Accept a JSON string or a plain list and always return ``list[str]``. (+34 more)
 
 ### Community 22 - "_parse_genres"
 Cohesion: 0.10
@@ -148,25 +150,29 @@ Nodes (3): For --cluster-only, For --update (incremental re-extraction), graphif
 Cohesion: 0.50
 Nodes (3): Expanding the Oxlint configuration, React Compiler, React + Vite
 
+### Community 39 - "config.py"
+Cohesion: 0.22
+Nodes (9): get_app_env(), get_database_path(), get_database_url(), get_telegram_channel_id(), Path, Return the current application environment (development | production)., Resolve the database path from the environment.      Keeps the backend indepen, Get the database URL from the environment for SQLAlchemy.      Only returns th (+1 more)
+
 ## Knowledge Gaps
 - **79 isolated node(s):** `Settings`, `$schema`, `plugins`, `react/rules-of-hooks`, `react/only-export-components` (+74 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `get_db_url()` connect `MovieQueries` to `movies.py`, `process_movie`, `config.py`?**
-  _High betweenness centrality (0.044) - this node is a cross-community bridge._
-- **Why does `MovieQueries` connect `movies.py` to `MovieQueries`?**
-  _High betweenness centrality (0.043) - this node is a cross-community bridge._
-- **Why does `TaskManager` connect `TaskManager` to `MovieQueries`, `movies.py`?**
-  _High betweenness centrality (0.034) - this node is a cross-community bridge._
-- **Are the 5 inferred relationships involving `MovieQueries` (e.g. with `SecurityHeadersMiddleware` and `Library`) actually correct?**
-  _`MovieQueries` has 5 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 16 inferred relationships involving `Movie` (e.g. with `MovieQueries` and `.get_genres()`) actually correct?**
-  _`Movie` has 16 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 11 inferred relationships involving `Library` (e.g. with `MovieQueries` and `.get_libraries()`) actually correct?**
-  _`Library` has 11 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `Read-only query layer that powers the FastAPI endpoints.      Uses SQLAlchemy.`, `Helper to determine the database URL`, `Initializes the database and returns the sessionmaker.` to the rest of the system?**
+- **Why does `TaskManager` connect `TaskManager` to `migrate_channel_links.py`?**
+  _High betweenness centrality (0.031) - this node is a cross-community bridge._
+- **Why does `Movie` connect `MovieQueries` to `migrate_channel_links.py`?**
+  _High betweenness centrality (0.020) - this node is a cross-community bridge._
+- **Are the 9 inferred relationships involving `Movie` (e.g. with `admin_delete_library()` and `admin_list_libraries()`) actually correct?**
+  _`Movie` has 9 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 8 inferred relationships involving `Library` (e.g. with `admin_delete_library()` and `admin_list_libraries()`) actually correct?**
+  _`Library` has 8 INFERRED edges - model-reasoned connections that need verification._
+- **What connects `Health-check / welcome endpoint.`, `Read-only query layer that powers the FastAPI endpoints.      Uses SQLAlchemy.`, `Helper to determine the database URL` to the rest of the system?**
   _149 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `MovieQueries` be split into smaller, more focused modules?**
+  _Cohesion score 0.10040816326530612 - nodes in this community are weakly interconnected._
+- **Should `movies.py` be split into smaller, more focused modules?**
+  _Cohesion score 0.06972789115646258 - nodes in this community are weakly interconnected._

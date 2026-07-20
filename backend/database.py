@@ -227,12 +227,11 @@ class MovieQueries:
 
                 if language == "ar":
                     try:
-                        tmdb_key = os.getenv("TMDB_API_KEY")
-                        if tmdb_key and tmdb_movie.tmdb_id:
+                        if tmdb_movie.tmdb_id:
                             from tmdb_service import get_movie_details
                             details = get_movie_details(int(tmdb_movie.tmdb_id), language="ar")
-                            if details.get("overview"):
-                                overview = details["overview"]
+                            if details.get("overview") and details["overview"].strip():
+                                overview = details["overview"].strip()
                             if details.get("genres"):
                                 genres = details["genres"] if isinstance(details["genres"], list) else []
                     except Exception as e:

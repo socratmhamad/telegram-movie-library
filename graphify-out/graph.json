@@ -4,20 +4,110 @@
   "graph": {},
   "nodes": [
     {
+      "label": "app.py",
+      "file_type": "code",
+      "source_file": "backend/app.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_app",
+      "community": 1,
+      "norm_label": "app.py"
+    },
+    {
+      "label": "global_exception_handler()",
+      "file_type": "code",
+      "source_file": "backend/app.py",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "backend_app_global_exception_handler",
+      "community": 1,
+      "norm_label": "global_exception_handler()"
+    },
+    {
+      "label": "Request",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "request",
+      "community": 1,
+      "norm_label": "request"
+    },
+    {
+      "label": "Exception",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "exception",
+      "community": 1,
+      "norm_label": "exception"
+    },
+    {
+      "label": "SecurityHeadersMiddleware",
+      "file_type": "code",
+      "source_file": "backend/app.py",
+      "source_location": "L38",
+      "_origin": "ast",
+      "id": "backend_app_securityheadersmiddleware",
+      "community": 1,
+      "norm_label": "securityheadersmiddleware"
+    },
+    {
+      "label": "BaseHTTPMiddleware",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "basehttpmiddleware",
+      "community": 1,
+      "norm_label": "basehttpmiddleware"
+    },
+    {
+      "label": ".dispatch()",
+      "file_type": "code",
+      "source_file": "backend/app.py",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "backend_app_securityheadersmiddleware_dispatch",
+      "community": 1,
+      "norm_label": ".dispatch()"
+    },
+    {
+      "label": "root()",
+      "file_type": "code",
+      "source_file": "backend/app.py",
+      "source_location": "L110",
+      "_origin": "ast",
+      "id": "backend_app_root",
+      "community": 1,
+      "norm_label": "root()"
+    },
+    {
+      "label": "Health-check / welcome endpoint.",
+      "file_type": "rationale",
+      "source_file": "backend/app.py",
+      "source_location": "L111",
+      "_origin": "ast",
+      "id": "backend_app_rationale_111",
+      "community": 1,
+      "norm_label": "health-check / welcome endpoint."
+    },
+    {
       "label": "database.py",
       "file_type": "code",
       "source_file": "backend/database.py",
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_database",
-      "community": 0,
+      "community": 1,
       "norm_label": "database.py"
     },
     {
       "label": "MovieQueries",
       "file_type": "code",
       "source_file": "backend/database.py",
-      "source_location": "L22",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "backend_database_moviequeries",
       "community": 1,
@@ -27,7 +117,7 @@
       "label": ".__init__()",
       "file_type": "code",
       "source_file": "backend/database.py",
-      "source_location": "L30",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "backend_database_moviequeries_init",
       "community": 1,
@@ -37,10 +127,10 @@
       "label": "._get_session()",
       "file_type": "code",
       "source_file": "backend/database.py",
-      "source_location": "L37",
+      "source_location": "L38",
       "_origin": "ast",
       "id": "backend_database_moviequeries_get_session",
-      "community": 0,
+      "community": 1,
       "norm_label": "._get_session()"
     },
     {
@@ -50,17 +140,17 @@
       "source_location": "",
       "_origin": "ast",
       "id": "session",
-      "community": 0,
+      "community": 1,
       "norm_label": "session"
     },
     {
       "label": ".get_libraries()",
       "file_type": "code",
       "source_file": "backend/database.py",
-      "source_location": "L44",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "backend_database_moviequeries_get_libraries",
-      "community": 0,
+      "community": 1,
       "norm_label": ".get_libraries()"
     },
     {
@@ -70,66 +160,66 @@
       "source_location": "",
       "_origin": "ast",
       "id": "any",
-      "community": 0,
+      "community": 1,
       "norm_label": "any"
     },
     {
       "label": ".get_library_by_slug()",
       "file_type": "code",
       "source_file": "backend/database.py",
-      "source_location": "L75",
+      "source_location": "L76",
       "_origin": "ast",
       "id": "backend_database_moviequeries_get_library_by_slug",
-      "community": 0,
+      "community": 1,
       "norm_label": ".get_library_by_slug()"
     },
     {
       "label": ".get_movies()",
       "file_type": "code",
       "source_file": "backend/database.py",
-      "source_location": "L108",
+      "source_location": "L109",
       "_origin": "ast",
       "id": "backend_database_moviequeries_get_movies",
-      "community": 0,
+      "community": 1,
       "norm_label": ".get_movies()"
     },
     {
       "label": ".get_movie()",
       "file_type": "code",
       "source_file": "backend/database.py",
-      "source_location": "L202",
+      "source_location": "L203",
       "_origin": "ast",
       "id": "backend_database_moviequeries_get_movie",
-      "community": 0,
+      "community": 1,
       "norm_label": ".get_movie()"
     },
     {
       "label": ".get_genres()",
       "file_type": "code",
       "source_file": "backend/database.py",
-      "source_location": "L299",
+      "source_location": "L300",
       "_origin": "ast",
       "id": "backend_database_moviequeries_get_genres",
-      "community": 0,
+      "community": 1,
       "norm_label": ".get_genres()"
     },
     {
       "label": ".get_stats()",
       "file_type": "code",
       "source_file": "backend/database.py",
-      "source_location": "L327",
+      "source_location": "L328",
       "_origin": "ast",
       "id": "backend_database_moviequeries_get_stats",
-      "community": 0,
+      "community": 1,
       "norm_label": ".get_stats()"
     },
     {
       "label": "Read-only query layer that powers the FastAPI endpoints.      Uses SQLAlchemy.",
       "file_type": "rationale",
       "source_file": "backend/database.py",
-      "source_location": "L23",
+      "source_location": "L24",
       "_origin": "ast",
-      "id": "backend_database_rationale_23",
+      "id": "backend_database_rationale_24",
       "community": 1,
       "norm_label": "read-only query layer that powers the fastapi endpoints.      uses sqlalchemy."
     },
@@ -139,9 +229,9 @@
       "source_file": "database/models.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "database_models",
       "community": 0,
-      "norm_label": "models.py"
+      "norm_label": "models.py",
+      "id": "database_models"
     },
     {
       "label": "Library",
@@ -149,9 +239,9 @@
       "source_file": "database/models.py",
       "source_location": "L11",
       "_origin": "ast",
-      "id": "database_models_library",
       "community": 0,
-      "norm_label": "library"
+      "norm_label": "library",
+      "id": "database_models_library"
     },
     {
       "label": "Base",
@@ -159,9 +249,9 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "base",
       "community": 0,
-      "norm_label": "base"
+      "norm_label": "base",
+      "id": "base"
     },
     {
       "label": "TMDBMovie",
@@ -169,9 +259,9 @@
       "source_file": "database/models.py",
       "source_location": "L26",
       "_origin": "ast",
-      "id": "database_models_tmdbmovie",
       "community": 0,
-      "norm_label": "tmdbmovie"
+      "norm_label": "tmdbmovie",
+      "id": "database_models_tmdbmovie"
     },
     {
       "label": "Movie",
@@ -179,9 +269,9 @@
       "source_file": "database/models.py",
       "source_location": "L42",
       "_origin": "ast",
-      "id": "database_models_movie",
       "community": 0,
-      "norm_label": "movie"
+      "norm_label": "movie",
+      "id": "database_models_movie"
     },
     {
       "label": "TelegramMessage",
@@ -189,9 +279,9 @@
       "source_file": "database/models.py",
       "source_location": "L58",
       "_origin": "ast",
-      "id": "database_models_telegrammessage",
       "community": 0,
-      "norm_label": "telegrammessage"
+      "norm_label": "telegrammessage",
+      "id": "database_models_telegrammessage"
     },
     {
       "label": "get_db_url()",
@@ -199,9 +289,9 @@
       "source_file": "database/models.py",
       "source_location": "L72",
       "_origin": "ast",
-      "id": "database_models_get_db_url",
       "community": 0,
-      "norm_label": "get_db_url()"
+      "norm_label": "get_db_url()",
+      "id": "database_models_get_db_url"
     },
     {
       "label": "Path",
@@ -209,9 +299,9 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "path",
       "community": 0,
-      "norm_label": "path"
+      "norm_label": "path",
+      "id": "path"
     },
     {
       "label": "init_db()",
@@ -219,9 +309,9 @@
       "source_file": "database/models.py",
       "source_location": "L93",
       "_origin": "ast",
-      "id": "database_models_init_db",
       "community": 0,
-      "norm_label": "init_db()"
+      "norm_label": "init_db()",
+      "id": "database_models_init_db"
     },
     {
       "label": "Helper to determine the database URL",
@@ -229,9 +319,9 @@
       "source_file": "database/models.py",
       "source_location": "L73",
       "_origin": "ast",
-      "id": "database_models_rationale_73",
       "community": 0,
-      "norm_label": "helper to determine the database url"
+      "norm_label": "helper to determine the database url",
+      "id": "database_models_rationale_73"
     },
     {
       "label": "Initializes the database and returns the sessionmaker.",
@@ -239,9 +329,9 @@
       "source_file": "database/models.py",
       "source_location": "L94",
       "_origin": "ast",
-      "id": "database_models_rationale_94",
       "community": 0,
-      "norm_label": "initializes the database and returns the sessionmaker."
+      "norm_label": "initializes the database and returns the sessionmaker.",
+      "id": "database_models_rationale_94"
     },
     {
       "label": "__init__.py",
@@ -254,74 +344,14 @@
       "id": "backend_init"
     },
     {
-      "label": "app.py",
-      "file_type": "code",
-      "source_file": "backend/app.py",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 1,
-      "norm_label": "app.py",
-      "id": "backend_app"
-    },
-    {
-      "label": "SecurityHeadersMiddleware",
-      "file_type": "code",
-      "source_file": "backend/app.py",
-      "source_location": "L23",
-      "_origin": "ast",
-      "community": 1,
-      "norm_label": "securityheadersmiddleware",
-      "id": "backend_app_securityheadersmiddleware"
-    },
-    {
-      "label": "BaseHTTPMiddleware",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "community": 1,
-      "norm_label": "basehttpmiddleware",
-      "id": "basehttpmiddleware"
-    },
-    {
-      "label": ".dispatch()",
-      "file_type": "code",
-      "source_file": "backend/app.py",
-      "source_location": "L24",
-      "_origin": "ast",
-      "community": 1,
-      "norm_label": ".dispatch()",
-      "id": "backend_app_securityheadersmiddleware_dispatch"
-    },
-    {
       "label": "Request",
       "file_type": "code",
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 1,
+      "community": 40,
       "norm_label": "request",
       "id": "backend_app_py_request"
-    },
-    {
-      "label": "root()",
-      "file_type": "code",
-      "source_file": "backend/app.py",
-      "source_location": "L95",
-      "_origin": "ast",
-      "community": 1,
-      "norm_label": "root()",
-      "id": "backend_app_root"
-    },
-    {
-      "label": "Health-check / welcome endpoint.",
-      "file_type": "rationale",
-      "source_file": "backend/app.py",
-      "source_location": "L96",
-      "_origin": "ast",
-      "community": 1,
-      "norm_label": "health-check / welcome endpoint.",
-      "id": "backend_app_rationale_96"
     },
     {
       "label": "auth.py",
@@ -439,7 +469,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 1,
+      "community": 20,
       "norm_label": "basemodel",
       "id": "basemodel"
     },
@@ -599,7 +629,7 @@
       "source_file": "backend/config.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 39,
       "norm_label": "config.py",
       "id": "backend_config"
     },
@@ -609,7 +639,7 @@
       "source_file": "backend/config.py",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 1,
+      "community": 39,
       "norm_label": "get_app_env()",
       "id": "backend_config_get_app_env"
     },
@@ -619,7 +649,7 @@
       "source_file": "backend/config.py",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 1,
+      "community": 39,
       "norm_label": "get_database_path()",
       "id": "backend_config_get_database_path"
     },
@@ -629,7 +659,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 1,
+      "community": 39,
       "norm_label": "path",
       "id": "backend_config_py_path"
     },
@@ -639,7 +669,7 @@
       "source_file": "backend/config.py",
       "source_location": "L29",
       "_origin": "ast",
-      "community": 1,
+      "community": 39,
       "norm_label": "get_database_url()",
       "id": "backend_config_get_database_url"
     },
@@ -649,7 +679,7 @@
       "source_file": "backend/config.py",
       "source_location": "L40",
       "_origin": "ast",
-      "community": 1,
+      "community": 39,
       "norm_label": "get_telegram_channel_id()",
       "id": "backend_config_get_telegram_channel_id"
     },
@@ -659,7 +689,7 @@
       "source_file": "backend/config.py",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 1,
+      "community": 39,
       "norm_label": "return the current application environment (development | production).",
       "id": "backend_config_rationale_13"
     },
@@ -669,7 +699,7 @@
       "source_file": "backend/config.py",
       "source_location": "L18",
       "_origin": "ast",
-      "community": 1,
+      "community": 39,
       "norm_label": "resolve the database path from the environment.      keeps the backend indepen",
       "id": "backend_config_rationale_18"
     },
@@ -679,7 +709,7 @@
       "source_file": "backend/config.py",
       "source_location": "L30",
       "_origin": "ast",
-      "community": 1,
+      "community": 39,
       "norm_label": "get the database url from the environment for sqlalchemy.      only returns th",
       "id": "backend_config_rationale_30"
     },
@@ -689,7 +719,7 @@
       "source_file": "backend/config.py",
       "source_location": "L41",
       "_origin": "ast",
-      "community": 1,
+      "community": 39,
       "norm_label": "return the numeric telegram channel id (without the ``-100`` prefix).      use",
       "id": "backend_config_rationale_41"
     },
@@ -719,7 +749,7 @@
       "source_file": "backend/models.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 20,
       "norm_label": "models.py",
       "id": "backend_models"
     },
@@ -729,7 +759,7 @@
       "source_file": "backend/models.py",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 1,
+      "community": 20,
       "norm_label": "_parse_genres()",
       "id": "backend_models_parse_genres"
     },
@@ -739,7 +769,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 1,
+      "community": 20,
       "norm_label": "any",
       "id": "backend_models_py_any"
     },
@@ -749,7 +779,7 @@
       "source_file": "backend/models.py",
       "source_location": "L33",
       "_origin": "ast",
-      "community": 1,
+      "community": 20,
       "norm_label": "tmdbmovieresponse",
       "id": "backend_models_tmdbmovieresponse"
     },
@@ -759,7 +789,7 @@
       "source_file": "backend/models.py",
       "source_location": "L49",
       "_origin": "ast",
-      "community": 1,
+      "community": 20,
       "norm_label": ".parse_genres()",
       "id": "backend_models_tmdbmovieresponse_parse_genres"
     },
@@ -769,7 +799,7 @@
       "source_file": "backend/models.py",
       "source_location": "L54",
       "_origin": "ast",
-      "community": 1,
+      "community": 20,
       "norm_label": ".poster_url()",
       "id": "backend_models_tmdbmovieresponse_poster_url"
     },
@@ -779,7 +809,7 @@
       "source_file": "backend/models.py",
       "source_location": "L61",
       "_origin": "ast",
-      "community": 1,
+      "community": 20,
       "norm_label": ".backdrop_url()",
       "id": "backend_models_tmdbmovieresponse_backdrop_url"
     },
@@ -789,7 +819,7 @@
       "source_file": "backend/models.py",
       "source_location": "L71",
       "_origin": "ast",
-      "community": 1,
+      "community": 20,
       "norm_label": "telegrammessageresponse",
       "id": "backend_models_telegrammessageresponse"
     },
@@ -809,7 +839,7 @@
       "source_file": "backend/models.py",
       "source_location": "L94",
       "_origin": "ast",
-      "community": 1,
+      "community": 20,
       "norm_label": "movielistitem",
       "id": "backend_models_movielistitem"
     },
@@ -819,7 +849,7 @@
       "source_file": "backend/models.py",
       "source_location": "L105",
       "_origin": "ast",
-      "community": 1,
+      "community": 20,
       "norm_label": ".parse_genres()",
       "id": "backend_models_movielistitem_parse_genres"
     },
@@ -879,7 +909,7 @@
       "source_file": "backend/models.py",
       "source_location": "L163",
       "_origin": "ast",
-      "community": 1,
+      "community": 20,
       "norm_label": "librarycreaterequest",
       "id": "backend_models_librarycreaterequest"
     },
@@ -889,7 +919,7 @@
       "source_file": "backend/models.py",
       "source_location": "L171",
       "_origin": "ast",
-      "community": 1,
+      "community": 20,
       "norm_label": "libraryupdaterequest",
       "id": "backend_models_libraryupdaterequest"
     },
@@ -899,7 +929,7 @@
       "source_file": "backend/models.py",
       "source_location": "L179",
       "_origin": "ast",
-      "community": 0,
+      "community": 20,
       "norm_label": "librarydetailresponse",
       "id": "backend_models_librarydetailresponse"
     },
@@ -909,7 +939,7 @@
       "source_file": "backend/models.py",
       "source_location": "L196",
       "_origin": "ast",
-      "community": 1,
+      "community": 20,
       "norm_label": "scanrequest",
       "id": "backend_models_scanrequest"
     },
@@ -919,7 +949,7 @@
       "source_file": "backend/models.py",
       "source_location": "L201",
       "_origin": "ast",
-      "community": 1,
+      "community": 20,
       "norm_label": "tmdbupdaterequest",
       "id": "backend_models_tmdbupdaterequest"
     },
@@ -929,7 +959,7 @@
       "source_file": "backend/models.py",
       "source_location": "L206",
       "_origin": "ast",
-      "community": 1,
+      "community": 20,
       "norm_label": "migrationrequest",
       "id": "backend_models_migrationrequest"
     },
@@ -939,7 +969,7 @@
       "source_file": "backend/models.py",
       "source_location": "L212",
       "_origin": "ast",
-      "community": 0,
+      "community": 20,
       "norm_label": "taskresponse",
       "id": "backend_models_taskresponse"
     },
@@ -949,7 +979,7 @@
       "source_file": "backend/models.py",
       "source_location": "L224",
       "_origin": "ast",
-      "community": 1,
+      "community": 20,
       "norm_label": "tasklistresponse",
       "id": "backend_models_tasklistresponse"
     },
@@ -959,7 +989,7 @@
       "source_file": "backend/models.py",
       "source_location": "L228",
       "_origin": "ast",
-      "community": 1,
+      "community": 20,
       "norm_label": "tasklogsresponse",
       "id": "backend_models_tasklogsresponse"
     },
@@ -969,7 +999,7 @@
       "source_file": "backend/models.py",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 1,
+      "community": 20,
       "norm_label": "accept a json string or a plain list and always return ``list[str]``.",
       "id": "backend_models_rationale_17"
     },
@@ -979,7 +1009,7 @@
       "source_file": "backend/models.py",
       "source_location": "L197",
       "_origin": "ast",
-      "community": 1,
+      "community": 20,
       "norm_label": "body for launching a channel scan.",
       "id": "backend_models_rationale_197"
     },
@@ -989,7 +1019,7 @@
       "source_file": "backend/models.py",
       "source_location": "L202",
       "_origin": "ast",
-      "community": 1,
+      "community": 20,
       "norm_label": "body for launching a tmdb update.",
       "id": "backend_models_rationale_202"
     },
@@ -1009,7 +1039,7 @@
       "source_file": "backend/routers/admin.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 0,
+      "community": 20,
       "norm_label": "admin.py",
       "id": "backend_routers_admin"
     },
@@ -1019,7 +1049,7 @@
       "source_file": "backend/routers/admin.py",
       "source_location": "L32",
       "_origin": "ast",
-      "community": 0,
+      "community": 20,
       "norm_label": "_get_tasks()",
       "id": "backend_routers_admin_get_tasks"
     },
@@ -1029,7 +1059,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 0,
+      "community": 20,
       "norm_label": "request",
       "id": "backend_routers_admin_py_request"
     },
@@ -1039,7 +1069,7 @@
       "source_file": "backend/routers/admin.py",
       "source_location": "L36",
       "_origin": "ast",
-      "community": 0,
+      "community": 20,
       "norm_label": "_get_session_factory()",
       "id": "backend_routers_admin_get_session_factory"
     },
@@ -1049,7 +1079,7 @@
       "source_file": "backend/routers/admin.py",
       "source_location": "L45",
       "_origin": "ast",
-      "community": 0,
+      "community": 20,
       "norm_label": "admin_list_libraries()",
       "id": "backend_routers_admin_admin_list_libraries"
     },
@@ -1059,7 +1089,7 @@
       "source_file": "backend/routers/admin.py",
       "source_location": "L86",
       "_origin": "ast",
-      "community": 0,
+      "community": 20,
       "norm_label": "admin_create_library()",
       "id": "backend_routers_admin_admin_create_library"
     },
@@ -1069,7 +1099,7 @@
       "source_file": "backend/routers/admin.py",
       "source_location": "L111",
       "_origin": "ast",
-      "community": 0,
+      "community": 20,
       "norm_label": "admin_update_library()",
       "id": "backend_routers_admin_admin_update_library"
     },
@@ -1089,7 +1119,7 @@
       "source_file": "backend/routers/admin.py",
       "source_location": "L196",
       "_origin": "ast",
-      "community": 0,
+      "community": 20,
       "norm_label": "admin_scan_library()",
       "id": "backend_routers_admin_admin_scan_library"
     },
@@ -1099,7 +1129,7 @@
       "source_file": "backend/routers/admin.py",
       "source_location": "L213",
       "_origin": "ast",
-      "community": 0,
+      "community": 20,
       "norm_label": "admin_update_tmdb()",
       "id": "backend_routers_admin_admin_update_tmdb"
     },
@@ -1109,7 +1139,7 @@
       "source_file": "backend/routers/admin.py",
       "source_location": "L229",
       "_origin": "ast",
-      "community": 0,
+      "community": 20,
       "norm_label": "admin_migrate_library()",
       "id": "backend_routers_admin_admin_migrate_library"
     },
@@ -1119,7 +1149,7 @@
       "source_file": "backend/routers/admin.py",
       "source_location": "L255",
       "_origin": "ast",
-      "community": 0,
+      "community": 20,
       "norm_label": "admin_list_tasks()",
       "id": "backend_routers_admin_admin_list_tasks"
     },
@@ -1129,7 +1159,7 @@
       "source_file": "backend/routers/admin.py",
       "source_location": "L264",
       "_origin": "ast",
-      "community": 0,
+      "community": 20,
       "norm_label": "admin_get_task()",
       "id": "backend_routers_admin_admin_get_task"
     },
@@ -1139,7 +1169,7 @@
       "source_file": "backend/routers/admin.py",
       "source_location": "L274",
       "_origin": "ast",
-      "community": 0,
+      "community": 20,
       "norm_label": "admin_get_task_logs()",
       "id": "backend_routers_admin_admin_get_task_logs"
     },
@@ -1149,7 +1179,7 @@
       "source_file": "backend/routers/admin.py",
       "source_location": "L285",
       "_origin": "ast",
-      "community": 0,
+      "community": 20,
       "norm_label": "admin_cancel_task()",
       "id": "backend_routers_admin_admin_cancel_task"
     },
@@ -1159,7 +1189,7 @@
       "source_file": "backend/routers/admin.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 0,
+      "community": 20,
       "norm_label": "admin api router \u2014 library crud, task management, and background operations.",
       "id": "backend_routers_admin_rationale_1"
     },
@@ -1169,7 +1199,7 @@
       "source_file": "backend/routers/admin.py",
       "source_location": "L46",
       "_origin": "ast",
-      "community": 0,
+      "community": 20,
       "norm_label": "list all libraries with detailed stats (including inactive).",
       "id": "backend_routers_admin_rationale_46"
     },
@@ -1179,7 +1209,7 @@
       "source_file": "backend/routers/admin.py",
       "source_location": "L87",
       "_origin": "ast",
-      "community": 0,
+      "community": 20,
       "norm_label": "create a new library.",
       "id": "backend_routers_admin_rationale_87"
     },
@@ -1189,7 +1219,7 @@
       "source_file": "backend/routers/admin.py",
       "source_location": "L112",
       "_origin": "ast",
-      "community": 0,
+      "community": 20,
       "norm_label": "update library details.",
       "id": "backend_routers_admin_rationale_112"
     },
@@ -1209,7 +1239,7 @@
       "source_file": "backend/routers/admin.py",
       "source_location": "L197",
       "_origin": "ast",
-      "community": 0,
+      "community": 20,
       "norm_label": "launch scraper for a library's telegram channel.",
       "id": "backend_routers_admin_rationale_197"
     },
@@ -1219,7 +1249,7 @@
       "source_file": "backend/routers/admin.py",
       "source_location": "L214",
       "_origin": "ast",
-      "community": 0,
+      "community": 20,
       "norm_label": "launch tmdb updater for a library.",
       "id": "backend_routers_admin_rationale_214"
     },
@@ -1229,7 +1259,7 @@
       "source_file": "backend/routers/admin.py",
       "source_location": "L230",
       "_origin": "ast",
-      "community": 0,
+      "community": 20,
       "norm_label": "launch channel migration for a library.",
       "id": "backend_routers_admin_rationale_230"
     },
@@ -1239,7 +1269,7 @@
       "source_file": "backend/routers/admin.py",
       "source_location": "L256",
       "_origin": "ast",
-      "community": 0,
+      "community": 20,
       "norm_label": "list all background tasks.",
       "id": "backend_routers_admin_rationale_256"
     },
@@ -1249,7 +1279,7 @@
       "source_file": "backend/routers/admin.py",
       "source_location": "L265",
       "_origin": "ast",
-      "community": 0,
+      "community": 20,
       "norm_label": "get status of a specific task.",
       "id": "backend_routers_admin_rationale_265"
     },
@@ -1259,7 +1289,7 @@
       "source_file": "backend/routers/admin.py",
       "source_location": "L275",
       "_origin": "ast",
-      "community": 0,
+      "community": 20,
       "norm_label": "get log output for a task.",
       "id": "backend_routers_admin_rationale_275"
     },
@@ -1269,7 +1299,7 @@
       "source_file": "backend/routers/admin.py",
       "source_location": "L286",
       "_origin": "ast",
-      "community": 0,
+      "community": 20,
       "norm_label": "cancel a running task.",
       "id": "backend_routers_admin_rationale_286"
     },
@@ -3179,7 +3209,7 @@
       "source_file": "scraper/database.py",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 20,
+      "community": 0,
       "norm_label": "moviedatabase",
       "id": "scraper_database_moviedatabase"
     },
@@ -3189,7 +3219,7 @@
       "source_file": "scraper/database.py",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 20,
+      "community": 0,
       "norm_label": ".__init__()",
       "id": "scraper_database_moviedatabase_init"
     },
@@ -3199,7 +3229,7 @@
       "source_file": "scraper/database.py",
       "source_location": "L27",
       "_origin": "ast",
-      "community": 20,
+      "community": 0,
       "norm_label": "._connection()",
       "id": "scraper_database_moviedatabase_connection"
     },
@@ -3209,7 +3239,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 20,
+      "community": 0,
       "norm_label": "session",
       "id": "scraper_database_py_session"
     },
@@ -3219,7 +3249,7 @@
       "source_file": "scraper/database.py",
       "source_location": "L38",
       "_origin": "ast",
-      "community": 20,
+      "community": 0,
       "norm_label": ".get_known_message_ids()",
       "id": "scraper_database_moviedatabase_get_known_message_ids"
     },
@@ -3229,7 +3259,7 @@
       "source_file": "scraper/database.py",
       "source_location": "L49",
       "_origin": "ast",
-      "community": 20,
+      "community": 0,
       "norm_label": ".get_or_create_movie()",
       "id": "scraper_database_moviedatabase_get_or_create_movie"
     },
@@ -3239,7 +3269,7 @@
       "source_file": "scraper/database.py",
       "source_location": "L53",
       "_origin": "ast",
-      "community": 20,
+      "community": 0,
       "norm_label": ".save_telegram_message()",
       "id": "scraper_database_moviedatabase_save_telegram_message"
     },
@@ -3249,7 +3279,7 @@
       "source_file": "scraper/database.py",
       "source_location": "L57",
       "_origin": "ast",
-      "community": 20,
+      "community": 0,
       "norm_label": ".save_movie_message()",
       "id": "scraper_database_moviedatabase_save_movie_message"
     },
@@ -3259,7 +3289,7 @@
       "source_file": "scraper/database.py",
       "source_location": "L62",
       "_origin": "ast",
-      "community": 20,
+      "community": 0,
       "norm_label": ".save_movies()",
       "id": "scraper_database_moviedatabase_save_movies"
     },
@@ -3269,7 +3299,7 @@
       "source_file": "scraper/database.py",
       "source_location": "L75",
       "_origin": "ast",
-      "community": 20,
+      "community": 0,
       "norm_label": ".get_movies_without_tmdb()",
       "id": "scraper_database_moviedatabase_get_movies_without_tmdb"
     },
@@ -3279,7 +3309,7 @@
       "source_file": "scraper/database.py",
       "source_location": "L88",
       "_origin": "ast",
-      "community": 20,
+      "community": 0,
       "norm_label": ".save_tmdb_movie()",
       "id": "scraper_database_moviedatabase_save_tmdb_movie"
     },
@@ -3289,7 +3319,7 @@
       "source_file": "scraper/database.py",
       "source_location": "L92",
       "_origin": "ast",
-      "community": 20,
+      "community": 0,
       "norm_label": ".link_movie_to_tmdb()",
       "id": "scraper_database_moviedatabase_link_movie_to_tmdb"
     },
@@ -3299,7 +3329,7 @@
       "source_file": "scraper/database.py",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 20,
+      "community": 0,
       "norm_label": "sqlalchemy repository for storing scraped telegram movie records.",
       "id": "scraper_database_rationale_15"
     },
@@ -3309,7 +3339,7 @@
       "source_file": "scraper/database.py",
       "source_location": "L39",
       "_origin": "ast",
-      "community": 20,
+      "community": 0,
       "norm_label": "return the set of all telegram message ids already stored.",
       "id": "scraper_database_rationale_39"
     },
@@ -4896,21 +4926,223 @@
   ],
   "links": [
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "backend_app",
+      "target": "backend_app_global_exception_handler",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L110",
+      "weight": 1.0,
+      "source": "backend_app",
+      "target": "backend_app_root",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "backend_app",
+      "target": "backend_app_securityheadersmiddleware",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "backend_app",
+      "target": "backend_config",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/app.py",
       "source_location": "L8",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "backend_app",
-      "target": "backend_database"
+      "target": "backend_database",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "backend_app",
+      "target": "backend_database_moviequeries",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "submodule_import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "backend_app",
+      "target": "backend_routers_admin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "submodule_import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "backend_app",
+      "target": "backend_routers_auth_router",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "submodule_import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "backend_app",
+      "target": "backend_routers_libraries",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "submodule_import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "backend_app",
+      "target": "backend_routers_movies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "submodule_import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "backend_app",
+      "target": "backend_routers_stats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "backend_app",
+      "target": "backend_services_task_manager",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "backend_app",
+      "target": "database_models",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "backend_app_global_exception_handler",
+      "target": "exception",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "backend_app_global_exception_handler",
+      "target": "request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "backend_app_securityheadersmiddleware_dispatch",
+      "target": "request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "backend_app_securityheadersmiddleware",
+      "target": "backend_app_securityheadersmiddleware_dispatch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app.py",
+      "source_location": "L8",
+      "weight": 0.8,
+      "source": "backend_app_securityheadersmiddleware",
+      "target": "backend_database_moviequeries",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "backend_app_securityheadersmiddleware",
+      "target": "basehttpmiddleware",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L111",
+      "weight": 1.0,
+      "source": "backend_app_rationale_111",
+      "target": "backend_app_root",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L22",
+      "source_location": "L23",
       "weight": 1.0,
       "source": "backend_database",
       "target": "backend_database_moviequeries",
@@ -4921,65 +5153,10 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L11",
+      "source_location": "L12",
       "weight": 1.0,
       "source": "backend_database",
       "target": "database_models",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/database.py",
-      "source_location": "L11",
-      "weight": 1.0,
-      "source": "backend_database",
-      "target": "database_models_init_db",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/database.py",
-      "source_location": "L11",
-      "weight": 1.0,
-      "source": "backend_database",
-      "target": "database_models_library",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/database.py",
-      "source_location": "L11",
-      "weight": 1.0,
-      "source": "backend_database",
-      "target": "database_models_movie",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/database.py",
-      "source_location": "L11",
-      "weight": 1.0,
-      "source": "backend_database",
-      "target": "database_models_telegrammessage",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/database.py",
-      "source_location": "L11",
-      "weight": 1.0,
-      "source": "backend_database",
-      "target": "database_models_tmdbmovie",
       "confidence_score": 1.0
     },
     {
@@ -5016,31 +5193,10 @@
       "target": "backend_database"
     },
     {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_app",
-      "target": "backend_database_moviequeries"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "backend/app.py",
-      "source_location": "L8",
-      "weight": 0.8,
-      "confidence_score": 0.5,
-      "source": "backend_app_securityheadersmiddleware",
-      "target": "backend_database_moviequeries"
-    },
-    {
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L299",
+      "source_location": "L300",
       "weight": 1.0,
       "source": "backend_database_moviequeries",
       "target": "backend_database_moviequeries_get_genres",
@@ -5050,7 +5206,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L44",
+      "source_location": "L45",
       "weight": 1.0,
       "source": "backend_database_moviequeries",
       "target": "backend_database_moviequeries_get_libraries",
@@ -5060,7 +5216,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L75",
+      "source_location": "L76",
       "weight": 1.0,
       "source": "backend_database_moviequeries",
       "target": "backend_database_moviequeries_get_library_by_slug",
@@ -5070,7 +5226,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L202",
+      "source_location": "L203",
       "weight": 1.0,
       "source": "backend_database_moviequeries",
       "target": "backend_database_moviequeries_get_movie",
@@ -5080,7 +5236,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L108",
+      "source_location": "L109",
       "weight": 1.0,
       "source": "backend_database_moviequeries",
       "target": "backend_database_moviequeries_get_movies",
@@ -5090,7 +5246,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L37",
+      "source_location": "L38",
       "weight": 1.0,
       "source": "backend_database_moviequeries",
       "target": "backend_database_moviequeries_get_session",
@@ -5100,7 +5256,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L327",
+      "source_location": "L328",
       "weight": 1.0,
       "source": "backend_database_moviequeries",
       "target": "backend_database_moviequeries_get_stats",
@@ -5110,59 +5266,19 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L30",
+      "source_location": "L31",
       "weight": 1.0,
       "source": "backend_database_moviequeries",
       "target": "backend_database_moviequeries_init",
       "confidence_score": 1.0
     },
     {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "backend/database.py",
-      "source_location": "L11",
-      "weight": 0.8,
-      "source": "backend_database_moviequeries",
-      "target": "database_models_library",
-      "confidence_score": 0.5
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "backend/database.py",
-      "source_location": "L11",
-      "weight": 0.8,
-      "source": "backend_database_moviequeries",
-      "target": "database_models_movie",
-      "confidence_score": 0.5
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "backend/database.py",
-      "source_location": "L11",
-      "weight": 0.8,
-      "source": "backend_database_moviequeries",
-      "target": "database_models_telegrammessage",
-      "confidence_score": 0.5
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "backend/database.py",
-      "source_location": "L11",
-      "weight": 0.8,
-      "source": "backend_database_moviequeries",
-      "target": "database_models_tmdbmovie",
-      "confidence_score": 0.5
-    },
-    {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L23",
+      "source_location": "L24",
       "weight": 1.0,
-      "source": "backend_database_rationale_23",
+      "source": "backend_database_rationale_24",
       "target": "backend_database_moviequeries",
       "confidence_score": 1.0
     },
@@ -5302,19 +5418,8 @@
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "backend/database.py",
-      "source_location": "L31",
-      "weight": 1.0,
-      "source": "backend_database_moviequeries_init",
-      "target": "database_models_init_db"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/database.py",
-      "source_location": "L300",
+      "source_location": "L301",
       "weight": 1.0,
       "source": "backend_database_moviequeries_get_genres",
       "target": "backend_database_moviequeries_get_session",
@@ -5325,7 +5430,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L45",
+      "source_location": "L46",
       "weight": 1.0,
       "source": "backend_database_moviequeries_get_libraries",
       "target": "backend_database_moviequeries_get_session",
@@ -5336,7 +5441,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L76",
+      "source_location": "L77",
       "weight": 1.0,
       "source": "backend_database_moviequeries_get_library_by_slug",
       "target": "backend_database_moviequeries_get_session",
@@ -5347,7 +5452,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L203",
+      "source_location": "L204",
       "weight": 1.0,
       "source": "backend_database_moviequeries_get_movie",
       "target": "backend_database_moviequeries_get_session",
@@ -5358,7 +5463,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L122",
+      "source_location": "L123",
       "weight": 1.0,
       "source": "backend_database_moviequeries_get_movies",
       "target": "backend_database_moviequeries_get_session",
@@ -5369,7 +5474,7 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L37",
+      "source_location": "L38",
       "weight": 1.0,
       "source": "backend_database_moviequeries_get_session",
       "target": "session",
@@ -5380,7 +5485,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L328",
+      "source_location": "L329",
       "weight": 1.0,
       "source": "backend_database_moviequeries_get_stats",
       "target": "backend_database_moviequeries_get_session",
@@ -5391,40 +5496,18 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L44",
+      "source_location": "L45",
       "weight": 1.0,
       "source": "backend_database_moviequeries_get_libraries",
       "target": "any",
       "confidence_score": 1.0
     },
     {
-      "relation": "indirect_call",
-      "context": "argument",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "backend/database.py",
-      "source_location": "L47",
-      "weight": 1.0,
-      "source": "backend_database_moviequeries_get_libraries",
-      "target": "database_models_library"
-    },
-    {
-      "relation": "indirect_call",
-      "context": "argument",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "backend/database.py",
-      "source_location": "L57",
-      "weight": 1.0,
-      "source": "backend_database_moviequeries_get_libraries",
-      "target": "database_models_movie"
-    },
-    {
       "relation": "references",
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L75",
+      "source_location": "L76",
       "weight": 1.0,
       "source": "backend_database_moviequeries_get_library_by_slug",
       "target": "any",
@@ -5435,7 +5518,7 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L202",
+      "source_location": "L203",
       "weight": 1.0,
       "source": "backend_database_moviequeries_get_movie",
       "target": "any",
@@ -5446,7 +5529,7 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L108",
+      "source_location": "L109",
       "weight": 1.0,
       "source": "backend_database_moviequeries_get_movies",
       "target": "any",
@@ -5457,110 +5540,11 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L327",
+      "source_location": "L328",
       "weight": 1.0,
       "source": "backend_database_moviequeries_get_stats",
       "target": "any",
       "confidence_score": 1.0
-    },
-    {
-      "relation": "indirect_call",
-      "context": "argument",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "backend/database.py",
-      "source_location": "L78",
-      "weight": 1.0,
-      "source": "backend_database_moviequeries_get_library_by_slug",
-      "target": "database_models_library"
-    },
-    {
-      "relation": "indirect_call",
-      "context": "argument",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "backend/database.py",
-      "source_location": "L87",
-      "weight": 1.0,
-      "source": "backend_database_moviequeries_get_library_by_slug",
-      "target": "database_models_movie"
-    },
-    {
-      "relation": "indirect_call",
-      "context": "argument",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "backend/database.py",
-      "source_location": "L124",
-      "weight": 1.0,
-      "source": "backend_database_moviequeries_get_movies",
-      "target": "database_models_movie"
-    },
-    {
-      "relation": "indirect_call",
-      "context": "argument",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "backend/database.py",
-      "source_location": "L124",
-      "weight": 1.0,
-      "source": "backend_database_moviequeries_get_movies",
-      "target": "database_models_tmdbmovie"
-    },
-    {
-      "relation": "indirect_call",
-      "context": "argument",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "backend/database.py",
-      "source_location": "L205",
-      "weight": 1.0,
-      "source": "backend_database_moviequeries_get_movie",
-      "target": "database_models_movie"
-    },
-    {
-      "relation": "indirect_call",
-      "context": "argument",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "backend/database.py",
-      "source_location": "L256",
-      "weight": 1.0,
-      "source": "backend_database_moviequeries_get_movie",
-      "target": "database_models_telegrammessage"
-    },
-    {
-      "relation": "indirect_call",
-      "context": "argument",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "backend/database.py",
-      "source_location": "L307",
-      "weight": 1.0,
-      "source": "backend_database_moviequeries_get_genres",
-      "target": "database_models_movie"
-    },
-    {
-      "relation": "indirect_call",
-      "context": "argument",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "backend/database.py",
-      "source_location": "L343",
-      "weight": 1.0,
-      "source": "backend_database_moviequeries_get_stats",
-      "target": "database_models_movie"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_app",
-      "target": "database_models"
     },
     {
       "relation": "imports_from",
@@ -5579,9 +5563,9 @@
       "source_file": "database/models.py",
       "source_location": "L72",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "database_models",
-      "target": "database_models_get_db_url",
-      "confidence_score": 1.0
+      "target": "database_models_get_db_url"
     },
     {
       "relation": "contains",
@@ -5589,9 +5573,9 @@
       "source_file": "database/models.py",
       "source_location": "L93",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "database_models",
-      "target": "database_models_init_db",
-      "confidence_score": 1.0
+      "target": "database_models_init_db"
     },
     {
       "relation": "contains",
@@ -5599,9 +5583,9 @@
       "source_file": "database/models.py",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "database_models",
-      "target": "database_models_library",
-      "confidence_score": 1.0
+      "target": "database_models_library"
     },
     {
       "relation": "contains",
@@ -5609,9 +5593,9 @@
       "source_file": "database/models.py",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "database_models",
-      "target": "database_models_movie",
-      "confidence_score": 1.0
+      "target": "database_models_movie"
     },
     {
       "relation": "contains",
@@ -5619,9 +5603,9 @@
       "source_file": "database/models.py",
       "source_location": "L58",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "database_models",
-      "target": "database_models_telegrammessage",
-      "confidence_score": 1.0
+      "target": "database_models_telegrammessage"
     },
     {
       "relation": "contains",
@@ -5629,9 +5613,9 @@
       "source_file": "database/models.py",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "database_models",
-      "target": "database_models_tmdbmovie",
-      "confidence_score": 1.0
+      "target": "database_models_tmdbmovie"
     },
     {
       "relation": "imports_from",
@@ -5793,9 +5777,9 @@
       "source_file": "database/models.py",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "database_models_library",
-      "target": "base",
-      "confidence_score": 1.0
+      "target": "base"
     },
     {
       "relation": "imports",
@@ -5869,9 +5853,9 @@
       "source_file": "database/models.py",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "database_models_movie",
-      "target": "base",
-      "confidence_score": 1.0
+      "target": "base"
     },
     {
       "relation": "inherits",
@@ -5879,9 +5863,9 @@
       "source_file": "database/models.py",
       "source_location": "L58",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "database_models_telegrammessage",
-      "target": "base",
-      "confidence_score": 1.0
+      "target": "base"
     },
     {
       "relation": "inherits",
@@ -5889,9 +5873,9 @@
       "source_file": "database/models.py",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "database_models_tmdbmovie",
-      "target": "base",
-      "confidence_score": 1.0
+      "target": "base"
     },
     {
       "relation": "imports",
@@ -6257,26 +6241,15 @@
       "target": "database_models_telegrammessage"
     },
     {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_app",
-      "target": "database_models_get_db_url"
-    },
-    {
       "relation": "references",
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "database/models.py",
       "source_location": "L72",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "database_models_get_db_url",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "rationale_for",
@@ -6284,9 +6257,9 @@
       "source_file": "database/models.py",
       "source_location": "L73",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "database_models_rationale_73",
-      "target": "database_models_get_db_url",
-      "confidence_score": 1.0
+      "target": "database_models_get_db_url"
     },
     {
       "relation": "imports",
@@ -6393,9 +6366,9 @@
       "source_file": "database/models.py",
       "source_location": "L94",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "database_models_rationale_94",
-      "target": "database_models_init_db",
-      "confidence_score": 1.0
+      "target": "database_models_init_db"
     },
     {
       "relation": "imports",
@@ -6462,198 +6435,6 @@
       "confidence_score": 1.0,
       "source": "test_migration_run_test",
       "target": "database_models_init_db"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L95",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_app",
-      "target": "backend_app_root"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L23",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_app",
-      "target": "backend_app_securityheadersmiddleware"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_app",
-      "target": "backend_config"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_app",
-      "target": "backend_config_get_app_env"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_app",
-      "target": "backend_config_get_database_path"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_app",
-      "target": "backend_config_get_database_url"
-    },
-    {
-      "relation": "imports_from",
-      "context": "submodule_import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_app",
-      "target": "backend_routers_admin"
-    },
-    {
-      "relation": "imports_from",
-      "context": "submodule_import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_app",
-      "target": "backend_routers_auth_router"
-    },
-    {
-      "relation": "imports_from",
-      "context": "submodule_import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_app",
-      "target": "backend_routers_libraries"
-    },
-    {
-      "relation": "imports_from",
-      "context": "submodule_import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_app",
-      "target": "backend_routers_movies"
-    },
-    {
-      "relation": "imports_from",
-      "context": "submodule_import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_app",
-      "target": "backend_routers_stats"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_app",
-      "target": "backend_services_task_manager"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_app",
-      "target": "backend_services_task_manager_taskmanager"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L24",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_app_securityheadersmiddleware",
-      "target": "backend_app_securityheadersmiddleware_dispatch"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "backend/app.py",
-      "source_location": "L10",
-      "weight": 0.8,
-      "confidence_score": 0.5,
-      "source": "backend_app_securityheadersmiddleware",
-      "target": "backend_services_task_manager_taskmanager"
-    },
-    {
-      "relation": "inherits",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L23",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_app_securityheadersmiddleware",
-      "target": "basehttpmiddleware"
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L24",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_app_securityheadersmiddleware_dispatch",
-      "target": "backend_app_py_request"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L96",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "backend_app_rationale_96",
-      "target": "backend_app_root"
     },
     {
       "relation": "contains",
@@ -14525,5 +14306,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "9a45a05d50947328b1203e375b0d70766da2ae5b"
+  "built_at_commit": "1a529c9723c5655c849a1567d43b2d531525e796"
 }
