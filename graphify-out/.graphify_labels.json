@@ -35,5 +35,7 @@
   "33": "merge_seven.py",
   "34": "search_tmdb.py",
   "35": "check_libs.py",
-  "36": "schema.py"
+  "36": "schema.py",
+  "37": "Session",
+  "38": "Path"
 }

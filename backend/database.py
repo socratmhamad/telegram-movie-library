@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import math
+import os
 from typing import Any
 
 from sqlalchemy import select, func, distinct, case, and_
@@ -225,17 +226,17 @@ class MovieQueries:
                         genres = []
 
                 if language == "ar":
-                    from config import settings
-                    if settings.tmdb_api_key:
-                        try:
+                    try:
+                        tmdb_key = os.getenv("TMDB_API_KEY")
+                        if tmdb_key and tmdb_movie.tmdb_id:
                             from tmdb_service import get_movie_details
-                            details = get_movie_details(tmdb_movie.tmdb_id, language="ar")
+                            details = get_movie_details(int(tmdb_movie.tmdb_id), language="ar")
                             if details.get("overview"):
                                 overview = details["overview"]
                             if details.get("genres"):
                                 genres = details["genres"] if isinstance(details["genres"], list) else []
-                        except Exception as e:
-                            print(f"Warning: Failed to fetch Arabic metadata: {e}")
+                    except Exception as e:
+                        print(f"Warning: Failed to fetch Arabic metadata: {e}")
 
                 tmdb = {
                     "id": tmdb_movie.id,
