@@ -5,8 +5,8 @@
     "semantic_hash": "634ffeddb62e7c3294ba39fcc475fa5d"
   },
   "backend/app.py": {
-    "mtime": 1784294013.9750614,
-    "ast_hash": "ead826b3c8863924539b5633b5056cbe",
+    "mtime": 1784325641.0251675,
+    "ast_hash": "a3c3059d6878d559d9d309f8d7b0f2b4",
     "semantic_hash": ""
   },
   "backend/config.py": {
@@ -70,8 +70,8 @@
     "semantic_hash": ""
   },
   "frontend/src/api/client.js": {
-    "mtime": 1784290761.9288268,
-    "ast_hash": "c6b75ecc1881f1c2840efe8817913fd4",
+    "mtime": 1784326072.3782218,
+    "ast_hash": "b17aad0b8e902bd9cc222cac4c5f0cc4",
     "semantic_hash": ""
   },
   "frontend/src/components/GenreFilter.jsx": {
@@ -80,8 +80,8 @@
     "semantic_hash": ""
   },
   "frontend/src/components/Layout.jsx": {
-    "mtime": 1784323680.9034555,
-    "ast_hash": "7f99bfc133274181ac542722df79d6e6",
+    "mtime": 1784326403.6047354,
+    "ast_hash": "d8ce3829baa64d0a77d2a9035aea5edb",
     "semantic_hash": ""
   },
   "frontend/src/components/MovieCard.jsx": {
@@ -352,6 +352,26 @@
   "frontend/src/components/Hero.jsx": {
     "mtime": 1784324537.292341,
     "ast_hash": "197b751d199631c16bf9eebdf071b840",
+    "semantic_hash": ""
+  },
+  "scratch/check_seven.py": {
+    "mtime": 1784327303.7974365,
+    "ast_hash": "a5649c8c71beec1c43a66ee2ae53a285",
+    "semantic_hash": ""
+  },
+  "scratch/fix_seven_match.py": {
+    "mtime": 1784327402.5784314,
+    "ast_hash": "85d4462386c5a544cfe0cfff7899ecc4",
+    "semantic_hash": ""
+  },
+  "scratch/merge_seven.py": {
+    "mtime": 1784327439.1486113,
+    "ast_hash": "ec2bce0e8f6035530483aecaf96a63b4",
+    "semantic_hash": ""
+  },
+  "scratch/search_tmdb.py": {
+    "mtime": 1784327360.623202,
+    "ast_hash": "97ac3add070fc59a48983e3075872735",
     "semantic_hash": ""
   }
 }

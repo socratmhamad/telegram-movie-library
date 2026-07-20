@@ -75,13 +75,16 @@ def get_db_url(url: str | None = None, fallback_path: Path | None = None) -> str
         # SQLAlchemy requires postgresql:// instead of postgres://
         if url.startswith("postgres://"):
             url = url.replace("postgres://", "postgresql://", 1)
+        print(f"[DB] Using PostgreSQL: {url.split('@')[-1] if '@' in url else '(configured)'}")
         return url
 
     # Default to sqlite
     if fallback_path:
-        return f"sqlite:///{fallback_path.absolute()}"
-    
-    return "sqlite:///database/movies.db"
+        db_path = f"sqlite:///{fallback_path.absolute()}"
+    else:
+        db_path = "sqlite:///database/movies.db"
+    print(f"[DB] Using SQLite: {db_path}")
+    return db_path
 
 
 def init_db(url: str):

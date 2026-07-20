@@ -9,6 +9,11 @@ _BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(_BASE_DIR / ".env")
 
 
+def get_app_env() -> str:
+    """Return the current application environment (development | production)."""
+    return os.getenv("APP_ENV", "development").lower()
+
+
 def get_database_path() -> Path:
     """Resolve the database path from the environment.
 
@@ -22,7 +27,13 @@ def get_database_path() -> Path:
 
 
 def get_database_url() -> str | None:
-    """Get the database URL from the environment for SQLAlchemy."""
+    """Get the database URL from the environment for SQLAlchemy.
+
+    Only returns the URL when APP_ENV=production so local development
+    always falls back to the local SQLite database.
+    """
+    if get_app_env() != "production":
+        return None
     return os.getenv("DATABASE_URL")
 
 

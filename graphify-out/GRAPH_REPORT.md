@@ -1,16 +1,16 @@
-# Graph Report - Movis_with_Telegram  (2026-07-17)
+# Graph Report - Movis_with_Telegram  (2026-07-19)
 
 ## Corpus Check
-- 67 files · ~30,299 words
+- 71 files · ~30,820 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 400 nodes · 682 edges · 31 communities (24 shown, 7 thin omitted)
+- 404 nodes · 682 edges · 35 communities (28 shown, 7 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 6 edges (avg confidence: 0.75)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8f3452c3`
+- Built from commit: `4b8c62d5`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -66,7 +66,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (31 total, 7 thin omitted)
+## Communities (35 total, 7 thin omitted)
 
 ### Community 0 - "MovieQueries"
 Cohesion: 0.09

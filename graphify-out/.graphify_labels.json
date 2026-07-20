@@ -29,5 +29,9 @@
   "27": "__init__.py",
   "28": "GenreFilter.jsx",
   "29": "SearchBar.jsx",
-  "30": "adminAuth.js"
+  "30": "adminAuth.js",
+  "31": "check_seven.py",
+  "32": "fix_seven_match.py",
+  "33": "merge_seven.py",
+  "34": "search_tmdb.py"
 }

@@ -21,6 +21,7 @@ class Settings:
     database_path: Path
     database_url: str | None
     tmdb_api_key: str | None
+    app_env: str
 
 
 def _required_env(name: str) -> str:
@@ -49,6 +50,10 @@ def _path_env(name: str, default: Path) -> Path:
     return BASE_DIR / raw_path
 
 
+def _get_app_env() -> str:
+    return os.getenv("APP_ENV", "development").lower()
+
+
 settings = Settings(
     telegram_api_id=_int_env("TELEGRAM_API_ID", 0),
     telegram_api_hash=_required_env("TELEGRAM_API_HASH"),
@@ -56,8 +61,9 @@ settings = Settings(
     telegram_session_name=os.getenv("TELEGRAM_SESSION_NAME", "telegram_movies"),
     message_limit=_int_env("MESSAGE_LIMIT", 100),
     database_path=_path_env("DATABASE_PATH", Path("database") / "movies.db"),
-    database_url=os.getenv("DATABASE_URL"),
+    database_url=os.getenv("DATABASE_URL") if _get_app_env() == "production" else None,
     tmdb_api_key=os.getenv("TMDB_API_KEY"),
+    app_env=_get_app_env(),
 )
 
 if settings.telegram_api_id <= 0:

@@ -4,7 +4,7 @@ from fastapi import FastAPI, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.base import BaseHTTPMiddleware
 
-from backend.config import get_database_path, get_database_url
+from backend.config import get_database_path, get_database_url, get_app_env
 from backend.database import MovieQueries
 from backend.routers import admin, auth_router, libraries, movies, stats
 from backend.services.task_manager import TaskManager
@@ -12,7 +12,7 @@ from database.models import get_db_url
 
 app = FastAPI(
     title="Telegram Movie Library",
-    description="REST API exposing the Telegram Movie Library SQLite database.",
+    description="REST API exposing the Telegram Movie Library database.",
     version="1.0.0",
 )
 
@@ -77,6 +77,7 @@ app.add_middleware(
 # Shared query layer (stored on app.state for dependency injection)
 # ------------------------------------------------------------------
 db_url = get_db_url(get_database_url(), get_database_path())
+print(f"[APP] Environment: {get_app_env()} | DB engine: {'PostgreSQL' if get_database_url() else 'SQLite'}")
 app.state.queries = MovieQueries(db_url)
 app.state.tasks = TaskManager()
 

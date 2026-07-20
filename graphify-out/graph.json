@@ -4,14 +4,54 @@
   "graph": {},
   "nodes": [
     {
+      "label": "check_seven.py",
+      "file_type": "code",
+      "source_file": "scratch/check_seven.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scratch_check_seven",
+      "community": 31,
+      "norm_label": "check_seven.py"
+    },
+    {
+      "label": "fix_seven_match.py",
+      "file_type": "code",
+      "source_file": "scratch/fix_seven_match.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scratch_fix_seven_match",
+      "community": 32,
+      "norm_label": "fix_seven_match.py"
+    },
+    {
+      "label": "merge_seven.py",
+      "file_type": "code",
+      "source_file": "scratch/merge_seven.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scratch_merge_seven",
+      "community": 33,
+      "norm_label": "merge_seven.py"
+    },
+    {
+      "label": "search_tmdb.py",
+      "file_type": "code",
+      "source_file": "scratch/search_tmdb.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scratch_search_tmdb",
+      "community": 34,
+      "norm_label": "search_tmdb.py"
+    },
+    {
       "label": "database.py",
       "file_type": "code",
       "source_file": "backend/database.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "backend_database",
       "community": 0,
-      "norm_label": "database.py"
+      "norm_label": "database.py",
+      "id": "backend_database"
     },
     {
       "label": "MovieQueries",
@@ -19,9 +59,9 @@
       "source_file": "backend/database.py",
       "source_location": "L22",
       "_origin": "ast",
-      "id": "backend_database_moviequeries",
       "community": 0,
-      "norm_label": "moviequeries"
+      "norm_label": "moviequeries",
+      "id": "backend_database_moviequeries"
     },
     {
       "label": ".__init__()",
@@ -29,9 +69,9 @@
       "source_file": "backend/database.py",
       "source_location": "L30",
       "_origin": "ast",
-      "id": "backend_database_moviequeries_init",
       "community": 0,
-      "norm_label": ".__init__()"
+      "norm_label": ".__init__()",
+      "id": "backend_database_moviequeries_init"
     },
     {
       "label": "._get_session()",
@@ -39,9 +79,9 @@
       "source_file": "backend/database.py",
       "source_location": "L37",
       "_origin": "ast",
-      "id": "backend_database_moviequeries_get_session",
       "community": 0,
-      "norm_label": "._get_session()"
+      "norm_label": "._get_session()",
+      "id": "backend_database_moviequeries_get_session"
     },
     {
       "label": "Session",
@@ -49,9 +89,9 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "session",
       "community": 15,
-      "norm_label": "session"
+      "norm_label": "session",
+      "id": "session"
     },
     {
       "label": ".get_libraries()",
@@ -59,9 +99,9 @@
       "source_file": "backend/database.py",
       "source_location": "L44",
       "_origin": "ast",
-      "id": "backend_database_moviequeries_get_libraries",
       "community": 0,
-      "norm_label": ".get_libraries()"
+      "norm_label": ".get_libraries()",
+      "id": "backend_database_moviequeries_get_libraries"
     },
     {
       "label": "Any",
@@ -69,9 +109,9 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "backend_database_py_any",
       "community": 0,
-      "norm_label": "any"
+      "norm_label": "any",
+      "id": "backend_database_py_any"
     },
     {
       "label": ".get_library_by_slug()",
@@ -79,9 +119,9 @@
       "source_file": "backend/database.py",
       "source_location": "L75",
       "_origin": "ast",
-      "id": "backend_database_moviequeries_get_library_by_slug",
       "community": 0,
-      "norm_label": ".get_library_by_slug()"
+      "norm_label": ".get_library_by_slug()",
+      "id": "backend_database_moviequeries_get_library_by_slug"
     },
     {
       "label": ".get_movies()",
@@ -89,9 +129,9 @@
       "source_file": "backend/database.py",
       "source_location": "L108",
       "_origin": "ast",
-      "id": "backend_database_moviequeries_get_movies",
       "community": 0,
-      "norm_label": ".get_movies()"
+      "norm_label": ".get_movies()",
+      "id": "backend_database_moviequeries_get_movies"
     },
     {
       "label": ".get_movie()",
@@ -99,9 +139,9 @@
       "source_file": "backend/database.py",
       "source_location": "L202",
       "_origin": "ast",
-      "id": "backend_database_moviequeries_get_movie",
       "community": 0,
-      "norm_label": ".get_movie()"
+      "norm_label": ".get_movie()",
+      "id": "backend_database_moviequeries_get_movie"
     },
     {
       "label": ".get_genres()",
@@ -109,9 +149,9 @@
       "source_file": "backend/database.py",
       "source_location": "L289",
       "_origin": "ast",
-      "id": "backend_database_moviequeries_get_genres",
       "community": 0,
-      "norm_label": ".get_genres()"
+      "norm_label": ".get_genres()",
+      "id": "backend_database_moviequeries_get_genres"
     },
     {
       "label": ".get_stats()",
@@ -119,9 +159,9 @@
       "source_file": "backend/database.py",
       "source_location": "L317",
       "_origin": "ast",
-      "id": "backend_database_moviequeries_get_stats",
       "community": 0,
-      "norm_label": ".get_stats()"
+      "norm_label": ".get_stats()",
+      "id": "backend_database_moviequeries_get_stats"
     },
     {
       "label": "Read-only query layer that powers the FastAPI endpoints.      Uses SQLAlchemy.",
@@ -129,9 +169,9 @@
       "source_file": "backend/database.py",
       "source_location": "L23",
       "_origin": "ast",
-      "id": "backend_database_rationale_23",
       "community": 0,
-      "norm_label": "read-only query layer that powers the fastapi endpoints.      uses sqlalchemy."
+      "norm_label": "read-only query layer that powers the fastapi endpoints.      uses sqlalchemy.",
+      "id": "backend_database_rationale_23"
     },
     {
       "label": "models.py",
@@ -139,9 +179,9 @@
       "source_file": "backend/models.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "backend_models",
       "community": 1,
-      "norm_label": "models.py"
+      "norm_label": "models.py",
+      "id": "backend_models"
     },
     {
       "label": "_parse_genres()",
@@ -149,9 +189,9 @@
       "source_file": "backend/models.py",
       "source_location": "L16",
       "_origin": "ast",
-      "id": "backend_models_parse_genres",
       "community": 1,
-      "norm_label": "_parse_genres()"
+      "norm_label": "_parse_genres()",
+      "id": "backend_models_parse_genres"
     },
     {
       "label": "Any",
@@ -159,9 +199,9 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "backend_models_py_any",
       "community": 1,
-      "norm_label": "any"
+      "norm_label": "any",
+      "id": "backend_models_py_any"
     },
     {
       "label": "TmdbMovieResponse",
@@ -169,9 +209,9 @@
       "source_file": "backend/models.py",
       "source_location": "L33",
       "_origin": "ast",
-      "id": "backend_models_tmdbmovieresponse",
       "community": 1,
-      "norm_label": "tmdbmovieresponse"
+      "norm_label": "tmdbmovieresponse",
+      "id": "backend_models_tmdbmovieresponse"
     },
     {
       "label": "BaseModel",
@@ -179,9 +219,9 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "basemodel",
       "community": 1,
-      "norm_label": "basemodel"
+      "norm_label": "basemodel",
+      "id": "basemodel"
     },
     {
       "label": ".parse_genres()",
@@ -189,9 +229,9 @@
       "source_file": "backend/models.py",
       "source_location": "L49",
       "_origin": "ast",
-      "id": "backend_models_tmdbmovieresponse_parse_genres",
       "community": 1,
-      "norm_label": ".parse_genres()"
+      "norm_label": ".parse_genres()",
+      "id": "backend_models_tmdbmovieresponse_parse_genres"
     },
     {
       "label": ".poster_url()",
@@ -199,9 +239,9 @@
       "source_file": "backend/models.py",
       "source_location": "L54",
       "_origin": "ast",
-      "id": "backend_models_tmdbmovieresponse_poster_url",
       "community": 1,
-      "norm_label": ".poster_url()"
+      "norm_label": ".poster_url()",
+      "id": "backend_models_tmdbmovieresponse_poster_url"
     },
     {
       "label": ".backdrop_url()",
@@ -209,9 +249,9 @@
       "source_file": "backend/models.py",
       "source_location": "L61",
       "_origin": "ast",
-      "id": "backend_models_tmdbmovieresponse_backdrop_url",
       "community": 1,
-      "norm_label": ".backdrop_url()"
+      "norm_label": ".backdrop_url()",
+      "id": "backend_models_tmdbmovieresponse_backdrop_url"
     },
     {
       "label": "TelegramMessageResponse",
@@ -219,9 +259,9 @@
       "source_file": "backend/models.py",
       "source_location": "L71",
       "_origin": "ast",
-      "id": "backend_models_telegrammessageresponse",
       "community": 1,
-      "norm_label": "telegrammessageresponse"
+      "norm_label": "telegrammessageresponse",
+      "id": "backend_models_telegrammessageresponse"
     },
     {
       "label": "MovieDetailResponse",
@@ -229,9 +269,9 @@
       "source_file": "backend/models.py",
       "source_location": "L81",
       "_origin": "ast",
-      "id": "backend_models_moviedetailresponse",
       "community": 1,
-      "norm_label": "moviedetailresponse"
+      "norm_label": "moviedetailresponse",
+      "id": "backend_models_moviedetailresponse"
     },
     {
       "label": "MovieListItem",
@@ -239,9 +279,9 @@
       "source_file": "backend/models.py",
       "source_location": "L94",
       "_origin": "ast",
-      "id": "backend_models_movielistitem",
       "community": 1,
-      "norm_label": "movielistitem"
+      "norm_label": "movielistitem",
+      "id": "backend_models_movielistitem"
     },
     {
       "label": ".parse_genres()",
@@ -249,9 +289,9 @@
       "source_file": "backend/models.py",
       "source_location": "L105",
       "_origin": "ast",
-      "id": "backend_models_movielistitem_parse_genres",
       "community": 1,
-      "norm_label": ".parse_genres()"
+      "norm_label": ".parse_genres()",
+      "id": "backend_models_movielistitem_parse_genres"
     },
     {
       "label": "PaginatedResponse",
@@ -259,9 +299,9 @@
       "source_file": "backend/models.py",
       "source_location": "L113",
       "_origin": "ast",
-      "id": "backend_models_paginatedresponse",
       "community": 1,
-      "norm_label": "paginatedresponse"
+      "norm_label": "paginatedresponse",
+      "id": "backend_models_paginatedresponse"
     },
     {
       "label": "GenreListResponse",
@@ -269,9 +309,9 @@
       "source_file": "backend/models.py",
       "source_location": "L125",
       "_origin": "ast",
-      "id": "backend_models_genrelistresponse",
       "community": 1,
-      "norm_label": "genrelistresponse"
+      "norm_label": "genrelistresponse",
+      "id": "backend_models_genrelistresponse"
     },
     {
       "label": "StatsResponse",
@@ -279,9 +319,9 @@
       "source_file": "backend/models.py",
       "source_location": "L133",
       "_origin": "ast",
-      "id": "backend_models_statsresponse",
       "community": 1,
-      "norm_label": "statsresponse"
+      "norm_label": "statsresponse",
+      "id": "backend_models_statsresponse"
     },
     {
       "label": "LibraryResponse",
@@ -289,9 +329,9 @@
       "source_file": "backend/models.py",
       "source_location": "L145",
       "_origin": "ast",
-      "id": "backend_models_libraryresponse",
       "community": 1,
-      "norm_label": "libraryresponse"
+      "norm_label": "libraryresponse",
+      "id": "backend_models_libraryresponse"
     },
     {
       "label": "LibraryListResponse",
@@ -299,9 +339,9 @@
       "source_file": "backend/models.py",
       "source_location": "L155",
       "_origin": "ast",
-      "id": "backend_models_librarylistresponse",
       "community": 1,
-      "norm_label": "librarylistresponse"
+      "norm_label": "librarylistresponse",
+      "id": "backend_models_librarylistresponse"
     },
     {
       "label": "LibraryCreateRequest",
@@ -309,9 +349,9 @@
       "source_file": "backend/models.py",
       "source_location": "L163",
       "_origin": "ast",
-      "id": "backend_models_librarycreaterequest",
       "community": 1,
-      "norm_label": "librarycreaterequest"
+      "norm_label": "librarycreaterequest",
+      "id": "backend_models_librarycreaterequest"
     },
     {
       "label": "LibraryUpdateRequest",
@@ -319,9 +359,9 @@
       "source_file": "backend/models.py",
       "source_location": "L171",
       "_origin": "ast",
-      "id": "backend_models_libraryupdaterequest",
       "community": 1,
-      "norm_label": "libraryupdaterequest"
+      "norm_label": "libraryupdaterequest",
+      "id": "backend_models_libraryupdaterequest"
     },
     {
       "label": "LibraryDetailResponse",
@@ -329,9 +369,9 @@
       "source_file": "backend/models.py",
       "source_location": "L179",
       "_origin": "ast",
-      "id": "backend_models_librarydetailresponse",
       "community": 1,
-      "norm_label": "librarydetailresponse"
+      "norm_label": "librarydetailresponse",
+      "id": "backend_models_librarydetailresponse"
     },
     {
       "label": "ScanRequest",
@@ -339,9 +379,9 @@
       "source_file": "backend/models.py",
       "source_location": "L196",
       "_origin": "ast",
-      "id": "backend_models_scanrequest",
       "community": 1,
-      "norm_label": "scanrequest"
+      "norm_label": "scanrequest",
+      "id": "backend_models_scanrequest"
     },
     {
       "label": "TmdbUpdateRequest",
@@ -349,9 +389,9 @@
       "source_file": "backend/models.py",
       "source_location": "L201",
       "_origin": "ast",
-      "id": "backend_models_tmdbupdaterequest",
       "community": 1,
-      "norm_label": "tmdbupdaterequest"
+      "norm_label": "tmdbupdaterequest",
+      "id": "backend_models_tmdbupdaterequest"
     },
     {
       "label": "MigrationRequest",
@@ -359,9 +399,9 @@
       "source_file": "backend/models.py",
       "source_location": "L206",
       "_origin": "ast",
-      "id": "backend_models_migrationrequest",
       "community": 1,
-      "norm_label": "migrationrequest"
+      "norm_label": "migrationrequest",
+      "id": "backend_models_migrationrequest"
     },
     {
       "label": "TaskResponse",
@@ -369,9 +409,9 @@
       "source_file": "backend/models.py",
       "source_location": "L212",
       "_origin": "ast",
-      "id": "backend_models_taskresponse",
       "community": 1,
-      "norm_label": "taskresponse"
+      "norm_label": "taskresponse",
+      "id": "backend_models_taskresponse"
     },
     {
       "label": "TaskListResponse",
@@ -379,9 +419,9 @@
       "source_file": "backend/models.py",
       "source_location": "L224",
       "_origin": "ast",
-      "id": "backend_models_tasklistresponse",
       "community": 1,
-      "norm_label": "tasklistresponse"
+      "norm_label": "tasklistresponse",
+      "id": "backend_models_tasklistresponse"
     },
     {
       "label": "TaskLogsResponse",
@@ -389,9 +429,9 @@
       "source_file": "backend/models.py",
       "source_location": "L228",
       "_origin": "ast",
-      "id": "backend_models_tasklogsresponse",
       "community": 1,
-      "norm_label": "tasklogsresponse"
+      "norm_label": "tasklogsresponse",
+      "id": "backend_models_tasklogsresponse"
     },
     {
       "label": "Accept a JSON string or a plain list and always return ``list[str]``.",
@@ -399,9 +439,9 @@
       "source_file": "backend/models.py",
       "source_location": "L17",
       "_origin": "ast",
-      "id": "backend_models_rationale_17",
       "community": 1,
-      "norm_label": "accept a json string or a plain list and always return ``list[str]``."
+      "norm_label": "accept a json string or a plain list and always return ``list[str]``.",
+      "id": "backend_models_rationale_17"
     },
     {
       "label": "Body for launching a channel scan.",
@@ -409,9 +449,9 @@
       "source_file": "backend/models.py",
       "source_location": "L197",
       "_origin": "ast",
-      "id": "backend_models_rationale_197",
       "community": 1,
-      "norm_label": "body for launching a channel scan."
+      "norm_label": "body for launching a channel scan.",
+      "id": "backend_models_rationale_197"
     },
     {
       "label": "Body for launching a TMDB update.",
@@ -419,9 +459,9 @@
       "source_file": "backend/models.py",
       "source_location": "L202",
       "_origin": "ast",
-      "id": "backend_models_rationale_202",
       "community": 1,
-      "norm_label": "body for launching a tmdb update."
+      "norm_label": "body for launching a tmdb update.",
+      "id": "backend_models_rationale_202"
     },
     {
       "label": "App.jsx",
@@ -429,9 +469,9 @@
       "source_file": "frontend/src/App.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_src_app",
       "community": 7,
-      "norm_label": "app.jsx"
+      "norm_label": "app.jsx",
+      "id": "frontend_src_app"
     },
     {
       "label": "App()",
@@ -439,9 +479,9 @@
       "source_file": "frontend/src/App.jsx",
       "source_location": "L19",
       "_origin": "ast",
-      "id": "frontend_src_app_app",
       "community": 7,
-      "norm_label": "app()"
+      "norm_label": "app()",
+      "id": "frontend_src_app_app"
     },
     {
       "label": "LibraryView()",
@@ -449,9 +489,9 @@
       "source_file": "frontend/src/App.jsx",
       "source_location": "L188",
       "_origin": "ast",
-      "id": "frontend_src_app_libraryview",
       "community": 7,
-      "norm_label": "libraryview()"
+      "norm_label": "libraryview()",
+      "id": "frontend_src_app_libraryview"
     },
     {
       "label": "Hero.jsx",
@@ -459,9 +499,9 @@
       "source_file": "frontend/src/components/Hero.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_src_components_hero",
       "community": 7,
-      "norm_label": "hero.jsx"
+      "norm_label": "hero.jsx",
+      "id": "frontend_src_components_hero"
     },
     {
       "label": "HERO_MOVIES",
@@ -469,9 +509,9 @@
       "source_file": "frontend/src/components/Hero.jsx",
       "source_location": "L3",
       "_origin": "ast",
-      "id": "frontend_src_components_hero_hero_movies",
       "community": 7,
-      "norm_label": "hero_movies"
+      "norm_label": "hero_movies",
+      "id": "frontend_src_components_hero_hero_movies"
     },
     {
       "label": "Hero()",
@@ -479,9 +519,9 @@
       "source_file": "frontend/src/components/Hero.jsx",
       "source_location": "L91",
       "_origin": "ast",
-      "id": "frontend_src_components_hero_hero",
       "community": 7,
-      "norm_label": "hero()"
+      "norm_label": "hero()",
+      "id": "frontend_src_components_hero_hero"
     },
     {
       "label": "Layout.jsx",
@@ -489,9 +529,9 @@
       "source_file": "frontend/src/components/Layout.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_src_components_layout",
       "community": 7,
-      "norm_label": "layout.jsx"
+      "norm_label": "layout.jsx",
+      "id": "frontend_src_components_layout"
     },
     {
       "label": "Layout()",
@@ -499,9 +539,9 @@
       "source_file": "frontend/src/components/Layout.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_src_components_layout_layout",
       "community": 7,
-      "norm_label": "layout()"
+      "norm_label": "layout()",
+      "id": "frontend_src_components_layout_layout"
     },
     {
       "label": "LibraryGrid.jsx",
@@ -509,9 +549,9 @@
       "source_file": "frontend/src/components/LibraryGrid.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_src_components_librarygrid",
       "community": 7,
-      "norm_label": "librarygrid.jsx"
+      "norm_label": "librarygrid.jsx",
+      "id": "frontend_src_components_librarygrid"
     },
     {
       "label": "LibraryGrid()",
@@ -519,9 +559,9 @@
       "source_file": "frontend/src/components/LibraryGrid.jsx",
       "source_location": "L4",
       "_origin": "ast",
-      "id": "frontend_src_components_librarygrid_librarygrid",
       "community": 7,
-      "norm_label": "librarygrid()"
+      "norm_label": "librarygrid()",
+      "id": "frontend_src_components_librarygrid_librarygrid"
     },
     {
       "label": "migrate_channel_links.py",
@@ -4113,9 +4153,9 @@
       "source_file": "backend/database.py",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_database",
-      "target": "backend_database_moviequeries",
-      "confidence_score": 1.0
+      "target": "backend_database_moviequeries"
     },
     {
       "relation": "imports_from",
@@ -4124,9 +4164,9 @@
       "source_file": "backend/database.py",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_database",
-      "target": "database_models",
-      "confidence_score": 1.0
+      "target": "database_models"
     },
     {
       "relation": "imports_from",
@@ -4156,9 +4196,9 @@
       "source_file": "backend/database.py",
       "source_location": "L289",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_database_moviequeries",
-      "target": "backend_database_moviequeries_get_genres",
-      "confidence_score": 1.0
+      "target": "backend_database_moviequeries_get_genres"
     },
     {
       "relation": "method",
@@ -4166,9 +4206,9 @@
       "source_file": "backend/database.py",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_database_moviequeries",
-      "target": "backend_database_moviequeries_get_libraries",
-      "confidence_score": 1.0
+      "target": "backend_database_moviequeries_get_libraries"
     },
     {
       "relation": "method",
@@ -4176,9 +4216,9 @@
       "source_file": "backend/database.py",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_database_moviequeries",
-      "target": "backend_database_moviequeries_get_library_by_slug",
-      "confidence_score": 1.0
+      "target": "backend_database_moviequeries_get_library_by_slug"
     },
     {
       "relation": "method",
@@ -4186,9 +4226,9 @@
       "source_file": "backend/database.py",
       "source_location": "L202",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_database_moviequeries",
-      "target": "backend_database_moviequeries_get_movie",
-      "confidence_score": 1.0
+      "target": "backend_database_moviequeries_get_movie"
     },
     {
       "relation": "method",
@@ -4196,9 +4236,9 @@
       "source_file": "backend/database.py",
       "source_location": "L108",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_database_moviequeries",
-      "target": "backend_database_moviequeries_get_movies",
-      "confidence_score": 1.0
+      "target": "backend_database_moviequeries_get_movies"
     },
     {
       "relation": "method",
@@ -4206,9 +4246,9 @@
       "source_file": "backend/database.py",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_database_moviequeries",
-      "target": "backend_database_moviequeries_get_session",
-      "confidence_score": 1.0
+      "target": "backend_database_moviequeries_get_session"
     },
     {
       "relation": "method",
@@ -4216,9 +4256,9 @@
       "source_file": "backend/database.py",
       "source_location": "L317",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_database_moviequeries",
-      "target": "backend_database_moviequeries_get_stats",
-      "confidence_score": 1.0
+      "target": "backend_database_moviequeries_get_stats"
     },
     {
       "relation": "method",
@@ -4226,9 +4266,9 @@
       "source_file": "backend/database.py",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_database_moviequeries",
-      "target": "backend_database_moviequeries_init",
-      "confidence_score": 1.0
+      "target": "backend_database_moviequeries_init"
     },
     {
       "relation": "rationale_for",
@@ -4236,9 +4276,9 @@
       "source_file": "backend/database.py",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_database_rationale_23",
-      "target": "backend_database_moviequeries",
-      "confidence_score": 1.0
+      "target": "backend_database_moviequeries"
     },
     {
       "relation": "imports",
@@ -4335,9 +4375,9 @@
       "source_file": "backend/database.py",
       "source_location": "L290",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_database_moviequeries_get_genres",
-      "target": "backend_database_moviequeries_get_session",
-      "confidence_score": 1.0
+      "target": "backend_database_moviequeries_get_session"
     },
     {
       "relation": "calls",
@@ -4346,9 +4386,9 @@
       "source_file": "backend/database.py",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_database_moviequeries_get_libraries",
-      "target": "backend_database_moviequeries_get_session",
-      "confidence_score": 1.0
+      "target": "backend_database_moviequeries_get_session"
     },
     {
       "relation": "calls",
@@ -4357,9 +4397,9 @@
       "source_file": "backend/database.py",
       "source_location": "L76",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_database_moviequeries_get_library_by_slug",
-      "target": "backend_database_moviequeries_get_session",
-      "confidence_score": 1.0
+      "target": "backend_database_moviequeries_get_session"
     },
     {
       "relation": "calls",
@@ -4368,9 +4408,9 @@
       "source_file": "backend/database.py",
       "source_location": "L203",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_database_moviequeries_get_movie",
-      "target": "backend_database_moviequeries_get_session",
-      "confidence_score": 1.0
+      "target": "backend_database_moviequeries_get_session"
     },
     {
       "relation": "calls",
@@ -4379,9 +4419,9 @@
       "source_file": "backend/database.py",
       "source_location": "L122",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_database_moviequeries_get_movies",
-      "target": "backend_database_moviequeries_get_session",
-      "confidence_score": 1.0
+      "target": "backend_database_moviequeries_get_session"
     },
     {
       "relation": "references",
@@ -4390,9 +4430,9 @@
       "source_file": "backend/database.py",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_database_moviequeries_get_session",
-      "target": "session",
-      "confidence_score": 1.0
+      "target": "session"
     },
     {
       "relation": "calls",
@@ -4401,9 +4441,9 @@
       "source_file": "backend/database.py",
       "source_location": "L318",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_database_moviequeries_get_stats",
-      "target": "backend_database_moviequeries_get_session",
-      "confidence_score": 1.0
+      "target": "backend_database_moviequeries_get_session"
     },
     {
       "relation": "calls",
@@ -4467,9 +4507,9 @@
       "source_file": "backend/database.py",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_database_moviequeries_get_libraries",
-      "target": "backend_database_py_any",
-      "confidence_score": 1.0
+      "target": "backend_database_py_any"
     },
     {
       "relation": "references",
@@ -4478,9 +4518,9 @@
       "source_file": "backend/database.py",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_database_moviequeries_get_library_by_slug",
-      "target": "backend_database_py_any",
-      "confidence_score": 1.0
+      "target": "backend_database_py_any"
     },
     {
       "relation": "references",
@@ -4489,9 +4529,9 @@
       "source_file": "backend/database.py",
       "source_location": "L202",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_database_moviequeries_get_movie",
-      "target": "backend_database_py_any",
-      "confidence_score": 1.0
+      "target": "backend_database_py_any"
     },
     {
       "relation": "references",
@@ -4500,9 +4540,9 @@
       "source_file": "backend/database.py",
       "source_location": "L108",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_database_moviequeries_get_movies",
-      "target": "backend_database_py_any",
-      "confidence_score": 1.0
+      "target": "backend_database_py_any"
     },
     {
       "relation": "references",
@@ -4511,9 +4551,9 @@
       "source_file": "backend/database.py",
       "source_location": "L317",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_database_moviequeries_get_stats",
-      "target": "backend_database_py_any",
-      "confidence_score": 1.0
+      "target": "backend_database_py_any"
     },
     {
       "relation": "contains",
@@ -4521,9 +4561,9 @@
       "source_file": "backend/models.py",
       "source_location": "L125",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models",
-      "target": "backend_models_genrelistresponse",
-      "confidence_score": 1.0
+      "target": "backend_models_genrelistresponse"
     },
     {
       "relation": "contains",
@@ -4531,9 +4571,9 @@
       "source_file": "backend/models.py",
       "source_location": "L163",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models",
-      "target": "backend_models_librarycreaterequest",
-      "confidence_score": 1.0
+      "target": "backend_models_librarycreaterequest"
     },
     {
       "relation": "contains",
@@ -4541,9 +4581,9 @@
       "source_file": "backend/models.py",
       "source_location": "L179",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models",
-      "target": "backend_models_librarydetailresponse",
-      "confidence_score": 1.0
+      "target": "backend_models_librarydetailresponse"
     },
     {
       "relation": "contains",
@@ -4551,9 +4591,9 @@
       "source_file": "backend/models.py",
       "source_location": "L155",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models",
-      "target": "backend_models_librarylistresponse",
-      "confidence_score": 1.0
+      "target": "backend_models_librarylistresponse"
     },
     {
       "relation": "contains",
@@ -4561,9 +4601,9 @@
       "source_file": "backend/models.py",
       "source_location": "L145",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models",
-      "target": "backend_models_libraryresponse",
-      "confidence_score": 1.0
+      "target": "backend_models_libraryresponse"
     },
     {
       "relation": "contains",
@@ -4571,9 +4611,9 @@
       "source_file": "backend/models.py",
       "source_location": "L171",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models",
-      "target": "backend_models_libraryupdaterequest",
-      "confidence_score": 1.0
+      "target": "backend_models_libraryupdaterequest"
     },
     {
       "relation": "contains",
@@ -4581,9 +4621,9 @@
       "source_file": "backend/models.py",
       "source_location": "L206",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models",
-      "target": "backend_models_migrationrequest",
-      "confidence_score": 1.0
+      "target": "backend_models_migrationrequest"
     },
     {
       "relation": "contains",
@@ -4591,9 +4631,9 @@
       "source_file": "backend/models.py",
       "source_location": "L81",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models",
-      "target": "backend_models_moviedetailresponse",
-      "confidence_score": 1.0
+      "target": "backend_models_moviedetailresponse"
     },
     {
       "relation": "contains",
@@ -4601,9 +4641,9 @@
       "source_file": "backend/models.py",
       "source_location": "L94",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models",
-      "target": "backend_models_movielistitem",
-      "confidence_score": 1.0
+      "target": "backend_models_movielistitem"
     },
     {
       "relation": "contains",
@@ -4611,9 +4651,9 @@
       "source_file": "backend/models.py",
       "source_location": "L113",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models",
-      "target": "backend_models_paginatedresponse",
-      "confidence_score": 1.0
+      "target": "backend_models_paginatedresponse"
     },
     {
       "relation": "contains",
@@ -4621,9 +4661,9 @@
       "source_file": "backend/models.py",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models",
-      "target": "backend_models_parse_genres",
-      "confidence_score": 1.0
+      "target": "backend_models_parse_genres"
     },
     {
       "relation": "contains",
@@ -4631,9 +4671,9 @@
       "source_file": "backend/models.py",
       "source_location": "L196",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models",
-      "target": "backend_models_scanrequest",
-      "confidence_score": 1.0
+      "target": "backend_models_scanrequest"
     },
     {
       "relation": "contains",
@@ -4641,9 +4681,9 @@
       "source_file": "backend/models.py",
       "source_location": "L133",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models",
-      "target": "backend_models_statsresponse",
-      "confidence_score": 1.0
+      "target": "backend_models_statsresponse"
     },
     {
       "relation": "contains",
@@ -4651,9 +4691,9 @@
       "source_file": "backend/models.py",
       "source_location": "L224",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models",
-      "target": "backend_models_tasklistresponse",
-      "confidence_score": 1.0
+      "target": "backend_models_tasklistresponse"
     },
     {
       "relation": "contains",
@@ -4661,9 +4701,9 @@
       "source_file": "backend/models.py",
       "source_location": "L228",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models",
-      "target": "backend_models_tasklogsresponse",
-      "confidence_score": 1.0
+      "target": "backend_models_tasklogsresponse"
     },
     {
       "relation": "contains",
@@ -4671,9 +4711,9 @@
       "source_file": "backend/models.py",
       "source_location": "L212",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models",
-      "target": "backend_models_taskresponse",
-      "confidence_score": 1.0
+      "target": "backend_models_taskresponse"
     },
     {
       "relation": "contains",
@@ -4681,9 +4721,9 @@
       "source_file": "backend/models.py",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models",
-      "target": "backend_models_telegrammessageresponse",
-      "confidence_score": 1.0
+      "target": "backend_models_telegrammessageresponse"
     },
     {
       "relation": "contains",
@@ -4691,9 +4731,9 @@
       "source_file": "backend/models.py",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models",
-      "target": "backend_models_tmdbmovieresponse",
-      "confidence_score": 1.0
+      "target": "backend_models_tmdbmovieresponse"
     },
     {
       "relation": "contains",
@@ -4701,9 +4741,9 @@
       "source_file": "backend/models.py",
       "source_location": "L201",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models",
-      "target": "backend_models_tmdbupdaterequest",
-      "confidence_score": 1.0
+      "target": "backend_models_tmdbupdaterequest"
     },
     {
       "relation": "imports_from",
@@ -4745,9 +4785,9 @@
       "source_file": "backend/models.py",
       "source_location": "L106",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_movielistitem_parse_genres",
-      "target": "backend_models_parse_genres",
-      "confidence_score": 1.0
+      "target": "backend_models_parse_genres"
     },
     {
       "relation": "references",
@@ -4756,9 +4796,9 @@
       "source_file": "backend/models.py",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_parse_genres",
-      "target": "backend_models_py_any",
-      "confidence_score": 1.0
+      "target": "backend_models_py_any"
     },
     {
       "relation": "rationale_for",
@@ -4766,9 +4806,9 @@
       "source_file": "backend/models.py",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_rationale_17",
-      "target": "backend_models_parse_genres",
-      "confidence_score": 1.0
+      "target": "backend_models_parse_genres"
     },
     {
       "relation": "calls",
@@ -4777,9 +4817,9 @@
       "source_file": "backend/models.py",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_tmdbmovieresponse_parse_genres",
-      "target": "backend_models_parse_genres",
-      "confidence_score": 1.0
+      "target": "backend_models_parse_genres"
     },
     {
       "relation": "references",
@@ -4788,9 +4828,9 @@
       "source_file": "backend/models.py",
       "source_location": "L105",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_movielistitem_parse_genres",
-      "target": "backend_models_py_any",
-      "confidence_score": 1.0
+      "target": "backend_models_py_any"
     },
     {
       "relation": "references",
@@ -4799,9 +4839,9 @@
       "source_file": "backend/models.py",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_tmdbmovieresponse_parse_genres",
-      "target": "backend_models_py_any",
-      "confidence_score": 1.0
+      "target": "backend_models_py_any"
     },
     {
       "relation": "method",
@@ -4809,9 +4849,9 @@
       "source_file": "backend/models.py",
       "source_location": "L61",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_tmdbmovieresponse",
-      "target": "backend_models_tmdbmovieresponse_backdrop_url",
-      "confidence_score": 1.0
+      "target": "backend_models_tmdbmovieresponse_backdrop_url"
     },
     {
       "relation": "method",
@@ -4819,9 +4859,9 @@
       "source_file": "backend/models.py",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_tmdbmovieresponse",
-      "target": "backend_models_tmdbmovieresponse_parse_genres",
-      "confidence_score": 1.0
+      "target": "backend_models_tmdbmovieresponse_parse_genres"
     },
     {
       "relation": "method",
@@ -4829,9 +4869,9 @@
       "source_file": "backend/models.py",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_tmdbmovieresponse",
-      "target": "backend_models_tmdbmovieresponse_poster_url",
-      "confidence_score": 1.0
+      "target": "backend_models_tmdbmovieresponse_poster_url"
     },
     {
       "relation": "inherits",
@@ -4839,9 +4879,9 @@
       "source_file": "backend/models.py",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_tmdbmovieresponse",
-      "target": "basemodel",
-      "confidence_score": 1.0
+      "target": "basemodel"
     },
     {
       "relation": "inherits",
@@ -4889,9 +4929,9 @@
       "source_file": "backend/models.py",
       "source_location": "L125",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_genrelistresponse",
-      "target": "basemodel",
-      "confidence_score": 1.0
+      "target": "basemodel"
     },
     {
       "relation": "inherits",
@@ -4899,9 +4939,9 @@
       "source_file": "backend/models.py",
       "source_location": "L163",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_librarycreaterequest",
-      "target": "basemodel",
-      "confidence_score": 1.0
+      "target": "basemodel"
     },
     {
       "relation": "inherits",
@@ -4909,9 +4949,9 @@
       "source_file": "backend/models.py",
       "source_location": "L179",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_librarydetailresponse",
-      "target": "basemodel",
-      "confidence_score": 1.0
+      "target": "basemodel"
     },
     {
       "relation": "inherits",
@@ -4919,9 +4959,9 @@
       "source_file": "backend/models.py",
       "source_location": "L155",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_librarylistresponse",
-      "target": "basemodel",
-      "confidence_score": 1.0
+      "target": "basemodel"
     },
     {
       "relation": "inherits",
@@ -4929,9 +4969,9 @@
       "source_file": "backend/models.py",
       "source_location": "L145",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_libraryresponse",
-      "target": "basemodel",
-      "confidence_score": 1.0
+      "target": "basemodel"
     },
     {
       "relation": "inherits",
@@ -4939,9 +4979,9 @@
       "source_file": "backend/models.py",
       "source_location": "L171",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_libraryupdaterequest",
-      "target": "basemodel",
-      "confidence_score": 1.0
+      "target": "basemodel"
     },
     {
       "relation": "inherits",
@@ -4949,9 +4989,9 @@
       "source_file": "backend/models.py",
       "source_location": "L206",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_migrationrequest",
-      "target": "basemodel",
-      "confidence_score": 1.0
+      "target": "basemodel"
     },
     {
       "relation": "inherits",
@@ -4959,9 +4999,9 @@
       "source_file": "backend/models.py",
       "source_location": "L81",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_moviedetailresponse",
-      "target": "basemodel",
-      "confidence_score": 1.0
+      "target": "basemodel"
     },
     {
       "relation": "inherits",
@@ -4969,9 +5009,9 @@
       "source_file": "backend/models.py",
       "source_location": "L94",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_movielistitem",
-      "target": "basemodel",
-      "confidence_score": 1.0
+      "target": "basemodel"
     },
     {
       "relation": "inherits",
@@ -4979,9 +5019,9 @@
       "source_file": "backend/models.py",
       "source_location": "L113",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_paginatedresponse",
-      "target": "basemodel",
-      "confidence_score": 1.0
+      "target": "basemodel"
     },
     {
       "relation": "inherits",
@@ -4989,9 +5029,9 @@
       "source_file": "backend/models.py",
       "source_location": "L196",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_scanrequest",
-      "target": "basemodel",
-      "confidence_score": 1.0
+      "target": "basemodel"
     },
     {
       "relation": "inherits",
@@ -4999,9 +5039,9 @@
       "source_file": "backend/models.py",
       "source_location": "L133",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_statsresponse",
-      "target": "basemodel",
-      "confidence_score": 1.0
+      "target": "basemodel"
     },
     {
       "relation": "inherits",
@@ -5009,9 +5049,9 @@
       "source_file": "backend/models.py",
       "source_location": "L224",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_tasklistresponse",
-      "target": "basemodel",
-      "confidence_score": 1.0
+      "target": "basemodel"
     },
     {
       "relation": "inherits",
@@ -5019,9 +5059,9 @@
       "source_file": "backend/models.py",
       "source_location": "L228",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_tasklogsresponse",
-      "target": "basemodel",
-      "confidence_score": 1.0
+      "target": "basemodel"
     },
     {
       "relation": "inherits",
@@ -5029,9 +5069,9 @@
       "source_file": "backend/models.py",
       "source_location": "L212",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_taskresponse",
-      "target": "basemodel",
-      "confidence_score": 1.0
+      "target": "basemodel"
     },
     {
       "relation": "inherits",
@@ -5039,9 +5079,9 @@
       "source_file": "backend/models.py",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_telegrammessageresponse",
-      "target": "basemodel",
-      "confidence_score": 1.0
+      "target": "basemodel"
     },
     {
       "relation": "inherits",
@@ -5049,9 +5089,9 @@
       "source_file": "backend/models.py",
       "source_location": "L201",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_tmdbupdaterequest",
-      "target": "basemodel",
-      "confidence_score": 1.0
+      "target": "basemodel"
     },
     {
       "relation": "method",
@@ -5059,9 +5099,9 @@
       "source_file": "backend/models.py",
       "source_location": "L105",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_movielistitem",
-      "target": "backend_models_movielistitem_parse_genres",
-      "confidence_score": 1.0
+      "target": "backend_models_movielistitem_parse_genres"
     },
     {
       "relation": "imports",
@@ -5091,9 +5131,9 @@
       "source_file": "backend/models.py",
       "source_location": "L197",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_rationale_197",
-      "target": "backend_models_scanrequest",
-      "confidence_score": 1.0
+      "target": "backend_models_scanrequest"
     },
     {
       "relation": "rationale_for",
@@ -5101,9 +5141,9 @@
       "source_file": "backend/models.py",
       "source_location": "L202",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_models_rationale_202",
-      "target": "backend_models_tmdbupdaterequest",
-      "confidence_score": 1.0
+      "target": "backend_models_tmdbupdaterequest"
     },
     {
       "relation": "contains",
@@ -5111,9 +5151,9 @@
       "source_file": "frontend/src/App.jsx",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_app",
-      "target": "frontend_src_app_app",
-      "confidence_score": 1.0
+      "target": "frontend_src_app_app"
     },
     {
       "relation": "contains",
@@ -5121,9 +5161,9 @@
       "source_file": "frontend/src/App.jsx",
       "source_location": "L188",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_app",
-      "target": "frontend_src_app_libraryview",
-      "confidence_score": 1.0
+      "target": "frontend_src_app_libraryview"
     },
     {
       "relation": "imports_from",
@@ -5132,9 +5172,9 @@
       "source_file": "frontend/src/App.jsx",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_app",
-      "target": "frontend_src_components_hero",
-      "confidence_score": 1.0
+      "target": "frontend_src_components_hero"
     },
     {
       "relation": "imports",
@@ -5143,9 +5183,9 @@
       "source_file": "frontend/src/App.jsx",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_app",
-      "target": "frontend_src_components_hero_hero",
-      "confidence_score": 1.0
+      "target": "frontend_src_components_hero_hero"
     },
     {
       "relation": "imports_from",
@@ -5154,9 +5194,9 @@
       "source_file": "frontend/src/App.jsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_app",
-      "target": "frontend_src_components_layout",
-      "confidence_score": 1.0
+      "target": "frontend_src_components_layout"
     },
     {
       "relation": "imports",
@@ -5165,9 +5205,9 @@
       "source_file": "frontend/src/App.jsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_app",
-      "target": "frontend_src_components_layout_layout",
-      "confidence_score": 1.0
+      "target": "frontend_src_components_layout_layout"
     },
     {
       "relation": "imports_from",
@@ -5176,9 +5216,9 @@
       "source_file": "frontend/src/App.jsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_app",
-      "target": "frontend_src_components_librarygrid",
-      "confidence_score": 1.0
+      "target": "frontend_src_components_librarygrid"
     },
     {
       "relation": "imports",
@@ -5187,9 +5227,9 @@
       "source_file": "frontend/src/App.jsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_app",
-      "target": "frontend_src_components_librarygrid_librarygrid",
-      "confidence_score": 1.0
+      "target": "frontend_src_components_librarygrid_librarygrid"
     },
     {
       "relation": "imports_from",
@@ -5198,9 +5238,9 @@
       "source_file": "frontend/src/App.jsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_app",
-      "target": "ref_react",
-      "confidence_score": 1.0
+      "target": "ref_react"
     },
     {
       "relation": "imports_from",
@@ -5230,9 +5270,9 @@
       "source_file": "frontend/src/components/Hero.jsx",
       "source_location": "L91",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_components_hero",
-      "target": "frontend_src_components_hero_hero",
-      "confidence_score": 1.0
+      "target": "frontend_src_components_hero_hero"
     },
     {
       "relation": "contains",
@@ -5240,9 +5280,9 @@
       "source_file": "frontend/src/components/Hero.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_components_hero",
-      "target": "frontend_src_components_hero_hero_movies",
-      "confidence_score": 1.0
+      "target": "frontend_src_components_hero_hero_movies"
     },
     {
       "relation": "imports_from",
@@ -5251,9 +5291,9 @@
       "source_file": "frontend/src/components/Hero.jsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_components_hero",
-      "target": "ref_react",
-      "confidence_score": 1.0
+      "target": "ref_react"
     },
     {
       "relation": "contains",
@@ -5261,9 +5301,9 @@
       "source_file": "frontend/src/components/Layout.jsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_components_layout",
-      "target": "frontend_src_components_layout_layout",
-      "confidence_score": 1.0
+      "target": "frontend_src_components_layout_layout"
     },
     {
       "relation": "contains",
@@ -5271,9 +5311,9 @@
       "source_file": "frontend/src/components/LibraryGrid.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_components_librarygrid",
-      "target": "frontend_src_components_librarygrid_librarygrid",
-      "confidence_score": 1.0
+      "target": "frontend_src_components_librarygrid_librarygrid"
     },
     {
       "relation": "imports_from",
@@ -5282,9 +5322,9 @@
       "source_file": "frontend/src/components/LibraryGrid.jsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_src_components_librarygrid",
-      "target": "ref_react",
-      "confidence_score": 1.0
+      "target": "ref_react"
     },
     {
       "relation": "imports_from",
@@ -11263,5 +11303,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "8f3452c3a7fed058845f34909fb1678e8c604e07"
+  "built_at_commit": "4b8c62d525527993c79b0b0b056988e7326747bc"
 }
