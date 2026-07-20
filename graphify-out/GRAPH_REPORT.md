@@ -1,7 +1,7 @@
 # Graph Report - Movis_with_Telegram  (2026-07-20)
 
 ## Corpus Check
-- 71 files · ~31,335 words
+- 71 files · ~31,332 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `1a529c97`
+- Built from commit: `270d973b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -170,7 +170,7 @@ _Questions this graph is uniquely positioned to answer:_
   _`Movie` has 9 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 8 inferred relationships involving `Library` (e.g. with `admin_delete_library()` and `admin_list_libraries()`) actually correct?**
   _`Library` has 8 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `Health-check / welcome endpoint.`, `Read-only query layer that powers the FastAPI endpoints.      Uses SQLAlchemy.`, `Helper to determine the database URL` to the rest of the system?**
+- **What connects `Read-only query layer that powers the FastAPI endpoints.      Uses SQLAlchemy.`, `Health-check / welcome endpoint.`, `Helper to determine the database URL` to the rest of the system?**
   _149 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `MovieQueries` be split into smaller, more focused modules?**
   _Cohesion score 0.10040816326530612 - nodes in this community are weakly interconnected._

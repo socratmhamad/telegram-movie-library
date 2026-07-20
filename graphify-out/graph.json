@@ -4,96 +4,6 @@
   "graph": {},
   "nodes": [
     {
-      "label": "app.py",
-      "file_type": "code",
-      "source_file": "backend/app.py",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "backend_app",
-      "community": 1,
-      "norm_label": "app.py"
-    },
-    {
-      "label": "global_exception_handler()",
-      "file_type": "code",
-      "source_file": "backend/app.py",
-      "source_location": "L27",
-      "_origin": "ast",
-      "id": "backend_app_global_exception_handler",
-      "community": 1,
-      "norm_label": "global_exception_handler()"
-    },
-    {
-      "label": "Request",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "request",
-      "community": 1,
-      "norm_label": "request"
-    },
-    {
-      "label": "Exception",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "exception",
-      "community": 1,
-      "norm_label": "exception"
-    },
-    {
-      "label": "SecurityHeadersMiddleware",
-      "file_type": "code",
-      "source_file": "backend/app.py",
-      "source_location": "L38",
-      "_origin": "ast",
-      "id": "backend_app_securityheadersmiddleware",
-      "community": 1,
-      "norm_label": "securityheadersmiddleware"
-    },
-    {
-      "label": "BaseHTTPMiddleware",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "basehttpmiddleware",
-      "community": 1,
-      "norm_label": "basehttpmiddleware"
-    },
-    {
-      "label": ".dispatch()",
-      "file_type": "code",
-      "source_file": "backend/app.py",
-      "source_location": "L39",
-      "_origin": "ast",
-      "id": "backend_app_securityheadersmiddleware_dispatch",
-      "community": 1,
-      "norm_label": ".dispatch()"
-    },
-    {
-      "label": "root()",
-      "file_type": "code",
-      "source_file": "backend/app.py",
-      "source_location": "L110",
-      "_origin": "ast",
-      "id": "backend_app_root",
-      "community": 1,
-      "norm_label": "root()"
-    },
-    {
-      "label": "Health-check / welcome endpoint.",
-      "file_type": "rationale",
-      "source_file": "backend/app.py",
-      "source_location": "L111",
-      "_origin": "ast",
-      "id": "backend_app_rationale_111",
-      "community": 1,
-      "norm_label": "health-check / welcome endpoint."
-    },
-    {
       "label": "database.py",
       "file_type": "code",
       "source_file": "backend/database.py",
@@ -197,7 +107,7 @@
       "label": ".get_genres()",
       "file_type": "code",
       "source_file": "backend/database.py",
-      "source_location": "L300",
+      "source_location": "L299",
       "_origin": "ast",
       "id": "backend_database_moviequeries_get_genres",
       "community": 1,
@@ -207,7 +117,7 @@
       "label": ".get_stats()",
       "file_type": "code",
       "source_file": "backend/database.py",
-      "source_location": "L328",
+      "source_location": "L327",
       "_origin": "ast",
       "id": "backend_database_moviequeries_get_stats",
       "community": 1,
@@ -222,6 +132,96 @@
       "id": "backend_database_rationale_24",
       "community": 1,
       "norm_label": "read-only query layer that powers the fastapi endpoints.      uses sqlalchemy."
+    },
+    {
+      "label": "app.py",
+      "file_type": "code",
+      "source_file": "backend/app.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "app.py",
+      "id": "backend_app"
+    },
+    {
+      "label": "global_exception_handler()",
+      "file_type": "code",
+      "source_file": "backend/app.py",
+      "source_location": "L27",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "global_exception_handler()",
+      "id": "backend_app_global_exception_handler"
+    },
+    {
+      "label": "Request",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "request",
+      "id": "request"
+    },
+    {
+      "label": "Exception",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "exception",
+      "id": "exception"
+    },
+    {
+      "label": "SecurityHeadersMiddleware",
+      "file_type": "code",
+      "source_file": "backend/app.py",
+      "source_location": "L38",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "securityheadersmiddleware",
+      "id": "backend_app_securityheadersmiddleware"
+    },
+    {
+      "label": "BaseHTTPMiddleware",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "basehttpmiddleware",
+      "id": "basehttpmiddleware"
+    },
+    {
+      "label": ".dispatch()",
+      "file_type": "code",
+      "source_file": "backend/app.py",
+      "source_location": "L39",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": ".dispatch()",
+      "id": "backend_app_securityheadersmiddleware_dispatch"
+    },
+    {
+      "label": "root()",
+      "file_type": "code",
+      "source_file": "backend/app.py",
+      "source_location": "L110",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "root()",
+      "id": "backend_app_root"
+    },
+    {
+      "label": "Health-check / welcome endpoint.",
+      "file_type": "rationale",
+      "source_file": "backend/app.py",
+      "source_location": "L111",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "health-check / welcome endpoint.",
+      "id": "backend_app_rationale_111"
     },
     {
       "label": "models.py",
@@ -4926,217 +4926,15 @@
   ],
   "links": [
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L27",
-      "weight": 1.0,
-      "source": "backend_app",
-      "target": "backend_app_global_exception_handler",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L110",
-      "weight": 1.0,
-      "source": "backend_app",
-      "target": "backend_app_root",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L38",
-      "weight": 1.0,
-      "source": "backend_app",
-      "target": "backend_app_securityheadersmiddleware",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "backend_app",
-      "target": "backend_config",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/app.py",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "backend_app",
-      "target": "backend_database",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L8",
-      "weight": 1.0,
-      "source": "backend_app",
-      "target": "backend_database_moviequeries",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "submodule_import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L9",
-      "weight": 1.0,
-      "source": "backend_app",
-      "target": "backend_routers_admin",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "submodule_import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L9",
-      "weight": 1.0,
-      "source": "backend_app",
-      "target": "backend_routers_auth_router",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "submodule_import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L9",
-      "weight": 1.0,
-      "source": "backend_app",
-      "target": "backend_routers_libraries",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "submodule_import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L9",
-      "weight": 1.0,
-      "source": "backend_app",
-      "target": "backend_routers_movies",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "submodule_import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L9",
-      "weight": 1.0,
-      "source": "backend_app",
-      "target": "backend_routers_stats",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L10",
-      "weight": 1.0,
-      "source": "backend_app",
-      "target": "backend_services_task_manager",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L11",
-      "weight": 1.0,
-      "source": "backend_app",
-      "target": "database_models",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L27",
-      "weight": 1.0,
-      "source": "backend_app_global_exception_handler",
-      "target": "exception",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L27",
-      "weight": 1.0,
-      "source": "backend_app_global_exception_handler",
-      "target": "request",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L39",
-      "weight": 1.0,
-      "source": "backend_app_securityheadersmiddleware_dispatch",
-      "target": "request",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L39",
-      "weight": 1.0,
-      "source": "backend_app_securityheadersmiddleware",
-      "target": "backend_app_securityheadersmiddleware_dispatch",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "backend/app.py",
-      "source_location": "L8",
-      "weight": 0.8,
-      "source": "backend_app_securityheadersmiddleware",
-      "target": "backend_database_moviequeries",
-      "confidence_score": 0.5
-    },
-    {
-      "relation": "inherits",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L38",
-      "weight": 1.0,
-      "source": "backend_app_securityheadersmiddleware",
-      "target": "basehttpmiddleware",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/app.py",
-      "source_location": "L111",
-      "weight": 1.0,
-      "source": "backend_app_rationale_111",
-      "target": "backend_app_root",
-      "confidence_score": 1.0
+      "target": "backend_database"
     },
     {
       "relation": "contains",
@@ -5193,10 +4991,31 @@
       "target": "backend_database"
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app",
+      "target": "backend_database_moviequeries"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app.py",
+      "source_location": "L8",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "backend_app_securityheadersmiddleware",
+      "target": "backend_database_moviequeries"
+    },
+    {
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L300",
+      "source_location": "L299",
       "weight": 1.0,
       "source": "backend_database_moviequeries",
       "target": "backend_database_moviequeries_get_genres",
@@ -5256,7 +5075,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L328",
+      "source_location": "L327",
       "weight": 1.0,
       "source": "backend_database_moviequeries",
       "target": "backend_database_moviequeries_get_stats",
@@ -5419,7 +5238,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L301",
+      "source_location": "L300",
       "weight": 1.0,
       "source": "backend_database_moviequeries_get_genres",
       "target": "backend_database_moviequeries_get_session",
@@ -5485,7 +5304,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L329",
+      "source_location": "L328",
       "weight": 1.0,
       "source": "backend_database_moviequeries_get_stats",
       "target": "backend_database_moviequeries_get_session",
@@ -5540,11 +5359,192 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "backend/database.py",
-      "source_location": "L328",
+      "source_location": "L327",
       "weight": 1.0,
       "source": "backend_database_moviequeries_get_stats",
       "target": "any",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app",
+      "target": "backend_app_global_exception_handler"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L110",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app",
+      "target": "backend_app_root"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app",
+      "target": "backend_app_securityheadersmiddleware"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app",
+      "target": "backend_config"
+    },
+    {
+      "relation": "imports_from",
+      "context": "submodule_import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app",
+      "target": "backend_routers_admin"
+    },
+    {
+      "relation": "imports_from",
+      "context": "submodule_import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app",
+      "target": "backend_routers_auth_router"
+    },
+    {
+      "relation": "imports_from",
+      "context": "submodule_import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app",
+      "target": "backend_routers_libraries"
+    },
+    {
+      "relation": "imports_from",
+      "context": "submodule_import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app",
+      "target": "backend_routers_movies"
+    },
+    {
+      "relation": "imports_from",
+      "context": "submodule_import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app",
+      "target": "backend_routers_stats"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app",
+      "target": "backend_services_task_manager"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app",
+      "target": "database_models"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app_global_exception_handler",
+      "target": "exception"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app_global_exception_handler",
+      "target": "request"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L39",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app_securityheadersmiddleware_dispatch",
+      "target": "request"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L39",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app_securityheadersmiddleware",
+      "target": "backend_app_securityheadersmiddleware_dispatch"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app_securityheadersmiddleware",
+      "target": "basehttpmiddleware"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app.py",
+      "source_location": "L111",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app_rationale_111",
+      "target": "backend_app_root"
     },
     {
       "relation": "imports_from",
@@ -14306,5 +14306,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "1a529c9723c5655c849a1567d43b2d531525e796"
+  "built_at_commit": "270d973b5384edccee3d6a54109040b0f142f7f3"
 }
