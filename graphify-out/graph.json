@@ -4,14 +4,154 @@
   "graph": {},
   "nodes": [
     {
+      "label": "config.py",
+      "file_type": "code",
+      "source_file": "config.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "config",
+      "community": 14,
+      "norm_label": "config.py"
+    },
+    {
+      "label": "Settings",
+      "file_type": "code",
+      "source_file": "config.py",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "config_settings",
+      "community": 14,
+      "norm_label": "settings"
+    },
+    {
+      "label": "_required_env()",
+      "file_type": "code",
+      "source_file": "config.py",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "config_required_env",
+      "community": 14,
+      "norm_label": "_required_env()"
+    },
+    {
+      "label": "_int_env()",
+      "file_type": "code",
+      "source_file": "config.py",
+      "source_location": "L36",
+      "_origin": "ast",
+      "id": "config_int_env",
+      "community": 14,
+      "norm_label": "_int_env()"
+    },
+    {
+      "label": "_path_env()",
+      "file_type": "code",
+      "source_file": "config.py",
+      "source_location": "L47",
+      "_origin": "ast",
+      "id": "config_path_env",
+      "community": 14,
+      "norm_label": "_path_env()"
+    },
+    {
+      "label": "Path",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "path",
+      "community": 14,
+      "norm_label": "path"
+    },
+    {
+      "label": "_get_app_env()",
+      "file_type": "code",
+      "source_file": "config.py",
+      "source_location": "L55",
+      "_origin": "ast",
+      "id": "config_get_app_env",
+      "community": 14,
+      "norm_label": "_get_app_env()"
+    },
+    {
+      "label": "export_session_string.py",
+      "file_type": "code",
+      "source_file": "export_session_string.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "export_session_string",
+      "community": 14,
+      "norm_label": "export_session_string.py"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "export_session_string.py",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "export_session_string_main",
+      "community": 14,
+      "norm_label": "main()"
+    },
+    {
+      "label": "export_session_string.py \u2014 Helper script to export your local Telethon session a",
+      "file_type": "rationale",
+      "source_file": "export_session_string.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "export_session_string_rationale_1",
+      "community": 14,
+      "norm_label": "export_session_string.py \u2014 helper script to export your local telethon session a"
+    },
+    {
+      "label": "telegram_client.py",
+      "file_type": "code",
+      "source_file": "scraper/telegram_client.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scraper_telegram_client",
+      "community": 14,
+      "norm_label": "telegram_client.py"
+    },
+    {
+      "label": "get_telegram_client()",
+      "file_type": "code",
+      "source_file": "scraper/telegram_client.py",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "scraper_telegram_client_get_telegram_client",
+      "community": 14,
+      "norm_label": "get_telegram_client()"
+    },
+    {
+      "label": "TelegramClient",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "telegramclient",
+      "community": 14,
+      "norm_label": "telegramclient"
+    },
+    {
+      "label": "Create, authenticate, and cleanly disconnect a Telethon client.",
+      "file_type": "rationale",
+      "source_file": "scraper/telegram_client.py",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "scraper_telegram_client_rationale_13",
+      "community": 14,
+      "norm_label": "create, authenticate, and cleanly disconnect a telethon client."
+    },
+    {
       "label": "tmdb_service.py",
       "file_type": "code",
       "source_file": "tmdb_service.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "tmdb_service",
-      "community": 3,
-      "norm_label": "tmdb_service.py"
+      "community": 42,
+      "norm_label": "tmdb_service.py",
+      "id": "tmdb_service"
     },
     {
       "label": "search_movie()",
@@ -19,9 +159,9 @@
       "source_file": "tmdb_service.py",
       "source_location": "L24",
       "_origin": "ast",
-      "id": "tmdb_service_search_movie",
-      "community": 3,
-      "norm_label": "search_movie()"
+      "community": 42,
+      "norm_label": "search_movie()",
+      "id": "tmdb_service_search_movie"
     },
     {
       "label": "Any",
@@ -29,9 +169,9 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "any",
-      "community": 1,
-      "norm_label": "any"
+      "community": 42,
+      "norm_label": "any",
+      "id": "any"
     },
     {
       "label": "get_movie_details()",
@@ -39,9 +179,9 @@
       "source_file": "tmdb_service.py",
       "source_location": "L59",
       "_origin": "ast",
-      "id": "tmdb_service_get_movie_details",
-      "community": 3,
-      "norm_label": "get_movie_details()"
+      "community": 42,
+      "norm_label": "get_movie_details()",
+      "id": "tmdb_service_get_movie_details"
     },
     {
       "label": "build_poster_url()",
@@ -49,9 +189,9 @@
       "source_file": "tmdb_service.py",
       "source_location": "L88",
       "_origin": "ast",
-      "id": "tmdb_service_build_poster_url",
-      "community": 3,
-      "norm_label": "build_poster_url()"
+      "community": 42,
+      "norm_label": "build_poster_url()",
+      "id": "tmdb_service_build_poster_url"
     },
     {
       "label": "_tmdb_get()",
@@ -59,9 +199,9 @@
       "source_file": "tmdb_service.py",
       "source_location": "L95",
       "_origin": "ast",
-      "id": "tmdb_service_tmdb_get",
-      "community": 3,
-      "norm_label": "_tmdb_get()"
+      "community": 42,
+      "norm_label": "_tmdb_get()",
+      "id": "tmdb_service_tmdb_get"
     },
     {
       "label": "_choose_best_match()",
@@ -69,9 +209,9 @@
       "source_file": "tmdb_service.py",
       "source_location": "L135",
       "_origin": "ast",
-      "id": "tmdb_service_choose_best_match",
-      "community": 3,
-      "norm_label": "_choose_best_match()"
+      "community": 42,
+      "norm_label": "_choose_best_match()",
+      "id": "tmdb_service_choose_best_match"
     },
     {
       "label": "_normalize_title()",
@@ -79,9 +219,9 @@
       "source_file": "tmdb_service.py",
       "source_location": "L171",
       "_origin": "ast",
-      "id": "tmdb_service_normalize_title",
-      "community": 3,
-      "norm_label": "_normalize_title()"
+      "community": 42,
+      "norm_label": "_normalize_title()",
+      "id": "tmdb_service_normalize_title"
     },
     {
       "label": "Search TMDB by movie title and return the best matching result.      Returned",
@@ -89,9 +229,9 @@
       "source_file": "tmdb_service.py",
       "source_location": "L25",
       "_origin": "ast",
-      "id": "tmdb_service_rationale_25",
-      "community": 3,
-      "norm_label": "search tmdb by movie title and return the best matching result.      returned"
+      "community": 42,
+      "norm_label": "search tmdb by movie title and return the best matching result.      returned",
+      "id": "tmdb_service_rationale_25"
     },
     {
       "label": "Fetch detailed TMDB metadata for a movie.      Returned keys:     - poster_pa",
@@ -99,9 +239,9 @@
       "source_file": "tmdb_service.py",
       "source_location": "L60",
       "_origin": "ast",
-      "id": "tmdb_service_rationale_60",
-      "community": 3,
-      "norm_label": "fetch detailed tmdb metadata for a movie.      returned keys:     - poster_pa"
+      "community": 42,
+      "norm_label": "fetch detailed tmdb metadata for a movie.      returned keys:     - poster_pa",
+      "id": "tmdb_service_rationale_60"
     },
     {
       "label": "database.py",
@@ -139,7 +279,7 @@
       "source_file": "backend/database.py",
       "source_location": "L38",
       "_origin": "ast",
-      "community": 1,
+      "community": 42,
       "norm_label": "._get_session()",
       "id": "backend_database_moviequeries_get_session"
     },
@@ -149,7 +289,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 1,
+      "community": 42,
       "norm_label": "session",
       "id": "session"
     },
@@ -159,7 +299,7 @@
       "source_file": "backend/database.py",
       "source_location": "L45",
       "_origin": "ast",
-      "community": 1,
+      "community": 42,
       "norm_label": ".get_libraries()",
       "id": "backend_database_moviequeries_get_libraries"
     },
@@ -169,7 +309,7 @@
       "source_file": "backend/database.py",
       "source_location": "L76",
       "_origin": "ast",
-      "community": 1,
+      "community": 42,
       "norm_label": ".get_library_by_slug()",
       "id": "backend_database_moviequeries_get_library_by_slug"
     },
@@ -179,7 +319,7 @@
       "source_file": "backend/database.py",
       "source_location": "L109",
       "_origin": "ast",
-      "community": 1,
+      "community": 42,
       "norm_label": ".get_movies()",
       "id": "backend_database_moviequeries_get_movies"
     },
@@ -189,7 +329,7 @@
       "source_file": "backend/database.py",
       "source_location": "L203",
       "_origin": "ast",
-      "community": 1,
+      "community": 42,
       "norm_label": ".get_movie()",
       "id": "backend_database_moviequeries_get_movie"
     },
@@ -199,7 +339,7 @@
       "source_file": "backend/database.py",
       "source_location": "L299",
       "_origin": "ast",
-      "community": 1,
+      "community": 42,
       "norm_label": ".get_genres()",
       "id": "backend_database_moviequeries_get_genres"
     },
@@ -209,7 +349,7 @@
       "source_file": "backend/database.py",
       "source_location": "L327",
       "_origin": "ast",
-      "community": 1,
+      "community": 42,
       "norm_label": ".get_stats()",
       "id": "backend_database_moviequeries_get_stats"
     },
@@ -384,16 +524,6 @@
       "id": "database_models_get_db_url"
     },
     {
-      "label": "Path",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "community": 0,
-      "norm_label": "path",
-      "id": "path"
-    },
-    {
       "label": "init_db()",
       "file_type": "code",
       "source_file": "database/models.py",
@@ -559,7 +689,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 20,
+      "community": 1,
       "norm_label": "basemodel",
       "id": "basemodel"
     },
@@ -839,7 +969,7 @@
       "source_file": "backend/models.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 20,
+      "community": 1,
       "norm_label": "models.py",
       "id": "backend_models"
     },
@@ -849,7 +979,7 @@
       "source_file": "backend/models.py",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 20,
+      "community": 1,
       "norm_label": "_parse_genres()",
       "id": "backend_models_parse_genres"
     },
@@ -859,7 +989,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 20,
+      "community": 1,
       "norm_label": "any",
       "id": "backend_models_py_any"
     },
@@ -869,7 +999,7 @@
       "source_file": "backend/models.py",
       "source_location": "L33",
       "_origin": "ast",
-      "community": 20,
+      "community": 1,
       "norm_label": "tmdbmovieresponse",
       "id": "backend_models_tmdbmovieresponse"
     },
@@ -879,7 +1009,7 @@
       "source_file": "backend/models.py",
       "source_location": "L49",
       "_origin": "ast",
-      "community": 20,
+      "community": 1,
       "norm_label": ".parse_genres()",
       "id": "backend_models_tmdbmovieresponse_parse_genres"
     },
@@ -889,7 +1019,7 @@
       "source_file": "backend/models.py",
       "source_location": "L54",
       "_origin": "ast",
-      "community": 20,
+      "community": 1,
       "norm_label": ".poster_url()",
       "id": "backend_models_tmdbmovieresponse_poster_url"
     },
@@ -899,7 +1029,7 @@
       "source_file": "backend/models.py",
       "source_location": "L61",
       "_origin": "ast",
-      "community": 20,
+      "community": 1,
       "norm_label": ".backdrop_url()",
       "id": "backend_models_tmdbmovieresponse_backdrop_url"
     },
@@ -909,7 +1039,7 @@
       "source_file": "backend/models.py",
       "source_location": "L71",
       "_origin": "ast",
-      "community": 20,
+      "community": 1,
       "norm_label": "telegrammessageresponse",
       "id": "backend_models_telegrammessageresponse"
     },
@@ -929,7 +1059,7 @@
       "source_file": "backend/models.py",
       "source_location": "L94",
       "_origin": "ast",
-      "community": 20,
+      "community": 1,
       "norm_label": "movielistitem",
       "id": "backend_models_movielistitem"
     },
@@ -939,7 +1069,7 @@
       "source_file": "backend/models.py",
       "source_location": "L105",
       "_origin": "ast",
-      "community": 20,
+      "community": 1,
       "norm_label": ".parse_genres()",
       "id": "backend_models_movielistitem_parse_genres"
     },
@@ -949,7 +1079,7 @@
       "source_file": "backend/models.py",
       "source_location": "L113",
       "_origin": "ast",
-      "community": 20,
+      "community": 1,
       "norm_label": "paginatedresponse",
       "id": "backend_models_paginatedresponse"
     },
@@ -959,7 +1089,7 @@
       "source_file": "backend/models.py",
       "source_location": "L125",
       "_origin": "ast",
-      "community": 20,
+      "community": 1,
       "norm_label": "genrelistresponse",
       "id": "backend_models_genrelistresponse"
     },
@@ -989,7 +1119,7 @@
       "source_file": "backend/models.py",
       "source_location": "L155",
       "_origin": "ast",
-      "community": 20,
+      "community": 1,
       "norm_label": "librarylistresponse",
       "id": "backend_models_librarylistresponse"
     },
@@ -1029,7 +1159,7 @@
       "source_file": "backend/models.py",
       "source_location": "L196",
       "_origin": "ast",
-      "community": 20,
+      "community": 1,
       "norm_label": "scanrequest",
       "id": "backend_models_scanrequest"
     },
@@ -1039,7 +1169,7 @@
       "source_file": "backend/models.py",
       "source_location": "L201",
       "_origin": "ast",
-      "community": 20,
+      "community": 1,
       "norm_label": "tmdbupdaterequest",
       "id": "backend_models_tmdbupdaterequest"
     },
@@ -1089,7 +1219,7 @@
       "source_file": "backend/models.py",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 20,
+      "community": 1,
       "norm_label": "accept a json string or a plain list and always return ``list[str]``.",
       "id": "backend_models_rationale_17"
     },
@@ -1099,7 +1229,7 @@
       "source_file": "backend/models.py",
       "source_location": "L197",
       "_origin": "ast",
-      "community": 20,
+      "community": 1,
       "norm_label": "body for launching a channel scan.",
       "id": "backend_models_rationale_197"
     },
@@ -1109,7 +1239,7 @@
       "source_file": "backend/models.py",
       "source_location": "L202",
       "_origin": "ast",
-      "community": 20,
+      "community": 1,
       "norm_label": "body for launching a tmdb update.",
       "id": "backend_models_rationale_202"
     },
@@ -2014,74 +2144,14 @@
       "id": "backend_services_task_manager_rationale_143"
     },
     {
-      "label": "config.py",
-      "file_type": "code",
-      "source_file": "config.py",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 14,
-      "norm_label": "config.py",
-      "id": "config"
-    },
-    {
-      "label": "Settings",
-      "file_type": "code",
-      "source_file": "config.py",
-      "source_location": "L15",
-      "_origin": "ast",
-      "community": 14,
-      "norm_label": "settings",
-      "id": "config_settings"
-    },
-    {
-      "label": "_required_env()",
-      "file_type": "code",
-      "source_file": "config.py",
-      "source_location": "L27",
-      "_origin": "ast",
-      "community": 14,
-      "norm_label": "_required_env()",
-      "id": "config_required_env"
-    },
-    {
-      "label": "_int_env()",
-      "file_type": "code",
-      "source_file": "config.py",
-      "source_location": "L34",
-      "_origin": "ast",
-      "community": 14,
-      "norm_label": "_int_env()",
-      "id": "config_int_env"
-    },
-    {
-      "label": "_path_env()",
-      "file_type": "code",
-      "source_file": "config.py",
-      "source_location": "L45",
-      "_origin": "ast",
-      "community": 14,
-      "norm_label": "_path_env()",
-      "id": "config_path_env"
-    },
-    {
       "label": "Path",
       "file_type": "code",
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 14,
+      "community": 43,
       "norm_label": "path",
       "id": "config_py_path"
-    },
-    {
-      "label": "_get_app_env()",
-      "file_type": "code",
-      "source_file": "config.py",
-      "source_location": "L53",
-      "_origin": "ast",
-      "community": 14,
-      "norm_label": "_get_app_env()",
-      "id": "config_get_app_env"
     },
     {
       "label": "Path",
@@ -3654,44 +3724,14 @@
       "id": "scraper_scraper_rationale_50"
     },
     {
-      "label": "telegram_client.py",
-      "file_type": "code",
-      "source_file": "scraper/telegram_client.py",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 14,
-      "norm_label": "telegram_client.py",
-      "id": "scraper_telegram_client"
-    },
-    {
-      "label": "get_telegram_client()",
-      "file_type": "code",
-      "source_file": "scraper/telegram_client.py",
-      "source_location": "L12",
-      "_origin": "ast",
-      "community": 14,
-      "norm_label": "get_telegram_client()",
-      "id": "scraper_telegram_client_get_telegram_client"
-    },
-    {
       "label": "TelegramClient",
       "file_type": "code",
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 14,
+      "community": 44,
       "norm_label": "telegramclient",
       "id": "scraper_telegram_client_py_telegramclient"
-    },
-    {
-      "label": "Create, authenticate, and cleanly disconnect a Telethon client.",
-      "file_type": "rationale",
-      "source_file": "scraper/telegram_client.py",
-      "source_location": "L13",
-      "_origin": "ast",
-      "community": 14,
-      "norm_label": "create, authenticate, and cleanly disconnect a telethon client.",
-      "id": "scraper_telegram_client_rationale_13"
     },
     {
       "label": "check_libs.py",
@@ -3839,7 +3879,7 @@
       "source_file": "test_tmdb.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 3,
+      "community": 42,
       "norm_label": "test_tmdb.py",
       "id": "test_tmdb"
     },
@@ -3849,7 +3889,7 @@
       "source_file": "test_tmdb.py",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 3,
+      "community": 42,
       "norm_label": "main()",
       "id": "test_tmdb_main"
     },
@@ -4926,6 +4966,250 @@
   ],
   "links": [
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "config.py",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "config",
+      "target": "config_get_app_env",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "config.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "config",
+      "target": "config_int_env",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "config.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "config",
+      "target": "config_path_env",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "config.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "config",
+      "target": "config_required_env",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "config.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "config",
+      "target": "config_settings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "export_session_string.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "export_session_string",
+      "target": "config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "fix_message_id_constraint.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "fix_message_id_constraint",
+      "target": "config"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main",
+      "target": "config"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "migrate_channel_links.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "migrate_channel_links",
+      "target": "config"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "scraper/telegram_client.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "scraper_telegram_client",
+      "target": "config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "test_migration.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "test_migration",
+      "target": "config"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "update_tmdb.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "update_tmdb",
+      "target": "config"
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "config.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "config_path_env",
+      "target": "path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "database/models.py",
+      "source_location": "L72",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "database_models_get_db_url",
+      "target": "path"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "export_session_string.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "export_session_string",
+      "target": "export_session_string_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "export_session_string.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "export_session_string_rationale_1",
+      "target": "export_session_string",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "export_session_string.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "export_session_string_main",
+      "target": "telegramclient"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main",
+      "target": "scraper_telegram_client"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scraper/telegram_client.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "scraper_telegram_client",
+      "target": "scraper_telegram_client_get_telegram_client",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main",
+      "target": "scraper_telegram_client_get_telegram_client"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "main.py",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "main_run",
+      "target": "scraper_telegram_client_get_telegram_client"
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "scraper/telegram_client.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "scraper_telegram_client_get_telegram_client",
+      "target": "telegramclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scraper/telegram_client.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "scraper_telegram_client_rationale_13",
+      "target": "scraper_telegram_client_get_telegram_client",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -4942,9 +5226,9 @@
       "source_file": "tmdb_service.py",
       "source_location": "L88",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tmdb_service",
-      "target": "tmdb_service_build_poster_url",
-      "confidence_score": 1.0
+      "target": "tmdb_service_build_poster_url"
     },
     {
       "relation": "contains",
@@ -4952,9 +5236,9 @@
       "source_file": "tmdb_service.py",
       "source_location": "L135",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tmdb_service",
-      "target": "tmdb_service_choose_best_match",
-      "confidence_score": 1.0
+      "target": "tmdb_service_choose_best_match"
     },
     {
       "relation": "contains",
@@ -4962,9 +5246,9 @@
       "source_file": "tmdb_service.py",
       "source_location": "L59",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tmdb_service",
-      "target": "tmdb_service_get_movie_details",
-      "confidence_score": 1.0
+      "target": "tmdb_service_get_movie_details"
     },
     {
       "relation": "contains",
@@ -4972,9 +5256,9 @@
       "source_file": "tmdb_service.py",
       "source_location": "L171",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tmdb_service",
-      "target": "tmdb_service_normalize_title",
-      "confidence_score": 1.0
+      "target": "tmdb_service_normalize_title"
     },
     {
       "relation": "contains",
@@ -4982,9 +5266,9 @@
       "source_file": "tmdb_service.py",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tmdb_service",
-      "target": "tmdb_service_search_movie",
-      "confidence_score": 1.0
+      "target": "tmdb_service_search_movie"
     },
     {
       "relation": "contains",
@@ -4992,9 +5276,9 @@
       "source_file": "tmdb_service.py",
       "source_location": "L95",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tmdb_service",
-      "target": "tmdb_service_tmdb_get",
-      "confidence_score": 1.0
+      "target": "tmdb_service_tmdb_get"
     },
     {
       "relation": "imports_from",
@@ -5035,9 +5319,9 @@
       "source_file": "tmdb_service.py",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tmdb_service_rationale_25",
-      "target": "tmdb_service_search_movie",
-      "confidence_score": 1.0
+      "target": "tmdb_service_search_movie"
     },
     {
       "relation": "references",
@@ -5046,9 +5330,9 @@
       "source_file": "tmdb_service.py",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tmdb_service_search_movie",
-      "target": "any",
-      "confidence_score": 1.0
+      "target": "any"
     },
     {
       "relation": "calls",
@@ -5057,9 +5341,9 @@
       "source_file": "tmdb_service.py",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tmdb_service_search_movie",
-      "target": "tmdb_service_choose_best_match",
-      "confidence_score": 1.0
+      "target": "tmdb_service_choose_best_match"
     },
     {
       "relation": "calls",
@@ -5068,9 +5352,9 @@
       "source_file": "tmdb_service.py",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tmdb_service_search_movie",
-      "target": "tmdb_service_tmdb_get",
-      "confidence_score": 1.0
+      "target": "tmdb_service_tmdb_get"
     },
     {
       "relation": "references",
@@ -5134,9 +5418,9 @@
       "source_file": "tmdb_service.py",
       "source_location": "L135",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tmdb_service_choose_best_match",
-      "target": "any",
-      "confidence_score": 1.0
+      "target": "any"
     },
     {
       "relation": "references",
@@ -5145,9 +5429,9 @@
       "source_file": "tmdb_service.py",
       "source_location": "L59",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tmdb_service_get_movie_details",
-      "target": "any",
-      "confidence_score": 1.0
+      "target": "any"
     },
     {
       "relation": "references",
@@ -5156,9 +5440,9 @@
       "source_file": "tmdb_service.py",
       "source_location": "L95",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tmdb_service_tmdb_get",
-      "target": "any",
-      "confidence_score": 1.0
+      "target": "any"
     },
     {
       "relation": "imports",
@@ -5189,9 +5473,9 @@
       "source_file": "tmdb_service.py",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tmdb_service_get_movie_details",
-      "target": "tmdb_service_tmdb_get",
-      "confidence_score": 1.0
+      "target": "tmdb_service_tmdb_get"
     },
     {
       "relation": "rationale_for",
@@ -5199,9 +5483,9 @@
       "source_file": "tmdb_service.py",
       "source_location": "L60",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tmdb_service_rationale_60",
-      "target": "tmdb_service_get_movie_details",
-      "confidence_score": 1.0
+      "target": "tmdb_service_get_movie_details"
     },
     {
       "relation": "imports",
@@ -5232,9 +5516,9 @@
       "source_file": "tmdb_service.py",
       "source_location": "L136",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tmdb_service_choose_best_match",
-      "target": "tmdb_service_normalize_title",
-      "confidence_score": 1.0
+      "target": "tmdb_service_normalize_title"
     },
     {
       "relation": "imports",
@@ -6517,17 +6801,6 @@
       "confidence_score": 1.0,
       "source": "test_migration_run_test",
       "target": "database_models_telegrammessage"
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "database/models.py",
-      "source_location": "L72",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "database_models_get_db_url",
-      "target": "path"
     },
     {
       "relation": "rationale_for",
@@ -9762,133 +10035,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "config.py",
-      "source_location": "L53",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "config",
-      "target": "config_get_app_env"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "config.py",
-      "source_location": "L34",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "config",
-      "target": "config_int_env"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "config.py",
-      "source_location": "L45",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "config",
-      "target": "config_path_env"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "config.py",
-      "source_location": "L27",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "config",
-      "target": "config_required_env"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "config.py",
-      "source_location": "L15",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "config",
-      "target": "config_settings"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "fix_message_id_constraint.py",
-      "source_location": "L19",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "fix_message_id_constraint",
-      "target": "config"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "main.py",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "main",
-      "target": "config"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "migrate_channel_links.py",
-      "source_location": "L32",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "migrate_channel_links",
-      "target": "config"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "scraper/telegram_client.py",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scraper_telegram_client",
-      "target": "config"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "test_migration.py",
-      "source_location": "L19",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "test_migration",
-      "target": "config"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "update_tmdb.py",
-      "source_location": "L13",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "update_tmdb",
-      "target": "config"
-    },
-    {
-      "relation": "references",
-      "context": "return_type",
-      "confidence": "EXTRACTED",
-      "source_file": "config.py",
-      "source_location": "L45",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "config_path_env",
-      "target": "config_py_path"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "fix_message_id_constraint.py",
       "source_location": "L22",
       "weight": 1.0,
@@ -11967,28 +12113,6 @@
       "target": "scraper_scraper_telegrammoviescraper"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "main.py",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "main",
-      "target": "scraper_telegram_client"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "main.py",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "main",
-      "target": "scraper_telegram_client_get_telegram_client"
-    },
-    {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "main.py",
@@ -12041,17 +12165,6 @@
       "confidence_score": 1.0,
       "source": "main_run",
       "target": "scraper_scraper_telegrammoviescraper"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "main.py",
-      "source_location": "L31",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "main_run",
-      "target": "scraper_telegram_client_get_telegram_client"
     },
     {
       "relation": "contains",
@@ -13038,37 +13151,6 @@
       "confidence_score": 1.0,
       "source": "scraper_scraper_telegrammoviescraper_parse_message",
       "target": "message"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scraper/telegram_client.py",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scraper_telegram_client",
-      "target": "scraper_telegram_client_get_telegram_client"
-    },
-    {
-      "relation": "references",
-      "context": "generic_arg",
-      "confidence": "EXTRACTED",
-      "source_file": "scraper/telegram_client.py",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scraper_telegram_client_get_telegram_client",
-      "target": "scraper_telegram_client_py_telegramclient"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "scraper/telegram_client.py",
-      "source_location": "L13",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "scraper_telegram_client_rationale_13",
-      "target": "scraper_telegram_client_get_telegram_client"
     },
     {
       "relation": "contains",
@@ -14306,5 +14388,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "55426dd98f1a08958fe07fcd92ef1c51d1ba32f8"
+  "built_at_commit": "d9e240f2e0afdeebd6ca13241db50a5f0531c0dc"
 }

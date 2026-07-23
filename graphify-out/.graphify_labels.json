@@ -40,5 +40,8 @@
   "38": "Path",
   "39": "config.py",
   "40": "Request",
-  "41": "Any"
+  "41": "Any",
+  "42": "Any",
+  "43": "Path",
+  "44": "TelegramClient"
 }
