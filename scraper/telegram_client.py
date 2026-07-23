@@ -11,6 +11,11 @@ from config import settings
 @asynccontextmanager
 async def get_telegram_client() -> AsyncIterator[TelegramClient]:
     """Create, authenticate, and cleanly disconnect a Telethon client."""
+    if settings.telegram_api_id <= 0 or not settings.telegram_api_hash:
+        raise RuntimeError(
+            "Missing required environment variables for Telegram: TELEGRAM_API_ID and TELEGRAM_API_HASH must be configured."
+        )
+
     if settings.telegram_session_string:
         session = StringSession(settings.telegram_session_string)
     else:

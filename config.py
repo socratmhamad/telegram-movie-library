@@ -58,8 +58,8 @@ def _get_app_env() -> str:
 
 settings = Settings(
     telegram_api_id=_int_env("TELEGRAM_API_ID", 0),
-    telegram_api_hash=_required_env("TELEGRAM_API_HASH"),
-    telegram_channel=_required_env("TELEGRAM_CHANNEL"),
+    telegram_api_hash=os.getenv("TELEGRAM_API_HASH", ""),
+    telegram_channel=os.getenv("TELEGRAM_CHANNEL", ""),
     telegram_session_name=os.getenv("TELEGRAM_SESSION_NAME", "telegram_movies"),
     telegram_session_string=os.getenv("TELEGRAM_SESSION_STRING") or None,
     telegram_bot_token=os.getenv("TELEGRAM_BOT_TOKEN") or None,
@@ -70,5 +70,3 @@ settings = Settings(
     app_env=_get_app_env(),
 )
 
-if settings.telegram_api_id <= 0:
-    raise RuntimeError("Missing required environment variable: TELEGRAM_API_ID")
