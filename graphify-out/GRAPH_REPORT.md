@@ -1,16 +1,16 @@
 # Graph Report - Movis_with_Telegram  (2026-07-20)
 
 ## Corpus Check
-- 71 files · ~31,332 words
+- 71 files · ~31,334 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 492 nodes · 891 edges · 41 communities (32 shown, 9 thin omitted)
+- 492 nodes · 891 edges · 42 communities (32 shown, 10 thin omitted)
 - Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 25 edges (avg confidence: 0.78)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `270d973b`
+- Built from commit: `55426dd9`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -44,6 +44,7 @@
 - [[_COMMUNITY_Path|Path]]
 - [[_COMMUNITY_config.py|config.py]]
 - [[_COMMUNITY_Request|Request]]
+- [[_COMMUNITY_Any|Any]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `MovieQueries` - 24 edges
@@ -72,7 +73,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (41 total, 9 thin omitted)
+## Communities (42 total, 10 thin omitted)
 
 ### Community 0 - "MovieQueries"
 Cohesion: 0.10
@@ -80,7 +81,7 @@ Nodes (35): admin_delete_library(), Delete a library and all associated movies/m
 
 ### Community 1 - "movies.py"
 Cohesion: 0.07
-Nodes (35): Any, global_exception_handler(), Health-check / welcome endpoint., root(), SecurityHeadersMiddleware, MovieQueries, Read-only query layer that powers the FastAPI endpoints.      Uses SQLAlchemy., GenreListResponse (+27 more)
+Nodes (32): Any, global_exception_handler(), Health-check / welcome endpoint., root(), SecurityHeadersMiddleware, MovieQueries, Read-only query layer that powers the FastAPI endpoints.      Uses SQLAlchemy., LibraryResponse (+24 more)
 
 ### Community 2 - "App.jsx"
 Cohesion: 0.07
@@ -88,7 +89,7 @@ Nodes (53): decodeTokenPayload(), getAccessToken(), getAuthHeaders(), getAuthHea
 
 ### Community 3 - "process_movie"
 Cohesion: 0.14
-Nodes (20): Lock, main(), build_poster_url(), _choose_best_match(), get_movie_details(), _normalize_title(), Any, Search TMDB by movie title and return the best matching result.      Returned (+12 more)
+Nodes (19): Lock, main(), build_poster_url(), _choose_best_match(), get_movie_details(), _normalize_title(), Search TMDB by movie title and return the best matching result.      Returned, Fetch detailed TMDB metadata for a movie.      Returned keys:     - poster_pa (+11 more)
 
 ### Community 4 - "package.json"
 Cohesion: 0.13
@@ -128,7 +129,7 @@ Nodes (12): Any, task_manager.py — In-memory background task manager.  Spawns 
 
 ### Community 20 - "migrate_channel_links.py"
 Cohesion: 0.09
-Nodes (42): LibraryCreateRequest, LibraryDetailResponse, LibraryUpdateRequest, MigrationRequest, MovieListItem, _parse_genres(), Any, Accept a JSON string or a plain list and always return ``list[str]``. (+34 more)
+Nodes (45): GenreListResponse, LibraryCreateRequest, LibraryDetailResponse, LibraryListResponse, LibraryUpdateRequest, MigrationRequest, MovieListItem, PaginatedResponse (+37 more)
 
 ### Community 22 - "_parse_genres"
 Cohesion: 0.10
@@ -157,7 +158,7 @@ Nodes (9): get_app_env(), get_database_path(), get_database_url(), get_telegram_
 ## Knowledge Gaps
 - **79 isolated node(s):** `Settings`, `$schema`, `plugins`, `react/rules-of-hooks`, `react/only-export-components` (+74 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **10 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -170,9 +171,9 @@ _Questions this graph is uniquely positioned to answer:_
   _`Movie` has 9 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 8 inferred relationships involving `Library` (e.g. with `admin_delete_library()` and `admin_list_libraries()`) actually correct?**
   _`Library` has 8 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `Read-only query layer that powers the FastAPI endpoints.      Uses SQLAlchemy.`, `Health-check / welcome endpoint.`, `Helper to determine the database URL` to the rest of the system?**
+- **What connects `Search TMDB by movie title and return the best matching result.      Returned`, `Fetch detailed TMDB metadata for a movie.      Returned keys:     - poster_pa`, `Read-only query layer that powers the FastAPI endpoints.      Uses SQLAlchemy.` to the rest of the system?**
   _149 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `MovieQueries` be split into smaller, more focused modules?**
   _Cohesion score 0.10040816326530612 - nodes in this community are weakly interconnected._
 - **Should `movies.py` be split into smaller, more focused modules?**
-  _Cohesion score 0.06972789115646258 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07342995169082125 - nodes in this community are weakly interconnected._

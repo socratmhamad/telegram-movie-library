@@ -17,6 +17,8 @@ class Settings:
     telegram_api_hash: str
     telegram_channel: str
     telegram_session_name: str
+    telegram_session_string: str | None
+    telegram_bot_token: str | None
     message_limit: int
     database_path: Path
     database_url: str | None
@@ -59,6 +61,8 @@ settings = Settings(
     telegram_api_hash=_required_env("TELEGRAM_API_HASH"),
     telegram_channel=_required_env("TELEGRAM_CHANNEL"),
     telegram_session_name=os.getenv("TELEGRAM_SESSION_NAME", "telegram_movies"),
+    telegram_session_string=os.getenv("TELEGRAM_SESSION_STRING") or None,
+    telegram_bot_token=os.getenv("TELEGRAM_BOT_TOKEN") or None,
     message_limit=_int_env("MESSAGE_LIMIT", 100),
     database_path=_path_env("DATABASE_PATH", Path("database") / "movies.db"),
     database_url=os.getenv("DATABASE_URL") if _get_app_env() == "production" else None,
