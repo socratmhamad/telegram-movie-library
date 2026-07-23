@@ -45,8 +45,8 @@
     "semantic_hash": "9b2b8ef95c1354de49398b03eb9f69e9"
   },
   "config.py": {
-    "mtime": 1784800291.0507188,
-    "ast_hash": "c12844b399ca0456d838e758bb76ac30",
+    "mtime": 1784805271.6539478,
+    "ast_hash": "fe323c2d8b2fc5cbfa26951928c9224e",
     "semantic_hash": ""
   },
   "database/models.py": {
@@ -255,8 +255,8 @@
     "semantic_hash": ""
   },
   "requirements.txt": {
-    "mtime": 1784579210.9190187,
-    "ast_hash": "c22ad2d86c83dd78f0f2112205645234",
+    "mtime": 1784805255.0690541,
+    "ast_hash": "eab2508fcd5294d7b89ff101aec8fc41",
     "semantic_hash": ""
   },
   "frontend/public/favicon.svg": {
@@ -325,8 +325,8 @@
     "semantic_hash": ""
   },
   "scraper/telegram_client.py": {
-    "mtime": 1784800301.334432,
-    "ast_hash": "5a48e515d447c3266d8ca236aced4b26",
+    "mtime": 1784805277.2358673,
+    "ast_hash": "1dc9264ef959c06125311950bd55b95c",
     "semantic_hash": ""
   },
   "backend/auth.py": {

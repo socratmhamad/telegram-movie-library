@@ -13,6 +13,8 @@ import MovieDetail from './components/MovieDetail';
 import AdminDashboard from './components/AdminDashboard';
 import AdminLogin from './components/AdminLogin';
 import Hero from './components/Hero';
+import TelegramBanner from './components/TelegramBanner';
+import OnboardingModal from './components/OnboardingModal';
 import { isAuthenticated, logout, setupStorageListener } from './api/adminAuth';
 
 
@@ -177,6 +179,7 @@ function App() {
     <LibraryView
       libraryId={libraryId}
       libraryName={libraryInfo?.name}
+      telegramChannel={libraryInfo?.telegram_channel}
       onBackToLibraries={handleBackToLibraries}
       lang={lang}
       onToggleLang={handleToggleLang}
@@ -185,7 +188,7 @@ function App() {
 }
 
 
-function LibraryView({ libraryId, libraryName, onBackToLibraries, lang, onToggleLang }) {
+function LibraryView({ libraryId, libraryName, telegramChannel, onBackToLibraries, lang, onToggleLang }) {
   const {
     movies,
     total,
@@ -213,6 +216,8 @@ function LibraryView({ libraryId, libraryName, onBackToLibraries, lang, onToggle
 
   return (
     <Layout libraryName={null} onBackToLibraries={onBackToLibraries} lang={lang} onToggleLang={onToggleLang}>
+      <TelegramBanner telegramChannel={telegramChannel} lang={lang} />
+      <OnboardingModal libraryId={libraryId} telegramChannel={telegramChannel} lang={lang} />
       <div className="library-view-header">
         <button className="library-back-btn" onClick={onBackToLibraries}>
           <span className="arrow">{isAr ? '←' : '←'}</span>
