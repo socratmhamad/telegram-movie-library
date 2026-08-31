@@ -1392,6 +1392,14 @@ body {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.admin-section-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .admin-section-header h2 {
@@ -1399,6 +1407,40 @@ body {
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--text-primary);
+  margin: 0;
+}
+
+.admin-section-hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.admin-saving-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent-purple);
+  background: rgba(167, 139, 250, 0.12);
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  animation: pulse 1.5s infinite;
+}
+
+.admin-order-notification {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.12);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  animation: fadeIn 0.3s ease-out;
 }
 
 /* Table */
@@ -1448,6 +1490,101 @@ body {
 
 .admin-table tbody tr:last-child td {
   border-bottom: none;
+}
+
+.admin-cell-order {
+  width: 95px;
+  min-width: 95px;
+  user-select: none;
+}
+
+.admin-order-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.admin-drag-handle {
+  cursor: grab;
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  padding: 1px 3px;
+  border-radius: 4px;
+  transition: color var(--transition-fast), background var(--transition-fast);
+  line-height: 1;
+}
+
+.admin-drag-handle:hover {
+  color: var(--accent-purple);
+  background: rgba(167, 139, 250, 0.15);
+}
+
+.admin-drag-handle:active {
+  cursor: grabbing;
+}
+
+.admin-order-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--accent-purple);
+  background: rgba(167, 139, 250, 0.12);
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  border-radius: 6px;
+  min-width: 28px;
+  height: 22px;
+  padding: 0 4px;
+}
+
+.admin-reorder-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.admin-order-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  border-radius: 3px;
+  width: 18px;
+  height: 11px;
+  font-size: 0.5rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: all var(--transition-fast);
+}
+
+.admin-order-btn:hover:not(:disabled) {
+  background: var(--accent-purple);
+  color: #fff;
+  border-color: var(--accent-purple);
+}
+
+.admin-order-btn:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+.admin-draggable-row {
+  cursor: default;
+  transition: background var(--transition-fast), opacity var(--transition-fast);
+}
+
+.admin-draggable-row.is-dragging {
+  opacity: 0.4;
+  background: rgba(167, 139, 250, 0.18) !important;
+}
+
+.admin-draggable-row.drag-over {
+  border-top: 2px solid var(--accent-purple) !important;
+  background: rgba(167, 139, 250, 0.1) !important;
 }
 
 .admin-cell-id {

@@ -29,7 +29,7 @@ class SeriesQueries:
     def get_tv_libraries(self) -> list[dict[str, Any]]:
         with self._get_session() as session:
             libs = session.execute(
-                select(TVLibrary).order_by(TVLibrary.id)
+                select(TVLibrary).order_by(TVLibrary.display_order.asc(), TVLibrary.id.asc())
             ).scalars().all()
 
             result = []
@@ -56,6 +56,7 @@ class SeriesQueries:
                     "is_active": lib.is_active if lib.is_active is not None else True,
                     "series_count": series_count,
                     "posters": posters,
+                    "display_order": lib.display_order if lib.display_order is not None else 0,
                 })
             return result
 
@@ -88,6 +89,7 @@ class SeriesQueries:
                 "is_active": lib.is_active if lib.is_active is not None else True,
                 "series_count": series_count,
                 "posters": posters,
+                "display_order": lib.display_order if lib.display_order is not None else 0,
             }
 
     # ------------------------------------------------------------------

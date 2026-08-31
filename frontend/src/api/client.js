@@ -166,6 +166,14 @@ export function adminUpdateLibrary(id, data) {
   return mutate(`${ADMIN}/libraries/${id}`, 'PUT', data);
 }
 
+/** Admin: batch reorder libraries. */
+export function adminReorderLibraries(idsOrItems) {
+  const payload = Array.isArray(idsOrItems) && typeof idsOrItems[0] === 'number'
+    ? { ids: idsOrItems }
+    : { items: idsOrItems };
+  return mutate(`${ADMIN}/libraries/reorder`, 'PUT', payload);
+}
+
 /** Admin: delete library. */
 export function adminDeleteLibrary(id) {
   return mutate(`${ADMIN}/libraries/${id}`, 'DELETE');
@@ -274,6 +282,14 @@ export function adminCreateTVLibrary(data) {
 /** Admin: update TV library. */
 export function adminUpdateTVLibrary(id, data) {
   return mutate(`${ADMIN}/tv-libraries/${id}`, 'PUT', data);
+}
+
+/** Admin: batch reorder TV libraries. */
+export function adminReorderTVLibraries(idsOrItems) {
+  const payload = Array.isArray(idsOrItems) && typeof idsOrItems[0] === 'number'
+    ? { ids: idsOrItems }
+    : { items: idsOrItems };
+  return mutate(`${ADMIN}/tv-libraries/reorder`, 'PUT', payload);
 }
 
 /** Admin: delete TV library. */

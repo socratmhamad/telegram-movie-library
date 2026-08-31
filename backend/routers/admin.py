@@ -13,6 +13,7 @@ from backend.models import (
     LibraryCreateRequest,
     LibraryUpdateRequest,
     LibraryDetailResponse,
+    LibraryReorderRequest,
     MigrationRequest,
     TaskListResponse,
     TaskLogsResponse,
@@ -23,6 +24,7 @@ from backend.tv_models import (
     TVLibraryCreateRequest,
     TVLibraryUpdateRequest,
     TVLibraryDetailResponse,
+    TVLibraryReorderRequest,
     FeaturedTVCreateRequest,
     FeaturedTVUpdateRequest,
     FeaturedTVResponse,
@@ -60,7 +62,7 @@ def admin_list_libraries(request: Request):
     SessionLocal = _get_session_factory(request)
     with SessionLocal() as session:
         libs = session.execute(
-            select(Library).order_by(Library.id)
+            select(Library).order_by(Library.display_order.asc(), Library.id.asc())
         ).scalars().all()
 
         result = []
@@ -92,6 +94,7 @@ def admin_list_libraries(request: Request):
                 movies_with_tmdb=movies_with_tmdb,
                 movies_without_tmdb=movie_count - movies_with_tmdb,
                 total_messages=total_messages,
+                display_order=lib.display_order if lib.display_order is not None else 0,
             ))
         return result
 
@@ -101,6 +104,12 @@ def admin_create_library(body: LibraryCreateRequest, request: Request):
     """Create a new library."""
     SessionLocal = _get_session_factory(request)
     with SessionLocal() as session:
+        if body.display_order is not None:
+            display_order = body.display_order
+        else:
+            max_order = session.scalar(select(func.max(Library.display_order))) or 0
+            display_order = max_order + 1
+
         lib = Library(
             name=body.name,
             name_en=body.name_en,
@@ -108,6 +117,7 @@ def admin_create_library(body: LibraryCreateRequest, request: Request):
             telegram_channel=body.telegram_channel,
             telegram_channel_id=body.telegram_channel_id,
             is_active=body.is_active,
+            display_order=display_order,
         )
         session.add(lib)
         session.commit()
@@ -120,7 +130,26 @@ def admin_create_library(body: LibraryCreateRequest, request: Request):
             telegram_channel=lib.telegram_channel,
             telegram_channel_id=lib.telegram_channel_id,
             is_active=lib.is_active,
+            display_order=lib.display_order if lib.display_order is not None else 0,
         )
+
+
+@router.put("/libraries/reorder")
+def admin_reorder_libraries(body: LibraryReorderRequest, request: Request):
+    """Batch reorder movie libraries."""
+    SessionLocal = _get_session_factory(request)
+    with SessionLocal() as session:
+        if body.ids is not None:
+            for idx, lib_id in enumerate(body.ids, start=1):
+                session.query(Library).filter(Library.id == lib_id).update({"display_order": idx})
+        elif body.items is not None:
+            for item in body.items:
+                lib_id = item.id if hasattr(item, "id") else item.get("id")
+                order = item.display_order if hasattr(item, "display_order") else item.get("display_order", 0)
+                if lib_id is not None:
+                    session.query(Library).filter(Library.id == lib_id).update({"display_order": order})
+        session.commit()
+    return {"status": "ok"}
 
 
 @router.put("/libraries/{library_id}", response_model=LibraryDetailResponse)
@@ -146,6 +175,8 @@ def admin_update_library(library_id: int, body: LibraryUpdateRequest, request: R
             lib.telegram_channel_id = body.telegram_channel_id
         if body.is_active is not None:
             lib.is_active = body.is_active
+        if body.display_order is not None:
+            lib.display_order = body.display_order
 
         session.commit()
         session.refresh(lib)
@@ -177,6 +208,7 @@ def admin_update_library(library_id: int, body: LibraryUpdateRequest, request: R
             movies_with_tmdb=movies_with_tmdb,
             movies_without_tmdb=movie_count - movies_with_tmdb,
             total_messages=total_messages,
+            display_order=lib.display_order if lib.display_order is not None else 0,
         )
 
 
@@ -347,7 +379,7 @@ def admin_list_tv_libraries(request: Request):
     SessionLocal = _get_session_factory(request)
     with SessionLocal() as session:
         libs = session.execute(
-            select(TVLibrary).order_by(TVLibrary.id)
+            select(TVLibrary).order_by(TVLibrary.display_order.asc(), TVLibrary.id.asc())
         ).scalars().all()
 
         result = []
@@ -373,6 +405,7 @@ def admin_list_tv_libraries(request: Request):
                 series_count=series_count,
                 series_with_tmdb=series_with_tmdb,
                 series_without_tmdb=series_count - series_with_tmdb,
+                display_order=lib.display_order if lib.display_order is not None else 0,
             ))
         return result
 
@@ -382,6 +415,12 @@ def admin_create_tv_library(body: TVLibraryCreateRequest, request: Request):
     """Create a new TV series library."""
     SessionLocal = _get_session_factory(request)
     with SessionLocal() as session:
+        if body.display_order is not None:
+            display_order = body.display_order
+        else:
+            max_order = session.scalar(select(func.max(TVLibrary.display_order))) or 0
+            display_order = max_order + 1
+
         lib = TVLibrary(
             name=body.name,
             name_en=body.name_en,
@@ -389,6 +428,7 @@ def admin_create_tv_library(body: TVLibraryCreateRequest, request: Request):
             telegram_channel=body.telegram_channel,
             telegram_channel_id=body.telegram_channel_id,
             is_active=body.is_active,
+            display_order=display_order,
         )
         session.add(lib)
         session.commit()
@@ -401,7 +441,26 @@ def admin_create_tv_library(body: TVLibraryCreateRequest, request: Request):
             telegram_channel=lib.telegram_channel,
             telegram_channel_id=lib.telegram_channel_id,
             is_active=lib.is_active,
+            display_order=lib.display_order if lib.display_order is not None else 0,
         )
+
+
+@router.put("/tv-libraries/reorder")
+def admin_reorder_tv_libraries(body: TVLibraryReorderRequest, request: Request):
+    """Batch reorder TV libraries."""
+    SessionLocal = _get_session_factory(request)
+    with SessionLocal() as session:
+        if body.ids is not None:
+            for idx, lib_id in enumerate(body.ids, start=1):
+                session.query(TVLibrary).filter(TVLibrary.id == lib_id).update({"display_order": idx})
+        elif body.items is not None:
+            for item in body.items:
+                lib_id = item.id if hasattr(item, "id") else item.get("id")
+                order = item.display_order if hasattr(item, "display_order") else item.get("display_order", 0)
+                if lib_id is not None:
+                    session.query(TVLibrary).filter(TVLibrary.id == lib_id).update({"display_order": order})
+        session.commit()
+    return {"status": "ok"}
 
 
 @router.put("/tv-libraries/{library_id}", response_model=TVLibraryDetailResponse)
@@ -427,6 +486,8 @@ def admin_update_tv_library(library_id: int, body: TVLibraryUpdateRequest, reque
             lib.telegram_channel_id = body.telegram_channel_id
         if body.is_active is not None:
             lib.is_active = body.is_active
+        if body.display_order is not None:
+            lib.display_order = body.display_order
 
         session.commit()
         session.refresh(lib)
@@ -452,6 +513,7 @@ def admin_update_tv_library(library_id: int, body: TVLibraryUpdateRequest, reque
             series_count=series_count,
             series_with_tmdb=series_with_tmdb,
             series_without_tmdb=series_count - series_with_tmdb,
+            display_order=lib.display_order if lib.display_order is not None else 0,
         )
 
 

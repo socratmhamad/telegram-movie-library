@@ -19,6 +19,7 @@ class TVLibrary(Base):
     telegram_channel = Column(String, nullable=False, unique=True)
     is_active = Column(Boolean, default=True)
     telegram_channel_id = Column(String)
+    display_order = Column(Integer, default=0, nullable=True)
 
     series = relationship("TVSeries", back_populates="library", cascade="all, delete-orphan")
 

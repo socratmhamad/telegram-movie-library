@@ -3,6 +3,7 @@ import {
   adminFetchLibraries,
   adminCreateLibrary,
   adminUpdateLibrary,
+  adminReorderLibraries,
   adminDeleteLibrary,
   adminScanLibrary,
   adminUpdateTmdb,
@@ -14,6 +15,7 @@ import {
   adminFetchTVLibraries,
   adminCreateTVLibrary,
   adminUpdateTVLibrary,
+  adminReorderTVLibraries,
   adminDeleteTVLibrary,
   adminScanTVLibrary,
   adminUpdateTVTmdb,
@@ -40,6 +42,7 @@ function LibraryForm({ library, onSave, onCancel }) {
     telegram_channel: library?.telegram_channel || '',
     telegram_channel_id: library?.telegram_channel_id || '',
     is_active: library?.is_active ?? true,
+    display_order: library?.display_order ?? '',
   });
   const [saving, setSaving] = useState(false);
 
@@ -54,6 +57,11 @@ function LibraryForm({ library, onSave, onCancel }) {
     try {
       const payload = { ...form };
       if (!payload.telegram_channel_id) payload.telegram_channel_id = null;
+      if (payload.display_order !== '' && payload.display_order !== null && !isNaN(payload.display_order)) {
+        payload.display_order = parseInt(payload.display_order, 10);
+      } else {
+        delete payload.display_order;
+      }
       if (isEdit) {
         await adminUpdateLibrary(library.id, payload);
       } else {
@@ -92,6 +100,17 @@ function LibraryForm({ library, onSave, onCancel }) {
             <span>Channel ID (numeric, optional)</span>
             <input name="telegram_channel_id" value={form.telegram_channel_id} onChange={handleChange} placeholder="e.g. 1234567890" />
           </label>
+          <label>
+            <span>Display Order (Optional)</span>
+            <input
+              type="number"
+              name="display_order"
+              value={form.display_order}
+              onChange={handleChange}
+              min="0"
+              placeholder="e.g. 1 (auto-assigned if blank)"
+            />
+          </label>
           <label className="admin-checkbox-label">
             <input type="checkbox" name="is_active" checked={form.is_active} onChange={handleChange} />
             <span>Active</span>
@@ -118,6 +137,7 @@ function TVLibraryForm({ library, onSave, onCancel }) {
     telegram_channel: library?.telegram_channel || '',
     telegram_channel_id: library?.telegram_channel_id || '',
     is_active: library?.is_active ?? true,
+    display_order: library?.display_order ?? '',
   });
   const [saving, setSaving] = useState(false);
 
@@ -132,6 +152,11 @@ function TVLibraryForm({ library, onSave, onCancel }) {
     try {
       const payload = { ...form };
       if (!payload.telegram_channel_id) payload.telegram_channel_id = null;
+      if (payload.display_order !== '' && payload.display_order !== null && !isNaN(payload.display_order)) {
+        payload.display_order = parseInt(payload.display_order, 10);
+      } else {
+        delete payload.display_order;
+      }
       if (isEdit) {
         await adminUpdateTVLibrary(library.id, payload);
       } else {
@@ -169,6 +194,17 @@ function TVLibraryForm({ library, onSave, onCancel }) {
           <label>
             <span>Channel ID (numeric, optional)</span>
             <input name="telegram_channel_id" value={form.telegram_channel_id} onChange={handleChange} placeholder="e.g. 1234567890" />
+          </label>
+          <label>
+            <span>Display Order (Optional)</span>
+            <input
+              type="number"
+              name="display_order"
+              value={form.display_order}
+              onChange={handleChange}
+              min="0"
+              placeholder="e.g. 1 (auto-assigned if blank)"
+            />
           </label>
           <label className="admin-checkbox-label">
             <input type="checkbox" name="is_active" checked={form.is_active} onChange={handleChange} />
@@ -443,6 +479,109 @@ export default function AdminDashboard({ onBack, onLogout, lang = 'en' }) {
   const [migrateLib, setMigrateLib] = useState(null);   // null | library object
   const [viewLogs, setViewLogs] = useState(null);       // null | task_id
   const [activeTab, setActiveTab] = useState('libraries');
+  const [draggedIndex, setDraggedIndex] = useState(null);
+  const [dragOverIndex, setDragOverIndex] = useState(null);
+  const [dragType, setDragType] = useState(null);
+  const [reorderSaving, setReorderSaving] = useState(false);
+  const [orderNotification, setOrderNotification] = useState(null);
+
+  const isAr = lang === 'ar';
+
+  const showOrderSavedNotification = (msg) => {
+    setOrderNotification(msg);
+    setTimeout(() => {
+      setOrderNotification((prev) => (prev === msg ? null : prev));
+    }, 2500);
+  };
+
+  const handleMoveLib = async (index, direction, isTV = false) => {
+    const list = isTV ? [...tvLibraries] : [...libraries];
+    const targetIndex = index + direction;
+    if (targetIndex < 0 || targetIndex >= list.length) return;
+
+    const temp = list[index];
+    list[index] = list[targetIndex];
+    list[targetIndex] = temp;
+
+    if (isTV) {
+      setTvLibraries(list);
+    } else {
+      setLibraries(list);
+    }
+
+    setReorderSaving(true);
+    try {
+      const ids = list.map((l) => l.id);
+      if (isTV) {
+        await adminReorderTVLibraries(ids);
+      } else {
+        await adminReorderLibraries(ids);
+      }
+      showOrderSavedNotification(isAr ? 'تم حفظ الترتيب بنجاح ✓' : 'Library order saved ✓');
+    } catch (err) {
+      alert('Failed to save order: ' + err.message);
+      refreshData();
+    } finally {
+      setReorderSaving(false);
+    }
+  };
+
+  const handleDragStart = (e, index, type) => {
+    setDraggedIndex(index);
+    setDragType(type);
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/plain', index.toString());
+  };
+
+  const handleDragOver = (e, index, type) => {
+    if (dragType !== type) return;
+    e.preventDefault();
+    if (dragOverIndex !== index) {
+      setDragOverIndex(index);
+    }
+  };
+
+  const handleDrop = async (e, dropIndex, isTV = false) => {
+    const type = isTV ? 'tv' : 'movie';
+    if (dragType !== type) return;
+    e.preventDefault();
+    if (draggedIndex === null || draggedIndex === dropIndex) {
+      setDraggedIndex(null);
+      setDragOverIndex(null);
+      setDragType(null);
+      return;
+    }
+
+    const list = isTV ? [...tvLibraries] : [...libraries];
+    const [movedItem] = list.splice(draggedIndex, 1);
+    list.splice(dropIndex, 0, movedItem);
+
+    if (isTV) {
+      setTvLibraries(list);
+    } else {
+      setLibraries(list);
+    }
+
+    setDraggedIndex(null);
+    setDragOverIndex(null);
+    setDragType(null);
+
+    setReorderSaving(true);
+    try {
+      const ids = list.map((l) => l.id);
+      if (isTV) {
+        await adminReorderTVLibraries(ids);
+      } else {
+        await adminReorderLibraries(ids);
+      }
+      showOrderSavedNotification(isAr ? 'تم حفظ الترتيب بنجاح ✓' : 'Library order saved ✓');
+    } catch (err) {
+      alert('Failed to save order: ' + err.message);
+      refreshData();
+    } finally {
+      setReorderSaving(false);
+    }
+  };
 
   const refreshData = useCallback(async () => {
     try {
@@ -575,8 +714,6 @@ export default function AdminDashboard({ onBack, onLogout, lang = 'en' }) {
     );
   }
 
-  const isAr = lang === 'ar';
-
   return (
     <div className="admin-dashboard">
       <div className="admin-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
@@ -598,13 +735,13 @@ export default function AdminDashboard({ onBack, onLogout, lang = 'en' }) {
               padding: '0.6rem 1.2rem',
               fontSize: '0.9rem',
               fontWeight: 500,
-              borderRadius: 'var(--radius-sm)',
-              cursor: 'pointer',
+              borderRadius: '8px',
               border: 'none',
-              transition: 'all var(--transition-fast)'
+              cursor: 'pointer'
             }}
           >
-            {isAr ? '🚪 خروج' : '🚪 Logout'}
+            <span>🚪</span>
+            <span>{isAr ? 'تسجيل الخروج' : 'Logout'}</span>
           </button>
         )}
       </div>
@@ -638,14 +775,24 @@ export default function AdminDashboard({ onBack, onLogout, lang = 'en' }) {
       {activeTab === 'libraries' && (
         <div className="admin-section">
           <div className="admin-section-header">
-            <h2>Movie Libraries</h2>
-            <button className="admin-btn admin-btn-primary" onClick={() => setEditLib('new')}>+ New Movie Library</button>
+            <div className="admin-section-title-wrap">
+              <h2>Movie Libraries</h2>
+              <span className="admin-section-hint">
+                {isAr ? 'اسحب الصفوف أو استخدم ▲ / ▼ لضبط ترتيب العرض للمستخدمين' : 'Drag rows (⠿) or click ▲ / ▼ to reorder libraries'}
+              </span>
+            </div>
+            <div className="admin-header-actions" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              {reorderSaving && <span className="admin-saving-tag">⏳ {isAr ? 'جاري حفظ الترتيب...' : 'Saving order...'}</span>}
+              {orderNotification && <span className="admin-order-notification">✨ {orderNotification}</span>}
+              <button className="admin-btn admin-btn-primary" onClick={() => setEditLib('new')}>+ New Movie Library</button>
+            </div>
           </div>
 
           <div className="admin-table-wrap">
             <table className="admin-table">
               <thead>
                 <tr>
+                  <th style={{ width: '90px' }}>{isAr ? 'الترتيب' : 'Order'}</th>
                   <th>ID</th>
                   <th>Name</th>
                   <th>Slug</th>
@@ -658,8 +805,42 @@ export default function AdminDashboard({ onBack, onLogout, lang = 'en' }) {
                 </tr>
               </thead>
               <tbody>
-                {libraries.map((lib) => (
-                  <tr key={lib.id}>
+                {libraries.map((lib, idx) => (
+                  <tr
+                    key={lib.id}
+                    draggable
+                    onDragStart={(e) => handleDragStart(e, idx, 'movie')}
+                    onDragOver={(e) => handleDragOver(e, idx, 'movie')}
+                    onDrop={(e) => handleDrop(e, idx, false)}
+                    onDragEnd={() => { setDraggedIndex(null); setDragOverIndex(null); setDragType(null); }}
+                    className={`admin-draggable-row ${dragType === 'movie' && draggedIndex === idx ? 'is-dragging' : ''} ${dragType === 'movie' && dragOverIndex === idx ? 'drag-over' : ''}`}
+                  >
+                    <td className="admin-cell-order">
+                      <div className="admin-order-controls">
+                        <span className="admin-drag-handle" title="Drag to reorder">⠿</span>
+                        <span className="admin-order-badge">#{idx + 1}</span>
+                        <div className="admin-reorder-btns">
+                          <button
+                            type="button"
+                            className="admin-order-btn"
+                            disabled={idx === 0}
+                            onClick={() => handleMoveLib(idx, -1, false)}
+                            title="Move Up"
+                          >
+                            ▲
+                          </button>
+                          <button
+                            type="button"
+                            className="admin-order-btn"
+                            disabled={idx === libraries.length - 1}
+                            onClick={() => handleMoveLib(idx, 1, false)}
+                            title="Move Down"
+                          >
+                            ▼
+                          </button>
+                        </div>
+                      </div>
+                    </td>
                     <td className="admin-cell-id">{lib.id}</td>
                     <td className="admin-cell-name">{translateLibraryName(lib.name, lang)}</td>
                     <td><code>{lib.slug}</code></td>
@@ -695,7 +876,7 @@ export default function AdminDashboard({ onBack, onLogout, lang = 'en' }) {
                   </tr>
                 ))}
                 {libraries.length === 0 && (
-                  <tr><td colSpan="9" className="admin-empty">No movie libraries found. Create one to get started.</td></tr>
+                  <tr><td colSpan="10" className="admin-empty">No movie libraries found. Create one to get started.</td></tr>
                 )}
               </tbody>
             </table>
@@ -707,14 +888,24 @@ export default function AdminDashboard({ onBack, onLogout, lang = 'en' }) {
       {activeTab === 'tv-libraries' && (
         <div className="admin-section">
           <div className="admin-section-header">
-            <h2>TV Series Libraries</h2>
-            <button className="admin-btn admin-btn-primary" onClick={() => setEditTVLib('new')}>+ New TV Library</button>
+            <div className="admin-section-title-wrap">
+              <h2>TV Series Libraries</h2>
+              <span className="admin-section-hint">
+                {isAr ? 'اسحب الصفوف أو استخدم ▲ / ▼ لضبط ترتيب العرض للمستخدمين' : 'Drag rows (⠿) or click ▲ / ▼ to reorder libraries'}
+              </span>
+            </div>
+            <div className="admin-header-actions" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              {reorderSaving && <span className="admin-saving-tag">⏳ {isAr ? 'جاري حفظ الترتيب...' : 'Saving order...'}</span>}
+              {orderNotification && <span className="admin-order-notification">✨ {orderNotification}</span>}
+              <button className="admin-btn admin-btn-primary" onClick={() => setEditTVLib('new')}>+ New TV Library</button>
+            </div>
           </div>
 
           <div className="admin-table-wrap">
             <table className="admin-table">
               <thead>
                 <tr>
+                  <th style={{ width: '90px' }}>{isAr ? 'الترتيب' : 'Order'}</th>
                   <th>ID</th>
                   <th>Name</th>
                   <th>Slug</th>
@@ -726,8 +917,42 @@ export default function AdminDashboard({ onBack, onLogout, lang = 'en' }) {
                 </tr>
               </thead>
               <tbody>
-                {tvLibraries.map((lib) => (
-                  <tr key={lib.id}>
+                {tvLibraries.map((lib, idx) => (
+                  <tr
+                    key={lib.id}
+                    draggable
+                    onDragStart={(e) => handleDragStart(e, idx, 'tv')}
+                    onDragOver={(e) => handleDragOver(e, idx, 'tv')}
+                    onDrop={(e) => handleDrop(e, idx, true)}
+                    onDragEnd={() => { setDraggedIndex(null); setDragOverIndex(null); setDragType(null); }}
+                    className={`admin-draggable-row ${dragType === 'tv' && draggedIndex === idx ? 'is-dragging' : ''} ${dragType === 'tv' && dragOverIndex === idx ? 'drag-over' : ''}`}
+                  >
+                    <td className="admin-cell-order">
+                      <div className="admin-order-controls">
+                        <span className="admin-drag-handle" title="Drag to reorder">⠿</span>
+                        <span className="admin-order-badge">#{idx + 1}</span>
+                        <div className="admin-reorder-btns">
+                          <button
+                            type="button"
+                            className="admin-order-btn"
+                            disabled={idx === 0}
+                            onClick={() => handleMoveLib(idx, -1, true)}
+                            title="Move Up"
+                          >
+                            ▲
+                          </button>
+                          <button
+                            type="button"
+                            className="admin-order-btn"
+                            disabled={idx === tvLibraries.length - 1}
+                            onClick={() => handleMoveLib(idx, 1, true)}
+                            title="Move Down"
+                          >
+                            ▼
+                          </button>
+                        </div>
+                      </div>
+                    </td>
                     <td className="admin-cell-id">{lib.id}</td>
                     <td className="admin-cell-name">{translateLibraryName(lib.name, lang)}</td>
                     <td><code>{lib.slug}</code></td>
@@ -762,7 +987,7 @@ export default function AdminDashboard({ onBack, onLogout, lang = 'en' }) {
                   </tr>
                 ))}
                 {tvLibraries.length === 0 && (
-                  <tr><td colSpan="8" className="admin-empty">No TV series libraries found. Create one to get started.</td></tr>
+                  <tr><td colSpan="9" className="admin-empty">No TV series libraries found. Create one to get started.</td></tr>
                 )}
               </tbody>
             </table>

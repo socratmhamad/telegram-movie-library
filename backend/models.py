@@ -151,6 +151,7 @@ class LibraryResponse(BaseModel):
     is_active: bool = True
     movie_count: int = 0
     posters: list[str] = []
+    display_order: int = 0
 
 
 
@@ -169,6 +170,7 @@ class LibraryCreateRequest(BaseModel):
     telegram_channel: str
     telegram_channel_id: str | None = None
     is_active: bool = True
+    display_order: int | None = None
 
 
 class LibraryUpdateRequest(BaseModel):
@@ -178,6 +180,7 @@ class LibraryUpdateRequest(BaseModel):
     telegram_channel: str | None = None
     telegram_channel_id: str | None = None
     is_active: bool | None = None
+    display_order: int | None = None
 
 
 class LibraryDetailResponse(BaseModel):
@@ -192,6 +195,17 @@ class LibraryDetailResponse(BaseModel):
     movies_with_tmdb: int = 0
     movies_without_tmdb: int = 0
     total_messages: int = 0
+    display_order: int = 0
+
+
+class LibraryReorderItem(BaseModel):
+    id: int
+    display_order: int
+
+
+class LibraryReorderRequest(BaseModel):
+    items: list[LibraryReorderItem] | None = None
+    ids: list[int] | None = None
 
 
 # ---------------------------------------------------------------------------

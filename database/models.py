@@ -20,6 +20,7 @@ class Library(Base):
     last_scan = Column(DateTime)
     last_migration = Column(DateTime)
     telegram_channel_id = Column(String)
+    display_order = Column(Integer, default=0, nullable=True)
 
     movies = relationship("Movie", back_populates="library")
 
@@ -117,6 +118,11 @@ def init_db(url: str):
             # Add is_active
             try:
                 conn.execute(text(f"ALTER TABLE {table} ADD COLUMN is_active BOOLEAN DEFAULT true"))
+            except Exception:
+                pass
+            # Add display_order
+            try:
+                conn.execute(text(f"ALTER TABLE {table} ADD COLUMN display_order INTEGER DEFAULT 0"))
             except Exception:
                 pass
 

@@ -124,6 +124,8 @@ def main():
                     "last_scan": r["last_scan"],
                     "last_migration": r["last_migration"],
                     "telegram_channel_id": r["telegram_channel_id"],
+                    "name_en": r["name_en"] if "name_en" in r.keys() else None,
+                    "display_order": r["display_order"] if "display_order" in r.keys() else 0,
                 }
                 for r in lib_rows
             ],

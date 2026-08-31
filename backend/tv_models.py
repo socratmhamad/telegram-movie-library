@@ -35,6 +35,7 @@ class TVLibraryResponse(BaseModel):
     is_active: bool = True
     series_count: int = 0
     posters: list[str] = []
+    display_order: int = 0
 
 
 class TVLibraryListResponse(BaseModel):
@@ -48,6 +49,7 @@ class TVLibraryCreateRequest(BaseModel):
     telegram_channel: str
     telegram_channel_id: str | None = None
     is_active: bool = True
+    display_order: int | None = None
 
 
 class TVLibraryUpdateRequest(BaseModel):
@@ -57,6 +59,7 @@ class TVLibraryUpdateRequest(BaseModel):
     telegram_channel: str | None = None
     telegram_channel_id: str | None = None
     is_active: bool | None = None
+    display_order: int | None = None
 
 
 class TVLibraryDetailResponse(BaseModel):
@@ -70,6 +73,12 @@ class TVLibraryDetailResponse(BaseModel):
     series_count: int = 0
     series_with_tmdb: int = 0
     series_without_tmdb: int = 0
+    display_order: int = 0
+
+
+class TVLibraryReorderRequest(BaseModel):
+    items: list[dict[str, int]] | None = None
+    ids: list[int] | None = None
 
 
 # ---------------------------------------------------------------------------

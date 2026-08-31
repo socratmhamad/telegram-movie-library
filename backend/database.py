@@ -45,7 +45,7 @@ class MovieQueries:
     def get_libraries(self) -> list[dict[str, Any]]:
         with self._get_session() as session:
             libs = session.execute(
-                select(Library).order_by(Library.id)
+                select(Library).order_by(Library.display_order.asc(), Library.id.asc())
             ).scalars().all()
 
             result = []
@@ -72,6 +72,7 @@ class MovieQueries:
                     "is_active": lib.is_active if lib.is_active is not None else True,
                     "movie_count": movie_count,
                     "posters": posters,
+                    "display_order": lib.display_order if lib.display_order is not None else 0,
                 })
             return result
 
@@ -104,6 +105,7 @@ class MovieQueries:
                 "is_active": lib.is_active if lib.is_active is not None else True,
                 "movie_count": movie_count,
                 "posters": posters,
+                "display_order": lib.display_order if lib.display_order is not None else 0,
             }
 
     # ------------------------------------------------------------------
