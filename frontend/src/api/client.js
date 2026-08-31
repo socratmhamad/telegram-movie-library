@@ -11,7 +11,7 @@ const isLocal = window.location.hostname === 'localhost' ||
 
 const BASE = isLocal
   ? '/api'
-  : (import.meta.env.VITE_API_URL || 'https://telegram-movie-library.onrender.com') + '/api';
+  : (import.meta.env.VITE_API_URL || 'https://telegram-movie-library-production.up.railway.app') + '/api';
 
 async function request(path, params = {}, retry = true) {
   let targetUrl;
