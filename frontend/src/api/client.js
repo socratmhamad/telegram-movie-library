@@ -115,7 +115,7 @@ export function fetchStats({ libraryId } = {}) {
 
 const ADMIN = isLocal
   ? '/api/admin'
-  : (import.meta.env.VITE_API_URL || 'https://telegram-movie-library.onrender.com') + '/api/admin';
+  : (import.meta.env.VITE_API_URL || 'https://telegram-movie-library-production.up.railway.app') + '/api/admin';
 
 async function mutate(url, method = 'POST', body = null, retry = true) {
   const options = { method, headers: {} };
@@ -352,7 +352,7 @@ export function formatImageUrl(url) {
                     host.startsWith('10.');
     const backendBase = isLocal
       ? `http://${host}:8000`
-      : (import.meta.env.VITE_API_URL || 'https://telegram-movie-library.onrender.com');
+      : (import.meta.env.VITE_API_URL || 'https://telegram-movie-library-production.up.railway.app');
     return `${backendBase}${cleanPath}`;
   }
   return url;
@@ -364,7 +364,7 @@ export function formatImageUrl(url) {
 
 /** Public: send a page visit tracking beacon. */
 export function trackVisit(data) {
-  const trackBase = isLocal ? '/api' : (import.meta.env.VITE_API_URL || 'https://telegram-movie-library.onrender.com') + '/api';
+  const trackBase = isLocal ? '/api' : (import.meta.env.VITE_API_URL || 'https://telegram-movie-library-production.up.railway.app') + '/api';
   return fetch(`${trackBase}/track`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

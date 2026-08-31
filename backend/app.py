@@ -49,7 +49,7 @@ class SecurityHeadersMiddleware(BaseHTTPMiddleware):
         response.headers["Permissions-Policy"] = "camera=(), microphone=(), geolocation=()"
         req_host = request.url.hostname or "localhost"
         connect_src = (
-            f"connect-src 'self' https://telegram-movie-library.onrender.com "
+            f"connect-src 'self' https://telegram-movie-library-production.up.railway.app "
             f"http://{request.url.netloc} http://localhost:8000 http://127.0.0.1:8000 "
             f"ws://{req_host}:5173 ws://localhost:5173 ws://127.0.0.1:5173;"
         )

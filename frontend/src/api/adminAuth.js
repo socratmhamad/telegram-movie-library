@@ -78,7 +78,7 @@ export function logout() {
 
   const BASE = isLocal
     ? `http://${window.location.hostname === 'localhost' ? '127.0.0.1' : window.location.hostname}:8000/api/admin`
-    : (import.meta.env.VITE_API_URL || 'https://telegram-movie-library.onrender.com') + '/api/admin';
+    : (import.meta.env.VITE_API_URL || 'https://telegram-movie-library-production.up.railway.app') + '/api/admin';
 
   if (refresh) {
     fetch(`${BASE}/logout`, {
@@ -126,7 +126,7 @@ export async function login(username, password) {
 
   const BASE = isLocal
     ? `http://${window.location.hostname === 'localhost' ? '127.0.0.1' : window.location.hostname}:8000/api/admin`
-    : (import.meta.env.VITE_API_URL || 'https://telegram-movie-library.onrender.com') + '/api/admin';
+    : (import.meta.env.VITE_API_URL || 'https://telegram-movie-library-production.up.railway.app') + '/api/admin';
 
   const res = await fetch(`${BASE}/login`, {
     method: 'POST',
@@ -173,7 +173,7 @@ export async function refreshAccessToken() {
 
   const BASE = isLocal
     ? `http://${window.location.hostname === 'localhost' ? '127.0.0.1' : window.location.hostname}:8000/api/admin`
-    : (import.meta.env.VITE_API_URL || 'https://telegram-movie-library.onrender.com') + '/api/admin';
+    : (import.meta.env.VITE_API_URL || 'https://telegram-movie-library-production.up.railway.app') + '/api/admin';
 
   refreshPromise = (async () => {
     try {
