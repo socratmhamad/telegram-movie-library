@@ -10,10 +10,559 @@
   <title>Telegram Movie Library</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&family=Tajawal:wght@700&display=swap" rel="stylesheet" />
 </head>
 
 <body>
+  <!-- Splash Screen Preloader Overlay (Video-matched Dynamic Word Flip) -->
+  <style>
+    body.splash-locked {
+      overflow: hidden !important;
+      touch-action: none !important;
+    }
+
+    #splash-screen,
+    #splash-screen * {
+      direction: ltr !important;
+      text-align: left !important;
+      unicode-bidi: isolate !important;
+    }
+
+    #splash-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      direction: ltr !important;
+      background: radial-gradient(circle at 50% 50%, #17042b 0%, #090113 60%, #030007 100%);
+      user-select: none;
+      transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease;
+      will-change: opacity, transform, filter;
+    }
+
+    #splash-screen.splash-exit {
+      opacity: 0 !important;
+      transform: scale(1.05) !important;
+      filter: blur(10px);
+      pointer-events: none !important;
+    }
+
+    .splash-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 24px 38px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(168, 85, 247, 0.15);
+      box-shadow: 0 0 60px rgba(126, 34, 206, 0.25), inset 0 0 30px rgba(168, 85, 247, 0.08);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      overflow: hidden;
+      animation: splashIntro 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Ambient backlight */
+    .splash-container::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 18%;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, rgba(168, 85, 247, 0.45) 0%, rgba(56, 189, 248, 0.2) 50%, transparent 70%);
+      transform: translate(-50%, -50%);
+      filter: blur(24px);
+      pointer-events: none;
+    }
+
+    .splash-logo-box {
+      width: 78px;
+      height: 86px;
+      flex-shrink: 0;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      filter: drop-shadow(0 0 18px rgba(168, 85, 247, 0.65));
+    }
+
+    .splash-logo-box svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .splash-brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .splash-brand-title {
+      margin: 0;
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      white-space: nowrap;
+    }
+
+    .splash-word-telegram {
+      color: #ffffff;
+      text-shadow: 0 0 24px rgba(255, 255, 255, 0.45);
+      font-weight: 700;
+    }
+
+    /* Movies word slides into place to the left beside Telegram at 1.5s when MOVIES rolls up */
+    .splash-word-movies-bridge {
+      color: #ffffff;
+      text-shadow: 0 0 24px rgba(255, 255, 255, 0.45);
+      font-weight: 700;
+      display: inline-block;
+      max-width: 0;
+      opacity: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      animation: bridgeMoviesReveal 0.4s cubic-bezier(0.16, 1, 0.3, 1) 1.5s forwards;
+    }
+
+    @keyframes bridgeMoviesReveal {
+      0% {
+        max-width: 0;
+        opacity: 0;
+        transform: translateX(-12px);
+      }
+      100% {
+        max-width: 140px;
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Glowing Neon Pill / Badge */
+    .splash-neon-pill {
+      --item-h: 46px;
+      position: relative;
+      display: inline-block;
+      height: var(--item-h);
+      line-height: var(--item-h);
+      min-width: 140px;
+      max-width: 170px;
+      padding: 0 16px;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.28) 0%, rgba(56, 189, 248, 0.18) 100%);
+      border: 1.5px solid rgba(192, 132, 252, 0.75);
+      box-shadow: 0 0 24px rgba(168, 85, 247, 0.5), inset 0 0 12px rgba(168, 85, 247, 0.25);
+      overflow: hidden;
+      vertical-align: middle;
+      box-sizing: border-box;
+      text-align: center;
+      animation: dissolvePillBox 0.35s cubic-bezier(0.16, 1, 0.3, 1) 2.2s forwards;
+    }
+
+    @keyframes dissolvePillBox {
+      0% {
+        opacity: 1;
+        max-width: 170px;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 0;
+        max-width: 0;
+        padding: 0;
+        margin: 0;
+        border-width: 0;
+        box-shadow: none;
+        transform: scale(0.85);
+        pointer-events: none;
+        visibility: hidden;
+      }
+    }
+
+    /* Word Roller */
+    .splash-word-roller {
+      display: block;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      animation: flipWordsSequence 2.0s cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+      will-change: transform;
+    }
+
+    .splash-flip-item {
+      display: block;
+      height: var(--item-h);
+      line-height: var(--item-h);
+      margin: 0;
+      padding: 0;
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
+      background: linear-gradient(135deg, #f5d0fe 0%, #c084fc 50%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.8));
+      white-space: nowrap;
+    }
+
+    @keyframes flipWordsSequence {
+      /* 0.0s - 0.7s: CINEMA */
+      0%, 28% {
+        transform: translateY(0);
+      }
+      /* 0.8s - 1.4s: MOVIES */
+      36%, 66% {
+        transform: translateY(calc(-1 * var(--item-h)));
+      }
+      /* 1.5s - 2.2s: LIBRARY is visible inside the pill */
+      74%, 100% {
+        transform: translateY(calc(-2 * var(--item-h)));
+      }
+    }
+
+    /* The final static word Library that replaces the pill at 2.2s */
+    .splash-word-library-final {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #f5d0fe 0%, #c084fc 50%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 16px rgba(168, 85, 247, 0.6));
+      display: none;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    .splash-word-library-final.visible-library {
+      display: inline-block !important;
+      animation: revealFinalLibrary 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes revealFinalLibrary {
+      0% {
+        opacity: 0;
+        transform: scale(0.9) translateX(-4px);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+      }
+    }
+
+    .splash-brand-tagline {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(216, 180, 254, 0.7);
+      text-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
+    }
+
+    /* Cinema Light Sweep / Flare across icon & text */
+    .splash-light-flare {
+      position: absolute;
+      top: -80%;
+      left: -90%;
+      width: 55%;
+      height: 260%;
+      background: linear-gradient(
+        105deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.05) 30%,
+        rgba(255, 255, 255, 0.9) 50%,
+        rgba(192, 132, 252, 0.6) 55%,
+        transparent 100%
+      );
+      transform: rotate(24deg);
+      pointer-events: none;
+      filter: blur(2px);
+      opacity: 0;
+      animation: cinemaFlareSweep 0.85s cubic-bezier(0.2, 0.8, 0.2, 1) 2.4s forwards;
+    }
+
+    @keyframes splashIntro {
+      0% {
+        opacity: 0;
+        transform: scale(0.88);
+        filter: blur(8px);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+      }
+    }
+
+    @keyframes cinemaFlareSweep {
+      0% {
+        left: -90%;
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      80% {
+        opacity: 1;
+      }
+      100% {
+        left: 180%;
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .splash-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 28px 22px;
+        gap: 16px;
+      }
+
+      .splash-logo-box {
+        width: 68px;
+        height: 75px;
+      }
+
+      .splash-brand-title {
+        font-size: 1.55rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .splash-neon-pill {
+        --item-h: 38px;
+        min-width: 118px;
+        padding: 0 12px;
+      }
+
+      .splash-flip-item {
+        font-size: 1.15rem;
+      }
+
+      .splash-word-library-final {
+        font-size: 1.55rem;
+      }
+
+      .splash-brand-tagline {
+        font-size: 0.72rem;
+        letter-spacing: 0.22em;
+      }
+
+      .splash-light-flare {
+        width: 80%;
+      }
+    }
+  </style>
+
+  <div id="splash-screen" dir="ltr" lang="en" role="progressbar" aria-label="Loading Telegram Movies Library">
+    <div class="splash-container" dir="ltr">
+      <!-- Inline SVG Logo -->
+      <div class="splash-logo-box">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 110" width="100%" height="100%">
+          <defs>
+            <!-- مسار شكل البرق الأصلي -->
+            <path id="lightning-shape" d="M30,3 L96,3 L54,42 L88,42 L8,107 L36,54 L8,54 Z" />
+
+            <!-- قناع حصر العناصر داخل البرق -->
+            <clipPath id="lightning-clip">
+              <use href="#lightning-shape" />
+            </clipPath>
+
+            <!-- تدرج الخلفية السينمائية النيون -->
+            <linearGradient id="cinema-sky" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#18022b" />
+              <stop offset="50%" stop-color="#3b0764" />
+              <stop offset="85%" stop-color="#7e22ce" />
+              <stop offset="100%" stop-color="#1e0836" />
+            </linearGradient>
+
+            <!-- تدرج شعاع الضوء -->
+            <linearGradient id="projector-glow" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#d8b4fe" stop-opacity="0.9" />
+              <stop offset="60%" stop-color="#a855f7" stop-opacity="0.25" />
+              <stop offset="100%" stop-color="#7e22ce" stop-opacity="0" />
+            </linearGradient>
+
+            <!-- تدرج الإطار اللامع -->
+            <linearGradient id="border-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f5d0fe" />
+              <stop offset="50%" stop-color="#c084fc" />
+              <stop offset="100%" stop-color="#38bdf8" />
+            </linearGradient>
+
+            <!-- نمط مكرر لشريط الفيلم المتحرك -->
+            <pattern id="film-pattern" width="28" height="20" patternUnits="userSpaceOnUse">
+              <!-- خلفية فريم الفيلم -->
+              <rect x="0" y="0" width="28" height="20" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="0.8" />
+              <line x1="0" y1="19.5" x2="28" y2="19.5" stroke="rgba(255,255,255,0.25)" stroke-width="1" />
+              <!-- ثقوب الفيلم السينمائي (يمين ويسار) -->
+              <rect x="2" y="2" width="3.2" height="6.5" rx="1" fill="#f3e8ff" opacity="0.65" />
+              <rect x="2" y="11.5" width="3.2" height="6.5" rx="1" fill="#f3e8ff" opacity="0.65" />
+              <rect x="22.8" y="2" width="3.2" height="6.5" rx="1" fill="#f3e8ff" opacity="0.65" />
+              <rect x="22.8" y="11.5" width="3.2" height="6.5" rx="1" fill="#f3e8ff" opacity="0.65" />
+            </pattern>
+
+            <!-- فلتر توهج نيون -->
+            <filter id="neon-glow" x="-30%" y="-30%" width="160%" height="160%">
+              <feDropShadow dx="0" dy="0" stdDeviation="3.5" flood-color="#a855f7" flood-opacity="0.8"/>
+            </filter>
+          </defs>
+
+          <style>
+            /* دوران بكرة الفيلم */
+            @keyframes spinReel {
+              from { transform: rotate(0deg); }
+              to { transform: rotate(360deg); }
+            }
+            .spinning-reel {
+              transform-origin: 64px 22px;
+              animation: spinReel 3s linear infinite;
+            }
+
+            /* جريان شريط الفيلم بشكل لا نهائي */
+            @keyframes scrollFilm {
+              from { transform: translateY(0); }
+              to { transform: translateY(40px); }
+            }
+            .scrolling-film {
+              animation: scrollFilm 0.9s linear infinite;
+            }
+
+            /* نبض شعاع البروجكتر */
+            @keyframes pulseBeam {
+              0%, 100% { opacity: 0.35; }
+              50% { opacity: 0.85; }
+            }
+            .pulsing-beam {
+              animation: pulseBeam 1.8s ease-in-out infinite;
+            }
+
+            /* نبض توهج الإطار */
+            @keyframes pulseBorder {
+              0%, 100% { opacity: 0.5; }
+              50% { opacity: 1; }
+            }
+            .pulsing-glow {
+              animation: pulseBorder 2s ease-in-out infinite;
+            }
+          </style>
+
+          <!-- هالة ضوئية نيون خلف الشعار -->
+          <use href="#lightning-shape" fill="none" stroke="#a855f7" stroke-width="5" class="pulsing-glow" filter="url(#neon-glow)" />
+
+          <!-- داخل الشباك (الشعار) -->
+          <g clip-path="url(#lightning-clip)">
+            <!-- الخلفية الداكنة -->
+            <rect x="0" y="0" width="100" height="110" fill="url(#cinema-sky)" />
+
+            <!-- شريط الأفلام المتحرك بميلان البرق -->
+            <g transform="rotate(-26, 50, 55)">
+              <!-- مسار شريط الفيلم المكرر ينسحب بسلاسة -->
+              <g class="scrolling-film">
+                <rect x="34" y="-80" width="28" height="240" fill="url(#film-pattern)" />
+              </g>
+            </g>
+
+            <!-- شعاع الضوء السينمائي النابض -->
+            <polygon points="12,106 88,14 45,0" fill="url(#projector-glow)" class="pulsing-beam" />
+
+            <!-- بكرة الفيلم الدوارة -->
+            <g class="spinning-reel">
+              <circle cx="64" cy="22" r="14" fill="none" stroke="#f5d0fe" stroke-width="2.5" opacity="0.6" />
+              <circle cx="64" cy="22" r="4.5" fill="#f5d0fe" opacity="0.8" />
+              <!-- فتحات بكرة الفيلم -->
+              <circle cx="64" cy="14" r="2.2" fill="#3b0764" />
+              <circle cx="64" cy="30" r="2.2" fill="#3b0764" />
+              <circle cx="56" cy="22" r="2.2" fill="#3b0764" />
+              <circle cx="72" cy="22" r="2.2" fill="#3b0764" />
+            </g>
+
+            <!-- بريق نجوم سينمائية لامعة -->
+            <circle cx="28" cy="48" r="1.3" fill="#fff" opacity="0.85" />
+            <circle cx="78" cy="38" r="1.2" fill="#38bdf8" opacity="0.9" />
+            <circle cx="44" cy="80" r="1.5" fill="#f472b6" opacity="0.75" />
+            <circle cx="20" cy="94" r="1.2" fill="#fff" opacity="0.8" />
+
+            <!-- خط لمعان داخلي 3D -->
+            <use href="#lightning-shape" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.8" />
+          </g>
+
+          <!-- الإطار الخارجي الحاد المتوهج -->
+          <use href="#lightning-shape" fill="none" stroke="url(#border-glow)" stroke-width="3" stroke-linejoin="round" />
+        </svg>
+      </div>
+
+      <!-- Typography with Dynamic Word Flip Inside Glowing Pill Badge -->
+      <div class="splash-brand-text" dir="ltr">
+        <h1 class="splash-brand-title" dir="ltr">
+          <span class="splash-word-telegram">Telegram</span>
+          <span class="splash-word-movies-bridge">Movies</span>
+          <div class="splash-neon-pill" aria-label="Dynamic Words">
+            <div class="splash-word-roller">
+              <span class="splash-flip-item">CINEMA</span>
+              <span class="splash-flip-item">MOVIES</span>
+              <span class="splash-flip-item">LIBRARY</span>
+            </div>
+          </div>
+          <span class="splash-word-library-final">Library</span>
+        </h1>
+        <p class="splash-brand-tagline">Cinematic Experience</p>
+      </div>
+
+      <!-- Cinema Light Sweep / Flare element -->
+      <div class="splash-light-flare" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var splash = document.getElementById('splash-screen');
+      if (!splash) return;
+
+      document.body.classList.add('splash-locked');
+
+      // At 2.2s: remove pill completely from DOM so Library appears in its exact spot with zero gap!
+      setTimeout(function () {
+        var pill = document.querySelector('.splash-neon-pill');
+        if (pill) {
+          pill.remove();
+        }
+        var lib = document.querySelector('.splash-word-library-final');
+        if (lib) {
+          lib.classList.add('visible-library');
+        }
+      }, 2200);
+
+      // Exit & cleanup phase: prolonged by 3s (starts at 5.2s)
+      setTimeout(function () {
+        splash.classList.add('splash-exit');
+        document.body.classList.remove('splash-locked');
+
+        // Total exit transition is 600ms -> remove completely from DOM
+        setTimeout(function () {
+          if (splash && splash.parentNode) {
+            splash.remove();
+          }
+        }, 600);
+      }, 5200);
+    })();
+  </script>
+
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 </body>

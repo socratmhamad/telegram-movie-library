@@ -1,3 +1,5 @@
+import TypewriterTitle from './TypewriterTitle';
+
 export default function Layout({ children, libraryName, onBackToLibraries, lang = 'en', onToggleLang, hero }) {
   const isAr = lang === 'ar';
   return (
@@ -9,10 +11,10 @@ export default function Layout({ children, libraryName, onBackToLibraries, lang 
             id="app-logo"
             onClick={onBackToLibraries}
             style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+            aria-label="Telegram Movies Library"
           >
             <span className="logo-icon">🎬</span>
-            <span className="logo-text logo-desktop-text">{isAr ? 'مكتبة أفلام تيليجرام' : 'Telegram Movie Library'}</span>
-            <span className="logo-text logo-mobile-text">{isAr ? 'أفلام تيليجرام' : 'Telegram Movies'}</span>
+            <TypewriterTitle lang={lang} />
           </button>
 
           <div className="header-actions" style={{ display: 'flex', gap: '0.75rem', marginLeft: isAr ? '0' : 'auto', marginRight: isAr ? 'auto' : '0' }}>

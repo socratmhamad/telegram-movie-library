@@ -127,19 +127,79 @@ body {
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 1.35rem;
-  background: var(--gradient-accent);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
   letter-spacing: -0.02em;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  text-decoration: none;
 }
 
 .logo-icon {
   font-size: 1.5rem;
   -webkit-text-fill-color: initial;
+}
+
+/* --- Header Typewriter Title --- */
+.header-typewriter-title {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  min-height: 1.4em;
+  font-size: 1.35rem;
+}
+
+.header-typewriter-title.ar {
+  font-family: 'Cairo', 'Tajawal', sans-serif;
+  font-weight: 700;
+}
+
+.header-typewriter-title.en {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-weight: 700;
+}
+
+.header-typewriter-title .typewriter-text {
+  background: linear-gradient(90deg, #ffffff 0%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 15px rgba(192, 132, 252, 0.3);
+  filter: drop-shadow(0 0 10px rgba(192, 132, 252, 0.35));
+}
+
+.header-typewriter-title .typewriter-cursor {
+  display: inline-block;
+  color: #c084fc !important;
+  -webkit-text-fill-color: #c084fc !important;
+  font-weight: 300;
+  margin-inline-start: 3px;
+  animation: typewriterCursorBlink 0.75s step-start infinite;
+  text-shadow: 0 0 12px rgba(192, 132, 252, 0.9);
+  vertical-align: baseline;
+  user-select: none;
+}
+
+@keyframes typewriterCursorBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-typewriter-title {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .header-typewriter-title {
+    font-size: 0.98rem;
+  }
 }
 
 .main-content {
