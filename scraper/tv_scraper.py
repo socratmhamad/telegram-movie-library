@@ -6,7 +6,7 @@ from typing import AsyncIterator
 from telethon import TelegramClient
 from telethon.tl.custom.message import Message
 
-from scraper.tv_parser import parse_series_message
+from scraper.tv_parser import parse_series_message, parse_bulk_series_message
 
 
 @dataclass(frozen=True)
@@ -77,3 +77,24 @@ class TelegramSeriesScraper:
             telegram_link=parsed.telegram_link,
             message_id=message.id,
         )
+
+    def _parse_message_multi(self, message: Message) -> list[SeriesRecord]:
+        """Parse a message that may contain multiple series entries.
+
+        Tries the bulk parser first. If the message does not match the bulk
+        format, falls back to the single-entry parser.
+        """
+        bulk = parse_bulk_series_message(message.message)
+        if bulk:
+            return [
+                SeriesRecord(
+                    title=p.title,
+                    telegram_link=p.telegram_link,
+                    message_id=message.id,
+                )
+                for p in bulk
+            ]
+
+        # Fallback: single-entry parse
+        single = self._parse_message(message)
+        return [single] if single else []

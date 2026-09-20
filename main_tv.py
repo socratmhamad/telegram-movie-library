@@ -83,23 +83,24 @@ async def run() -> None:
             if stats.total_messages_scanned % 200 == 0:
                 print(f"  ... scanned {stats.total_messages_scanned} messages so far ...")
 
-            record = scraper._parse_message(message)
-            if not record:
+            records = scraper._parse_message_multi(message)
+            if not records:
                 continue
 
-            stats.total_series_found += 1
+            for record in records:
+                stats.total_series_found += 1
 
-            if record.title in known_titles:
-                stats.duplicates_skipped += 1
-                continue
+                if record.title in known_titles:
+                    stats.duplicates_skipped += 1
+                    continue
 
-            # Save to database
-            saved = database.save_series([record.to_dict()])
-            if saved > 0:
-                stats.new_series_added += 1
-                known_titles.add(record.title)
-                link_info = f", link: {record.telegram_link}" if record.telegram_link else ""
-                print(f"  [NEW] {_safe(record.title)} (msg #{record.message_id}{link_info})")
+                # Save to database
+                saved = database.save_series([record.to_dict()])
+                if saved > 0:
+                    stats.new_series_added += 1
+                    known_titles.add(record.title)
+                    link_info = f", link: {record.telegram_link}" if record.telegram_link else ""
+                    print(f"  [NEW] {_safe(record.title)} (msg #{record.message_id}{link_info})")
 
     elapsed = time.time() - start_time
 

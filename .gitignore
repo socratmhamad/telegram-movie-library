@@ -10,3 +10,5 @@ database/*.db-journal
 venv/
 implementation_plan.md
 graphify-out/
+
+scratch/

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import re
+from typing import List
 
 
 TELEGRAM_LINK_PATTERN = re.compile(
@@ -87,3 +88,60 @@ def _is_valid_title(title: str) -> bool:
         return False
 
     return True
+
+
+# ---------------------------------------------------------------------------
+# Bulk-message parser: handles messages with many series in one message
+# Format: "1028- Title (Year) 👇\nhttps://t.me/...\n\n1029- Title ..."
+# ---------------------------------------------------------------------------
+
+# Matches a numbered entry header like "1028- Shining Vale (2022) 👇"
+_BULK_ENTRY_HEADER = re.compile(
+    r"^\d+\s*[-–—.)\]]\s*(.+)",
+    re.MULTILINE,
+)
+
+
+def parse_bulk_series_message(message_text: str | None) -> List[ParsedSeries] | None:
+    """Parse a message containing multiple series entries.
+
+    Returns a list of ParsedSeries if the message matches the bulk format
+    (3+ numbered entries detected), otherwise returns None so the caller
+    can fall back to the single-entry parser.
+    """
+    if not message_text:
+        return None
+
+    # Quick check: need at least 3 numbered-entry headers to treat as bulk
+    headers = _BULK_ENTRY_HEADER.findall(message_text)
+    if len(headers) < 3:
+        return None
+
+    # Split the message into blocks around numbered headers.
+    # Each block: the header line + everything until the next header.
+    blocks = re.split(r"(?=^\d+\s*[-–—.)\]]\s*)", message_text, flags=re.MULTILINE)
+
+    results: List[ParsedSeries] = []
+    for block in blocks:
+        block = block.strip()
+        if not block:
+            continue
+
+        # Must start with a numbered header
+        header_match = re.match(r"^\d+\s*[-–—.)\]]\s*(.+)", block)
+        if not header_match:
+            continue
+
+        # Extract t.me link from this block
+        links = TELEGRAM_LINK_PATTERN.findall(block)
+        telegram_link = links[0] if links else None
+
+        # Title is the first line after stripping the number prefix
+        raw_title = header_match.group(1).strip()
+        title = _clean_title(raw_title)
+
+        if _is_valid_title(title):
+            results.append(ParsedSeries(title=title, telegram_link=telegram_link))
+
+    return results if results else None
+
